@@ -83,12 +83,12 @@
             owl:qualifiedCardinality 2 ] .
 
 :RentalCompany rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :lends ;
-            owl:someValuesFrom :Vehicle ],
-        [ a owl:Restriction ;
             owl:onDataRange xsd:long ;
             owl:onProperty :name ;
-            owl:qualifiedCardinality 1 ] .
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onProperty :lends ;
+            owl:someValuesFrom :Vehicle ] .
 
 :Insurance rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty :for ;
