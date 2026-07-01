@@ -1,8 +1,6 @@
 # model2owl-boilerplate
 Boilerplate for running model2owl on new projects
 
-📖 **Generated ReSpec documentation:** <https://meaningfy-ws.github.io/model2owl-boilerplate/>
-
 # Getting started
 This project will use model2owl to transform a UML model into a formal OWL ontology, a SHACL shape, a conventions report
 and glossary  based on established UML conventions.
@@ -17,7 +15,7 @@ Main steps:
 > If the branching option is used, the branch will not be merged into `master`. 
 > It is recommended to delete the branch once the desired output is generated and the work is complete.
 # Usage
-This section covers the practical steps for setting up a model: follow the [naming conventions](#naming-conventions), create the expected [folder structure](#folder-structure-conventions), [add a UML model](#adding-a-uml-model), and copy and adapt the [model2owl config](#adding-model2owl-config). It also explains the [GitHub Actions](#adjust-github-actions) used to generate OWL, SHACL, glossaries, diff reports, and [ReSpec documentation](#respec-documentation-generation), along with where those outputs are written. The remaining subsections describe the [output layout](#output), [commit-message conventions](#commit-messages-for-automatically-generated-reports), [workflow summary](#workflow-summary), and [CI troubleshooting](#troubleshooting-failed-ci-runs).
+This section covers the practical steps for setting up a model: follow the [naming conventions](#naming-conventions), create the expected [folder structure](#folder-structure-conventions), [add a UML model](#adding-a-uml-model), and copy and adapt the [model2owl config](#adding-model2owl-config). It also explains the [GitHub Actions](#adjust-github-actions) used to generate OWL, SHACL, glossaries, along with where those outputs are written. The remaining subsections describe the [output layout](#output), [commit-message conventions](#commit-messages-for-automatically-generated-reports), [workflow summary](#workflow-summary), and [CI troubleshooting](#troubleshooting-failed-ci-runs).
 ## Naming conventions
 * The name of the created folders should not contain spaces. It can contain underscores or hyphen if it's strictly necessary 
 * The name of the UML model export file should match its folder name (i.e mymodel.xml)
@@ -185,10 +183,8 @@ This file contains metadata information used for generating documentation, conve
 
 
 **Notes:**
-- This file is used by all model2owl artefacts including ReSpec documentation generation
+- This file is used by all model2owl artefacts
 - The custom metadata (`customMetadata`) section allow you to add additional documentation links and information
-- The `customMetadata.metadataSectionProperties` property can be used to introduce any custom metadata needed by the user to be available in the [main](./implementation/demo_ontology/respec_resources/templates/main.j2) template
-- The `metadata.projectLocalResources` property allows to define project files available in the repository that should be displayed in the _Project resources_ section of the generated ReSpec documentation
 - The `metadata.projectLocalResources.path` property must specify a path **relative to the module** that contains the configuration file. For instance, in the demo_ontology module, when editing `implementation/demo_ontology/model2owl-config/metadata.json`, the `OWL core resource` is referenced as `owl_ontology/demo_ontology.rdf`. Additional examples can be found in the [metadata.json](./implementation/demo_ontology/model2owl-config/metadata.json) file.
 
 
@@ -196,13 +192,13 @@ This file contains metadata information used for generating documentation, conve
 Two GitHub Action scripts are located in the [.github](./.github) directory:
  * [transform_with_model2owl.yml](.github/workflows/transform_with_model2owl.yml)
    is used to transform the UML model/models into set of supported artefacts.
- * [diff-combined.yml](.github/workflows/diff-combined.yml) is used to compute a
+ * **DISABLED** [diff-combined.yml](.github/workflows/diff-combined.yml) is used to compute a
    difference between two versions of RDF artefacts and generate
    machine-readable (JSON) and human-readable (AsciiDoc) reports.
 
 ### CI workflow and customization
 
-`transform_with_model2owl.yml` first detects the affected modules, then runs the generation jobs for glossary/conventions report, OWL/SHACL, JSON-LD context, and ReSpec. The ReSpec job depends on the SHACL output, `commit_transform` collects the generated files, `diff` compares the new OWL/SHACL artefacts with the previous revision, and `build_pages` publishes the ReSpec output to GitHub Pages.
+`transform_with_model2owl.yml` first detects the affected modules, then runs the generation jobs for glossary/conventions report, OWL/SHACL.
 
 To customize the workflow, disable the generation you do not need by removing or guarding the corresponding job or step; the generated files and their paths are listed in [Generated Output](#generated-output). 
 
@@ -227,44 +223,6 @@ implementation
 
 Both models will be auto-detected and processed by the workflow.
 ```
-
-### RDF Diffing
-The workflow uses the new model2owl CLI commands for calculating diffs and
-generating reports. Further information about the commands can be found in [the
-model2owl project's README](https://github.com/meaningfy-ws/model2owl/blob/develop/README.md#generating-diff-reports).
-
-New version of model files must be committed to the repository where the workflow is
-defined. The workflow allows comparing the files from the current revision with
-one committed in a previous revision or even in a different repository.
-
-The RDF diff workflow is called automatically by the transform workflow after
-generating new OWL/SHACL artefacts. It can also be triggered manually via
-[workflow dispatch](https://docs.github.com/en/actions/managing-workflow-runs-and-deployments/managing-workflow-runs/manually-running-a-workflow).
-
-Configuration is managed through [diff-config.env](.github/workflows/diff-config.env).
-This file allows you to override the default RDF diff behaviour on push-triggered runs,
-such as which revision to compare against or which modules to include.
-Values can also be set as [GitHub Variables](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-variables#creating-configuration-variables-for-a-repository)
-or passed as workflow inputs. Priority: workflow inputs > config file > repository variables > defaults.
-
-#### Workflow configuration parameters
-The following list describes available configuration parameters:
-
-- `REVISION_TO_COMPARE_COMMIT_ID` - (Optional) Git revision to compare against (branch, tag or SHA, default: `develop`)
-- `REVISION_TO_COMPARE_REPO_URL` - (Optional) URL of an external public Git repository for the old version
-- `OLD_ONTOLOGY_DIR` - Root directory for old OWL/SHACL files (default: `implementation`)
-- `NEW_ONTOLOGY_DIR` - Root directory for new OWL/SHACL files (default: `implementation`)
-- `MODULES` - Comma-separated module names to diff (empty = auto-detect)
-- `RDF_DIFF_OUTDIR` - Output directory for generated diff reports (default: `diff-reports`)
-
-Diff reports are stored in `<RDF_DIFF_OUTDIR>/<module>/` with separate subdirectories for each module.
-
-File paths are derived automatically from the module name and directory configuration
-(e.g., `<OLD_ONTOLOGY_DIR>/<module>/owl_ontology/<module>.ttl`). The old version is
-resolved based on `REVISION_TO_COMPARE_COMMIT_ID` and `REVISION_TO_COMPARE_REPO_URL`:
-- Both specified: files are fetched from the external repository at the given revision
-- Only revision specified: files are fetched from the same repository at the given revision
-- Neither specified: files are fetched from the current revision
 
 ## Output
 The output is automatically generated by the GitHub action scripts described previously. Each of the scripts will 
@@ -328,16 +286,6 @@ single self-contained ontology — `<module>_full.owl`, `<module>_full.rdf` and
 This is an alternative form of the same ontology; see the model2owl documentation
 for details.
 
-Diffing reports are stored in a directory specified by the user in
-`RDF_DIFF_OUTDIR` config parameter stored as [GitHub
-Variable](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-variables#creating-configuration-variables-for-a-repository).
-The parameter defaults to a top-level `diff-reports` directory. 
-
-The default behaviour of the diffing feature is to store a single set of diffing
-reports at a time, but this can be changed by the user by adjusting the
-`RDF_DIFF_OUTDIR` path to store reports for subsequent GitHub Action runs in a
-different directory (or a subdirectory).
-
 Note that regardless of the chosen directory structure for the output, any set
 of diffing reports can be accessed by inspecting past Git revisions. Identifying
 a report’s sources is made easier by the information encoded in the commit
@@ -364,177 +312,6 @@ error, classify the failure, and fix it iteratively. **Important:** on a (partia
 run the workflows commit generated artefacts back to the branch, so always `git pull` before
 editing, committing, or rebasing.
 
-## ReSpec Documentation Generation
-
-The workflow also generates **ReSpec documentation** - a comprehensive HTML documentation package that includes your ontology artifacts and examples. This section explains how to customize and work with ReSpec resources.
-
-### Understanding ReSpec Directories
-
-It's important to distinguish between the **input** and **output** directories:
-
-- **`respec_resources/`** (input directory): Contains your customization files, templates, and assets
-- **`respec/`** (output directory): Contains the generated HTML documentation package
-
-### ReSpec Resources Structure
-
-To customize your ReSpec documentation, create a `respec_resources` folder in your implementation directory:
-
-```
-implementation
-    |___yourModel
-            |___respec_resources          <- INPUT directory (your customizations)
-            |       |___templates
-            |       |       |___main.j2           <- Your main template (extends base.j2)
-            |       |       |___appendix.j2       <- Optional appendix template
-            |       |       |___main-demo.j2      <- Optional demo template
-            |       |___assets
-            |               |___img               <- Images for your documentation
-            |               |___examples          <- Example files (JSON-LD, TTL, etc.)
-            |                       |___example1.jsonld
-            |                       |___example2.ttl
-            |___respec                    <- OUTPUT directory (generated documentation)
-                    |___index.html        <- Final HTML documentation
-                    |___sds               <- Semantic artifacts (OWL, SHACL, JSON-LD)
-                    |___assets            <- Copied assets and examples
-```
-
-### Template System
-
-ReSpec uses **Jinja2 templating** with a hierarchical template structure:
-
-#### Base Template (`base.j2`)
-The foundation template that provides:
-- HTML structure and metadata
-- CSS and JavaScript includes  
-- Navigation and layout
-- Standard macros and functions
-
-> **Note:** The `base.j2` template is provided by Model2OWL and contains the core functionality. 
-> For detailed information about available variables and macros, see the [Model2OWL README](https://github.com/meaningfy-ws/model2owl/blob/develop/README.md).
-
-#### Main Template (`main.j2`)
-Your customizable template that **extends** `base.j2`:
-
-```jinja2
-{% extends "base.j2" %}
-
-{% block content %}
-<section id="introduction">
-    <h2>Introduction</h2>
-    <p>Your custom content here...</p>
-    
-    <!-- Include examples -->
-    <div class="example" id="example1">
-        <div class="example-title marker">Example 1: Basic Usage</div>
-        <!-- Example content will be loaded from assets/examples/ -->
-    </div>
-</section>
-{% endblock %}
-```
-
-### Customizing Your Documentation
-
-#### 1. Start with the Example
-Copy the `respec_resources` folder from an existing implementation (like `demo_ontology`) as your starting point:
-
-```bash
-cp -r ./respec_resources_example implementation/yourModel/
-```
-
-#### 2. Edit the Main Template
-Modify `respec_resources/templates/main.j2` to:
-- Add your custom sections and content
-- Include examples using the example system
-- Customize the documentation structure
-
-#### 3. Add Assets and Examples
-Place your assets in `respec_resources/assets/`:
-- **Images**: `assets/img/` - Screenshots, diagrams, logos
-- **Examples**: `assets/examples/` - JSON-LD, Turtle, XML examples that demonstrate your ontology usage
-- **SHACL Shapes**: `assets/shacl/` - SHACL validation shapes files (automatically copied from generated artifacts)
-  - `ontology_shapes.ttl` - Main ontology SHACL shapes (Turtle format, universal name)
-  - `ontology_shapes.jsonld` - JSON-LD context validation shapes (JSON-LD format, following DCAT-AP approach)
-
-#### 4. Example Integration
-The ReSpec system automatically processes files in `assets/examples/`:
-  - Files are made available in the final documentation
-  - JavaScript automatically creates tabbed interfaces for examples with:
-    - **Copy** button allow users to copy examples to clipboard
-    - **Validate** button perform comprehensive SHACL validation with detailed reports
-        - **SHACL Validation**: Uses ITB (Interoperability Testbed) validation service
-        - **Reports**: 
-            - **Success Reports**: Shows validation success with warnings if any
-            - **Failure Reports**: Detailed violation reports with focus nodes and paths
-    - **Open in Playground** button opens JSON-LD examples in the JSON-LD Playground
-
-
-
-#### Mandatory SHACL Shapes Files for Validation
-
-To enable the **Validate** functionality for your examples, you must provide two SHACL shapes files with the exact names as specified below. These files are required for the validation service to work correctly:
-
-- **`ontology_shapes.ttl`**  
-  - **Purpose:** Used for validating Turtle (RDF) examples.
-  - **Location:** Place this file in `respec_resources/assets/shacl/`.
-  - **Naming:** The file **must** be named  `ontology_shapes.ttl`.
-
-- **`ontology_shapes.jsonld`**  
-  - **Purpose:** Used for validating JSON-LD examples.
-  - **Location:** Place this file in `respec_resources/assets/shacl/`.
-  - **Naming:** The file **must** be named  `ontology_shapes.jsonld`.
-
-> **Note:**  
-> - The validation buttons in the documentation examples will not work unless both files are present and named as above.
-> - The system automatically selects the appropriate shapes file based on the example's format (Turtle or JSON-LD).
-
-**Summary Table:**
-
-| Example Format | Required SHACL File         | File Name                | Location                                 |
-|:--------------:|:---------------------------|:------------------------|:-----------------------------------------|
-| Turtle         | Ontology SHACL shapes      | `ontology_shapes.ttl`   | `respec_resources/assets/shacl/`         |
-| JSON-LD        | Ontology SHACL shapes       | `ontology_shapes.jsonld` | `respec_resources/assets/shacl/`         |
-
-If you rename or omit these files, validation will fail and users will see an error message.
-
-
-
-
-**Validation Report Format**:
-```
-Validation Result - SUCCESS
-PREFIX vs:             
-PREFIX wdrs:           
-PREFIX wdsr:           
-PREFIX xhv:            
-PREFIX xml:            
-PREFIX xsd:            
-
-[ rdf:type     sh:ValidationReport;
-  sh:conforms  true
-] .
-```
-You can add interactive examples anywhere in your documentation by inserting a `<div>` element with the class `h3 examples`. The `id` attribute of this `<div>` should match the file name (without extension) of your example. For example, to include an example from `example1.ttl` and `example1.jsonld`, use:
-
-Example in your template:
-```jinja2
-       <div class="h3 examples" id="example1">Example 1</div>
-```
-
-### Metadata Configuration
-
-ReSpec documentation uses metadata from `model2owl-config/metadata.json`:
-
-```json
-{
-    "title": "Your Ontology Documentation",
-    "description": "Comprehensive documentation for your ontology",
-    "version": "1.0.0",
-    "authors": [
-        {"name": "Your Name", "email": "your.email@example.com"}
-    ]
-}
-```
-
 ### Generated Output
 
 The workflow writes the generated artefacts back into the repository using the same paths that GitHub Actions packages and commits:
@@ -542,10 +319,3 @@ The workflow writes the generated artefacts back into the repository using the s
 - **Conventions report**: `implementation/*/conventions_report/`
 - **Formal OWL ontology**: `implementation/*/owl_ontology/`
 - **SHACL shapes**: `implementation/*/shacl_shapes/`
-- **JSON-LD context**: `implementation/*/jsonld_context/`
-- **ReSpec documentation**: `implementation/*/respec/`
-- **Diff reports**: `diff-reports/`
-
-### GitHub Pages Integration
-
-ReSpec output is also published to GitHub Pages as a documentation site for each processed model. The preferred Pages setup is **Build and deployment** -> **Source** = **GitHub Actions**; see GitHub Docs for [Configuring a publishing source for your GitHub Pages site](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).

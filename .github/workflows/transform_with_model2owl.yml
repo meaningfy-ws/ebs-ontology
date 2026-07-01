@@ -8,8 +8,8 @@ on:
       - "implementation/*/xmi_conceptual_model/*.xml"
       - "implementation/*/model2owl-config/**"
       - ".github/workflows/transform_with_model2owl.yml"
-      - ".github/workflows/diff-combined.yml"
-      - ".github/workflows/diff-config.env"
+      # - ".github/workflows/diff-combined.yml"
+      # - ".github/workflows/diff-config.env"
   workflow_dispatch:
 
 permissions:
@@ -71,7 +71,7 @@ jobs:
           ref: ${{ github.ref }}
 
       - name: Clone model2owl
-        run: git clone --branch develop https://github.com/meaningfy-ws/model2owl.git
+        run: git clone --branch 3.3.0-beta https://github.com/meaningfy-ws/model2owl.git
 
       - name: Setup model2owl
         run: |
@@ -178,7 +178,7 @@ jobs:
           ref: ${{ github.ref }}
 
       - name: Clone model2owl
-        run: git clone --branch develop https://github.com/meaningfy-ws/model2owl.git
+        run: git clone --branch 3.3.0-beta https://github.com/meaningfy-ws/model2owl.git
 
       - name: Setup model2owl
         run: |
@@ -285,167 +285,168 @@ jobs:
           path: implementation/*/shacl_shapes/
           retention-days: 1
 
-  generate_jsonld_context:
-    needs: detect_modules
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-        with:
-          ref: ${{ github.ref }}
+  # generate_jsonld_context:
+  #   needs: detect_modules
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v6
+  #       with:
+  #         ref: ${{ github.ref }}
 
-      - name: Clone model2owl
-        run: git clone --branch develop https://github.com/meaningfy-ws/model2owl.git
+  #     - name: Clone model2owl
+  #       run: git clone --branch 3.3.0-beta https://github.com/meaningfy-ws/model2owl.git
 
-      - name: Setup model2owl
-        run: |
-          cd model2owl
-          make get-saxon
-          make create-virtual-env
-          make get-rdflib
+  #     - name: Setup model2owl
+  #       run: |
+  #         cd model2owl
+  #         make get-saxon
+  #         make create-virtual-env
+  #         make get-rdflib
 
-      - name: Generate JSON-LD context
-        run: |
-          MODULES_JSON='${{ needs.detect_modules.outputs.modules }}'
-          AVAILABLE_IMPLEMENTATIONS=($(echo $MODULES_JSON | jq -r '.[]'))
+  #     - name: Generate JSON-LD context
+  #       run: |
+  #         MODULES_JSON='${{ needs.detect_modules.outputs.modules }}'
+  #         AVAILABLE_IMPLEMENTATIONS=($(echo $MODULES_JSON | jq -r '.[]'))
 
-          for implementation in "${AVAILABLE_IMPLEMENTATIONS[@]}"
-          do
-            echo "-------------------${implementation} JSON-LD context---------------------------------"
-            sed -i "s|test/ePO-default-config|../implementation/${implementation}/model2owl-config|g" model2owl/config-proxy.xsl
+  #         for implementation in "${AVAILABLE_IMPLEMENTATIONS[@]}"
+  #         do
+  #           echo "-------------------${implementation} JSON-LD context---------------------------------"
+  #           sed -i "s|test/ePO-default-config|../implementation/${implementation}/model2owl-config|g" model2owl/config-proxy.xsl
 
-            CM_FILE_PATH="implementation/$implementation/xmi_conceptual_model/${implementation}.xml"
-            NS_XML_FILE_PATH="../implementation/${implementation}/model2owl-config/namespaces.xml"
-            OUTPUT_PATH_JSONLD="implementation/$implementation/jsonld_context/"
+  #           CM_FILE_PATH="implementation/$implementation/xmi_conceptual_model/${implementation}.xml"
+  #           NS_XML_FILE_PATH="../implementation/${implementation}/model2owl-config/namespaces.xml"
+  #           OUTPUT_PATH_JSONLD="implementation/$implementation/jsonld_context/"
 
-            mkdir -p $OUTPUT_PATH_JSONLD
-            cd model2owl
-            make gen-enriched-ns-file \
-              NAMESPACES_USER_XML_FILE_PATH=${NS_XML_FILE_PATH}
-            make generate-jsonld-context \
-              XMI_INPUT_FILE_PATH=../$CM_FILE_PATH \
-              OUTPUT_FOLDER_PATH=../$OUTPUT_PATH_JSONLD \
-              NAMESPACES_USER_XML_FILE_PATH=${NS_XML_FILE_PATH}
+  #           mkdir -p $OUTPUT_PATH_JSONLD
+  #           cd model2owl
+  #           make gen-enriched-ns-file \
+  #             NAMESPACES_USER_XML_FILE_PATH=${NS_XML_FILE_PATH}
+  #           make generate-jsonld-context \
+  #             XMI_INPUT_FILE_PATH=../$CM_FILE_PATH \
+  #             OUTPUT_FOLDER_PATH=../$OUTPUT_PATH_JSONLD \
+  #             NAMESPACES_USER_XML_FILE_PATH=${NS_XML_FILE_PATH}
 
-            sed -i "s|../implementation/${implementation}/model2owl-config|test/ePO-default-config|g" config-proxy.xsl
-            cd ..
-          done
+  #           sed -i "s|../implementation/${implementation}/model2owl-config|test/ePO-default-config|g" config-proxy.xsl
+  #           cd ..
+  #         done
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v7
-        with:
-          name: jsonld-output
-          path: implementation/*/jsonld_context/
-          retention-days: 1
+  #     - name: Upload artifact
+  #       uses: actions/upload-artifact@v7
+  #       with:
+  #         name: jsonld-output
+  #         path: implementation/*/jsonld_context/
+  #         retention-days: 1
 
   # Needs SHACL files from transform
-  generate_respec:
-    needs: [detect_modules, transform]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-        with:
-          ref: ${{ github.ref }}
+  # generate_respec:
+  #   needs: [detect_modules, transform]
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v6
+  #       with:
+  #         ref: ${{ github.ref }}
 
-      - name: Download SHACL artifact
-        uses: actions/download-artifact@v8
-        with:
-          name: transform-shacl-output
-          path: implementation/
+  #     - name: Download SHACL artifact
+  #       uses: actions/download-artifact@v8
+  #       with:
+  #         name: transform-shacl-output
+  #         path: implementation/
 
-      - name: Clone model2owl
-        run: git clone --branch develop https://github.com/meaningfy-ws/model2owl.git
+  #     - name: Clone model2owl
+  #       run: git clone --branch 3.3.0-beta https://github.com/meaningfy-ws/model2owl.git
 
-      - name: Setup model2owl
-        run: |
-          cd model2owl
-          make get-saxon
-          make create-virtual-env
-          make get-rdflib
-          make get-jinja
-          make get-jq
+  #     - name: Setup model2owl
+  #       run: |
+  #         cd model2owl
+  #         make get-saxon
+  #         make create-virtual-env
+  #         make get-rdflib
+  #         make get-jinja
+  #         make get-jq
 
-      - name: Generate ReSpec documentation
-        run: |
-          MODULES_JSON='${{ needs.detect_modules.outputs.modules }}'
-          AVAILABLE_IMPLEMENTATIONS=($(echo $MODULES_JSON | jq -r '.[]'))
+  #     - name: Generate ReSpec documentation
+  #       run: |
+  #         MODULES_JSON='${{ needs.detect_modules.outputs.modules }}'
+  #         AVAILABLE_IMPLEMENTATIONS=($(echo $MODULES_JSON | jq -r '.[]'))
 
-          for implementation in "${AVAILABLE_IMPLEMENTATIONS[@]}"
-          do
-            echo "-------------------${implementation} ReSpec---------------------------------"
-            sed -i "s|test/ePO-default-config|../implementation/${implementation}/model2owl-config|g" model2owl/config-proxy.xsl
+  #         for implementation in "${AVAILABLE_IMPLEMENTATIONS[@]}"
+  #         do
+  #           echo "-------------------${implementation} ReSpec---------------------------------"
+  #           sed -i "s|test/ePO-default-config|../implementation/${implementation}/model2owl-config|g" model2owl/config-proxy.xsl
 
-            CM_FILE_PATH="implementation/$implementation/xmi_conceptual_model/${implementation}.xml"
-            NS_XML_FILE_PATH="../implementation/${implementation}/model2owl-config/namespaces.xml"
-            OUTPUT_PATH_RESPEC="implementation/$implementation/respec/"
-            RESPEC_ASSETS_PATH="../implementation/${implementation}/respec_resources/assets"
-            MODULE_DIR=$(realpath "implementation/${implementation}")
-            METADATA_JSON_PATH="$MODULE_DIR/model2owl-config/metadata.json"
+  #           CM_FILE_PATH="implementation/$implementation/xmi_conceptual_model/${implementation}.xml"
+  #           NS_XML_FILE_PATH="../implementation/${implementation}/model2owl-config/namespaces.xml"
+  #           OUTPUT_PATH_RESPEC="implementation/$implementation/respec/"
+  #           RESPEC_ASSETS_PATH="../implementation/${implementation}/respec_resources/assets"
+  #           MODULE_DIR=$(realpath "implementation/${implementation}")
+  #           METADATA_JSON_PATH="$MODULE_DIR/model2owl-config/metadata.json"
 
-            ALTERED_METADATA_JSON_PATH=$(mktemp --suffix=".json")
-            jq --arg moduleDir "$MODULE_DIR" '
-              .metadata.projectLocalResources |= map(
-                .path = ($moduleDir + "/" + .path)
-              )
-            ' $METADATA_JSON_PATH > $ALTERED_METADATA_JSON_PATH
+  #           ALTERED_METADATA_JSON_PATH=$(mktemp --suffix=".json")
+  #           jq --arg moduleDir "$MODULE_DIR" '
+  #             .metadata.projectLocalResources |= map(
+  #               .path = ($moduleDir + "/" + .path)
+  #             )
+  #           ' $METADATA_JSON_PATH > $ALTERED_METADATA_JSON_PATH
 
-            mkdir -p $OUTPUT_PATH_RESPEC
-            cd model2owl
+  #           mkdir -p $OUTPUT_PATH_RESPEC
+  #           cd model2owl
 
-            make gen-enriched-ns-file \
-              NAMESPACES_USER_XML_FILE_PATH=${NS_XML_FILE_PATH}
-            make respec-json \
-              XMI_INPUT_FILE_PATH=../$CM_FILE_PATH \
-              OUTPUT_FOLDER_PATH=../$OUTPUT_PATH_RESPEC \
-              NAMESPACES_USER_XML_FILE_PATH=${NS_XML_FILE_PATH}
+  #           make gen-enriched-ns-file \
+  #             NAMESPACES_USER_XML_FILE_PATH=${NS_XML_FILE_PATH}
+  #           make respec-json \
+  #             XMI_INPUT_FILE_PATH=../$CM_FILE_PATH \
+  #             OUTPUT_FOLDER_PATH=../$OUTPUT_PATH_RESPEC \
+  #             NAMESPACES_USER_XML_FILE_PATH=${NS_XML_FILE_PATH}
 
-            if [ -d "../implementation/${implementation}/respec_resources/templates" ]; then
-              for template_file in "../implementation/${implementation}/respec_resources/templates"/*.j2; do
-                if [ -f "$template_file" ]; then
-                  template_name=$(basename "$template_file")
-                  if [ "$template_name" != "base.j2" ]; then
-                    cp -f "$template_file" "respec-resources/templates/"
-                  fi
-                fi
-              done
-            fi
+  #           if [ -d "../implementation/${implementation}/respec_resources/templates" ]; then
+  #             for template_file in "../implementation/${implementation}/respec_resources/templates"/*.j2; do
+  #               if [ -f "$template_file" ]; then
+  #                 template_name=$(basename "$template_file")
+  #                 if [ "$template_name" != "base.j2" ]; then
+  #                   cp -f "$template_file" "respec-resources/templates/"
+  #                 fi
+  #               fi
+  #             done
+  #           fi
 
-            rm -rf respec-resources/assets
-            cp -rf "../implementation/${implementation}/respec_resources/assets" respec-resources/
+  #           rm -rf respec-resources/assets
+  #           cp -rf "../implementation/${implementation}/respec_resources/assets" respec-resources/
 
-            make generate-respec \
-              XMI_INPUT_FILE_PATH=../$CM_FILE_PATH \
-              RESPEC_OUTPUT_DIR=../$OUTPUT_PATH_RESPEC \
-              OUTPUT_FOLDER_PATH=../$OUTPUT_PATH_RESPEC \
-              RESPEC_INPUT_ASSETS_DIR=${RESPEC_ASSETS_PATH} \
-              RESPEC_DATA_JSON_PATH=../$OUTPUT_PATH_RESPEC/${implementation}_respec.json \
-              METADATA_JSON_PATH=${ALTERED_METADATA_JSON_PATH} \
-              NAMESPACES_USER_XML_FILE_PATH=${NS_XML_FILE_PATH}
+  #           make generate-respec \
+  #             XMI_INPUT_FILE_PATH=../$CM_FILE_PATH \
+  #             RESPEC_OUTPUT_DIR=../$OUTPUT_PATH_RESPEC \
+  #             OUTPUT_FOLDER_PATH=../$OUTPUT_PATH_RESPEC \
+  #             RESPEC_INPUT_ASSETS_DIR=${RESPEC_ASSETS_PATH} \
+  #             RESPEC_DATA_JSON_PATH=../$OUTPUT_PATH_RESPEC/${implementation}_respec.json \
+  #             METADATA_JSON_PATH=${ALTERED_METADATA_JSON_PATH} \
+  #             NAMESPACES_USER_XML_FILE_PATH=${NS_XML_FILE_PATH}
 
-            if [ -d "../implementation/${implementation}/respec_resources/js" ]; then
-              rm -rf ../$OUTPUT_PATH_RESPEC/js
-              cp -rf "../implementation/${implementation}/respec_resources/js" ../$OUTPUT_PATH_RESPEC/
-            fi
+  #           if [ -d "../implementation/${implementation}/respec_resources/js" ]; then
+  #             rm -rf ../$OUTPUT_PATH_RESPEC/js
+  #             cp -rf "../implementation/${implementation}/respec_resources/js" ../$OUTPUT_PATH_RESPEC/
+  #           fi
 
-            mkdir -p ../$OUTPUT_PATH_RESPEC/assets/shacl
-            cp -f ../implementation/$implementation/shacl_shapes/${implementation}_shapes.ttl ../$OUTPUT_PATH_RESPEC/assets/shacl/ontology_shapes.ttl
-            if [ -f "../implementation/$implementation/respec_resources/assets/shacl/context_shapes.jsonld" ]; then
-              cp -f "../implementation/$implementation/respec_resources/assets/shacl/context_shapes.jsonld" ../$OUTPUT_PATH_RESPEC/assets/shacl/
-            fi
+  #           mkdir -p ../$OUTPUT_PATH_RESPEC/assets/shacl
+  #           cp -f ../implementation/$implementation/shacl_shapes/${implementation}_shapes.ttl ../$OUTPUT_PATH_RESPEC/assets/shacl/ontology_shapes.ttl
+  #           if [ -f "../implementation/$implementation/respec_resources/assets/shacl/context_shapes.jsonld" ]; then
+  #             cp -f "../implementation/$implementation/respec_resources/assets/shacl/context_shapes.jsonld" ../$OUTPUT_PATH_RESPEC/assets/shacl/
+  #           fi
 
-            sed -i "s|../implementation/${implementation}/model2owl-config|test/ePO-default-config|g" config-proxy.xsl
-            cd ..
-          done
+  #           sed -i "s|../implementation/${implementation}/model2owl-config|test/ePO-default-config|g" config-proxy.xsl
+  #           cd ..
+  #         done
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v7
-        with:
-          name: respec-output
-          path: implementation/*/respec/
-          retention-days: 1
+  #     - name: Upload artifact
+  #       uses: actions/upload-artifact@v7
+  #       with:
+  #         name: respec-output
+  #         path: implementation/*/respec/
+  #         retention-days: 1
 
   # Collect all artifacts and commit to repo
   commit_transform:
-    needs: [detect_modules, report_and_glossary, transform, generate_jsonld_context, generate_respec]
+    # needs: [detect_modules, report_and_glossary, transform, generate_jsonld_context, generate_respec]
+    needs: [detect_modules, report_and_glossary, transform]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -516,164 +517,164 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   # Compare new outputs against previous version
-  diff:
-    needs: [detect_modules, commit_transform]
-    uses: ./.github/workflows/diff-combined.yml
-    with:
-      modules: ${{ needs.detect_modules.outputs.modules }}  # Pass all modules
-      from_workflow_artifacts: true  # Use artifacts instead of committed files
-    secrets: inherit
+  # diff:
+  #   needs: [detect_modules, commit_transform]
+  #   uses: ./.github/workflows/diff-combined.yml
+  #   with:
+  #     modules: ${{ needs.detect_modules.outputs.modules }}  # Pass all modules
+  #     from_workflow_artifacts: true  # Use artifacts instead of committed files
+  #   secrets: inherit
 
-  # Commit diff reports to repo (runs even if some diffs failed)
-  commit_diff:
-    needs: [detect_modules, diff]
-    if: always() && !cancelled()
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-        with:
-          ref: ${{ github.ref }}
-          fetch-depth: 0
+  # # Commit diff reports to repo (runs even if some diffs failed)
+  # commit_diff:
+  #   needs: [detect_modules, diff]
+  #   if: always() && !cancelled()
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v6
+  #       with:
+  #         ref: ${{ github.ref }}
+  #         fetch-depth: 0
 
-      - name: Pull latest changes  # commit_transform may have pushed
-        run: git pull origin ${{ github.ref_name }}
+  #     - name: Pull latest changes  # commit_transform may have pushed
+  #       run: git pull origin ${{ github.ref_name }}
 
-      - name: Download diff artifacts
-        uses: actions/download-artifact@v8
-        with:
-          pattern: diff-*
-          path: artifacts/
+  #     - name: Download diff artifacts
+  #       uses: actions/download-artifact@v8
+  #       with:
+  #         pattern: diff-*
+  #         path: artifacts/
 
-      - name: Merge diff reports into workspace
-        run: |
-          echo "=== Downloaded diff artifacts ==="
-          find artifacts -type f | head -20
+  #     - name: Merge diff reports into workspace
+  #       run: |
+  #         echo "=== Downloaded diff artifacts ==="
+  #         find artifacts -type f | head -20
 
-          # Track which modules had successful diff artifacts
-          SUCCESSFUL_MODULES=""
-          mkdir -p diff-reports
-          for diff_dir in artifacts/diff-*/; do
-            if [ -d "$diff_dir" ]; then
-              module_name=$(basename "$diff_dir" | sed 's/diff-//')
-              SUCCESSFUL_MODULES="${SUCCESSFUL_MODULES} ${module_name}"
-              mkdir -p "diff-reports/${module_name}"
-              cp -r "${diff_dir}"* "diff-reports/${module_name}/" 2>/dev/null || true
-            fi
-          done
-          echo "SUCCESSFUL_DIFF_MODULES=${SUCCESSFUL_MODULES}" >> $GITHUB_ENV
+  #         # Track which modules had successful diff artifacts
+  #         SUCCESSFUL_MODULES=""
+  #         mkdir -p diff-reports
+  #         for diff_dir in artifacts/diff-*/; do
+  #           if [ -d "$diff_dir" ]; then
+  #             module_name=$(basename "$diff_dir" | sed 's/diff-//')
+  #             SUCCESSFUL_MODULES="${SUCCESSFUL_MODULES} ${module_name}"
+  #             mkdir -p "diff-reports/${module_name}"
+  #             cp -r "${diff_dir}"* "diff-reports/${module_name}/" 2>/dev/null || true
+  #           fi
+  #         done
+  #         echo "SUCCESSFUL_DIFF_MODULES=${SUCCESSFUL_MODULES}" >> $GITHUB_ENV
 
-          rm -rf artifacts/
+  #         rm -rf artifacts/
 
-          echo "=== Merged diff reports ==="
-          git status --short | head -20
+  #         echo "=== Merged diff reports ==="
+  #         git status --short | head -20
 
-      - name: Commit and push diff reports
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+  #     - name: Commit and push diff reports
+  #       run: |
+  #         git config user.name "github-actions[bot]"
+  #         git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add diff-reports/
+  #         git add diff-reports/
 
-          if [ -z "$(git status --porcelain)" ]; then
-            echo "No diff reports to commit"
-          else
-            git commit -m "chore(ci): diff ${{ needs.detect_modules.outputs.count }} module(s) #${{ github.run_number }} [skip ci]"
-            git push
-          fi
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #         if [ -z "$(git status --porcelain)" ]; then
+  #           echo "No diff reports to commit"
+  #         else
+  #           git commit -m "chore(ci): diff ${{ needs.detect_modules.outputs.count }} module(s) #${{ github.run_number }} [skip ci]"
+  #           git push
+  #         fi
+  #       env:
+  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Generate workflow summary
-        run: |
-          MODULES_JSON='${{ needs.detect_modules.outputs.modules }}'
-          COUNT='${{ needs.detect_modules.outputs.count }}'
-          REPO_URL="${{ github.server_url }}/${{ github.repository }}"
+  #     - name: Generate workflow summary
+  #       run: |
+  #         MODULES_JSON='${{ needs.detect_modules.outputs.modules }}'
+  #         COUNT='${{ needs.detect_modules.outputs.count }}'
+  #         REPO_URL="${{ github.server_url }}/${{ github.repository }}"
 
-          cat >> $GITHUB_STEP_SUMMARY << EOF
-          ## ${{ github.workflow }} - Run #${{ github.run_number }}
+  #         cat >> $GITHUB_STEP_SUMMARY << EOF
+  #         ## ${{ github.workflow }} - Run #${{ github.run_number }}
 
-          **Modules processed:** ${COUNT}
-          EOF
+  #         **Modules processed:** ${COUNT}
+  #         EOF
 
-          echo "$MODULES_JSON" | jq -r '.[]' | while read module; do
-            if [[ " ${SUCCESSFUL_DIFF_MODULES} " =~ " ${module} " ]]; then
-              echo "- ${module} → [diff-reports/${module}/](${REPO_URL}/tree/${{ github.ref_name }}/diff-reports/${module})" >> $GITHUB_STEP_SUMMARY
-            else
-              echo "- ${module} — No preexisting files to compare to" >> $GITHUB_STEP_SUMMARY
-            fi
-          done
+  #         echo "$MODULES_JSON" | jq -r '.[]' | while read module; do
+  #           if [[ " ${SUCCESSFUL_DIFF_MODULES} " =~ " ${module} " ]]; then
+  #             echo "- ${module} → [diff-reports/${module}/](${REPO_URL}/tree/${{ github.ref_name }}/diff-reports/${module})" >> $GITHUB_STEP_SUMMARY
+  #           else
+  #             echo "- ${module} — No preexisting files to compare to" >> $GITHUB_STEP_SUMMARY
+  #           fi
+  #         done
 
-          cat >> $GITHUB_STEP_SUMMARY << EOF
+  #         cat >> $GITHUB_STEP_SUMMARY << EOF
 
-          **Commits:**
-          - [Transform outputs](${REPO_URL}/commits/${{ github.ref_name }})
-          - [Diff reports](${REPO_URL}/commits/${{ github.ref_name }})
-          EOF
+  #         **Commits:**
+  #         - [Transform outputs](${REPO_URL}/commits/${{ github.ref_name }})
+  #         - [Diff reports](${REPO_URL}/commits/${{ github.ref_name }})
+  #         EOF
 
   # Build and deploy GitHub Pages
-  build_pages:
-    needs: [detect_modules, commit_transform]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/configure-pages@v5
+  # build_pages:
+  #   needs: [detect_modules, commit_transform]
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/configure-pages@v5
 
-      - name: Download respec artifact
-        uses: actions/download-artifact@v8
-        with:
-          name: respec-output
-          path: respec-artifacts/
+  #     - name: Download respec artifact
+  #       uses: actions/download-artifact@v8
+  #       with:
+  #         name: respec-output
+  #         path: respec-artifacts/
 
-      - name: Prepare Pages content
-        run: |
-          MODULES_JSON='${{ needs.detect_modules.outputs.modules }}'
-          AVAILABLE_IMPLEMENTATIONS=($(echo $MODULES_JSON | jq -r '.[]'))
+  #     - name: Prepare Pages content
+  #       run: |
+  #         MODULES_JSON='${{ needs.detect_modules.outputs.modules }}'
+  #         AVAILABLE_IMPLEMENTATIONS=($(echo $MODULES_JSON | jq -r '.[]'))
 
-          mkdir -p _site
-          FOUND_IMPLEMENTATIONS=()
+  #         mkdir -p _site
+  #         FOUND_IMPLEMENTATIONS=()
 
-          for implementation in "${AVAILABLE_IMPLEMENTATIONS[@]}"
-          do
-            if [ -d "respec-artifacts/$implementation/respec" ]; then
-              mkdir -p "_site/$implementation"
-              cp -r "respec-artifacts/$implementation/respec/"* "_site/$implementation/"
-              FOUND_IMPLEMENTATIONS+=("$implementation")
-            fi
-          done
+  #         for implementation in "${AVAILABLE_IMPLEMENTATIONS[@]}"
+  #         do
+  #           if [ -d "respec-artifacts/$implementation/respec" ]; then
+  #             mkdir -p "_site/$implementation"
+  #             cp -r "respec-artifacts/$implementation/respec/"* "_site/$implementation/"
+  #             FOUND_IMPLEMENTATIONS+=("$implementation")
+  #           fi
+  #         done
 
-          cat > _site/index.html << 'HTMLEOF'
-          <!DOCTYPE html>
-          <html lang="en">
-          <head>
-              <meta charset="UTF-8">
-              <title>Ontology Documentation</title>
-              <style>
-                  body { font-family: sans-serif; margin: 40px; background: #f8f9fa; }
-                  .container { max-width: 800px; margin: 0 auto; background: white; padding: 40px; border-radius: 8px; }
-                  h1 { color: #2c3e50; }
-                  .card { border: 1px solid #ddd; padding: 20px; margin: 10px 0; border-radius: 8px; }
-                  a { color: #3498db; text-decoration: none; }
-              </style>
-          </head>
-          <body>
-              <div class="container">
-                  <h1>Ontology Documentation</h1>
-          HTMLEOF
+  #         cat > _site/index.html << 'HTMLEOF'
+  #         <!DOCTYPE html>
+  #         <html lang="en">
+  #         <head>
+  #             <meta charset="UTF-8">
+  #             <title>Ontology Documentation</title>
+  #             <style>
+  #                 body { font-family: sans-serif; margin: 40px; background: #f8f9fa; }
+  #                 .container { max-width: 800px; margin: 0 auto; background: white; padding: 40px; border-radius: 8px; }
+  #                 h1 { color: #2c3e50; }
+  #                 .card { border: 1px solid #ddd; padding: 20px; margin: 10px 0; border-radius: 8px; }
+  #                 a { color: #3498db; text-decoration: none; }
+  #             </style>
+  #         </head>
+  #         <body>
+  #             <div class="container">
+  #                 <h1>Ontology Documentation</h1>
+  #         HTMLEOF
 
-          for impl in "${FOUND_IMPLEMENTATIONS[@]}"; do
-            echo "        <div class=\"card\"><a href=\"./$impl/\">$impl</a></div>" >> _site/index.html
-          done
+  #         for impl in "${FOUND_IMPLEMENTATIONS[@]}"; do
+  #           echo "        <div class=\"card\"><a href=\"./$impl/\">$impl</a></div>" >> _site/index.html
+  #         done
 
-          echo "    </div></body></html>" >> _site/index.html
+  #         echo "    </div></body></html>" >> _site/index.html
 
-      - uses: actions/upload-pages-artifact@v3
+  #     - uses: actions/upload-pages-artifact@v3
 
-  deploy_pages:
-    needs: build_pages
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v5
+  # deploy_pages:
+  #   needs: build_pages
+  #   environment:
+  #     name: github-pages
+  #     url: ${{ steps.deployment.outputs.page_url }}
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Deploy to GitHub Pages
+  #       id: deployment
+  #       uses: actions/deploy-pages@v5
