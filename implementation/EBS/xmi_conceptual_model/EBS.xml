@@ -496,7 +496,7 @@
 				<generalization xmi:type="uml:Generalization" xmi:id="EAID_6DF71634_F857_42a8_B03E_58196B99D09E" general="EAID_C01AD9E8_316D_48e3_AC65_AC97C4833BBB" isSubstitutable="true"/>
 			</packagedElement>
 			<packagedElement xmi:type="uml:Class" xmi:id="EAID_D6A003DC_0781_4c5d_9DCA_C377F3DC4F9F" name="org:Organization">
-				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_9700B30B_C912_4800_85D7_8E94233F9582" name="dct:Title" visibility="private">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_9700B30B_C912_4800_85D7_8E94233F9582" name="dct:title" visibility="private">
 					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000075_C912_4800_85D7_8E94233F9582" value="0"/>
 					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_LI000076_C912_4800_85D7_8E94233F9582" value="1"/>
 					<type xmi:idref="EAJava_rdf_PlainLiteral"/>
@@ -2027,7 +2027,7 @@
 				<xrefs/>
 				<extendedProperties tagged="0" package_name="EBS"/>
 				<attributes>
-					<attribute xmi:idref="EAID_9700B30B_C912_4800_85D7_8E94233F9582" name="dct:Title" scope="Private">
+					<attribute xmi:idref="EAID_9700B30B_C912_4800_85D7_8E94233F9582" name="dct:title" scope="Private">
 						<initial/>
 						<documentation/>
 						<model ea_localid="12" ea_guid="{9700B30B-C912-4800-85D7-8E94233F9582}"/>
@@ -3529,7 +3529,7 @@
 				</source>
 				<target xmi:idref="EAID_2E42AC9A_9A56_449b_ACE0_284EE34B6D3A">
 					<model ea_localid="27" type="Enumeration" name="at-voc:currency"/>
-					<role name="epo:hasCurrency" visibility="Public" targetScope="instance"/>
+					<role name="ebs:hasCurrency" visibility="Public" targetScope="instance"/>
 					<type multiplicity="1" aggregation="none" containment="Unspecified"/>
 					<constraints/>
 					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
@@ -3542,7 +3542,7 @@
 				<properties ea_type="Dependency" direction="Source -&gt; Destination"/>
 				<documentation/>
 				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
-				<labels rb="1" rt="+epo:hasCurrency"/>
+				<labels rb="1" rt="+ebs:hasCurrency"/>
 				<extendedProperties virtualInheritance="0"/>
 				<style/>
 				<xrefs/>
