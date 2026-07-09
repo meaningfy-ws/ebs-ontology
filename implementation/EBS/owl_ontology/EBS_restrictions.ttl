@@ -1,0 +1,35 @@
+@prefix core-res: <http://ebs.md/ontology/ebs#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+core-res:core-restriction a owl:Ontology ;
+    rdfs:label """This artefact provides the restrictions and inference-related specifications for the eProcurement Ontology Core.
+        This artefact excludes the definitions of concepts.
+        The eProcurement Ontology describes objects and concepts, with definitions, attributes and relationships which are present within the European public procurement domain.
+        The provision of these concepts provides the basis for a common understanding of the domain for all stakeholders ensuring the quality of data exchange and transparency."""@en ;
+    dcterms:created "2026-07-09"^^xsd:date ;
+    dcterms:description """This artefact provides the restrictions and inference-related specifications for the eProcurement Ontology Core.
+        This artefact excludes the definitions of concepts.
+        The eProcurement Ontology describes objects and concepts, with definitions, attributes and relationships which are present within the European public procurement domain.
+        The provision of these concepts provides the basis for a common understanding of the domain for all stakeholders ensuring the quality of data exchange and transparency."""@en ;
+    dcterms:issued "2026-07-09"^^xsd:date ;
+    dcterms:license "CC BY 4.0" ;
+    dcterms:publisher "Meaningfy" ;
+    dcterms:title "EBS restrictions"@en ;
+    vann:preferredNamespacePrefix "ebs" ;
+    vann:preferredNamespaceUri "http://ebs.md/ontology/ebs#" ;
+    rdfs:comment "This version is automatically generated from EBS.xml on 2026-07-09" ;
+    owl:imports <http://data.europa.eu/m8g>,
+        core-res:core,
+        dcterms:,
+        skos:,
+        <http://www.w3.org/ns/adms> ;
+    owl:versionIRI core-res:core-restriction-1.0.0 ;
+    owl:versionInfo "1.0.0" .
+
+[] a <file:///home/runner/work/ebs-ontology/ebs-ontology/implementation/EBS/owl_ontology/p> .
+
