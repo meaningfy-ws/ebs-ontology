@@ -31,6 +31,7 @@
     <prefix name="time" value="http://www.w3.org/2006/time#"/>
     <prefix name="xml" value="http://www.w3.org/XML/1998/namespace"/>
     <prefix name="xsd" value="http://www.w3.org/2001/XMLSchema#"/>
+    <prefix name="ebs" value="http://ebs.md/ontology/ebs#"/>
 
     <!-- Namespace of the configuration/usage tags (mandatoryStatusTagName = cfg:usage). -->
     <prefix name="cfg" value="http://www.example.org#"/>
