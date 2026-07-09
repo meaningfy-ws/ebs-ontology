@@ -11,9 +11,7 @@
     <core>
         <import uri="http://www.w3.org/ns/org#"/>
         <import uri="http://www.w3.org/2006/time"/>
-        <import uri="http://www.w3.org/ns/locn"/>
         <import uri="http://www.w3.org/ns/person"/>
-        <import uri="http://data.europa.eu/eli/ontology#"/>
     </core>
     <!-- affects restrictions artefact -->
     <restrictions></restrictions>

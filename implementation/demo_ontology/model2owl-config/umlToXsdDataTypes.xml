@@ -3,7 +3,7 @@
     
     <!-- epo prefixed datatypes -->
     <mapping>
-        <from  qname="epo:Indicator"/>
+        <from  qname=":Indicator"/>
         <to  qname="xsd:boolean"/>
     </mapping>
     <mapping>

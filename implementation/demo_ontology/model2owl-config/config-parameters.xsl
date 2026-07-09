@@ -10,8 +10,8 @@
 
     <xd:doc scope="stylesheet">
         <xd:desc>
-            <xd:p><xd:b>Created on:</xd:b> Mar 22, 2020</xd:p>
-            <xd:p><xd:b>Author:</xd:b> lps</xd:p>
+            <xd:p><xd:b>Created on:</xd:b> Jul 09, 2026</xd:p>
+            <xd:p><xd:b>Author:</xd:b> Achillefs Dougalis</xd:p>
             <xd:p>This module defines project level variables and parameters</xd:p>
         </xd:desc>
     </xd:doc>
@@ -35,8 +35,8 @@
     <!-- Ontology base URI, configure as necessary. Do not use a trailing local delimiter
         like in the namespace definition-->
     <!--<xsl:variable name="base-uri" select="'http://publications.europa.eu/ontology/ePO'"/>-->
-    <xsl:variable name="base-ontology-uri" select="'http://data.europa.eu/a4g/ontology'"/>
-    <xsl:variable name="base-shape-uri" select="'http://data.europa.eu/a4g/data-shape'"/>
+    <xsl:variable name="base-ontology-uri" select="'http://ebs.md/ontology/ebs'"/>
+    <xsl:variable name="base-shape-uri" select="'http://ebs.md/ontology/ebs/data-shape'"/>
     <xsl:variable name="base-restriction-uri" select="$base-ontology-uri"/>
     <!--    Shapes Module URI-->
     <xsl:variable name="shapeArtefactURI"
