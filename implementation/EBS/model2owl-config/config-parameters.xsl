@@ -60,9 +60,9 @@
 
     <!-- types of elements and names for attribute types that are acceptable to produce object properties -->
     <xsl:variable name="acceptableTypesForObjectProperties"
-        select="('epo:Identifier', 'rdfs:Literal')"/>
+        select="('ebs:Identifier', 'rdfs:Literal')"/>
     <!--    the type of attributes which takes values from a controlled list-->
-    <xsl:variable name="controlledListType" select="'epo:Code'"/>
+    <xsl:variable name="controlledListType" select="'ebs:Code'"/>
     <!-- Acceptable stereotypes -->
     <xsl:variable name="stereotypeValidOnAttributes" select="()"/>
     <xsl:variable name="stereotypeValidOnObjects" select="()"/>
@@ -83,7 +83,7 @@
     <xsl:variable name="enableGenerationOfConceptSchemes" select="fn:true()"/>
 
 <!--    Property used for constraint level for enumerations-->
-    <xsl:variable name="cvConstraintLevelProperty" select="'epo:constraintLevel'"/>
+    <xsl:variable name="cvConstraintLevelProperty" select="'ebs:constraintLevel'"/>
 
 
     <!--Allowed characters for a normalized string-->
@@ -133,7 +133,7 @@
      - A list of valid statuses
      - A list of statuses to be excluded from the output
      - The default status value interpretation for elements without a status set -->
-    <xsl:variable name="statusProperty" select="'epo:status'"/>
+    <xsl:variable name="statusProperty" select="'ebs:status'"/>
     <xsl:variable name="validStatusesList" select="('proposed', 'approved', 'implemented')"/>
     <xsl:variable name="excludedElementStatusesList" select="('proposed', 'approved')"/>
     <xsl:variable name="unspecifiedStatusInterpretation" select="'implemented'"/>

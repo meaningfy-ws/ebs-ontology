@@ -60,7 +60,7 @@
     <!-- The namespace prefix(es) of YOUR ontology's own concepts. Concepts with
          these prefixes are treated as "main" and generated; others are reused
          concepts. Use '' (empty string) if your model's class names carry no prefix. -->
-    <xsl:variable name="includedPrefixesList" select="('myprefix')"/>
+    <xsl:variable name="includedPrefixesList" select="('ebs')"/>
     <!-- Whether reused (out-of-scope-prefix) concepts are still emitted, per artefact. -->
     <xsl:variable name="generateReusedConceptsSHACL" select="fn:true()"/>
     <xsl:variable name="generateReusedConceptsOWLcore" select="fn:true()"/>
@@ -80,7 +80,7 @@
     <xsl:variable name="acceptableTypesForObjectProperties"
         select="('rdfs:Literal')"/>
     <!-- The attribute type whose values come from a controlled list / code list. -->
-    <xsl:variable name="controlledListType" select="'myprefix:Code'"/>
+    <xsl:variable name="controlledListType" select="'ebs:Code'"/>
 
     <!-- ===================================================================== -->
     <!-- 5. Accepted UML stereotypes (per element kind)                        -->
@@ -104,7 +104,7 @@
     <xsl:variable name="enableGenerationOfSkosConcept" select="fn:false()"/>
     <xsl:variable name="enableGenerationOfConceptSchemes" select="fn:false()"/>
     <!-- Tag carrying the constraint level for enumerations. -->
-    <xsl:variable name="cvConstraintLevelProperty" select="'myprefix:constraintLevel'"/>
+    <xsl:variable name="cvConstraintLevelProperty" select="'ebs:constraintLevel'"/>
 
     <!-- ===================================================================== -->
     <!-- 7. Tags, comments, references, status & rdfs:isDefinedBy              -->
@@ -128,7 +128,7 @@
     <xsl:variable name="excludedTagNamesList" select="($statusProperty, $cvConstraintLevelProperty)"/>
 
     <!-- 7c. Status filtering -->
-    <xsl:variable name="statusProperty" select="'myprefix:status'"/>
+    <xsl:variable name="statusProperty" select="'ebs:status'"/>
     <xsl:variable name="validStatusesList" select="('proposed', 'approved', 'implemented')"/>
     <xsl:variable name="excludedElementStatusesList" select="('proposed', 'approved')"/>
     <xsl:variable name="unspecifiedStatusInterpretation" select="'implemented'"/>
