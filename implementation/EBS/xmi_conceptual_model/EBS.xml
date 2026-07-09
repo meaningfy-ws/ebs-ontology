@@ -463,7 +463,7 @@
 					<type xmi:idref="EAID_09B7DBCB_90E0_401a_99A0_588B0E263CDA"/>
 				</ownedEnd>
 			</packagedElement>
-			<packagedElement xmi:type="uml:Class" xmi:id="EAID_2A2E0EF6_E773_4ff5_8AB7_74F7DABCD032" name="ebs:T&amp;MProject">
+			<packagedElement xmi:type="uml:Class" xmi:id="EAID_2A2E0EF6_E773_4ff5_8AB7_74F7DABCD032" name="ebs:TandMProject">
 				<generalization xmi:type="uml:Generalization" xmi:id="EAID_B855F818_7768_498d_A58A_39B3D1581248" general="EAID_0E3590BF_F040_4666_A0AE_FDDA430F45B4" isSubstitutable="true"/>
 			</packagedElement>
 			<packagedElement xmi:type="uml:Class" xmi:id="EAID_F7371894_0AE5_4fff_A59C_B069B80C101F" name="ebs:TaskList"/>
@@ -1206,7 +1206,7 @@
 				<bounds xmi:type="dc:bounds" xmi:id="EAID_DB000000_E504_4b68_A0AE_FDDA430F45B4" x="592" y="402" width="90" height="70"/>
 			</ownedElement>
 			<ownedElement xmi:type="umldi:UMLClassifierShape" xmi:id="EAID_9D5EF85D_E504_4b68_8AB7_74F7DABCD032" modelElement="EAID_2A2E0EF6_E773_4ff5_8AB7_74F7DABCD032">
-				<ownedElement xmi:type="umldi:UMLNameLabel" xmi:id="EAID_NL000000_E504_4b68_8AB7_74F7DABCD032" text="ebs:T&amp;MProject"/>
+				<ownedElement xmi:type="umldi:UMLNameLabel" xmi:id="EAID_NL000000_E504_4b68_8AB7_74F7DABCD032" text="ebs:TandMProject"/>
 				<bounds xmi:type="dc:bounds" xmi:id="EAID_DB000000_E504_4b68_8AB7_74F7DABCD032" x="532" y="535" width="90" height="70"/>
 			</ownedElement>
 			<ownedElement xmi:type="umldi:UMLClassifierShape" xmi:id="EAID_9D5EF85D_E504_4b68_AF64_EC1A31B806C5" modelElement="EAID_F2E6AE1F_02E9_4473_AF64_EC1A31B806C5">
@@ -1960,11 +1960,11 @@
 					<Association xmi:id="EAID_6E608DCE_E3E9_43f7_9274_D6290EABA6D4" start="EAID_09B7DBCB_90E0_401a_99A0_588B0E263CDA" end="EAID_0AB1A593_464F_4a03_8FDB_025846C153CC"/>
 				</links>
 			</element>
-			<element xmi:idref="EAID_2A2E0EF6_E773_4ff5_8AB7_74F7DABCD032" xmi:type="uml:Class" name="ebs:T&amp;MProject" scope="public">
+			<element xmi:idref="EAID_2A2E0EF6_E773_4ff5_8AB7_74F7DABCD032" xmi:type="uml:Class" name="ebs:TandMProject" scope="public">
 				<model package="EAPK_33AAC131_78D4_424b_B9B5_A588B709D1F7" tpos="0" ea_localid="35" ea_eleType="element"/>
 				<properties isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
-				<project author="achid" version="1.0" phase="1.0" created="2026-06-30 17:14:28" modified="2026-06-30 17:14:28" complexity="1" status="Proposed"/>
-				<code gentype="Java"/>
+				<project author="achid" version="1.0" phase="1.0" created="2026-06-30 17:14:28" modified="2026-07-09 17:38:09" complexity="1" status="Proposed"/>
+				<code product_name="Java" gentype="Java"/>
 				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 				<tags/>
 				<xrefs/>
@@ -3347,7 +3347,7 @@
 			</connector>
 			<connector xmi:idref="EAID_B855F818_7768_498d_A58A_39B3D1581248">
 				<source xmi:idref="EAID_2A2E0EF6_E773_4ff5_8AB7_74F7DABCD032">
-					<model ea_localid="35" type="Class" name="ebs:T&amp;MProject"/>
+					<model ea_localid="35" type="Class" name="ebs:TandMProject"/>
 					<role visibility="Public" targetScope="instance"/>
 					<type aggregation="none" containment="Unspecified"/>
 					<constraints/>
