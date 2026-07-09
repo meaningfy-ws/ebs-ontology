@@ -70,7 +70,7 @@
         "license": "CC BY 4.0",
         "navigation": {
             "next": "",
-            "prev": "https://OP-TED.github.io/ePO/releases/4.2.0/",
+            "prev": "",
             "self": "https://OP-TED.github.io/ePO/releases/5.0.0/"
         },
         "repositoryUrl": "https://github.com/meaningfy-ws/ebs-ontology",
@@ -95,27 +95,27 @@
         "projectLocalResources": [
             {
                 "name": "OWL core file",
-                "path": "owl_ontology/demo_ontology.rdf"
+                "path": "owl_ontology/EBS_ontology.rdf"
             },
             {
                 "name": "OWL restrictions file",
-                "path": "owl_ontology/demo_ontology_restrictions.rdf"
+                "path": "owl_ontology/EBS_ontology_restrictions.rdf"
             },
             {
                 "name": "SHACL shapes file (RDF)",
-                "path": "shacl_shapes/demo_ontology_shapes.rdf"
+                "path": "shacl_shapes/EBS_ontology_shapes.rdf"
             },
             {
                 "name": "SHACL shapes file (TTL)",
-                "path": "shacl_shapes/demo_ontology_shapes.ttl"
+                "path": "shacl_shapes/EBS_ontology_shapes.ttl"
             },
             {
                 "name": "JSON-LD context file",
-                "path": "jsonld_context/demo_ontology_context.jsonld"
+                "path": "jsonld_context/EBS_ontology_context.jsonld"
             },
             {
                 "name": "UML XMI model file",
-                "path": "xmi_conceptual_model/demo_ontology.xml"
+                "path": "xmi_conceptual_model/EBS_CM.xml"
             },
             {
                 "name": "UML EAP model file",
