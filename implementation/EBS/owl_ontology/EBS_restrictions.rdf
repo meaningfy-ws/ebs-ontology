@@ -6,73 +6,280 @@
    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
    xmlns:vann="http://purl.org/vocab/vann/"
 >
-  <rdf:Description rdf:nodeID="Nb7d7f59e5068483ea49f1e2994ef9e75">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasTotalPlannedBillableTime"/>
-    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
-    <owl:onClass rdf:resource="http://www.w3.org/2006/time#Duration"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2006/time#Interval">
-    <rdfs:subClassOf rdf:nodeID="N0709063578534fdaa496b0bc0661ecad"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nf05a1bbcb1b04c3d86cdc4a8a732d3fb">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasCapacity"/>
-    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
-    <owl:onClass rdf:resource="http://www.w3.org/2006/time#Duration"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasCurrency">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#MonetaryValue"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N0d27f2eb988c4269854c0a4a461d0abe">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasEfficiencyRate"/>
-    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
-    <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#Efficiency"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nca7a472141a543d88fdf0948c8ced426">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#forInterval"/>
-    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
-    <owl:onClass rdf:resource="http://www.w3.org/2006/time#Interval"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N85bbe2a4c1264cbdb6d039de19742846">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:unionOf rdf:nodeID="Na9c393d6a89145f6a053d0d4354f4c9e"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N98144d03f15b4793b80d41548b0d1f5c">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasEfficiencyRate"/>
-    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
-    <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#Efficiency"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N9cd111c161794585a1fd8d7719b3320a">
-    <rdf:first rdf:resource="http://ebs-integrator.com/ontology/erp#Rate"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N1d5cbc604bb34e5bb2e60332baa7380a">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.w3.org/2006/time#inXSDDate"/>
-    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
-    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasEfficiencyRate">
+    <rdfs:domain rdf:nodeID="N9cffe71a5baf4c318af5a7308f8a6fb2"/>
+    <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#Efficiency"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasProjectStart">
     <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
     <rdfs:range rdf:resource="http://www.w3.org/2006/time#Instant"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N75116edfde3a48c288ebd6630fa2c67f">
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#Employee">
+    <rdfs:subClassOf rdf:nodeID="N5de0117ec68842569966e549a1e3651e"/>
+    <rdfs:subClassOf rdf:nodeID="Na206be7b58a9492b953c77ed064c2e47"/>
+    <rdfs:subClassOf rdf:nodeID="Na6b634af854d45648bb700c3c382abd2"/>
+    <rdfs:subClassOf rdf:nodeID="Ned024bc71eda43a1b8b450708a22bfaf"/>
+    <rdfs:subClassOf rdf:nodeID="Na8ebc9b66fc540a8adfdf6e222c0a454"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#EmployeePlannedTime">
+    <rdfs:subClassOf rdf:nodeID="N1e360cb33a4d4ff7ac913cfe7aa4b863"/>
+    <rdfs:subClassOf rdf:nodeID="Nd5886cad4c574b39a12fc0a0073473f9"/>
+    <rdfs:subClassOf rdf:nodeID="N29e93c7945c64085b8ce437c98b90c73"/>
+    <rdfs:subClassOf rdf:nodeID="N2b7df58d50ab43d1a55e30a1b6f58562"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne705e95c64cc462c80bac6d486dadd0c">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.w3.org/2006/time#hasBeginning"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
+    <owl:onClass rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasAssociatedTaskList">
+    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
+    <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#TaskList"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N0d02bd41fa4248049961fa709144f10d">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#worksOnStack"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
+    <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#Stack"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#leads">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#TeamLead"/>
+    <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#Team"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5a787483ad974681a66bdad3af199f61">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#forInterval"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
+    <owl:onClass rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/currency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:equivalentClass rdf:nodeID="N2c0e7bc391a04e8e9aa250bca351a46c"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/title">
+    <rdfs:domain rdf:resource="http://www.w3.org/ns/org#Organization"/>
+    <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasPlannedNonBillableTime">
+    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#EmployeePlannedTime"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2006/time#Duration"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3953faf66a934fa7985b04821ffbaf36">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasEfficiencyRate"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
+    <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#Efficiency"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#Efficiency">
+    <rdfs:subClassOf rdf:nodeID="N5a787483ad974681a66bdad3af199f61"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/month">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:equivalentClass rdf:nodeID="N99a3c742d54741d1b7e92ad31d168bd7"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ned024bc71eda43a1b8b450708a22bfaf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasSalary"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
+    <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#Salary"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N50abbe1e454d44d2b54a7b21b391b2d5">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.w3.org/2006/time#inXSDDate"/>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5e7244e9556c423bbef30ae19529c258">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://purl.org/dc/terms/title"/>
+    <owl:onDataRange rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N0742f65724f04b34acc580f24ea76e12">
+    <rdf:first rdf:resource="http://ebs-integrator.com/ontology/erp#Rate"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N0064af2f6e4e403aa0cdcb26fb08a321">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://xmlns.com/foaf/0.1/name"/>
+    <owl:onDataRange rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4d9c9dad2d6f4e38a390f5f0bdb83d32">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#isActive"/>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N39b5ead6a1b240a891a882102bc2c78d">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#relatedToProject"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
+    <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasRecordedBillTime">
+    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2006/time#hasEnd">
+    <rdfs:domain rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc5fc2ad823d5487cbaa7357ad23f2385">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasEfficiencyRate"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
+    <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#Efficiency"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na6b634af854d45648bb700c3c382abd2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasCapacity"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
+    <owl:onClass rdf:resource="http://www.w3.org/2006/time#Duration"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N07af6e3b91144732bc106644bf9f943f">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
+    <owl:hasValue rdf:resource="http://publications.europa.eu/resource/authority/Seniority"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/adms#identifier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:nodeID="N7f15aca078224024b26a886a951147b7"/>
+    <rdfs:range rdf:resource="http://www.w3.org/ns/adms#Identifier"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/Seniority">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:equivalentClass rdf:nodeID="N07af6e3b91144732bc106644bf9f943f"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2006/time#hasDuration">
+    <rdfs:domain rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2006/time#TemporalDuration"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N066222c6c9244e918619913b388177d5">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#managesProject"/>
+    <owl:someValuesFrom rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nee4da3504db649c8a5a12654af6cf0e0">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.w3.org/2006/time#unitType"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
+    <owl:onClass rdf:resource="http://www.w3.org/2006/time#TemporalUnit"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N29e93c7945c64085b8ce437c98b90c73">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
     <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasPlannedNonBillableTime"/>
     <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
     <owl:onClass rdf:resource="http://www.w3.org/2006/time#Duration"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N975cba99e5f74e80a83a9eb7fe1b2665">
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#Project">
+    <rdfs:subClassOf rdf:nodeID="N4d9c9dad2d6f4e38a390f5f0bdb83d32"/>
+    <rdfs:subClassOf rdf:nodeID="N196d1001848f46a0949c07edcd677e6f"/>
+    <rdfs:subClassOf rdf:nodeID="N93cea966f6b942299a848eeecef5cd04"/>
+    <rdfs:subClassOf rdf:nodeID="N9c25a567f67642eb920962946cd75553"/>
+    <rdfs:subClassOf rdf:nodeID="N90c735b17f4540c5b174cdbfbf1bbc68"/>
+    <rdfs:subClassOf rdf:nodeID="N01c4b6eb038a4d429ec5dc7c7b7f63b6"/>
+    <rdfs:subClassOf rdf:nodeID="Nbed86343f13443f3af2b204cc9f35f18"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N196d1001848f46a0949c07edcd677e6f">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasCommercialRate"/>
+    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasEfficiencyRate"/>
     <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
-    <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#Rate"/>
+    <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#Efficiency"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na8781a002adf42c58283c7a12f46c911">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasEfficiencyRate"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
+    <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#Efficiency"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasSalary">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
+    <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#Salary"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9b2417b0ffb6491b9915dae58c489165">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasAmountValue"/>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasReplacementPipeline">
+    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
+    <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nca88f451c22a4073b4d7adf6a97a5305">
+    <rdf:first rdf:resource="http://ebs-integrator.com/ontology/erp#Team"/>
+    <rdf:rest rdf:nodeID="Ncd0c72ef45b849ea88c1200af5537329"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N99a3c742d54741d1b7e92ad31d168bd7">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
+    <owl:hasValue rdf:resource="http://publications.europa.eu/resource/authority/month"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ndeaefbbf66b64499bb2d92085b7175a9">
+    <rdf:first rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
+    <rdf:rest rdf:nodeID="N13baa2717c0946149a02e217d3366731"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#Company">
+    <rdfs:subClassOf rdf:nodeID="N6c5829d742854dd2bbcbde9716205049"/>
+    <rdfs:subClassOf rdf:nodeID="Nc5fc2ad823d5487cbaa7357ad23f2385"/>
+    <rdfs:subClassOf rdf:nodeID="N8163257b0556498cb9924bcce715ec98"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9c25a567f67642eb920962946cd75553">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasProjectEnd"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
+    <owl:onClass rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2006/time#inXSDDateTimeStamp">
+    <rdfs:domain rdf:resource="http://www.w3.org/2006/time#Instant"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na206be7b58a9492b953c77ed064c2e47">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasEfficiencyRate"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
+    <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#Efficiency"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd5886cad4c574b39a12fc0a0073473f9">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#concernsProject"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
+    <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5de0117ec68842569966e549a1e3651e">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#isActive"/>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#isActive">
+    <rdfs:domain rdf:nodeID="N2312f11a1d974210aa5522617f19bd02"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N13baa2717c0946149a02e217d3366731">
+    <rdf:first rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2006/time#numericDuration">
+    <rdfs:domain rdf:resource="http://www.w3.org/2006/time#Duration"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#concernsEmployee">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#EmployeePlannedTime"/>
+    <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#MonetaryValue">
+    <rdfs:subClassOf rdf:nodeID="N9b2417b0ffb6491b9915dae58c489165"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#core-restriction">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
@@ -92,570 +299,363 @@
     <vann:preferredNamespacePrefix>ebs</vann:preferredNamespacePrefix>
     <dcterms:license>CC BY 4.0</dcterms:license>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2006/time#hasDuration">
-    <rdfs:domain rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2006/time#TemporalDuration"/>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#playedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#AgentInRole"/>
+    <rdfs:range rdf:resource="http://www.w3.org/ns/person#Person"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N57cdfedccbea472d810fa1ad7156e93d">
+  <rdf:Description rdf:nodeID="N6c5829d742854dd2bbcbde9716205049">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
     <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasMonthlyCapacity"/>
     <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
     <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#Capacity"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#EmployeePlannedTime">
-    <rdfs:subClassOf rdf:nodeID="Nd094a887be9e4091aa67ebe6bc2f5e00"/>
-    <rdfs:subClassOf rdf:nodeID="N8897c1125c0842159025261b3fc6a031"/>
-    <rdfs:subClassOf rdf:nodeID="N75116edfde3a48c288ebd6630fa2c67f"/>
-    <rdfs:subClassOf rdf:nodeID="Nd99112cb9e9746bab37f7004f6d00295"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2006/time#inXSDDateTimeStamp">
-    <rdfs:domain rdf:resource="http://www.w3.org/2006/time#Instant"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasCapacity">
-    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasTotalPlannedNonBillableTime">
+    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
     <rdfs:range rdf:resource="http://www.w3.org/2006/time#Duration"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N2143adc7ee514d17b5e04c73db8b8e4a">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
-    <owl:hasValue rdf:resource="http://publications.europa.eu/resource/authority/currency"/>
+  <rdf:Description rdf:about="http://www.w3.org/2006/time#Instant">
+    <rdfs:subClassOf rdf:nodeID="N50abbe1e454d44d2b54a7b21b391b2d5"/>
+    <rdfs:subClassOf rdf:nodeID="N7f36a792bf68429e8b3a7d756d804891"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#isActive">
-    <rdfs:domain rdf:nodeID="Nb713a31513574fd594bcfa5a183873ef"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N9a54bc90a22c409e8b1a0aad165ce003">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#worksOnStack"/>
-    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
-    <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#Stack"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N7250e9efbf6549838cc2244701d5aae7">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasEfficiencyRate"/>
-    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
-    <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#Efficiency"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nd14c9199c3e14e11aeee4476c398c8fb">
-    <rdf:first rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
-    <rdf:rest rdf:nodeID="Nf7201ff9423f4743aa80a33a4d87f8cf"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasProjectEnd">
-    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2006/time#Instant"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#concernsEmployee">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#EmployeePlannedTime"/>
-    <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N8897c1125c0842159025261b3fc6a031">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#concernsProject"/>
-    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
-    <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N0c52a028d0a04ec6ad405a8370db70d0">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#notation"/>
-    <owl:onDataRange rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"/>
-    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#memberOf">
-    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
-    <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#Team"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N15ff531b387b4f539b4dae83ce74f056">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#isActive"/>
-    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N800ec056529640398e268e386f5c3b4a">
+  <rdf:Description rdf:nodeID="N7f36a792bf68429e8b3a7d756d804891">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
     <owl:onProperty rdf:resource="http://www.w3.org/2006/time#inXSDDateTimeStamp"/>
     <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
     <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N6100f0b6aea247989da9df12473749c9">
+  <rdf:Description rdf:nodeID="Nc51ffe8044944b2295a4bcb5eb3a09a1">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
     <owl:onProperty rdf:resource="http://www.w3.org/ns/adms#identifier"/>
     <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
     <owl:onClass rdf:resource="http://www.w3.org/ns/adms#Identifier"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N48d85384687c4f118bb48ec979751a80">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.w3.org/2006/time#hasBeginning"/>
-    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
-    <owl:onClass rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  <rdf:Description rdf:nodeID="Nbae05fcda956468bb561a30463451094">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="Nb38e38b2ca66402ab4ac0dfc83364f58"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasPlannedNonBillableTime">
+  <rdf:Description rdf:nodeID="N891047f942e34489bffb7deb984f48ae">
+    <rdf:first rdf:resource="http://ebs-integrator.com/ontology/erp#Salary"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasPlannedBillableTime">
     <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#EmployeePlannedTime"/>
     <rdfs:range rdf:resource="http://www.w3.org/2006/time#Duration"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#ProjectManager">
+    <rdfs:subClassOf rdf:nodeID="N31d35b93c7334c76b11f66a25a3cccbb"/>
+    <rdfs:subClassOf rdf:nodeID="N066222c6c9244e918619913b388177d5"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na8ebc9b66fc540a8adfdf6e222c0a454">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#memberOf"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
+    <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#Team"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasCurrency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#MonetaryValue"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#concernsProject">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#EmployeePlannedTime"/>
     <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#leads">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#TeamLead"/>
-    <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#Team"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/ns/org#Organization">
-    <rdfs:subClassOf rdf:nodeID="N9c88425cd33d4ae8bf6fe32dadbddf8f"/>
-    <rdfs:subClassOf rdf:nodeID="Neae1e9d53dc0463dab1f8e29aab61da1"/>
-  </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/ns/person#Person">
-    <rdfs:subClassOf rdf:nodeID="N93ae82d99600465a950aa7a88b3582ff"/>
+    <rdfs:subClassOf rdf:nodeID="N0064af2f6e4e403aa0cdcb26fb08a321"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#Employee">
-    <rdfs:subClassOf rdf:nodeID="N15ff531b387b4f539b4dae83ce74f056"/>
-    <rdfs:subClassOf rdf:nodeID="N0d27f2eb988c4269854c0a4a461d0abe"/>
-    <rdfs:subClassOf rdf:nodeID="Nf05a1bbcb1b04c3d86cdc4a8a732d3fb"/>
-    <rdfs:subClassOf rdf:nodeID="N945c701cab8f448ab368e3cfd7e653d6"/>
-    <rdfs:subClassOf rdf:nodeID="N0c7ca2880114443591e9c08f5407d357"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N0709063578534fdaa496b0bc0661ecad">
+  <rdf:Description rdf:nodeID="Nbed86343f13443f3af2b204cc9f35f18">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#relatedToProject"/>
-    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
-    <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N394d47fde0e14f1881768bc8e4655a31">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#employs"/>
-    <owl:someValuesFrom rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/month">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:equivalentClass rdf:nodeID="N52ccaee177ea4a0d999ce1af4c34de78"/>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasCommercialRate">
-    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
-    <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#Rate"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nf1da98aa52234797b3b58fa07df4dc11">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#isActive"/>
-    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N6458b7911fb0409386625eb3c31ca993">
-    <rdf:first rdf:resource="http://www.w3.org/ns/org#Organization"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nd99112cb9e9746bab37f7004f6d00295">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasPlannedBillableTime"/>
+    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasTotalPlannedNonBillableTime"/>
     <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
     <owl:onClass rdf:resource="http://www.w3.org/2006/time#Duration"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Na7ec784a97054536b4cae6d87b9cb147">
+  <rdf:Description rdf:nodeID="Nfbdd4c0dd6c3479c90e85b2ce9c38d0f">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#managesProject"/>
-    <owl:someValuesFrom rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Neae1e9d53dc0463dab1f8e29aab61da1">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.w3.org/ns/adms#identifier"/>
-    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
-    <owl:onClass rdf:resource="http://www.w3.org/ns/adms#Identifier"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasSalary">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
-    <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#Salary"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dc/terms/title">
-    <rdfs:domain rdf:resource="http://www.w3.org/ns/org#Organization"/>
-    <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/ns/adms#identifier">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:domain rdf:nodeID="N85bbe2a4c1264cbdb6d039de19742846"/>
-    <rdfs:range rdf:resource="http://www.w3.org/ns/adms#Identifier"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N86088cf1a8004b02b6ad8006186206ce">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.w3.org/2006/time#hasDuration"/>
-    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
-    <owl:onClass rdf:resource="http://www.w3.org/2006/time#TemporalDuration"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N15353c4f398b40bda32df36d0ba31daa">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasAmountValue"/>
-    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
-    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasTotalPlannedBillableTime">
-    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2006/time#Duration"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N05ea90cdf2594568b373c15319aeef5d">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#leads"/>
-    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
-    <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#Team"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#Efficiency">
-    <rdfs:subClassOf rdf:nodeID="Nca7a472141a543d88fdf0948c8ced426"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N0c66a1db5440427e9b273d48e65a0e58">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasProjectStart"/>
-    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
-    <owl:onClass rdf:resource="http://www.w3.org/2006/time#Instant"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasRecordedBillTime">
-    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2006/time#Interval"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2006/time#hasEnd">
-    <rdfs:domain rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2006/time#Instant"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nb5a0ab98014d47cb9c9738b3a6b092c8">
-    <rdf:first rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N3f1784edd2cb449d833ab1882b752f47">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasEfficiencyRate"/>
-    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
-    <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#Efficiency"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasPlannedBillableTime">
-    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#EmployeePlannedTime"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2006/time#Duration"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N7af4ddaee6834698997235f81671a8db">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#playedBy"/>
-    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
-    <owl:onClass rdf:resource="http://www.w3.org/ns/person#Person"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#employs">
-    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#Company"/>
-    <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nd6edb9d699dc4568ade30b297cd60d02">
-    <rdf:first rdf:resource="http://ebs-integrator.com/ontology/erp#Salary"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N6dfcc689fe254d8abbfb3f0bd6ba0322">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasEfficiencyRate"/>
-    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
-    <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#Efficiency"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasMonthlyCapacity">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#Company"/>
-    <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#Capacity"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N5eb59671c0fa4ef6ab631bea729869e2">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasMonetaryValue"/>
-    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
-    <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#MonetaryValue"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#managesProject">
-    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#ProjectManager"/>
-    <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#concernsMonth">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-    <rdfs:domain rdf:nodeID="N9450aeab131b4ad9a9dece977dbeed34"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasSeniority">
-    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#playedBy">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#AgentInRole"/>
-    <rdfs:range rdf:resource="http://www.w3.org/ns/person#Person"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N9c88425cd33d4ae8bf6fe32dadbddf8f">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://purl.org/dc/terms/title"/>
+    <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#notation"/>
     <owl:onDataRange rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"/>
-    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2006/time#TemporalEntity">
-    <rdfs:subClassOf rdf:nodeID="N81e55ba0370143c9bbaf82fc89ad4fc2"/>
-    <rdfs:subClassOf rdf:nodeID="N48d85384687c4f118bb48ec979751a80"/>
-    <rdfs:subClassOf rdf:nodeID="N86088cf1a8004b02b6ad8006186206ce"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nf45cd6c1064c4752a020325192d6955f">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:unionOf rdf:nodeID="N30db87bf73e64bcfb4823d6a55459aa7"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#Company">
-    <rdfs:subClassOf rdf:nodeID="N57cdfedccbea472d810fa1ad7156e93d"/>
-    <rdfs:subClassOf rdf:nodeID="N7250e9efbf6549838cc2244701d5aae7"/>
-    <rdfs:subClassOf rdf:nodeID="N394d47fde0e14f1881768bc8e4655a31"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N06c06fb80b3d421289fb1cc878a14e67">
-    <rdf:first rdf:resource="http://ebs-integrator.com/ontology/erp#Stack"/>
-    <rdf:rest rdf:nodeID="Nb5a0ab98014d47cb9c9738b3a6b092c8"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasReplacementPipeline">
-    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
-    <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasAmountValue">
-    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#MonetaryValue"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#forInterval">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#Efficiency"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2006/time#Interval"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nd094a887be9e4091aa67ebe6bc2f5e00">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#concernsEmployee"/>
     <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
-    <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2006/time#unitType">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:domain rdf:resource="http://www.w3.org/2006/time#Duration"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2006/time#TemporalUnit"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N30db87bf73e64bcfb4823d6a55459aa7">
-    <rdf:first rdf:resource="http://ebs-integrator.com/ontology/erp#Salary"/>
-    <rdf:rest rdf:nodeID="N9cd111c161794585a1fd8d7719b3320a"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#relatedToProject">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:domain rdf:resource="http://www.w3.org/2006/time#Interval"/>
-    <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2006/time#numericDuration">
-    <rdfs:domain rdf:resource="http://www.w3.org/2006/time#Duration"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2006/time#inXSDDate">
-    <rdfs:domain rdf:resource="http://www.w3.org/2006/time#Instant"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nb84284938569447b936a0f0dc8aaaea1">
+  <rdf:Description rdf:nodeID="N2c0e7bc391a04e8e9aa250bca351a46c">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.w3.org/2006/time#unitType"/>
-    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
-    <owl:onClass rdf:resource="http://www.w3.org/2006/time#TemporalUnit"/>
+    <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
+    <owl:hasValue rdf:resource="http://publications.europa.eu/resource/authority/currency"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#worksOnStack">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#Team"/>
     <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#Stack"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N24730b983b4a476aa9e35b4bc45c9e44">
+  <rdf:Description rdf:nodeID="N28cbf78b83c64c85b4e45fdb8be1c37c">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasProjectEnd"/>
+    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#playedBy"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
+    <owl:onClass rdf:resource="http://www.w3.org/ns/person#Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2006/time#TemporalEntity">
+    <rdfs:subClassOf rdf:nodeID="Nedbbcc9881b34917911a5ee9ea4e37ba"/>
+    <rdfs:subClassOf rdf:nodeID="Ne705e95c64cc462c80bac6d486dadd0c"/>
+    <rdfs:subClassOf rdf:nodeID="Nc0a8877974564da8823e394d4a670736"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasMonthlyCapacity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#Company"/>
+    <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#Capacity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasProjectEnd">
+    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#memberOf">
+    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
+    <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#Team"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne727127247da46f0826eb0c387e56cb3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.w3.org/ns/adms#identifier"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
+    <owl:onClass rdf:resource="http://www.w3.org/ns/adms#Identifier"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8163257b0556498cb9924bcce715ec98">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#employs"/>
+    <owl:someValuesFrom rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N68380154eab943bb82522c6fe529ce85">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasMonetaryValue"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
+    <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#MonetaryValue"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2006/time#hasBeginning">
+    <rdfs:domain rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N01c4b6eb038a4d429ec5dc7c7b7f63b6">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasTotalPlannedBillableTime"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
+    <owl:onClass rdf:resource="http://www.w3.org/2006/time#Duration"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd3a6a5bc49f84544ae80f321b983155c">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasMonetaryValue"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
+    <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#MonetaryValue"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2b7df58d50ab43d1a55e30a1b6f58562">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasPlannedBillableTime"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
+    <owl:onClass rdf:resource="http://www.w3.org/2006/time#Duration"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasTotalPlannedBillableTime">
+    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2006/time#Duration"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2006/time#inXSDDate">
+    <rdfs:domain rdf:resource="http://www.w3.org/2006/time#Instant"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N31d35b93c7334c76b11f66a25a3cccbb">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#PlansTime"/>
+    <owl:someValuesFrom rdf:resource="http://ebs-integrator.com/ontology/erp#EmployeePlannedTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9cffe71a5baf4c318af5a7308f8a6fb2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="Nac50fac9cd4c4d4faf102705bb427703"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasRecordedNonBillTime">
+    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#forInterval">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#Efficiency"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N86d6b1db322444f6af195b6eb58a730f">
+    <rdf:first rdf:resource="http://www.w3.org/ns/org#Organization"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#Team">
+    <rdfs:subClassOf rdf:nodeID="Na8781a002adf42c58283c7a12f46c911"/>
+    <rdfs:subClassOf rdf:nodeID="N0d02bd41fa4248049961fa709144f10d"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasAmountValue">
+    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#MonetaryValue"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N7f15aca078224024b26a886a951147b7">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="N9ba08414d6f34a23ae418760321748d6"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N90c735b17f4540c5b174cdbfbf1bbc68">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasCommercialRate"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
+    <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#Rate"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc0a8877974564da8823e394d4a670736">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.w3.org/2006/time#hasDuration"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
+    <owl:onClass rdf:resource="http://www.w3.org/2006/time#TemporalDuration"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N93cea966f6b942299a848eeecef5cd04">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasProjectStart"/>
     <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
     <owl:onClass rdf:resource="http://www.w3.org/2006/time#Instant"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Na9c393d6a89145f6a053d0d4354f4c9e">
-    <rdf:first rdf:resource="http://ebs-integrator.com/ontology/erp#AgentInRole"/>
-    <rdf:rest rdf:nodeID="N6458b7911fb0409386625eb3c31ca993"/>
+  <rdf:Description rdf:about="http://www.w3.org/ns/org#Organization">
+    <rdfs:subClassOf rdf:nodeID="N5e7244e9556c423bbef30ae19529c258"/>
+    <rdfs:subClassOf rdf:nodeID="Ne727127247da46f0826eb0c387e56cb3"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#Team">
-    <rdfs:subClassOf rdf:nodeID="N3f1784edd2cb449d833ab1882b752f47"/>
-    <rdfs:subClassOf rdf:nodeID="N9a54bc90a22c409e8b1a0aad165ce003"/>
+  <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/name">
+    <rdfs:domain rdf:resource="http://www.w3.org/ns/person#Person"/>
+    <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Nf9c5029f8d6e461b85b359ff13ce5c2b">
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasCapacity">
+    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2006/time#Duration"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasCommercialRate">
+    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
+    <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#Rate"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nac50fac9cd4c4d4faf102705bb427703">
     <rdf:first rdf:resource="http://ebs-integrator.com/ontology/erp#Company"/>
-    <rdf:rest rdf:nodeID="Nd14c9199c3e14e11aeee4476c398c8fb"/>
+    <rdf:rest rdf:nodeID="N5da2ee3c3b864fdd8721b37461f68722"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#Project">
-    <rdfs:subClassOf rdf:nodeID="Nf1da98aa52234797b3b58fa07df4dc11"/>
-    <rdfs:subClassOf rdf:nodeID="N6dfcc689fe254d8abbfb3f0bd6ba0322"/>
-    <rdfs:subClassOf rdf:nodeID="N0c66a1db5440427e9b273d48e65a0e58"/>
-    <rdfs:subClassOf rdf:nodeID="N24730b983b4a476aa9e35b4bc45c9e44"/>
-    <rdfs:subClassOf rdf:nodeID="N975cba99e5f74e80a83a9eb7fe1b2665"/>
-    <rdfs:subClassOf rdf:nodeID="Nb7d7f59e5068483ea49f1e2994ef9e75"/>
-    <rdfs:subClassOf rdf:nodeID="N2bb7d7a74e4d4a1691dcc9d2cd99613f"/>
+  <rdf:Description rdf:nodeID="N064a7ef2b43d4308a3cc1380e66ff14a">
+    <rdf:first rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#Stack">
+    <rdfs:subClassOf rdf:nodeID="N3953faf66a934fa7985b04821ffbaf36"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#relatedToProject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://www.w3.org/2006/time#Interval"/>
+    <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2c4fd1f5b0f7442a849d3f28749d944b">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.w3.org/2006/time#numericDuration"/>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2006/time#Duration">
+    <rdfs:subClassOf rdf:nodeID="N2c4fd1f5b0f7442a849d3f28749d944b"/>
+    <rdfs:subClassOf rdf:nodeID="Nee4da3504db649c8a5a12654af6cf0e0"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#notation">
     <rdfs:domain rdf:resource="http://www.w3.org/ns/adms#Identifier"/>
     <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/Seniority">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:equivalentClass rdf:nodeID="Nf7774b77d8494456997c99acc7fcb8af"/>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2006/time#Instant">
-    <rdfs:subClassOf rdf:nodeID="N1d5cbc604bb34e5bb2e60332baa7380a"/>
-    <rdfs:subClassOf rdf:nodeID="N800ec056529640398e268e386f5c3b4a"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N5722d66c36614ba1a163a8c411826b0c">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#PlansTime"/>
-    <owl:someValuesFrom rdf:resource="http://ebs-integrator.com/ontology/erp#EmployeePlannedTime"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#AgentInRole">
-    <rdfs:subClassOf rdf:nodeID="N6100f0b6aea247989da9df12473749c9"/>
-    <rdfs:subClassOf rdf:nodeID="N7af4ddaee6834698997235f81671a8db"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N2bb7d7a74e4d4a1691dcc9d2cd99613f">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasTotalPlannedNonBillableTime"/>
-    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
-    <owl:onClass rdf:resource="http://www.w3.org/2006/time#Duration"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N93ae82d99600465a950aa7a88b3582ff">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://xmlns.com/foaf/0.1/name"/>
-    <owl:onDataRange rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"/>
-    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasAssociatedTaskList">
-    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
-    <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#TaskList"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#Rate">
-    <rdfs:subClassOf rdf:nodeID="N5eb59671c0fa4ef6ab631bea729869e2"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N060f7f933a9a44f592fd3716e1a8bb6f">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasMonetaryValue"/>
-    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
-    <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#MonetaryValue"/>
-  </rdf:Description>
   <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasMonetaryValue">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:domain rdf:nodeID="Nf45cd6c1064c4752a020325192d6955f"/>
+    <rdfs:domain rdf:nodeID="Nbae05fcda956468bb561a30463451094"/>
     <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#MonetaryValue"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N52ccaee177ea4a0d999ce1af4c34de78">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
-    <owl:hasValue rdf:resource="http://publications.europa.eu/resource/authority/month"/>
+  <rdf:Description rdf:nodeID="N2312f11a1d974210aa5522617f19bd02">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="Ndeaefbbf66b64499bb2d92085b7175a9"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#MonetaryValue">
-    <rdfs:subClassOf rdf:nodeID="N15353c4f398b40bda32df36d0ba31daa"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasTotalPlannedNonBillableTime">
-    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2006/time#Duration"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N81e55ba0370143c9bbaf82fc89ad4fc2">
+  <rdf:Description rdf:nodeID="Nedbbcc9881b34917911a5ee9ea4e37ba">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
     <owl:onProperty rdf:resource="http://www.w3.org/2006/time#hasEnd"/>
     <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
     <owl:onClass rdf:resource="http://www.w3.org/2006/time#Instant"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/currency">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:equivalentClass rdf:nodeID="N2143adc7ee514d17b5e04c73db8b8e4a"/>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N111ef95bd19d4b27bfaf248b63dd9d48">
-    <rdf:first rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N945c701cab8f448ab368e3cfd7e653d6">
+  <rdf:Description rdf:nodeID="Ndcf54bcb655542feb2fd302d6eab79fa">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasSalary"/>
+    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#leads"/>
     <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
-    <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#Salary"/>
+    <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#Team"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Ndf1632106c1e4527a6e2d99f3fea8a18">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:unionOf rdf:nodeID="Nf9c5029f8d6e461b85b359ff13ce5c2b"/>
+  <rdf:Description rdf:nodeID="N09da74769420471b9476a22d1cbbea9d">
+    <rdf:first rdf:resource="http://ebs-integrator.com/ontology/erp#Capacity"/>
+    <rdf:rest rdf:nodeID="N891047f942e34489bffb7deb984f48ae"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N92dfb964134c4774a4a80596dd0c90c7">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.w3.org/2006/time#numericDuration"/>
-    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
-    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
+  <rdf:Description rdf:nodeID="N5da2ee3c3b864fdd8721b37461f68722">
+    <rdf:first rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
+    <rdf:rest rdf:nodeID="Nca88f451c22a4073b4d7adf6a97a5305"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2006/time#unitType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://www.w3.org/2006/time#Duration"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2006/time#TemporalUnit"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ncd0c72ef45b849ea88c1200af5537329">
+    <rdf:first rdf:resource="http://ebs-integrator.com/ontology/erp#Stack"/>
+    <rdf:rest rdf:nodeID="N064a7ef2b43d4308a3cc1380e66ff14a"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasSeniority">
+    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#worksOnProject">
     <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
     <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2006/time#Duration">
-    <rdfs:subClassOf rdf:nodeID="N92dfb964134c4774a4a80596dd0c90c7"/>
-    <rdfs:subClassOf rdf:nodeID="Nb84284938569447b936a0f0dc8aaaea1"/>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#AgentInRole">
+    <rdfs:subClassOf rdf:nodeID="Nc51ffe8044944b2295a4bcb5eb3a09a1"/>
+    <rdfs:subClassOf rdf:nodeID="N28cbf78b83c64c85b4e45fdb8be1c37c"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N19f6d71a8e4e44689380f3e9a5219bde">
-    <rdf:first rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
-    <rdf:rest rdf:nodeID="N111ef95bd19d4b27bfaf248b63dd9d48"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nf7201ff9423f4743aa80a33a4d87f8cf">
-    <rdf:first rdf:resource="http://ebs-integrator.com/ontology/erp#Team"/>
-    <rdf:rest rdf:nodeID="N06c06fb80b3d421289fb1cc878a14e67"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N0c7ca2880114443591e9c08f5407d357">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#memberOf"/>
-    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
-    <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#Team"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#TeamLead">
-    <rdfs:subClassOf rdf:nodeID="N05ea90cdf2594568b373c15319aeef5d"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nf7774b77d8494456997c99acc7fcb8af">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
-    <owl:hasValue rdf:resource="http://publications.europa.eu/resource/authority/Seniority"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#Salary">
-    <rdfs:subClassOf rdf:nodeID="N060f7f933a9a44f592fd3716e1a8bb6f"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N3cc88183acbd456abf21e91a9eabf940">
-    <rdf:first rdf:resource="http://ebs-integrator.com/ontology/erp#Capacity"/>
-    <rdf:rest rdf:nodeID="Nd6edb9d699dc4568ade30b297cd60d02"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nb713a31513574fd594bcfa5a183873ef">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:unionOf rdf:nodeID="N19f6d71a8e4e44689380f3e9a5219bde"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N9450aeab131b4ad9a9dece977dbeed34">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:unionOf rdf:nodeID="N3cc88183acbd456abf21e91a9eabf940"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#ProjectManager">
-    <rdfs:subClassOf rdf:nodeID="N5722d66c36614ba1a163a8c411826b0c"/>
-    <rdfs:subClassOf rdf:nodeID="Na7ec784a97054536b4cae6d87b9cb147"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/ns/adms#Identifier">
-    <rdfs:subClassOf rdf:nodeID="N0c52a028d0a04ec6ad405a8370db70d0"/>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#managesProject">
+    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#ProjectManager"/>
+    <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#PlansTime">
     <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#ProjectManager"/>
     <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#EmployeePlannedTime"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasEfficiencyRate">
-    <rdfs:domain rdf:nodeID="Ndf1632106c1e4527a6e2d99f3fea8a18"/>
-    <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#Efficiency"/>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#Salary">
+    <rdfs:subClassOf rdf:nodeID="N68380154eab943bb82522c6fe529ce85"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasRecordedNonBillTime">
-    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#Rate">
+    <rdfs:subClassOf rdf:nodeID="Nd3a6a5bc49f84544ae80f321b983155c"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/name">
-    <rdfs:domain rdf:resource="http://www.w3.org/ns/person#Person"/>
-    <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"/>
+  <rdf:Description rdf:nodeID="N1e360cb33a4d4ff7ac913cfe7aa4b863">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#concernsEmployee"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
+    <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2006/time#hasBeginning">
-    <rdfs:domain rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#employs">
+    <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#Company"/>
+    <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#Stack">
-    <rdfs:subClassOf rdf:nodeID="N98144d03f15b4793b80d41548b0d1f5c"/>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#concernsMonth">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:domain rdf:nodeID="N82ac882737424187b4f5ee5b7772fb35"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9ba08414d6f34a23ae418760321748d6">
+    <rdf:first rdf:resource="http://ebs-integrator.com/ontology/erp#AgentInRole"/>
+    <rdf:rest rdf:nodeID="N86d6b1db322444f6af195b6eb58a730f"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb38e38b2ca66402ab4ac0dfc83364f58">
+    <rdf:first rdf:resource="http://ebs-integrator.com/ontology/erp#Salary"/>
+    <rdf:rest rdf:nodeID="N0742f65724f04b34acc580f24ea76e12"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N82ac882737424187b4f5ee5b7772fb35">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="N09da74769420471b9476a22d1cbbea9d"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2006/time#Interval">
+    <rdfs:subClassOf rdf:nodeID="N39b5ead6a1b240a891a882102bc2c78d"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#TeamLead">
+    <rdfs:subClassOf rdf:nodeID="Ndcf54bcb655542feb2fd302d6eab79fa"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/adms#Identifier">
+    <rdfs:subClassOf rdf:nodeID="Nfbdd4c0dd6c3479c90e85b2ce9c38d0f"/>
   </rdf:Description>
 </rdf:RDF>
