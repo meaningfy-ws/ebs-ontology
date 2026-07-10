@@ -35,8 +35,8 @@
     <!-- Ontology base URI, configure as necessary. Do not use a trailing local delimiter
         like in the namespace definition-->
     <!--<xsl:variable name="base-uri" select="'http://publications.europa.eu/ontology/ePO'"/>-->
-    <xsl:variable name="base-ontology-uri" select="'http://ebs.md/ontology/ebs'"/>
-    <xsl:variable name="base-shape-uri" select="'http://ebs.md/ontology/ebs/data-shape'"/>
+    <xsl:variable name="base-ontology-uri" select="'http://ebs-integrator.com/ontology/erp'"/>
+    <xsl:variable name="base-shape-uri" select="'http://ebs-integrator.com/ontology/erp/data-shape'"/>
     <xsl:variable name="base-restriction-uri" select="$base-ontology-uri"/>
     <!--    Shapes Module URI-->
     <xsl:variable name="shapeArtefactURI"

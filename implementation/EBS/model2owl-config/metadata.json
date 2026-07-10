@@ -10,19 +10,18 @@
         "ontologyTitleShapes": "EBS shapes",
         "ontologyTitleFull": "EBS full",
         "ontologyDescriptionCore": "",
-        "ontologyDescriptionRestrictions": "This artefact provides the restrictions and inference-related specifications for the eProcurement Ontology Core.\n        This artefact excludes the definitions of concepts.\n        The eProcurement Ontology describes objects and concepts, with definitions, attributes and relationships which are present within the European public procurement domain.\n        The provision of these concepts provides the basis for a common understanding of the domain for all stakeholders ensuring the quality of data exchange and transparency.",
-        "ontologyDescriptionShapes": "This artefact provides the generic datashape specifications for the eProcurement Ontology Core.\n        The eProcurement Ontology describes objects and concepts, with definitions, attributes and relationships which are present within the European public procurement domain.\n        The provision of these concepts provides the basis for a common understanding of the domain for all stakeholders ensuring the quality of data exchange and transparency.",
-        "ontologyDescriptionFull": "This artefact consolidates both the definitions (OWL core) and the restrictions and inference-related specifications (OWL restrictions) of the eProcurement Ontology Core into a single self-contained ontology.\n        The eProcurement Ontology describes objects and concepts, with definitions, attributes and relationships which are present within the European public procurement domain.\n        The provision of these concepts provides the basis for a common understanding of the domain for all stakeholders ensuring the quality of data exchange and transparency.",
-        "ontologyLabelCore": "This artefact provides the definitions for the eProcurement Ontology Core.\n        This artefact excludes the restrictions.\n        The eProcurement Ontology describes objects and concepts, with definitions, attributes and relationships which are present within the European public procurement domain.\n        The provision of these concepts provides the basis for a common understanding of the domain for all stakeholders ensuring the quality of data exchange and transparency.",
-        "ontologyLabelRestrictions": "This artefact provides the restrictions and inference-related specifications for the eProcurement Ontology Core.\n        This artefact excludes the definitions of concepts.\n        The eProcurement Ontology describes objects and concepts, with definitions, attributes and relationships which are present within the European public procurement domain.\n        The provision of these concepts provides the basis for a common understanding of the domain for all stakeholders ensuring the quality of data exchange and transparency.",
-        "ontologyLabelShapes": "This artefact provides the generic datashape specifications for the eProcurement Ontology Core.\n        The eProcurement Ontology describes objects and concepts, with definitions, attributes and relationships which are present within the European public procurement domain.\n        The provision of these concepts provides the basis for a common understanding of the domain for all stakeholders ensuring the quality of data exchange and transparency.",
-        "ontologyLabelFull": "This artefact consolidates both the definitions (OWL core) and the restrictions and inference-related specifications (OWL restrictions) of the eProcurement Ontology Core into a single self-contained ontology.\n        The eProcurement Ontology describes objects and concepts, with definitions, attributes and relationships which are present within the European public procurement domain.\n        The provision of these concepts provides the basis for a common understanding of the domain for all stakeholders ensuring the quality of data exchange and transparency.",
-        "seeAlsoResources": [],
+        "ontologyDescriptionRestrictions": "",
+        "ontologyDescriptionShapes": "",
+        "ontologyDescriptionFull":"",
+        "ontologyLabelCore": "",
+        "ontologyLabelRestrictions":"ontologyLabelShapes": "",
+        "ontologyLabelFull": "",
+        seeAlsoResources": [],
         "createdDate": "2026-07-09",
         "incompatibleWith": "",
         "versionInfo": "1.0.0",
         "priorVersion": "",
-        "preferredNamespaceUri": "http://ebs.md/ontology/ebs#",
+        "preferredNamespaceUri": "http://ebs-integrator.com/ontology/erp#",
         "preferredNamespacePrefix": "ebs",
         "publisher": "Meaningfy",
         "changelogUrl": "https://github.com/meaningfy-ws/ebs-ontology/releases",
@@ -62,7 +61,7 @@
             "editorDocumentRoot": "."
         },
         "github": "meaningfy-ws/ebs-ontology",
-        "feedbackUrl": "https://github.com/OP-TED/ePO/issues",
+        "feedbackUrl": "",
         "openGithubIssue": {
             "columnLabel": "Feedback",
             "buttonLabel": "Report an issue or share feedback"
@@ -71,7 +70,7 @@
         "navigation": {
             "next": "",
             "prev": "",
-            "self": "https://OP-TED.github.io/ePO/releases/5.0.0/"
+            "self": ""
         },
         "repositoryUrl": "https://github.com/meaningfy-ws/ebs-ontology",
         "status": "Draft",
