@@ -95,7 +95,7 @@
     <xsl:variable name="generateReusedConceptsOWLcore" select="fn:true()"/>
     <xsl:variable name="generateReusedConceptsOWLrestrictions" select="fn:true()"/>
     <xsl:variable name="generateReusedConceptsGlossary" select="fn:true()"/>
-    <xsl:variable name="generateReusedConceptsJSONLDcontext" select="fn:true()"/>
+    <xsl:variable name="generateReusedConceptsJSONLDcontext" select="fn:false()"/>
     <!-- Optional OWL-full artefact: when true, `make owl-full` consolidates the OWL core
          and OWL restrictions artefacts into a single self-contained ontology and drops the
          standalone core/restrictions outputs. Disabled by default. -->
