@@ -1,35 +1,668 @@
-@prefix core-res: <http://ebs.md/ontology/ebs#> .
-@prefix core-shape: <http://ebs.md/ontology/ebs/data-shape#> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix core-shape: <http://ebs-integrator.com/ontology/erp/data-shape#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ebs: <http://ebs-integrator.com/ontology/erp#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix org: <http://www.w3.org/ns/org#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix person: <http://www.w3.org/ns/person#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix time: <http://www.w3.org/2006/time#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+core-shape:adms-IdentifierShape a sh:NodeShape ;
+    rdfs:label "Identifier" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:adms-Identifier-skos-notation ;
+    sh:targetClass adms:Identifier .
+
+core-shape:ebs-AgentInRoleShape a sh:NodeShape ;
+    rdfs:label "Agent In Role" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:ebs-AgentInRole-adms-identifier,
+        core-shape:ebs-AgentInRole-ebs-playedBy ;
+    sh:targetClass ebs:AgentInRole .
+
+core-shape:ebs-CapacityShape a sh:NodeShape ;
+    rdfs:label "Capacity" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:ebs-Capacity-ebs-concernsMonth ;
+    sh:targetClass ebs:Capacity .
+
+core-shape:ebs-CompanyShape a sh:NodeShape ;
+    rdfs:label "Company" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:ebs-Company-ebs-employs,
+        core-shape:ebs-Company-ebs-hasEfficiencyRate,
+        core-shape:ebs-Company-ebs-hasMonthlyCapacity ;
+    sh:targetClass ebs:Company .
+
+core-shape:ebs-EfficiencyShape a sh:NodeShape ;
+    rdfs:label "Efficiency" ;
+    rdfs:comment "Not sure if an efficiency class is needed." ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:ebs-Efficiency-ebs-forInterval ;
+    sh:targetClass ebs:Efficiency .
+
+core-shape:ebs-EmployeePlannedTimeShape a sh:NodeShape ;
+    rdfs:label "Employee Planned Time" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:ebs-EmployeePlannedTime-ebs-concernsEmployee,
+        core-shape:ebs-EmployeePlannedTime-ebs-concernsProject,
+        core-shape:ebs-EmployeePlannedTime-ebs-hasPlannedBillableTime,
+        core-shape:ebs-EmployeePlannedTime-ebs-hasPlannedNonBillableTime ;
+    sh:targetClass ebs:EmployeePlannedTime .
+
+core-shape:ebs-EmployeeShape a sh:NodeShape ;
+    rdfs:label "Employee" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:ebs-Employee-ebs-hasCapacity,
+        core-shape:ebs-Employee-ebs-hasEfficiencyRate,
+        core-shape:ebs-Employee-ebs-hasRecordedBillTime,
+        core-shape:ebs-Employee-ebs-hasRecordedNonBillTime,
+        core-shape:ebs-Employee-ebs-hasReplacementPipeline,
+        core-shape:ebs-Employee-ebs-hasSalary,
+        core-shape:ebs-Employee-ebs-hasSeniority,
+        core-shape:ebs-Employee-ebs-isActive,
+        core-shape:ebs-Employee-ebs-memberOf,
+        core-shape:ebs-Employee-ebs-worksOnProject ;
+    sh:targetClass ebs:Employee .
+
+core-shape:ebs-ExternalProjectShape a sh:NodeShape ;
+    rdfs:label "External Project" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass ebs:ExternalProject .
+
+core-shape:ebs-FixedPriceProjectShape a sh:NodeShape ;
+    rdfs:label "Fixed Price Project" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass ebs:FixedPriceProject .
+
+core-shape:ebs-HolidayProjectShape a sh:NodeShape ;
+    rdfs:label "Holiday Project" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass ebs:HolidayProject .
+
+core-shape:ebs-InternalProjectShape a sh:NodeShape ;
+    rdfs:label "Internal Project" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass ebs:InternalProject .
+
+core-shape:ebs-InvestmentProjectShape a sh:NodeShape ;
+    rdfs:label "Investment Project" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass ebs:InvestmentProject .
+
+core-shape:ebs-MonetaryValueShape a sh:NodeShape ;
+    rdfs:label "Monetary Value" ;
+    rdfs:comment "Equivalent to epo:Monetary value." ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:ebs-MonetaryValue-ebs-hasAmountValue,
+        core-shape:ebs-MonetaryValue-ebs-hasCurrency ;
+    sh:targetClass ebs:MonetaryValue .
+
+core-shape:ebs-OperationsProjectShape a sh:NodeShape ;
+    rdfs:label "Operations Project" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass ebs:OperationsProject .
+
+core-shape:ebs-ProjectManagerShape a sh:NodeShape ;
+    rdfs:label "Project Manager" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:ebs-ProjectManager-ebs-PlansTime,
+        core-shape:ebs-ProjectManager-ebs-managesProject ;
+    sh:targetClass ebs:ProjectManager .
+
+core-shape:ebs-ProjectShape a sh:NodeShape ;
+    rdfs:label "Project" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:ebs-Project-ebs-hasAssociatedTaskList,
+        core-shape:ebs-Project-ebs-hasCommercialRate,
+        core-shape:ebs-Project-ebs-hasEfficiencyRate,
+        core-shape:ebs-Project-ebs-hasProjectEnd,
+        core-shape:ebs-Project-ebs-hasProjectStart,
+        core-shape:ebs-Project-ebs-hasTotalPlannedBillableTime,
+        core-shape:ebs-Project-ebs-hasTotalPlannedNonBillableTime,
+        core-shape:ebs-Project-ebs-isActive ;
+    sh:targetClass ebs:Project .
+
+core-shape:ebs-RateShape a sh:NodeShape ;
+    rdfs:label "Rate" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:ebs-Rate-ebs-hasMonetaryValue ;
+    sh:targetClass ebs:Rate .
+
+core-shape:ebs-RoleShape a sh:NodeShape ;
+    rdfs:label "Role" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass ebs:Role .
+
+core-shape:ebs-SalaryShape a sh:NodeShape ;
+    rdfs:label "Salary" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:ebs-Salary-ebs-concernsMonth,
+        core-shape:ebs-Salary-ebs-hasMonetaryValue ;
+    sh:targetClass ebs:Salary .
+
+core-shape:ebs-StackShape a sh:NodeShape ;
+    rdfs:label "Stack" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:ebs-Stack-ebs-hasEfficiencyRate ;
+    sh:targetClass ebs:Stack .
+
+core-shape:ebs-TandMProjectShape a sh:NodeShape ;
+    rdfs:label "Tand M Project" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass ebs:TandMProject .
+
+core-shape:ebs-TaskListShape a sh:NodeShape ;
+    rdfs:label "Task List" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass ebs:TaskList .
+
+core-shape:ebs-TeamLeadShape a sh:NodeShape ;
+    rdfs:label "Team Lead" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:ebs-TeamLead-ebs-leads ;
+    sh:targetClass ebs:TeamLead .
+
+core-shape:ebs-TeamShape a sh:NodeShape ;
+    rdfs:label "Team" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:ebs-Team-ebs-hasEfficiencyRate,
+        core-shape:ebs-Team-ebs-worksOnStack ;
+    sh:targetClass ebs:Team .
+
+core-shape:org-OrganizationShape a sh:NodeShape ;
+    rdfs:label "Organization" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:org-Organization-adms-identifier,
+        core-shape:org-Organization-dct-title ;
+    sh:targetClass org:Organization .
+
+core-shape:person-PersonShape a sh:NodeShape ;
+    rdfs:label "Person" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:person-Person-foaf-name ;
+    sh:targetClass person:Person .
+
+core-shape:time-DurationShape a sh:NodeShape ;
+    rdfs:label "Duration" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:time-Duration-time-numericDuration,
+        core-shape:time-Duration-time-unitType ;
+    sh:targetClass time:Duration .
+
+core-shape:time-InstantShape a sh:NodeShape ;
+    rdfs:label "Instant" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:time-Instant-time-inXSDDate,
+        core-shape:time-Instant-time-inXSDDateTimeStamp ;
+    sh:targetClass time:Instant .
+
+core-shape:time-IntervalShape a sh:NodeShape ;
+    rdfs:label "Interval" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:time-Interval-ebs-relatedToProject ;
+    sh:targetClass time:Interval .
+
+core-shape:time-TemporalDurationShape a sh:NodeShape ;
+    rdfs:label "Temporal Duration" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass time:TemporalDuration .
+
+core-shape:time-TemporalEntityShape a sh:NodeShape ;
+    rdfs:label "Temporal Entity" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:time-TemporalEntity-time-hasBeginning,
+        core-shape:time-TemporalEntity-time-hasDuration,
+        core-shape:time-TemporalEntity-time-hasEnd ;
+    sh:targetClass time:TemporalEntity .
+
+core-shape:time-TemporalUnitShape a sh:NodeShape ;
+    rdfs:label "Temporal Unit" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass time:TemporalUnit .
+
+core-shape:adms-Identifier-skos-notation a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Notation" ;
+    sh:or ( [ sh:datatype xsd:string ] [ sh:datatype rdf:langString ] ) ;
+    sh:path skos:notation .
+
+core-shape:ebs-AgentInRole-adms-identifier a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class adms:Identifier ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Identifier" ;
+    sh:path adms:identifier ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://www.w3.org/ns/adms#identifier> ?that . ?that <http://www.w3.org/ns/adms#identifier> ?this .}" ] .
+
+core-shape:ebs-AgentInRole-ebs-playedBy a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class person:Person ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Played by" ;
+    sh:path ebs:playedBy ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#playedBy> ?that . ?that <http://ebs-integrator.com/ontology/erp#playedBy> ?this .}" ] .
+
+core-shape:ebs-Capacity-ebs-concernsMonth a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class skos:Concept ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Concerns month" ;
+    sh:path ebs:concernsMonth .
+
+core-shape:ebs-Company-ebs-employs a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class ebs:Employee ;
+    sh:minCount 1 ;
+    sh:name "Employs" ;
+    sh:path ebs:employs ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#employs> ?that . ?that <http://ebs-integrator.com/ontology/erp#employs> ?this .}" ] .
+
+core-shape:ebs-Company-ebs-hasEfficiencyRate a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class ebs:Efficiency ;
+    sh:maxCount 1 ;
+    sh:name "Has efficiency rate" ;
+    sh:path ebs:hasEfficiencyRate ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#hasEfficiencyRate> ?that . ?that <http://ebs-integrator.com/ontology/erp#hasEfficiencyRate> ?this .}" ] .
+
+core-shape:ebs-Company-ebs-hasMonthlyCapacity a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class ebs:Capacity ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has monthly capacity" ;
+    sh:path ebs:hasMonthlyCapacity ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#hasMonthlyCapacity> ?that . ?that <http://ebs-integrator.com/ontology/erp#hasMonthlyCapacity> ?this .}" ] .
+
+core-shape:ebs-Efficiency-ebs-forInterval a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class time:Interval ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "For interval" ;
+    sh:path ebs:forInterval ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#forInterval> ?that . ?that <http://ebs-integrator.com/ontology/erp#forInterval> ?this .}" ] .
+
+core-shape:ebs-Employee-ebs-hasCapacity a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class time:Duration ;
+    sh:maxCount 1 ;
+    sh:name "Has capacity" ;
+    sh:path ebs:hasCapacity ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#hasCapacity> ?that . ?that <http://ebs-integrator.com/ontology/erp#hasCapacity> ?this .}" ] .
+
+core-shape:ebs-Employee-ebs-hasEfficiencyRate a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class ebs:Efficiency ;
+    sh:maxCount 1 ;
+    sh:name "Has efficiency rate" ;
+    sh:path ebs:hasEfficiencyRate ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#hasEfficiencyRate> ?that . ?that <http://ebs-integrator.com/ontology/erp#hasEfficiencyRate> ?this .}" ] .
+
+core-shape:ebs-Employee-ebs-hasRecordedBillTime a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class time:Interval ;
+    sh:name "Has recorded bill time" ;
+    sh:path ebs:hasRecordedBillTime ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#hasRecordedBillTime> ?that . ?that <http://ebs-integrator.com/ontology/erp#hasRecordedBillTime> ?this .}" ] .
+
+core-shape:ebs-Employee-ebs-hasRecordedNonBillTime a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class time:Interval ;
+    sh:name "Has recorded non bill time" ;
+    sh:path ebs:hasRecordedNonBillTime ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#hasRecordedNonBillTime> ?that . ?that <http://ebs-integrator.com/ontology/erp#hasRecordedNonBillTime> ?this .}" ] .
+
+core-shape:ebs-Employee-ebs-hasReplacementPipeline a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class ebs:Project ;
+    sh:name "Has replacement pipeline" ;
+    sh:path ebs:hasReplacementPipeline ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#hasReplacementPipeline> ?that . ?that <http://ebs-integrator.com/ontology/erp#hasReplacementPipeline> ?this .}" ] .
+
+core-shape:ebs-Employee-ebs-hasSalary a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class ebs:Salary ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has salary" ;
+    sh:path ebs:hasSalary ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#hasSalary> ?that . ?that <http://ebs-integrator.com/ontology/erp#hasSalary> ?this .}" ] .
+
+core-shape:ebs-Employee-ebs-hasSeniority a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class skos:Concept ;
+    sh:maxCount 1 ;
+    sh:name "Has seniority" ;
+    sh:path ebs:hasSeniority .
+
+core-shape:ebs-Employee-ebs-isActive a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:boolean ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Is active" ;
+    sh:path ebs:isActive .
+
+core-shape:ebs-Employee-ebs-memberOf a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class ebs:Team ;
+    sh:maxCount 1 ;
+    sh:name "Member of" ;
+    sh:path ebs:memberOf ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#memberOf> ?that . ?that <http://ebs-integrator.com/ontology/erp#memberOf> ?this .}" ] .
+
+core-shape:ebs-Employee-ebs-worksOnProject a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class ebs:Project ;
+    sh:name "Works on project" ;
+    sh:path ebs:worksOnProject ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#worksOnProject> ?that . ?that <http://ebs-integrator.com/ontology/erp#worksOnProject> ?this .}" ] .
+
+core-shape:ebs-EmployeePlannedTime-ebs-concernsEmployee a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class ebs:Employee ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Concerns employee" ;
+    sh:path ebs:concernsEmployee ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#concernsEmployee> ?that . ?that <http://ebs-integrator.com/ontology/erp#concernsEmployee> ?this .}" ] .
+
+core-shape:ebs-EmployeePlannedTime-ebs-concernsProject a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class ebs:Project ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Concerns project" ;
+    sh:path ebs:concernsProject ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#concernsProject> ?that . ?that <http://ebs-integrator.com/ontology/erp#concernsProject> ?this .}" ] .
+
+core-shape:ebs-EmployeePlannedTime-ebs-hasPlannedBillableTime a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class time:Duration ;
+    sh:maxCount 1 ;
+    sh:name "Has planned billable time" ;
+    sh:path ebs:hasPlannedBillableTime ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#hasPlannedBillableTime> ?that . ?that <http://ebs-integrator.com/ontology/erp#hasPlannedBillableTime> ?this .}" ] .
+
+core-shape:ebs-EmployeePlannedTime-ebs-hasPlannedNonBillableTime a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class time:Duration ;
+    sh:maxCount 1 ;
+    sh:name "Has planned non billable time" ;
+    sh:path ebs:hasPlannedNonBillableTime ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#hasPlannedNonBillableTime> ?that . ?that <http://ebs-integrator.com/ontology/erp#hasPlannedNonBillableTime> ?this .}" ] .
+
+core-shape:ebs-MonetaryValue-ebs-hasAmountValue a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:decimal ;
+    sh:description "Equivalent to epo:hasAmountValue" ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has amount value" ;
+    sh:path ebs:hasAmountValue .
+
+core-shape:ebs-MonetaryValue-ebs-hasCurrency a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class skos:Concept ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has currency" ;
+    sh:path ebs:hasCurrency .
+
+core-shape:ebs-Project-ebs-hasAssociatedTaskList a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class ebs:TaskList ;
+    sh:name "Has associated task list" ;
+    sh:path ebs:hasAssociatedTaskList ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#hasAssociatedTaskList> ?that . ?that <http://ebs-integrator.com/ontology/erp#hasAssociatedTaskList> ?this .}" ] .
+
+core-shape:ebs-Project-ebs-hasCommercialRate a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class ebs:Rate ;
+    sh:maxCount 1 ;
+    sh:name "Has commercial rate" ;
+    sh:path ebs:hasCommercialRate ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#hasCommercialRate> ?that . ?that <http://ebs-integrator.com/ontology/erp#hasCommercialRate> ?this .}" ] .
+
+core-shape:ebs-Project-ebs-hasEfficiencyRate a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class ebs:Efficiency ;
+    sh:maxCount 1 ;
+    sh:name "Has efficiency rate" ;
+    sh:path ebs:hasEfficiencyRate ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#hasEfficiencyRate> ?that . ?that <http://ebs-integrator.com/ontology/erp#hasEfficiencyRate> ?this .}" ] .
+
+core-shape:ebs-Project-ebs-hasProjectEnd a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class time:Instant ;
+    sh:maxCount 1 ;
+    sh:name "Has project end" ;
+    sh:path ebs:hasProjectEnd ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#hasProjectEnd> ?that . ?that <http://ebs-integrator.com/ontology/erp#hasProjectEnd> ?this .}" ] .
+
+core-shape:ebs-Project-ebs-hasProjectStart a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class time:Instant ;
+    sh:maxCount 1 ;
+    sh:name "Has project start" ;
+    sh:path ebs:hasProjectStart ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#hasProjectStart> ?that . ?that <http://ebs-integrator.com/ontology/erp#hasProjectStart> ?this .}" ] .
+
+core-shape:ebs-Project-ebs-hasTotalPlannedBillableTime a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class time:Duration ;
+    sh:maxCount 1 ;
+    sh:name "Has total planned billable time" ;
+    sh:path ebs:hasTotalPlannedBillableTime ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#hasTotalPlannedBillableTime> ?that . ?that <http://ebs-integrator.com/ontology/erp#hasTotalPlannedBillableTime> ?this .}" ] .
+
+core-shape:ebs-Project-ebs-hasTotalPlannedNonBillableTime a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class time:Duration ;
+    sh:maxCount 1 ;
+    sh:name "Has total planned non billable time" ;
+    sh:path ebs:hasTotalPlannedNonBillableTime ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#hasTotalPlannedNonBillableTime> ?that . ?that <http://ebs-integrator.com/ontology/erp#hasTotalPlannedNonBillableTime> ?this .}" ] .
+
+core-shape:ebs-Project-ebs-isActive a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:boolean ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Is active" ;
+    sh:path ebs:isActive .
+
+core-shape:ebs-ProjectManager-ebs-PlansTime a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class ebs:EmployeePlannedTime ;
+    sh:minCount 1 ;
+    sh:name "Plans time" ;
+    sh:path ebs:PlansTime ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#PlansTime> ?that . ?that <http://ebs-integrator.com/ontology/erp#PlansTime> ?this .}" ] .
+
+core-shape:ebs-ProjectManager-ebs-managesProject a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class ebs:Project ;
+    sh:minCount 1 ;
+    sh:name "Manages project" ;
+    sh:path ebs:managesProject ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#managesProject> ?that . ?that <http://ebs-integrator.com/ontology/erp#managesProject> ?this .}" ] .
+
+core-shape:ebs-Rate-ebs-hasMonetaryValue a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class ebs:MonetaryValue ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has monetary value" ;
+    sh:path ebs:hasMonetaryValue ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#hasMonetaryValue> ?that . ?that <http://ebs-integrator.com/ontology/erp#hasMonetaryValue> ?this .}" ] .
+
+core-shape:ebs-Salary-ebs-concernsMonth a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class skos:Concept ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Concerns month" ;
+    sh:path ebs:concernsMonth .
+
+core-shape:ebs-Salary-ebs-hasMonetaryValue a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class ebs:MonetaryValue ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has monetary value" ;
+    sh:path ebs:hasMonetaryValue ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#hasMonetaryValue> ?that . ?that <http://ebs-integrator.com/ontology/erp#hasMonetaryValue> ?this .}" ] .
+
+core-shape:ebs-Stack-ebs-hasEfficiencyRate a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class ebs:Efficiency ;
+    sh:maxCount 1 ;
+    sh:name "Has efficiency rate" ;
+    sh:path ebs:hasEfficiencyRate ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#hasEfficiencyRate> ?that . ?that <http://ebs-integrator.com/ontology/erp#hasEfficiencyRate> ?this .}" ] .
+
+core-shape:ebs-Team-ebs-hasEfficiencyRate a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class ebs:Efficiency ;
+    sh:maxCount 1 ;
+    sh:name "Has efficiency rate" ;
+    sh:path ebs:hasEfficiencyRate ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#hasEfficiencyRate> ?that . ?that <http://ebs-integrator.com/ontology/erp#hasEfficiencyRate> ?this .}" ] .
+
+core-shape:ebs-Team-ebs-worksOnStack a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class ebs:Stack ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Works on stack" ;
+    sh:path ebs:worksOnStack ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#worksOnStack> ?that . ?that <http://ebs-integrator.com/ontology/erp#worksOnStack> ?this .}" ] .
+
+core-shape:ebs-TeamLead-ebs-leads a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class ebs:Team ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Leads" ;
+    sh:path ebs:leads ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#leads> ?that . ?that <http://ebs-integrator.com/ontology/erp#leads> ?this .}" ] .
+
+core-shape:org-Organization-adms-identifier a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class adms:Identifier ;
+    sh:maxCount 1 ;
+    sh:name "Identifier" ;
+    sh:path adms:identifier ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://www.w3.org/ns/adms#identifier> ?that . ?that <http://www.w3.org/ns/adms#identifier> ?this .}" ] .
+
+core-shape:org-Organization-dct-title a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:maxCount 1 ;
+    sh:name "Title" ;
+    sh:or ( [ sh:datatype xsd:string ] [ sh:datatype rdf:langString ] ) ;
+    sh:path dcterms:title .
+
+core-shape:person-Person-foaf-name a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:maxCount 1 ;
+    sh:name "Name" ;
+    sh:or ( [ sh:datatype xsd:string ] [ sh:datatype rdf:langString ] ) ;
+    sh:path foaf:name .
+
+core-shape:time-Duration-time-numericDuration a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:decimal ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Numeric duration" ;
+    sh:path time:numericDuration .
+
+core-shape:time-Duration-time-unitType a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class time:TemporalUnit ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Unit type" ;
+    sh:path time:unitType ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://www.w3.org/2006/time#unitType> ?that . ?that <http://www.w3.org/2006/time#unitType> ?this .}" ] .
+
+core-shape:time-Instant-time-inXSDDate a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:date ;
+    sh:maxCount 1 ;
+    sh:name "In XSD date" ;
+    sh:path time:inXSDDate .
+
+core-shape:time-Instant-time-inXSDDateTimeStamp a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:dateTimeStamp ;
+    sh:maxCount 1 ;
+    sh:name "In XSD date time stamp" ;
+    sh:path time:inXSDDateTimeStamp .
+
+core-shape:time-Interval-ebs-relatedToProject a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class ebs:Project ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Related to project" ;
+    sh:path ebs:relatedToProject ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#relatedToProject> ?that . ?that <http://ebs-integrator.com/ontology/erp#relatedToProject> ?this .}" ] .
+
+core-shape:time-TemporalEntity-time-hasBeginning a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class time:Instant ;
+    sh:maxCount 1 ;
+    sh:name "Has beginning" ;
+    sh:path time:hasBeginning ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://www.w3.org/2006/time#hasBeginning> ?that . ?that <http://www.w3.org/2006/time#hasBeginning> ?this .}" ] .
+
+core-shape:time-TemporalEntity-time-hasDuration a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class time:TemporalDuration ;
+    sh:maxCount 1 ;
+    sh:name "Has duration" ;
+    sh:path time:hasDuration ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://www.w3.org/2006/time#hasDuration> ?that . ?that <http://www.w3.org/2006/time#hasDuration> ?this .}" ] .
+
+core-shape:time-TemporalEntity-time-hasEnd a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class time:Instant ;
+    sh:maxCount 1 ;
+    sh:name "Has end" ;
+    sh:path time:hasEnd ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://www.w3.org/2006/time#hasEnd> ?that . ?that <http://www.w3.org/2006/time#hasEnd> ?this .}" ] .
+
 core-shape:core-shape a owl:Ontology ;
-    rdfs:label """This artefact provides the generic datashape specifications for the eProcurement Ontology Core.
-        The eProcurement Ontology describes objects and concepts, with definitions, attributes and relationships which are present within the European public procurement domain.
-        The provision of these concepts provides the basis for a common understanding of the domain for all stakeholders ensuring the quality of data exchange and transparency."""@en ;
     dcterms:created "2026-07-09"^^xsd:date ;
-    dcterms:description """This artefact provides the generic datashape specifications for the eProcurement Ontology Core.
-        The eProcurement Ontology describes objects and concepts, with definitions, attributes and relationships which are present within the European public procurement domain.
-        The provision of these concepts provides the basis for a common understanding of the domain for all stakeholders ensuring the quality of data exchange and transparency."""@en ;
-    dcterms:issued "2026-07-09"^^xsd:date ;
+    dcterms:issued "2026-07-10"^^xsd:date ;
     dcterms:license "CC BY 4.0" ;
     dcterms:publisher "Meaningfy" ;
     dcterms:title "EBS shapes"@en ;
     vann:preferredNamespacePrefix "ebs" ;
-    vann:preferredNamespaceUri "http://ebs.md/ontology/ebs#" ;
-    rdfs:comment "This version is automatically generated from EBS.xml on 2026-07-09" ;
+    vann:preferredNamespaceUri "http://ebs-integrator.com/ontology/erp#" ;
+    rdfs:comment "This version is automatically generated from EBS.xml on 2026-07-10" ;
     owl:imports <http://data.europa.eu/m8g>,
-        core-res:core,
-        core-res:core-restriction,
+        ebs:core,
+        ebs:core-restriction,
         dcterms:,
         skos:,
         <http://www.w3.org/ns/adms> ;
     owl:versionIRI core-shape:core-shape-1.0.0 ;
     owl:versionInfo "1.0.0" .
-
-[] a <file:///home/runner/work/ebs-ontology/ebs-ontology/implementation/EBS/shacl_shapes/p> .
 

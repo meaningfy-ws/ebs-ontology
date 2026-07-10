@@ -1,25 +1,340 @@
-@prefix core-res: <http://ebs.md/ontology/ebs#> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix at-voc: <http://publications.europa.eu/resource/authority/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ebs: <http://ebs-integrator.com/ontology/erp#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix person: <http://www.w3.org/ns/person#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix time: <http://www.w3.org/2006/time#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-core-res:core a owl:Ontology ;
-    rdfs:label """This artefact provides the definitions for the eProcurement Ontology Core.
-        This artefact excludes the restrictions.
-        The eProcurement Ontology describes objects and concepts, with definitions, attributes and relationships which are present within the European public procurement domain.
-        The provision of these concepts provides the basis for a common understanding of the domain for all stakeholders ensuring the quality of data exchange and transparency."""@en ;
+ebs:Capacity a owl:Class ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "Capacity"@en .
+
+ebs:Company a owl:Class ;
+    rdfs:isDefinedBy ebs:core ;
+    rdfs:subClassOf org:Organization ;
+    skos:prefLabel "Company"@en .
+
+ebs:Efficiency a owl:Class ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:definition "Not sure if an efficiency class is needed."@en ;
+    skos:prefLabel "Efficiency"@en .
+
+ebs:EmployeePlannedTime a owl:Class ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "Employee Planned Time"@en .
+
+ebs:FixedPriceProject a owl:Class ;
+    rdfs:isDefinedBy ebs:core ;
+    rdfs:subClassOf ebs:ExternalProject ;
+    skos:prefLabel "Fixed Price Project"@en .
+
+ebs:HolidayProject a owl:Class ;
+    rdfs:isDefinedBy ebs:core ;
+    rdfs:subClassOf ebs:InternalProject ;
+    skos:prefLabel "Holiday Project"@en .
+
+ebs:InvestmentProject a owl:Class ;
+    rdfs:isDefinedBy ebs:core ;
+    rdfs:subClassOf ebs:InternalProject ;
+    skos:prefLabel "Investment Project"@en .
+
+ebs:MonetaryValue a owl:Class ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:definition "Equivalent to epo:Monetary value."@en ;
+    skos:prefLabel "Monetary Value"@en .
+
+ebs:OperationsProject a owl:Class ;
+    rdfs:isDefinedBy ebs:core ;
+    rdfs:subClassOf ebs:InternalProject ;
+    skos:prefLabel "Operations Project"@en .
+
+ebs:PlansTime a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "Plans Time"@en .
+
+ebs:ProjectManager a owl:Class ;
+    rdfs:isDefinedBy ebs:core ;
+    rdfs:subClassOf ebs:Employee ;
+    skos:prefLabel "Project Manager"@en .
+
+ebs:Rate a owl:Class ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "Rate"@en .
+
+ebs:Role a owl:Class ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "Role"@en .
+
+ebs:Salary a owl:Class ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "Salary"@en .
+
+ebs:Stack a owl:Class ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "Stack"@en .
+
+ebs:TandMProject a owl:Class ;
+    rdfs:isDefinedBy ebs:core ;
+    rdfs:subClassOf ebs:ExternalProject ;
+    skos:prefLabel "Tand M Project"@en .
+
+ebs:TaskList a owl:Class ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "Task List"@en .
+
+ebs:Team a owl:Class ;
+    rdfs:isDefinedBy ebs:core ;
+    rdfs:subClassOf org:Organization ;
+    skos:prefLabel "Team"@en .
+
+ebs:TeamLead a owl:Class ;
+    rdfs:isDefinedBy ebs:core ;
+    rdfs:subClassOf ebs:Employee ;
+    skos:prefLabel "Team Lead"@en .
+
+ebs:concernsEmployee a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "concerns Employee"@en .
+
+ebs:concernsMonth a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "concerns Month"@en .
+
+ebs:concernsProject a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "concerns Project"@en .
+
+ebs:employs a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "employs"@en .
+
+ebs:forInterval a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "for Interval"@en .
+
+ebs:hasAmountValue a owl:DatatypeProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:definition "Equivalent to epo:hasAmountValue (ebs:MonetaryValue)"@en ;
+    skos:prefLabel "has Amount Value"@en .
+
+ebs:hasAssociatedTaskList a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "has Associated Task List"@en .
+
+ebs:hasCapacity a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "has Capacity"@en .
+
+ebs:hasCommercialRate a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "has Commercial Rate"@en .
+
+ebs:hasCurrency a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "has Currency"@en .
+
+ebs:hasEfficiencyRate a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "has Efficiency Rate"@en .
+
+ebs:hasMonetaryValue a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "has Monetary Value"@en .
+
+ebs:hasMonthlyCapacity a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "has Monthly Capacity"@en .
+
+ebs:hasPlannedBillableTime a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "has Planned Billable Time"@en .
+
+ebs:hasPlannedNonBillableTime a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "has Planned Non Billable Time"@en .
+
+ebs:hasProjectEnd a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "has Project End"@en .
+
+ebs:hasProjectStart a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "has Project Start"@en .
+
+ebs:hasRecordedBillTime a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "has Recorded Bill Time"@en .
+
+ebs:hasRecordedNonBillTime a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "has Recorded Non Bill Time"@en .
+
+ebs:hasReplacementPipeline a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "has Replacement Pipeline"@en .
+
+ebs:hasSalary a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "has Salary"@en .
+
+ebs:hasSeniority a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "has Seniority"@en .
+
+ebs:hasTotalPlannedBillableTime a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "has Total Planned Billable Time"@en .
+
+ebs:hasTotalPlannedNonBillableTime a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "has Total Planned Non Billable Time"@en .
+
+ebs:isActive a owl:DatatypeProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "is Active"@en .
+
+ebs:leads a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "leads"@en .
+
+ebs:managesProject a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "manages Project"@en .
+
+ebs:memberOf a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "member Of"@en .
+
+ebs:playedBy a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "played By"@en .
+
+ebs:relatedToProject a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "related To Project"@en .
+
+ebs:worksOnProject a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "works On Project"@en .
+
+ebs:worksOnStack a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "works On Stack"@en .
+
+at-voc:Seniority a skos:ConceptScheme ;
+    skos:definition "Possible values: junior, middle, senior"@en ;
+    skos:prefLabel "Seniority"@en .
+
+at-voc:currency a skos:ConceptScheme ;
+    skos:prefLabel "currency"@en .
+
+at-voc:month a skos:ConceptScheme ;
+    skos:prefLabel "month"@en .
+
+dcterms:title a owl:DatatypeProperty ;
+    skos:prefLabel "title"@en .
+
+skos:notation a owl:DatatypeProperty ;
+    skos:prefLabel "notation"@en .
+
+time:Duration a owl:Class ;
+    rdfs:subClassOf time:TemporalDuration ;
+    skos:prefLabel "Duration"@en .
+
+time:Instant a owl:Class ;
+    rdfs:subClassOf time:TemporalEntity ;
+    skos:prefLabel "Instant"@en .
+
+time:Interval a owl:Class ;
+    rdfs:subClassOf time:TemporalEntity ;
+    skos:prefLabel "Interval"@en .
+
+time:TemporalUnit a owl:Class ;
+    rdfs:subClassOf time:TemporalDuration ;
+    skos:prefLabel "Temporal Unit"@en .
+
+time:hasBeginning a owl:ObjectProperty ;
+    skos:prefLabel "has Beginning"@en .
+
+time:hasDuration a owl:ObjectProperty ;
+    skos:prefLabel "has Duration"@en .
+
+time:hasEnd a owl:ObjectProperty ;
+    skos:prefLabel "has End"@en .
+
+time:inXSDDate a owl:DatatypeProperty ;
+    skos:prefLabel "in XSD Date"@en .
+
+time:inXSDDateTimeStamp a owl:DatatypeProperty ;
+    skos:prefLabel "in XSD Date Time Stamp"@en .
+
+time:numericDuration a owl:DatatypeProperty ;
+    skos:prefLabel "numeric Duration"@en .
+
+time:unitType a owl:ObjectProperty ;
+    skos:prefLabel "unit Type"@en .
+
+adms:Identifier a owl:Class ;
+    skos:prefLabel "Identifier"@en .
+
+adms:identifier a owl:ObjectProperty ;
+    skos:prefLabel "identifier"@en .
+
+person:Person a owl:Class ;
+    skos:prefLabel "Person"@en .
+
+foaf:name a owl:DatatypeProperty ;
+    skos:prefLabel "name"@en .
+
+ebs:AgentInRole a owl:Class ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "Agent In Role"@en .
+
+ebs:Employee a owl:Class ;
+    rdfs:isDefinedBy ebs:core ;
+    rdfs:subClassOf ebs:AgentInRole ;
+    skos:prefLabel "Employee"@en .
+
+ebs:ExternalProject a owl:Class ;
+    rdfs:isDefinedBy ebs:core ;
+    rdfs:subClassOf ebs:Project ;
+    skos:prefLabel "External Project"@en .
+
+ebs:Project a owl:Class ;
+    rdfs:isDefinedBy ebs:core ;
+    rdfs:subClassOf org:Organization ;
+    skos:prefLabel "Project"@en .
+
+time:TemporalDuration a owl:Class ;
+    skos:prefLabel "Temporal Duration"@en .
+
+time:TemporalEntity a owl:Class ;
+    skos:prefLabel "Temporal Entity"@en .
+
+ebs:InternalProject a owl:Class ;
+    rdfs:isDefinedBy ebs:core ;
+    rdfs:subClassOf ebs:Project ;
+    skos:prefLabel "Internal Project"@en .
+
+org:Organization a owl:Class ;
+    skos:prefLabel "Organization"@en .
+
+ebs:core a owl:Ontology ;
     dcterms:created "2026-07-09"^^xsd:date ;
-    dcterms:issued "2026-07-09"^^xsd:date ;
+    dcterms:issued "2026-07-10"^^xsd:date ;
     dcterms:license "CC BY 4.0" ;
     dcterms:publisher "Meaningfy" ;
     dcterms:title "EBS core"@en ;
     vann:preferredNamespacePrefix "ebs" ;
-    vann:preferredNamespaceUri "http://ebs.md/ontology/ebs#" ;
-    rdfs:comment "This version is automatically generated from EBS.xml on 2026-07-09" ;
+    vann:preferredNamespaceUri "http://ebs-integrator.com/ontology/erp#" ;
+    rdfs:comment "This version is automatically generated from EBS.xml on 2026-07-10" ;
     owl:imports <http://data.europa.eu/m8g>,
         dcterms:,
         skos:,
@@ -27,8 +342,6 @@ core-res:core a owl:Ontology ;
         <http://www.w3.org/ns/adms>,
         org:,
         <http://www.w3.org/ns/person> ;
-    owl:versionIRI core-res:core-1.0.0 ;
+    owl:versionIRI ebs:core-1.0.0 ;
     owl:versionInfo "1.0.0" .
-
-[] a <file:///home/runner/work/ebs-ontology/ebs-ontology/implementation/EBS/owl_ontology/p> .
 

@@ -4,9 +4,97 @@
    xmlns:owl="http://www.w3.org/2002/07/owl#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
    xmlns:vann="http://purl.org/vocab/vann/"
 >
-  <rdf:Description rdf:about="http://ebs.md/ontology/ebs#core">
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#TeamLead">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Team Lead</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+    <rdfs:subClassOf rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/adms#Identifier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Identifier</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2006/time#hasEnd">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">has End</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#relatedToProject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">related To Project</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#concernsProject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">concerns Project</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#ExternalProject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">External Project</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+    <rdfs:subClassOf rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasPlannedBillableTime">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">has Planned Billable Time</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2006/time#hasDuration">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">has Duration</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#Company">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Company</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/org#Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#MonetaryValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Monetary Value</skos:prefLabel>
+    <skos:definition xml:lang="en">Equivalent to epo:Monetary value.</skos:definition>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#isActive">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <skos:prefLabel xml:lang="en">is Active</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#playedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">played By</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasCapacity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">has Capacity</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2006/time#Interval">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Interval</skos:prefLabel>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasCommercialRate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">has Commercial Rate</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2006/time#TemporalUnit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Temporal Unit</skos:prefLabel>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2006/time#TemporalDuration"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasAmountValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <skos:prefLabel xml:lang="en">has Amount Value</skos:prefLabel>
+    <skos:definition xml:lang="en">Equivalent to epo:hasAmountValue (ebs:MonetaryValue)</skos:definition>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#core">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
     <owl:imports rdf:resource="http://purl.org/dc/terms/"/>
     <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core#"/>
@@ -16,21 +104,320 @@
     <owl:imports rdf:resource="http://www.w3.org/2006/time"/>
     <owl:imports rdf:resource="http://www.w3.org/ns/person"/>
     <dcterms:title xml:lang="en">EBS core</dcterms:title>
-    <rdfs:label xml:lang="en">This artefact provides the definitions for the eProcurement Ontology Core.
-        This artefact excludes the restrictions.
-        The eProcurement Ontology describes objects and concepts, with definitions, attributes and relationships which are present within the European public procurement domain.
-        The provision of these concepts provides the basis for a common understanding of the domain for all stakeholders ensuring the quality of data exchange and transparency.</rdfs:label>
     <dcterms:publisher>Meaningfy</dcterms:publisher>
-    <rdfs:comment>This version is automatically generated from EBS.xml on 2026-07-09</rdfs:comment>
-    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-07-09</dcterms:issued>
+    <rdfs:comment>This version is automatically generated from EBS.xml on 2026-07-10</rdfs:comment>
+    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-07-10</dcterms:issued>
     <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-07-09</dcterms:created>
     <owl:versionInfo>1.0.0</owl:versionInfo>
-    <owl:versionIRI rdf:resource="http://ebs.md/ontology/ebs#core-1.0.0"/>
-    <vann:preferredNamespaceUri>http://ebs.md/ontology/ebs#</vann:preferredNamespaceUri>
+    <owl:versionIRI rdf:resource="http://ebs-integrator.com/ontology/erp#core-1.0.0"/>
+    <vann:preferredNamespaceUri>http://ebs-integrator.com/ontology/erp#</vann:preferredNamespaceUri>
     <vann:preferredNamespacePrefix>ebs</vann:preferredNamespacePrefix>
     <dcterms:license>CC BY 4.0</dcterms:license>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N9a19e49efd77466ba7f45cff57d8ad5e">
-    <rdf:type rdf:resource="file:///home/runner/work/ebs-ontology/ebs-ontology/implementation/EBS/owl_ontology/p"/>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#Role">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Role</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasCurrency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">has Currency</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2006/time#Duration">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Duration</skos:prefLabel>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2006/time#TemporalDuration"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#managesProject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">manages Project</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#TandMProject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Tand M Project</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+    <rdfs:subClassOf rdf:resource="http://ebs-integrator.com/ontology/erp#ExternalProject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasEfficiencyRate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">has Efficiency Rate</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/adms#identifier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">identifier</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasReplacementPipeline">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">has Replacement Pipeline</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#notation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <skos:prefLabel xml:lang="en">notation</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/person#Person">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Person</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasRecordedBillTime">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">has Recorded Bill Time</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2006/time#TemporalDuration">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Temporal Duration</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#leads">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">leads</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#InvestmentProject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Investment Project</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+    <rdfs:subClassOf rdf:resource="http://ebs-integrator.com/ontology/erp#InternalProject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasAssociatedTaskList">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">has Associated Task List</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/currency">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <skos:prefLabel xml:lang="en">currency</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasSeniority">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">has Seniority</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#EmployeePlannedTime">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Employee Planned Time</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#TaskList">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Task List</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#Project">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Project</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/org#Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#Employee">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Employee</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+    <rdfs:subClassOf rdf:resource="http://ebs-integrator.com/ontology/erp#AgentInRole"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasMonetaryValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">has Monetary Value</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#FixedPriceProject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Fixed Price Project</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+    <rdfs:subClassOf rdf:resource="http://ebs-integrator.com/ontology/erp#ExternalProject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#worksOnProject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">works On Project</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/month">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <skos:prefLabel xml:lang="en">month</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasProjectStart">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">has Project Start</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#ProjectManager">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Project Manager</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+    <rdfs:subClassOf rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2006/time#inXSDDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <skos:prefLabel xml:lang="en">in XSD Date</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#HolidayProject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Holiday Project</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+    <rdfs:subClassOf rdf:resource="http://ebs-integrator.com/ontology/erp#InternalProject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/Seniority">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <skos:prefLabel xml:lang="en">Seniority</skos:prefLabel>
+    <skos:definition xml:lang="en">Possible values: junior, middle, senior</skos:definition>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#OperationsProject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Operations Project</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+    <rdfs:subClassOf rdf:resource="http://ebs-integrator.com/ontology/erp#InternalProject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasTotalPlannedBillableTime">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">has Total Planned Billable Time</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#AgentInRole">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Agent In Role</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/name">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <skos:prefLabel xml:lang="en">name</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#Capacity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Capacity</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasPlannedNonBillableTime">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">has Planned Non Billable Time</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasSalary">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">has Salary</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/title">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <skos:prefLabel xml:lang="en">title</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2006/time#unitType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">unit Type</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2006/time#Instant">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Instant</skos:prefLabel>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#memberOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">member Of</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasRecordedNonBillTime">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">has Recorded Non Bill Time</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#concernsMonth">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">concerns Month</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/org#Organization">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Organization</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#employs">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">employs</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2006/time#numericDuration">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <skos:prefLabel xml:lang="en">numeric Duration</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasTotalPlannedNonBillableTime">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">has Total Planned Non Billable Time</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#Efficiency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Efficiency</skos:prefLabel>
+    <skos:definition xml:lang="en">Not sure if an efficiency class is needed.</skos:definition>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#worksOnStack">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">works On Stack</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2006/time#inXSDDateTimeStamp">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <skos:prefLabel xml:lang="en">in XSD Date Time Stamp</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasMonthlyCapacity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">has Monthly Capacity</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasProjectEnd">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">has Project End</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#Salary">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Salary</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#Team">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Team</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/org#Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#InternalProject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Internal Project</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+    <rdfs:subClassOf rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#Rate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Rate</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#forInterval">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">for Interval</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2006/time#hasBeginning">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">has Beginning</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#PlansTime">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">Plans Time</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#Stack">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Stack</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#concernsEmployee">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <skos:prefLabel xml:lang="en">concerns Employee</skos:prefLabel>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2006/time#TemporalEntity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:prefLabel xml:lang="en">Temporal Entity</skos:prefLabel>
   </rdf:Description>
 </rdf:RDF>

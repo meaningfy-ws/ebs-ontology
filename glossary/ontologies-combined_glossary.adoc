@@ -1,0 +1,578 @@
+
+
+
+
+= Glossary
+
+== Class names and definitions
+
+[options="header"]
+|===
+| Class name | Definition
+
+      
+| ebs:AgentInRole | 
+      
+    
+      
+| ebs:Capacity | 
+      
+    
+      
+| ebs:Company | 
+      
+    
+      
+| time:Duration | 
+      
+    
+      
+| ebs:Efficiency | Not sure if an efficiency class is needed.
+      
+    
+      
+| ebs:Employee | 
+      
+    
+      
+| ebs:EmployeePlannedTime | 
+      
+    
+      
+| ebs:ExternalProject | 
+      
+    
+      
+| ebs:FixedPriceProject | 
+      
+    
+      
+| ebs:HolidayProject | 
+      
+    
+      
+| adms:Identifier | 
+      
+    
+      
+| time:Instant | 
+      
+    
+      
+| ebs:InternalProject | 
+      
+    
+      
+| time:Interval | 
+      
+    
+      
+| ebs:InvestmentProject | 
+      
+    
+      
+| ebs:MonetaryValue | Equivalent to epo:Monetary value.
+      
+    
+      
+| ebs:OperationsProject | 
+      
+    
+      
+| org:Organization | 
+      
+    
+      
+| person:Person | 
+      
+    
+      
+| ebs:Project | 
+      
+    
+      
+| ebs:ProjectManager | 
+      
+    
+      
+| ebs:Rate | 
+      
+    
+      
+| ebs:Role | 
+      
+    
+      
+| ebs:Salary | 
+      
+    
+      
+| ebs:Stack | 
+      
+    
+      
+| ebs:TandMProject | 
+      
+    
+      
+| ebs:TaskList | 
+      
+    
+      
+| ebs:Team | 
+      
+    
+      
+| ebs:TeamLead | 
+      
+    
+      
+| time:TemporalDuration | 
+      
+    
+      
+| time:TemporalEntity | 
+      
+    
+      
+| time:TemporalUnit | 
+      
+    
+|===
+
+== Attributes (datatype properties) names and definitions
+
+[cols="20%,20%,40%,20%", options="header"]
+|===
+| Class name | Attribute name | Definition | Data type / cardinality
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+| time:Duration
+| time:numericDuration| 
+  |xsd:decimal [1..1]
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+| ebs:Employee + 
+ebs:Project
+| ebs:isActive| 
+  |xsd:boolean [1..1] +
+  xsd:boolean [1..1]
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+| adms:Identifier
+| skos:notation| 
+  |rdf:PlainLiteral [1..1]
+  
+  
+  
+| time:Instant
+| time:inXSDDate| 
+  |xsd:date [0..1]
+  
+  
+  
+| time:Instant
+| time:inXSDDateTimeStamp| 
+  |xsd:dateTimeStamp [0..1]
+  
+  
+  
+  
+  
+| ebs:MonetaryValue
+| ebs:hasAmountValue| 
+  Equivalent to epo:hasAmountValue|xsd:decimal [1..1]
+  
+  
+  
+  
+  
+| org:Organization
+| dct:title| 
+  |rdf:PlainLiteral [0..1]
+  
+  
+  
+| person:Person
+| foaf:name| 
+  |rdf:PlainLiteral [0..1]
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+|===
+
+== Predicates (object properties) and definitions
+
+[cols="20%,50%,30%", options="header"]
+|===
+| Predicate name | Definition | Domain, Range and Cardinality
+
+
+  
+  
+| adms:identifier| 
+  |ebs:AgentInRole → adms:Identifier [1] +
+org:Organization → adms:Identifier [0..1]
+
+  
+
+  
+  
+| ebs:playedBy| 
+  |ebs:AgentInRole → person:Person [1]
+
+  
+
+  
+  
+| ebs:concernsMonth| 
+  |ebs:Capacity → at-voc:month [1] +
+ebs:Salary → at-voc:month [1]
+
+  
+
+  
+  
+| ebs:employs| 
+  |ebs:Company → ebs:Employee [1..&#42;]
+
+  
+
+  
+  
+| ebs:hasEfficiencyRate| 
+  |ebs:Company → ebs:Efficiency [0..1] +
+ebs:Employee → ebs:Efficiency [0..1] +
+ebs:Project → ebs:Efficiency [0..1] +
+ebs:Stack → ebs:Efficiency [0..1] +
+ebs:Team → ebs:Efficiency [0..1]
+
+  
+
+  
+  
+| ebs:hasMonthlyCapacity| 
+  |ebs:Company → ebs:Capacity [1]
+
+  
+
+  
+  
+  
+
+  
+  
+| time:unitType| 
+  |time:Duration → time:TemporalUnit [1]
+
+  
+
+  
+  
+| ebs:forInterval| 
+  |ebs:Efficiency → time:Interval [1]
+
+  
+
+  
+  
+| ebs:hasCapacity| 
+  |ebs:Employee → time:Duration [0..1]
+
+  
+
+  
+  
+| ebs:hasRecordedBillTime| 
+  |ebs:Employee → time:Interval [0..&#42;]
+
+  
+
+  
+  
+| ebs:hasRecordedNonBillTime| 
+  |ebs:Employee → time:Interval [0..&#42;]
+
+  
+
+  
+  
+| ebs:hasReplacementPipeline| 
+  |ebs:Employee → ebs:Project [0..&#42;]
+
+  
+
+  
+  
+| ebs:hasSalary| 
+  |ebs:Employee → ebs:Salary [1]
+
+  
+
+  
+  
+| ebs:hasSeniority| 
+  |ebs:Employee → at-voc:Seniority [0..1]
+
+  
+
+  
+  
+  
+
+  
+  
+| ebs:memberOf| 
+  |ebs:Employee → ebs:Team [0..1]
+
+  
+
+  
+  
+| ebs:worksOnProject| 
+  |ebs:Employee → ebs:Project [0..&#42;]
+
+  
+
+  
+  
+| ebs:concernsEmployee| 
+  |ebs:EmployeePlannedTime → ebs:Employee [1]
+
+  
+
+  
+  
+| ebs:concernsProject| 
+  |ebs:EmployeePlannedTime → ebs:Project [1]
+
+  
+
+  
+  
+| ebs:hasPlannedBillableTime| 
+  |ebs:EmployeePlannedTime → time:Duration [0..1]
+
+  
+
+  
+  
+| ebs:hasPlannedNonBillableTime| 
+  |ebs:EmployeePlannedTime → time:Duration [0..1]
+
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+| ebs:relatedToProject| 
+  |time:Interval → ebs:Project [1]
+
+  
+
+  
+  
+  
+
+  
+  
+| ebs:hasCurrency| 
+  |ebs:MonetaryValue → at-voc:currency [1]
+
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+| ebs:hasAssociatedTaskList| 
+  |ebs:Project → ebs:TaskList [0..&#42;]
+
+  
+
+  
+  
+| ebs:hasCommercialRate| 
+  |ebs:Project → ebs:Rate [0..1]
+
+  
+
+  
+  
+| ebs:hasProjectEnd| 
+  |ebs:Project → time:Instant [0..1]
+
+  
+
+  
+  
+| ebs:hasProjectStart| 
+  |ebs:Project → time:Instant [0..1]
+
+  
+
+  
+  
+| ebs:hasTotalPlannedBillableTime| 
+  |ebs:Project → time:Duration [0..1]
+
+  
+
+  
+  
+| ebs:hasTotalPlannedNonBillableTime| 
+  |ebs:Project → time:Duration [0..1]
+
+  
+
+  
+  
+| ebs:managesProject| 
+  |ebs:ProjectManager → ebs:Project [1..&#42;]
+
+  
+
+  
+  
+| ebs:PlansTime| 
+  |ebs:ProjectManager → ebs:EmployeePlannedTime [1..&#42;]
+
+  
+
+  
+  
+| ebs:hasMonetaryValue| 
+  |ebs:Rate → ebs:MonetaryValue [1] +
+ebs:Salary → ebs:MonetaryValue [1]
+
+  
+
+  
+  
+| ebs:worksOnStack| 
+  |ebs:Team → ebs:Stack [1]
+
+  
+
+  
+  
+| ebs:leads| 
+  |ebs:TeamLead → ebs:Team [1]
+
+  
+
+  
+  
+| time:hasBeginning| 
+  |time:TemporalEntity → time:Instant [0..1]
+
+  
+
+  
+  
+| time:hasDuration| 
+  |time:TemporalEntity → time:TemporalDuration [0..1]
+
+  
+
+  
+  
+| time:hasEnd| 
+  |time:TemporalEntity → time:Instant [0..1]
+
+  
+
+
+|===
+
+
+This document is generated automatically by the link:https://github.com/OP-TED/model2owl[model2owl tool] developed in the context of link:https://interoperable-europe.ec.europa.eu/collection/eprocurement/solution/eprocurement-ontology[the eProcurement Ontology initiative].
