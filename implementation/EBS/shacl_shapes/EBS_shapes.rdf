@@ -7,66 +7,70 @@
    xmlns:sh="http://www.w3.org/ns/shacl#"
    xmlns:vann="http://purl.org/vocab/vann/"
 >
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-ProjectManagerShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#ProjectManager"/>
-    <rdfs:label>Project Manager</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-ProjectManager-ebs-PlansTime"/>
-    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-ProjectManager-ebs-managesProject"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Employee-ebs-hasRecordedBillTime">
-    <sh:class rdf:resource="http://www.w3.org/2006/time#Interval"/>
-    <sh:sparql rdf:nodeID="N6dc262119f414a03b959e0d974ce58a9"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasRecordedBillTime"/>
-    <sh:name>Has recorded bill time</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#time-TemporalEntity-time-hasDuration">
-    <sh:class rdf:resource="http://www.w3.org/2006/time#TemporalDuration"/>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#time-TemporalEntity-time-hasEnd">
+    <sh:class rdf:resource="http://www.w3.org/2006/time#Instant"/>
     <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-    <sh:sparql rdf:nodeID="Nddfdba77bd4f4cb0b8b6f8b36ffa611b"/>
+    <sh:sparql rdf:nodeID="N549face6223c4d72ac308b3ca53b6c2e"/>
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://www.w3.org/2006/time#hasDuration"/>
-    <sh:name>Has duration</sh:name>
+    <sh:path rdf:resource="http://www.w3.org/2006/time#hasEnd"/>
+    <sh:name>Has end</sh:name>
     <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#time-TemporalEntityShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
-    <rdfs:label>Temporal Entity</rdfs:label>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Employee-ebs-hasSeniority">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasSeniority"/>
+    <sh:class rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+    <sh:name>Has seniority</sh:name>
     <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#time-TemporalEntity-time-hasEnd"/>
-    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#time-TemporalEntity-time-hasBeginning"/>
-    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#time-TemporalEntity-time-hasDuration"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-ProjectManager-ebs-PlansTime">
-    <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#EmployeePlannedTime"/>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-EmployeePlannedTime-ebs-concernsEmployee">
+    <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
     <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:sparql rdf:nodeID="N859145e833864872a31996e3a34b63dd"/>
+    <sh:sparql rdf:nodeID="N8714315610bf4adca09eea5602090c75"/>
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#PlansTime"/>
-    <sh:name>Plans time</sh:name>
+    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#concernsEmployee"/>
+    <sh:name>Concerns employee</sh:name>
     <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Stack-ebs-hasEfficiencyRate">
     <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#Efficiency"/>
     <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-    <sh:sparql rdf:nodeID="N52deed90155e4096a9d86565246455f2"/>
+    <sh:sparql rdf:nodeID="Nd3d377ebe04744c4942d0868a050c9bf"/>
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
     <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasEfficiencyRate"/>
     <sh:name>Has efficiency rate</sh:name>
     <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#time-Duration-time-numericDuration">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://www.w3.org/2006/time#numericDuration"/>
-    <sh:name>Numeric duration</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
-    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Employee-ebs-hasSalary">
+    <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#Salary"/>
     <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:sparql rdf:nodeID="N5774405325ed49ba85d4642c21cc43c2"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasSalary"/>
+    <sh:name>Has salary</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Project-ebs-hasProjectStart">
+    <sh:class rdf:resource="http://www.w3.org/2006/time#Instant"/>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+    <sh:sparql rdf:nodeID="N2985dadf5a164e96a509ef86a79163b4"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasProjectStart"/>
+    <sh:name>Has project start</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Efficiency-ebs-forInterval">
+    <sh:class rdf:resource="http://www.w3.org/2006/time#Interval"/>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:sparql rdf:nodeID="Nf7657af0ab664b33ad18816f226490e4"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#forInterval"/>
+    <sh:name>For interval</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#core-shape">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
@@ -87,194 +91,362 @@
     <vann:preferredNamespacePrefix>ebs</vann:preferredNamespacePrefix>
     <dcterms:license>CC BY 4.0</dcterms:license>
   </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Team-ebs-hasEfficiencyRate">
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-TeamShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#Team"/>
+    <rdfs:label>Team</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Team-ebs-hasEfficiencyRate"/>
+    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Team-ebs-worksOnStack"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Project-ebs-hasCommercialRate">
+    <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#Rate"/>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+    <sh:sparql rdf:nodeID="N9a653c8849954533a5e2bb6d2107f939"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasCommercialRate"/>
+    <sh:name>Has commercial rate</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#time-DurationShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://www.w3.org/2006/time#Duration"/>
+    <rdfs:label>Duration</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#time-Duration-time-numericDuration"/>
+    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#time-Duration-time-unitType"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-CompanyShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#Company"/>
+    <rdfs:label>Company</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Company-ebs-hasMonthlyCapacity"/>
+    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Company-ebs-hasEfficiencyRate"/>
+    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Company-ebs-employs"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Employee-ebs-hasEfficiencyRate">
     <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#Efficiency"/>
     <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-    <sh:sparql rdf:nodeID="N65029fe1ecf6408ab0be9af1b804e7f6"/>
+    <sh:sparql rdf:nodeID="Nd17520264ec54ea686bfaece0d7176a5"/>
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
     <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasEfficiencyRate"/>
     <sh:name>Has efficiency rate</sh:name>
     <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#time-Instant-time-inXSDDate">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://www.w3.org/2006/time#inXSDDate"/>
-    <sh:name>In XSD date</sh:name>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-SalaryShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#Salary"/>
+    <rdfs:label>Salary</rdfs:label>
     <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Salary-ebs-hasMonetaryValue"/>
+    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Salary-ebs-concernsMonth"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Employee-ebs-isActive">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#isActive"/>
+    <sh:name>Is active</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
     <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
   </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-EmployeePlannedTime-ebs-hasPlannedBillableTime">
-    <sh:class rdf:resource="http://www.w3.org/2006/time#Duration"/>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Company-ebs-hasMonthlyCapacity">
+    <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#Capacity"/>
     <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-    <sh:sparql rdf:nodeID="Ncafb7eb6423a43378baf65e51a694abf"/>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:sparql rdf:nodeID="N0cc2fdabccd6406ca83d0c8836289672"/>
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasPlannedBillableTime"/>
-    <sh:name>Has planned billable time</sh:name>
+    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasMonthlyCapacity"/>
+    <sh:name>Has monthly capacity</sh:name>
     <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Project-ebs-hasEfficiencyRate">
+    <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#Efficiency"/>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+    <sh:sparql rdf:nodeID="N2a24c1c5576545b183e8153c1dea0553"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasEfficiencyRate"/>
+    <sh:name>Has efficiency rate</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#adms-Identifier-skos-notation">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://www.w3.org/2004/02/skos/core#notation"/>
+    <sh:name>Notation</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+    <sh:or rdf:nodeID="Nff82e04d2436412ab5746397c1ef8873"/>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
   </rdf:Description>
   <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#time-Interval-ebs-relatedToProject">
     <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
     <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
     <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:sparql rdf:nodeID="N916594ffa01b4f00926c060e8754687f"/>
+    <sh:sparql rdf:nodeID="N2eb79df09efb4bdfb0fa8111b25a77cf"/>
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
     <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#relatedToProject"/>
     <sh:name>Related to project</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-MonetaryValue-ebs-hasAmountValue">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasAmountValue"/>
+    <sh:name>Has amount value</sh:name>
+    <sh:description>Equivalent to epo:hasAmountValue</sh:description>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#time-Duration-time-unitType">
+    <sh:class rdf:resource="http://www.w3.org/2006/time#TemporalUnit"/>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:sparql rdf:nodeID="Nb81044af79064d6db235b11b3dcd64c8"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://www.w3.org/2006/time#unitType"/>
+    <sh:name>Unit type</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-InvestmentProjectShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#InvestmentProject"/>
+    <rdfs:label>Investment Project</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Employee-ebs-hasReplacementPipeline">
+    <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
+    <sh:sparql rdf:nodeID="Nb2cc43bbccb44a1790c23a9b9f80ff20"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasReplacementPipeline"/>
+    <sh:name>Has replacement pipeline</sh:name>
     <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Rate-ebs-hasMonetaryValue">
     <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#MonetaryValue"/>
     <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
     <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:sparql rdf:nodeID="N109ab55d36c9498f948a63589fa98b19"/>
+    <sh:sparql rdf:nodeID="N8433502f29624ec580fe6c689a8aaf5c"/>
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
     <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasMonetaryValue"/>
     <sh:name>Has monetary value</sh:name>
     <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-ProjectShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
-    <rdfs:label>Project</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Project-ebs-isActive"/>
-    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Project-ebs-hasEfficiencyRate"/>
-    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Project-ebs-hasProjectStart"/>
-    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Project-ebs-hasProjectEnd"/>
-    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Project-ebs-hasCommercialRate"/>
-    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Project-ebs-hasAssociatedTaskList"/>
-    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Project-ebs-hasTotalPlannedBillableTime"/>
-    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Project-ebs-hasTotalPlannedNonBillableTime"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-AgentInRole-adms-identifier">
-    <sh:class rdf:resource="http://www.w3.org/ns/adms#Identifier"/>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Employee-ebs-memberOf">
+    <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#Team"/>
     <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:sparql rdf:nodeID="N23cfb00f2b8b45b598902cb0b2715e72"/>
+    <sh:sparql rdf:nodeID="N3fbe645f4ade49dda789ffd77cb06e15"/>
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://www.w3.org/ns/adms#identifier"/>
-    <sh:name>Identifier</sh:name>
+    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#memberOf"/>
+    <sh:name>Member of</sh:name>
     <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Project-ebs-hasProjectStart">
-    <sh:class rdf:resource="http://www.w3.org/2006/time#Instant"/>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-    <sh:sparql rdf:nodeID="Nfb34ede0396b4027a352a4eb9518e34d"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasProjectStart"/>
-    <sh:name>Has project start</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-MonetaryValueShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#MonetaryValue"/>
-    <rdfs:label>Monetary Value</rdfs:label>
-    <rdfs:comment>Equivalent to epo:Monetary value.</rdfs:comment>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-MonetaryValue-ebs-hasAmountValue"/>
-    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-MonetaryValue-ebs-hasCurrency"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nb06645e77901412daa56a5252599acef">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#worksOnStack&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#worksOnStack&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Employee-ebs-hasReplacementPipeline">
-    <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
-    <sh:sparql rdf:nodeID="N79c30b32d07a405e8d84b15cf9933783"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasReplacementPipeline"/>
-    <sh:name>Has replacement pipeline</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-AgentInRoleShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#AgentInRole"/>
-    <rdfs:label>Agent In Role</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-AgentInRole-adms-identifier"/>
-    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-AgentInRole-ebs-playedBy"/>
+  <rdf:Description rdf:nodeID="Na5bc42eceada45cab12ae4ee9ecf03c6">
+    <rdf:first rdf:nodeID="Nc2387d64674c465fbb176aabf0bd8d36"/>
+    <rdf:rest rdf:nodeID="Ncb88b7218de649258854131f445012ee"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Salary-ebs-hasMonetaryValue">
     <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#MonetaryValue"/>
     <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
     <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:sparql rdf:nodeID="N7e927a1b19aa4237bda953dadd354908"/>
+    <sh:sparql rdf:nodeID="N3888b641c16a49d6aa4f7d04ecb0a2a8"/>
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
     <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasMonetaryValue"/>
     <sh:name>Has monetary value</sh:name>
     <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-StackShape">
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-FixedPriceProjectShape">
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#Stack"/>
-    <rdfs:label>Stack</rdfs:label>
+    <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#FixedPriceProject"/>
+    <rdfs:label>Fixed Price Project</rdfs:label>
     <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Stack-ebs-hasEfficiencyRate"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Efficiency-ebs-forInterval">
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-EmployeePlannedTime-ebs-hasPlannedNonBillableTime">
+    <sh:class rdf:resource="http://www.w3.org/2006/time#Duration"/>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+    <sh:sparql rdf:nodeID="N5eaf8c4b4d334e43af13444980802423"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasPlannedNonBillableTime"/>
+    <sh:name>Has planned non billable time</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-ProjectManagerShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#ProjectManager"/>
+    <rdfs:label>Project Manager</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-ProjectManager-ebs-PlansTime"/>
+    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-ProjectManager-ebs-managesProject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Employee-ebs-hasRecordedBillTime">
     <sh:class rdf:resource="http://www.w3.org/2006/time#Interval"/>
+    <sh:sparql rdf:nodeID="N179b2fe299354ca381116bf7338b2a86"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasRecordedBillTime"/>
+    <sh:name>Has recorded bill time</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-ProjectManager-ebs-managesProject">
+    <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:sparql rdf:nodeID="Ned8834bb2f46476d819b9957585d3e14"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#managesProject"/>
+    <sh:name>Manages project</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-MonetaryValue-ebs-hasCurrency">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasCurrency"/>
+    <sh:class rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
     <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
     <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:sparql rdf:nodeID="N90cab310e5934cdba9548c9896c2f284"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#forInterval"/>
-    <sh:name>For interval</sh:name>
+    <sh:name>Has currency</sh:name>
     <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-TaskListShape">
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#time-TemporalUnitShape">
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#TaskList"/>
-    <rdfs:label>Task List</rdfs:label>
+    <sh:targetClass rdf:resource="http://www.w3.org/2006/time#TemporalUnit"/>
+    <rdfs:label>Temporal Unit</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4a514f54e91e4de5851299b734285e5e">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#worksOnProject&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#worksOnProject&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#org-Organization-dct-title">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://purl.org/dc/terms/title"/>
+    <sh:name>Title</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+    <sh:or rdf:nodeID="Na5bc42eceada45cab12ae4ee9ecf03c6"/>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-EmployeePlannedTime-ebs-concernsProject">
+    <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:sparql rdf:nodeID="Ne17f55227b9649fca0a808bcc9ef3a8c"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#concernsProject"/>
+    <sh:name>Concerns project</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-TeamLeadShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#TeamLead"/>
+    <rdfs:label>Team Lead</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-TeamLead-ebs-leads"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nbb7c5ca3d631417992be29f16cc22cd4">
+    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-RoleShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#Role"/>
+    <rdfs:label>Role</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Employee-ebs-worksOnProject">
+    <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
+    <sh:sparql rdf:nodeID="N4a514f54e91e4de5851299b734285e5e"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#worksOnProject"/>
+    <sh:name>Works on project</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Project-ebs-hasTotalPlannedNonBillableTime">
+    <sh:class rdf:resource="http://www.w3.org/2006/time#Duration"/>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+    <sh:sparql rdf:nodeID="N73ca5ca7369547ef8928f9d6f8c88220"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasTotalPlannedNonBillableTime"/>
+    <sh:name>Has total planned non billable time</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf9d0153f2e004a80850c8e76f33626aa">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#PlansTime&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#PlansTime&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N549face6223c4d72ac308b3ca53b6c2e">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://www.w3.org/2006/time#hasEnd&gt; ?that . ?that &lt;http://www.w3.org/2006/time#hasEnd&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#org-Organization-adms-identifier">
+    <sh:class rdf:resource="http://www.w3.org/ns/adms#Identifier"/>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+    <sh:sparql rdf:nodeID="Na6fc7b26cef94e9f94e347bd6ed21f37"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://www.w3.org/ns/adms#identifier"/>
+    <sh:name>Identifier</sh:name>
     <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Employee-ebs-hasRecordedNonBillTime">
     <sh:class rdf:resource="http://www.w3.org/2006/time#Interval"/>
-    <sh:sparql rdf:nodeID="N5d5040528e084feda00768f65ccf0695"/>
+    <sh:sparql rdf:nodeID="Nb2a3a41d497f45df89143a68314b1367"/>
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
     <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasRecordedNonBillTime"/>
     <sh:name>Has recorded non bill time</sh:name>
     <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#person-PersonShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://www.w3.org/ns/person#Person"/>
-    <rdfs:label>Person</rdfs:label>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Team-ebs-worksOnStack">
+    <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#Stack"/>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:sparql rdf:nodeID="Nbec99c61aa3e40bead720bbec72875e9"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#worksOnStack"/>
+    <sh:name>Works on stack</sh:name>
     <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#person-Person-foaf-name"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N1858182f9bdf4b6d92270bb63147a496">
-    <rdf:first rdf:nodeID="N7c24170dce154ff4b1aad55cfa2d1fc5"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Capacity-ebs-concernsMonth">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#concernsMonth"/>
+    <sh:class rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:name>Concerns month</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N19114638cc504ca7b46722bb19cf8f0f">
-    <rdf:first rdf:nodeID="N93d5c74529e24fe2a93c6c5f5c3d89fc"/>
-    <rdf:rest rdf:nodeID="N75b7d23b1ef945c6bcd80071a4afd22d"/>
+  <rdf:Description rdf:nodeID="Nb81044af79064d6db235b11b3dcd64c8">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://www.w3.org/2006/time#unitType&gt; ?that . ?that &lt;http://www.w3.org/2006/time#unitType&gt; ?this .}</sh:select>
   </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Project-ebs-hasEfficiencyRate">
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Team-ebs-hasEfficiencyRate">
     <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#Efficiency"/>
     <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-    <sh:sparql rdf:nodeID="N7583f12fcc7043ae97fe0f5837ab16ab"/>
+    <sh:sparql rdf:nodeID="N1ff78fc6800e414c9c7dfa75c7b044c1"/>
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
     <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasEfficiencyRate"/>
     <sh:name>Has efficiency rate</sh:name>
     <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N52deed90155e4096a9d86565246455f2">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasEfficiencyRate&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasEfficiencyRate&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-ExternalProjectShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#ExternalProject"/>
-    <rdfs:label>External Project</rdfs:label>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Company-ebs-hasEfficiencyRate">
+    <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#Efficiency"/>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+    <sh:sparql rdf:nodeID="Nc6174c459d004fca8b5f98dc7a0f97f9"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasEfficiencyRate"/>
+    <sh:name>Has efficiency rate</sh:name>
     <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Company-ebs-employs">
-    <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
-    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:sparql rdf:nodeID="N77f03008001049b1968e4f1dc26913ea"/>
+  <rdf:Description rdf:nodeID="Ned8834bb2f46476d819b9957585d3e14">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#managesProject&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#managesProject&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Salary-ebs-concernsMonth">
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#employs"/>
-    <sh:name>Employs</sh:name>
+    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#concernsMonth"/>
+    <sh:class rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:name>Concerns month</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Project-ebs-hasTotalPlannedBillableTime">
+    <sh:class rdf:resource="http://www.w3.org/2006/time#Duration"/>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+    <sh:sparql rdf:nodeID="Ned688897639d4fbbae942de58ce8a9ab"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasTotalPlannedBillableTime"/>
+    <sh:name>Has total planned billable time</sh:name>
     <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-EmployeePlannedTimeShape">
@@ -287,53 +459,36 @@
     <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-EmployeePlannedTime-ebs-hasPlannedNonBillableTime"/>
     <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-EmployeePlannedTime-ebs-hasPlannedBillableTime"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Project-ebs-hasAssociatedTaskList">
-    <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#TaskList"/>
-    <sh:sparql rdf:nodeID="N02b3c1e75d36414088c5a3fa54c3ce1f"/>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#time-Duration-time-numericDuration">
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasAssociatedTaskList"/>
-    <sh:name>Has associated task list</sh:name>
+    <sh:path rdf:resource="http://www.w3.org/2006/time#numericDuration"/>
+    <sh:name>Numeric duration</sh:name>
     <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Employee-ebs-hasCapacity">
-    <sh:class rdf:resource="http://www.w3.org/2006/time#Duration"/>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-    <sh:sparql rdf:nodeID="N62008ab25c8e475286cd5ea6781976db"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasCapacity"/>
-    <sh:name>Has capacity</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#person-Person-foaf-name">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://xmlns.com/foaf/0.1/name"/>
-    <sh:name>Name</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-    <sh:or rdf:nodeID="N19114638cc504ca7b46722bb19cf8f0f"/>
+    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
     <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
   </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#org-Organization-adms-identifier">
-    <sh:class rdf:resource="http://www.w3.org/ns/adms#Identifier"/>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-    <sh:sparql rdf:nodeID="N714713d032f84e2cb65362f03d66e93f"/>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Project-ebs-isActive">
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://www.w3.org/ns/adms#identifier"/>
-    <sh:name>Identifier</sh:name>
+    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#isActive"/>
+    <sh:name>Is active</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-TeamLead-ebs-leads">
+    <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#Team"/>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:sparql rdf:nodeID="N32d5e3e7e6564f4889cb58a93d6a063a"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#leads"/>
+    <sh:name>Leads</sh:name>
     <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-EfficiencyShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#Efficiency"/>
-    <rdfs:label>Efficiency</rdfs:label>
-    <rdfs:comment>Not sure if an efficiency class is needed.</rdfs:comment>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Efficiency-ebs-forInterval"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-FixedPriceProjectShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#FixedPriceProject"/>
-    <rdfs:label>Fixed Price Project</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+  <rdf:Description rdf:nodeID="N7a456434d6b94ae39427957670fb6422">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasAssociatedTaskList&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasAssociatedTaskList&gt; ?this .}</sh:select>
   </rdf:Description>
   <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-EmployeeShape">
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
@@ -351,8 +506,13 @@
     <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Employee-ebs-memberOf"/>
     <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Employee-ebs-hasSeniority"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N7e927a1b19aa4237bda953dadd354908">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasMonetaryValue&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasMonetaryValue&gt; ?this .}</sh:select>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#time-Instant-time-inXSDDate">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://www.w3.org/2006/time#inXSDDate"/>
+    <sh:name>In XSD date</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
   </rdf:Description>
   <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-CapacityShape">
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
@@ -361,65 +521,51 @@
     <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
     <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Capacity-ebs-concernsMonth"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Company-ebs-hasEfficiencyRate">
-    <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#Efficiency"/>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-    <sh:sparql rdf:nodeID="Na79021a72f444cb2874a1ac803978726"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasEfficiencyRate"/>
-    <sh:name>Has efficiency rate</sh:name>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#time-TemporalDurationShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://www.w3.org/2006/time#TemporalDuration"/>
+    <rdfs:label>Temporal Duration</rdfs:label>
     <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Capacity-ebs-concernsMonth">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#concernsMonth"/>
-    <sh:class rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+  <rdf:Description rdf:nodeID="N32d5e3e7e6564f4889cb58a93d6a063a">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#leads&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#leads&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-ProjectManager-ebs-PlansTime">
+    <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#EmployeePlannedTime"/>
     <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:name>Concerns month</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#time-Duration-time-unitType">
-    <sh:class rdf:resource="http://www.w3.org/2006/time#TemporalUnit"/>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:sparql rdf:nodeID="Nebc869676c2947e19b59fa3996cf6ac1"/>
+    <sh:sparql rdf:nodeID="Nf9d0153f2e004a80850c8e76f33626aa"/>
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://www.w3.org/2006/time#unitType"/>
-    <sh:name>Unit type</sh:name>
+    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#PlansTime"/>
+    <sh:name>Plans time</sh:name>
     <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Nff1a14563015460d84b13512da8bb941">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#memberOf&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#memberOf&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Project-ebs-isActive">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#isActive"/>
-    <sh:name>Is active</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#time-TemporalEntity-time-hasDuration">
+    <sh:class rdf:resource="http://www.w3.org/2006/time#TemporalDuration"/>
     <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Employee-ebs-hasSalary">
-    <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#Salary"/>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:sparql rdf:nodeID="N76a25165650e450b945a50d644079521"/>
+    <sh:sparql rdf:nodeID="N454dcf8ce1274bd8a0f59db711a97377"/>
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasSalary"/>
-    <sh:name>Has salary</sh:name>
+    <sh:path rdf:resource="http://www.w3.org/2006/time#hasDuration"/>
+    <sh:name>Has duration</sh:name>
     <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-MonetaryValue-ebs-hasAmountValue">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasAmountValue"/>
-    <sh:name>Has amount value</sh:name>
-    <sh:description>Equivalent to epo:hasAmountValue</sh:description>
+  <rdf:Description rdf:nodeID="Ne17f55227b9649fca0a808bcc9ef3a8c">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#concernsProject&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#concernsProject&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-StackShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#Stack"/>
+    <rdfs:label>Stack</rdfs:label>
     <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
-    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Stack-ebs-hasEfficiencyRate"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Project-ebs-hasProjectEnd">
+    <sh:class rdf:resource="http://www.w3.org/2006/time#Instant"/>
     <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+    <sh:sparql rdf:nodeID="N5bf96b75413d42bd942eecc009ceaf89"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasProjectEnd"/>
+    <sh:name>Has project end</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#time-InstantShape">
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
@@ -429,220 +575,29 @@
     <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#time-Instant-time-inXSDDate"/>
     <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#time-Instant-time-inXSDDateTimeStamp"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-TandMProjectShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#TandMProject"/>
-    <rdfs:label>Tand M Project</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-TeamLead-ebs-leads">
-    <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#Team"/>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:sparql rdf:nodeID="N717b128424114dd597c0d346486b1952"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#leads"/>
-    <sh:name>Leads</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Team-ebs-worksOnStack">
-    <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#Stack"/>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:sparql rdf:nodeID="Nb06645e77901412daa56a5252599acef"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#worksOnStack"/>
-    <sh:name>Works on stack</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Company-ebs-hasMonthlyCapacity">
-    <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#Capacity"/>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:sparql rdf:nodeID="Na7853086bd8546d0a2fe544df0c7c07d"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasMonthlyCapacity"/>
-    <sh:name>Has monthly capacity</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-EmployeePlannedTime-ebs-concernsEmployee">
-    <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:sparql rdf:nodeID="N71d446109ac148aa87baa05dea579357"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#concernsEmployee"/>
-    <sh:name>Concerns employee</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Employee-ebs-hasEfficiencyRate">
-    <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#Efficiency"/>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-    <sh:sparql rdf:nodeID="N7c39f48679334bf68b7e51eba6469b67"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasEfficiencyRate"/>
-    <sh:name>Has efficiency rate</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-TeamShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#Team"/>
-    <rdfs:label>Team</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Team-ebs-hasEfficiencyRate"/>
-    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Team-ebs-worksOnStack"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Employee-ebs-memberOf">
-    <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#Team"/>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-    <sh:sparql rdf:nodeID="Nff1a14563015460d84b13512da8bb941"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#memberOf"/>
-    <sh:name>Member of</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-CompanyShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#Company"/>
-    <rdfs:label>Company</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Company-ebs-hasMonthlyCapacity"/>
-    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Company-ebs-hasEfficiencyRate"/>
-    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Company-ebs-employs"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Employee-ebs-isActive">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#isActive"/>
-    <sh:name>Is active</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Project-ebs-hasProjectEnd">
-    <sh:class rdf:resource="http://www.w3.org/2006/time#Instant"/>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-    <sh:sparql rdf:nodeID="N35bf47a2fd1a473c9a3f522b3f56b396"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasProjectEnd"/>
-    <sh:name>Has project end</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-EmployeePlannedTime-ebs-concernsProject">
-    <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:sparql rdf:nodeID="N4e8073bf96164e2099c1a1381fcb791c"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#concernsProject"/>
-    <sh:name>Concerns project</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#time-DurationShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://www.w3.org/2006/time#Duration"/>
-    <rdfs:label>Duration</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#time-Duration-time-numericDuration"/>
-    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#time-Duration-time-unitType"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Project-ebs-hasTotalPlannedBillableTime">
-    <sh:class rdf:resource="http://www.w3.org/2006/time#Duration"/>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-    <sh:sparql rdf:nodeID="Ne1c604b2ae9740efb44dfc4eca083042"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasTotalPlannedBillableTime"/>
-    <sh:name>Has total planned billable time</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-ProjectManager-ebs-managesProject">
-    <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
-    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:sparql rdf:nodeID="N45e4a7b66a1143adbe046b81001e3494"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#managesProject"/>
-    <sh:name>Manages project</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-AgentInRole-ebs-playedBy">
-    <sh:class rdf:resource="http://www.w3.org/ns/person#Person"/>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:sparql rdf:nodeID="N4f6201d0cf4045ffbd915808dbcce8fe"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#playedBy"/>
-    <sh:name>Played by</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N90cab310e5934cdba9548c9896c2f284">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#forInterval&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#forInterval&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Employee-ebs-hasSeniority">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasSeniority"/>
-    <sh:class rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-    <sh:name>Has seniority</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#time-TemporalEntity-time-hasEnd">
-    <sh:class rdf:resource="http://www.w3.org/2006/time#Instant"/>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-    <sh:sparql rdf:nodeID="N9b07220454774ec0ae500df6174c1cb1"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://www.w3.org/2006/time#hasEnd"/>
-    <sh:name>Has end</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#adms-IdentifierShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://www.w3.org/ns/adms#Identifier"/>
-    <rdfs:label>Identifier</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#adms-Identifier-skos-notation"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N79c30b32d07a405e8d84b15cf9933783">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasReplacementPipeline&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasReplacementPipeline&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Project-ebs-hasCommercialRate">
-    <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#Rate"/>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-    <sh:sparql rdf:nodeID="Ne504394c7d9e4a1ea33ed24474fcfc42"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasCommercialRate"/>
-    <sh:name>Has commercial rate</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-HolidayProjectShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#HolidayProject"/>
-    <rdfs:label>Holiday Project</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N7583f12fcc7043ae97fe0f5837ab16ab">
+  <rdf:Description rdf:nodeID="N2a24c1c5576545b183e8153c1dea0553">
     <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasEfficiencyRate&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasEfficiencyRate&gt; ?this .}</sh:select>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N9b07220454774ec0ae500df6174c1cb1">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://www.w3.org/2006/time#hasEnd&gt; ?that . ?that &lt;http://www.w3.org/2006/time#hasEnd&gt; ?this .}</sh:select>
+  <rdf:Description rdf:nodeID="Na6fc7b26cef94e9f94e347bd6ed21f37">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://www.w3.org/ns/adms#identifier&gt; ?that . ?that &lt;http://www.w3.org/ns/adms#identifier&gt; ?this .}</sh:select>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N75b7d23b1ef945c6bcd80071a4afd22d">
-    <rdf:first rdf:nodeID="Ne663fbf5b59246dca3e7e1fd01b3032d"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-OperationsProjectShape">
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-ExternalProjectShape">
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#OperationsProject"/>
-    <rdfs:label>Operations Project</rdfs:label>
+    <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#ExternalProject"/>
+    <rdfs:label>External Project</rdfs:label>
     <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#adms-Identifier-skos-notation">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://www.w3.org/2004/02/skos/core#notation"/>
-    <sh:name>Notation</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-    <sh:or rdf:nodeID="N675f946060fa4f9e9405939261294b15"/>
-    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#time-TemporalEntity-time-hasBeginning">
+    <sh:class rdf:resource="http://www.w3.org/2006/time#Instant"/>
     <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+    <sh:sparql rdf:nodeID="N2002ff664ad142de8d849f2862179540"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://www.w3.org/2006/time#hasBeginning"/>
+    <sh:name>Has beginning</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nabbd9ddf34e7433288e2433661b97b87">
+    <sh:datatype rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-InternalProjectShape">
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
@@ -650,67 +605,13 @@
     <rdfs:label>Internal Project</rdfs:label>
     <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N916594ffa01b4f00926c060e8754687f">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#relatedToProject&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#relatedToProject&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#org-Organization-dct-title">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://purl.org/dc/terms/title"/>
-    <sh:name>Title</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-    <sh:or rdf:nodeID="Ncb6295f5ebb04dd29c644fb7e0a4dda7"/>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Ncb6295f5ebb04dd29c644fb7e0a4dda7">
-    <rdf:first rdf:nodeID="Ncdb7628a76b74210bff3b9724653c840"/>
-    <rdf:rest rdf:nodeID="N1858182f9bdf4b6d92270bb63147a496"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N77f03008001049b1968e4f1dc26913ea">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#employs&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#employs&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Employee-ebs-worksOnProject">
-    <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
-    <sh:sparql rdf:nodeID="N854cdf2cde4c4ebabb70a158596bd074"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#worksOnProject"/>
-    <sh:name>Works on project</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#time-TemporalDurationShape">
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-EfficiencyShape">
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://www.w3.org/2006/time#TemporalDuration"/>
-    <rdfs:label>Temporal Duration</rdfs:label>
+    <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#Efficiency"/>
+    <rdfs:label>Efficiency</rdfs:label>
+    <rdfs:comment>Not sure if an efficiency class is needed.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N854cdf2cde4c4ebabb70a158596bd074">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#worksOnProject&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#worksOnProject&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Project-ebs-hasTotalPlannedNonBillableTime">
-    <sh:class rdf:resource="http://www.w3.org/2006/time#Duration"/>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-    <sh:sparql rdf:nodeID="Nd5bb32253cb24c01849c9485eb0403f5"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasTotalPlannedNonBillableTime"/>
-    <sh:name>Has total planned non billable time</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Ncafb7eb6423a43378baf65e51a694abf">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasPlannedBillableTime&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasPlannedBillableTime&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-EmployeePlannedTime-ebs-hasPlannedNonBillableTime">
-    <sh:class rdf:resource="http://www.w3.org/2006/time#Duration"/>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-    <sh:sparql rdf:nodeID="N7e61cf109cf245389bc8d88f53c603d3"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasPlannedNonBillableTime"/>
-    <sh:name>Has planned non billable time</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N93d5c74529e24fe2a93c6c5f5c3d89fc">
-    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nce52a02230c34663ada42301ad468872">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://www.w3.org/2006/time#hasBeginning&gt; ?that . ?that &lt;http://www.w3.org/2006/time#hasBeginning&gt; ?this .}</sh:select>
+    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Efficiency-ebs-forInterval"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#time-Instant-time-inXSDDateTimeStamp">
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
@@ -720,32 +621,52 @@
     <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
     <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N7c39f48679334bf68b7e51eba6469b67">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasEfficiencyRate&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasEfficiencyRate&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-TeamLeadShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#TeamLead"/>
-    <rdfs:label>Team Lead</rdfs:label>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Company-ebs-employs">
+    <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:sparql rdf:nodeID="N856a2aa99b0f44b1aff7e9a59de5102f"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#employs"/>
+    <sh:name>Employs</sh:name>
     <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-TeamLead-ebs-leads"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Ne663fbf5b59246dca3e7e1fd01b3032d">
-    <sh:datatype rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Na7853086bd8546d0a2fe544df0c7c07d">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasMonthlyCapacity&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasMonthlyCapacity&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N62008ab25c8e475286cd5ea6781976db">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasCapacity&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasCapacity&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-SalaryShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#Salary"/>
-    <rdfs:label>Salary</rdfs:label>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Project-ebs-hasAssociatedTaskList">
+    <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#TaskList"/>
+    <sh:sparql rdf:nodeID="N7a456434d6b94ae39427957670fb6422"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasAssociatedTaskList"/>
+    <sh:name>Has associated task list</sh:name>
     <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Salary-ebs-hasMonetaryValue"/>
-    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Salary-ebs-concernsMonth"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc6a29587736848c39b3e736ada2f974b">
+    <rdf:first rdf:nodeID="N1fc6b92ff60c4515866a3c861b94eacd"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-AgentInRoleShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#AgentInRole"/>
+    <rdfs:label>Agent In Role</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-AgentInRole-adms-identifier"/>
+    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-AgentInRole-ebs-playedBy"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#person-PersonShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://www.w3.org/ns/person#Person"/>
+    <rdfs:label>Person</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#person-Person-foaf-name"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ncb88b7218de649258854131f445012ee">
+    <rdf:first rdf:nodeID="Nabbd9ddf34e7433288e2433661b97b87"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-RateShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#Rate"/>
+    <rdfs:label>Rate</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Rate-ebs-hasMonetaryValue"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#time-IntervalShape">
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
@@ -754,47 +675,23 @@
     <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
     <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#time-Interval-ebs-relatedToProject"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#time-TemporalUnitShape">
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-HolidayProjectShape">
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://www.w3.org/2006/time#TemporalUnit"/>
-    <rdfs:label>Temporal Unit</rdfs:label>
+    <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#HolidayProject"/>
+    <rdfs:label>Holiday Project</rdfs:label>
     <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Nbbbfc50c95c241ed8a82da4a4f271143">
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-EmployeePlannedTime-ebs-hasPlannedBillableTime">
+    <sh:class rdf:resource="http://www.w3.org/2006/time#Duration"/>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+    <sh:sparql rdf:nodeID="N74c44bfcc0584fd2b9c45da143ecf6db"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasPlannedBillableTime"/>
+    <sh:name>Has planned billable time</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4773cda2a8c243bdafdebcfb4f6b72a8">
     <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nebc869676c2947e19b59fa3996cf6ac1">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://www.w3.org/2006/time#unitType&gt; ?that . ?that &lt;http://www.w3.org/2006/time#unitType&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N4f6201d0cf4045ffbd915808dbcce8fe">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#playedBy&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#playedBy&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#time-TemporalEntity-time-hasBeginning">
-    <sh:class rdf:resource="http://www.w3.org/2006/time#Instant"/>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-    <sh:sparql rdf:nodeID="Nce52a02230c34663ada42301ad468872"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://www.w3.org/2006/time#hasBeginning"/>
-    <sh:name>Has beginning</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N7c24170dce154ff4b1aad55cfa2d1fc5">
-    <sh:datatype rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nfe8738567cde4682b81ea72f246ab72a">
-    <sh:datatype rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N717b128424114dd597c0d346486b1952">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#leads&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#leads&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Salary-ebs-concernsMonth">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#concernsMonth"/>
-    <sh:class rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:name>Concerns month</sh:name>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#org-OrganizationShape">
     <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
@@ -804,103 +701,206 @@
     <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#org-Organization-dct-title"/>
     <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#org-Organization-adms-identifier"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Nbc7cf1a33aac4e5d8d9c47f2d17ebccc">
-    <rdf:first rdf:nodeID="Nfe8738567cde4682b81ea72f246ab72a"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-TandMProjectShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#TandMProject"/>
+    <rdfs:label>Tand M Project</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N23cfb00f2b8b45b598902cb0b2715e72">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://www.w3.org/ns/adms#identifier&gt; ?that . ?that &lt;http://www.w3.org/ns/adms#identifier&gt; ?this .}</sh:select>
+  <rdf:Description rdf:nodeID="Ne3e011a80e0141eda832114de3b2060f">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasCapacity&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasCapacity&gt; ?this .}</sh:select>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Ncdb7628a76b74210bff3b9724653c840">
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#adms-IdentifierShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://www.w3.org/ns/adms#Identifier"/>
+    <rdfs:label>Identifier</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#adms-Identifier-skos-notation"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc2387d64674c465fbb176aabf0bd8d36">
     <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-RateShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#Rate"/>
-    <rdfs:label>Rate</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Rate-ebs-hasMonetaryValue"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nddfdba77bd4f4cb0b8b6f8b36ffa611b">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://www.w3.org/2006/time#hasDuration&gt; ?that . ?that &lt;http://www.w3.org/2006/time#hasDuration&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nfb34ede0396b4027a352a4eb9518e34d">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasProjectStart&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasProjectStart&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N76a25165650e450b945a50d644079521">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasSalary&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasSalary&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N675f946060fa4f9e9405939261294b15">
-    <rdf:first rdf:nodeID="Nbbbfc50c95c241ed8a82da4a4f271143"/>
-    <rdf:rest rdf:nodeID="Nbc7cf1a33aac4e5d8d9c47f2d17ebccc"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-MonetaryValue-ebs-hasCurrency">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasCurrency"/>
-    <sh:class rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-AgentInRole-adms-identifier">
+    <sh:class rdf:resource="http://www.w3.org/ns/adms#Identifier"/>
     <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
     <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-    <sh:name>Has currency</sh:name>
+    <sh:sparql rdf:nodeID="N378b520c36b94ceaafbcc487b6c481a4"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://www.w3.org/ns/adms#identifier"/>
+    <sh:name>Identifier</sh:name>
     <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N5d5040528e084feda00768f65ccf0695">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasRecordedNonBillTime&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasRecordedNonBillTime&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N4e8073bf96164e2099c1a1381fcb791c">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#concernsProject&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#concernsProject&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-RoleShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#Role"/>
-    <rdfs:label>Role</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-InvestmentProjectShape">
-    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-    <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#InvestmentProject"/>
-    <rdfs:label>Investment Project</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N45e4a7b66a1143adbe046b81001e3494">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#managesProject&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#managesProject&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N7e61cf109cf245389bc8d88f53c603d3">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasPlannedNonBillableTime&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasPlannedNonBillableTime&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N65029fe1ecf6408ab0be9af1b804e7f6">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasEfficiencyRate&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasEfficiencyRate&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Ne1c604b2ae9740efb44dfc4eca083042">
+  <rdf:Description rdf:nodeID="Ned688897639d4fbbae942de58ce8a9ab">
     <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasTotalPlannedBillableTime&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasTotalPlannedBillableTime&gt; ?this .}</sh:select>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N714713d032f84e2cb65362f03d66e93f">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://www.w3.org/ns/adms#identifier&gt; ?that . ?that &lt;http://www.w3.org/ns/adms#identifier&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N109ab55d36c9498f948a63589fa98b19">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasMonetaryValue&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasMonetaryValue&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N6dc262119f414a03b959e0d974ce58a9">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasRecordedBillTime&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasRecordedBillTime&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N71d446109ac148aa87baa05dea579357">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#concernsEmployee&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#concernsEmployee&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Ne504394c7d9e4a1ea33ed24474fcfc42">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasCommercialRate&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasCommercialRate&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N859145e833864872a31996e3a34b63dd">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#PlansTime&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#PlansTime&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nd5bb32253cb24c01849c9485eb0403f5">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasTotalPlannedNonBillableTime&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasTotalPlannedNonBillableTime&gt; ?this .}</sh:select>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Na79021a72f444cb2874a1ac803978726">
+  <rdf:Description rdf:nodeID="Nc6174c459d004fca8b5f98dc7a0f97f9">
     <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasEfficiencyRate&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasEfficiencyRate&gt; ?this .}</sh:select>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N35bf47a2fd1a473c9a3f522b3f56b396">
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-ProjectShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
+    <rdfs:label>Project</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Project-ebs-isActive"/>
+    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Project-ebs-hasEfficiencyRate"/>
+    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Project-ebs-hasProjectStart"/>
+    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Project-ebs-hasProjectEnd"/>
+    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Project-ebs-hasCommercialRate"/>
+    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Project-ebs-hasAssociatedTaskList"/>
+    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Project-ebs-hasTotalPlannedBillableTime"/>
+    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Project-ebs-hasTotalPlannedNonBillableTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-MonetaryValueShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#MonetaryValue"/>
+    <rdfs:label>Monetary Value</rdfs:label>
+    <rdfs:comment>Equivalent to epo:Monetary value.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-MonetaryValue-ebs-hasAmountValue"/>
+    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-MonetaryValue-ebs-hasCurrency"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N179b2fe299354ca381116bf7338b2a86">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasRecordedBillTime&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasRecordedBillTime&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nff82e04d2436412ab5746397c1ef8873">
+    <rdf:first rdf:nodeID="N4773cda2a8c243bdafdebcfb4f6b72a8"/>
+    <rdf:rest rdf:nodeID="Nc6a29587736848c39b3e736ada2f974b"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-AgentInRole-ebs-playedBy">
+    <sh:class rdf:resource="http://www.w3.org/ns/person#Person"/>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:sparql rdf:nodeID="N321103f5bda74d6ca1e3c2c8a9a125f5"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#playedBy"/>
+    <sh:name>Played by</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5bf96b75413d42bd942eecc009ceaf89">
     <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasProjectEnd&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasProjectEnd&gt; ?this .}</sh:select>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N02b3c1e75d36414088c5a3fa54c3ce1f">
-    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasAssociatedTaskList&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasAssociatedTaskList&gt; ?this .}</sh:select>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#time-TemporalEntityShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    <rdfs:label>Temporal Entity</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#time-TemporalEntity-time-hasEnd"/>
+    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#time-TemporalEntity-time-hasBeginning"/>
+    <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#time-TemporalEntity-time-hasDuration"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-TaskListShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#TaskList"/>
+    <rdfs:label>Task List</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N74c44bfcc0584fd2b9c45da143ecf6db">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasPlannedBillableTime&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasPlannedBillableTime&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3fbe645f4ade49dda789ffd77cb06e15">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#memberOf&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#memberOf&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#person-Person-foaf-name">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://xmlns.com/foaf/0.1/name"/>
+    <sh:name>Name</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+    <sh:or rdf:nodeID="Nd19fd47ae6f24c9c9c1c66af7520b9a3"/>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N321103f5bda74d6ca1e3c2c8a9a125f5">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#playedBy&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#playedBy&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Employee-ebs-hasCapacity">
+    <sh:class rdf:resource="http://www.w3.org/2006/time#Duration"/>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+    <sh:sparql rdf:nodeID="Ne3e011a80e0141eda832114de3b2060f"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasCapacity"/>
+    <sh:name>Has capacity</sh:name>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5eaf8c4b4d334e43af13444980802423">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasPlannedNonBillableTime&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasPlannedNonBillableTime&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N454dcf8ce1274bd8a0f59db711a97377">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://www.w3.org/2006/time#hasDuration&gt; ?that . ?that &lt;http://www.w3.org/2006/time#hasDuration&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9a653c8849954533a5e2bb6d2107f939">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasCommercialRate&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasCommercialRate&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1fc6b92ff60c4515866a3c861b94eacd">
+    <sh:datatype rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd3d377ebe04744c4942d0868a050c9bf">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasEfficiencyRate&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasEfficiencyRate&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8714315610bf4adca09eea5602090c75">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#concernsEmployee&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#concernsEmployee&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2cf65b1676004bc081f0bd8b1e11adf7">
+    <rdf:first rdf:nodeID="N7a2b4bfa97a449e19319a01e6f45c53d"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5774405325ed49ba85d4642c21cc43c2">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasSalary&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasSalary&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-OperationsProjectShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#OperationsProject"/>
+    <rdfs:label>Operations Project</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N0cc2fdabccd6406ca83d0c8836289672">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasMonthlyCapacity&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasMonthlyCapacity&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1ff78fc6800e414c9c7dfa75c7b044c1">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasEfficiencyRate&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasEfficiencyRate&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2985dadf5a164e96a509ef86a79163b4">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasProjectStart&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasProjectStart&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8433502f29624ec580fe6c689a8aaf5c">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasMonetaryValue&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasMonetaryValue&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2eb79df09efb4bdfb0fa8111b25a77cf">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#relatedToProject&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#relatedToProject&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf7657af0ab664b33ad18816f226490e4">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#forInterval&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#forInterval&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nbec99c61aa3e40bead720bbec72875e9">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#worksOnStack&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#worksOnStack&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N73ca5ca7369547ef8928f9d6f8c88220">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasTotalPlannedNonBillableTime&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasTotalPlannedNonBillableTime&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N7a2b4bfa97a449e19319a01e6f45c53d">
+    <sh:datatype rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N378b520c36b94ceaafbcc487b6c481a4">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://www.w3.org/ns/adms#identifier&gt; ?that . ?that &lt;http://www.w3.org/ns/adms#identifier&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb2cc43bbccb44a1790c23a9b9f80ff20">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasReplacementPipeline&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasReplacementPipeline&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd17520264ec54ea686bfaece0d7176a5">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasEfficiencyRate&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasEfficiencyRate&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2002ff664ad142de8d849f2862179540">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://www.w3.org/2006/time#hasBeginning&gt; ?that . ?that &lt;http://www.w3.org/2006/time#hasBeginning&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb2a3a41d497f45df89143a68314b1367">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasRecordedNonBillTime&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasRecordedNonBillTime&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3888b641c16a49d6aa4f7d04ecb0a2a8">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasMonetaryValue&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasMonetaryValue&gt; ?this .}</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd19fd47ae6f24c9c9c1c66af7520b9a3">
+    <rdf:first rdf:nodeID="Nbb7c5ca3d631417992be29f16cc22cd4"/>
+    <rdf:rest rdf:nodeID="N2cf65b1676004bc081f0bd8b1e11adf7"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N856a2aa99b0f44b1aff7e9a59de5102f">
+    <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#employs&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#employs&gt; ?this .}</sh:select>
   </rdf:Description>
 </rdf:RDF>
