@@ -89,7 +89,7 @@
     <!--Allowed characters for a normalized string-->
     <xsl:variable name="allowedStrings" select="'^[\w\d-_:]+$'"/>
     <!--    Generate reused classes, attributes and connectors. Concepts with these prefixes will be included in the generated artefacts. -->
-    <xsl:variable name="includedPrefixesList" select="('ebs', 'org', 'time', 'dct', 'adms', 'Person','skos')"/>
+    <xsl:variable name="includedPrefixesList" select="('ebs', 'org', 'time', 'dcterms', 'adms', 'Person','skos')"/>
     <!-- This set of variables controls the generation of reused concepts within artifacts. -->
     <xsl:variable name="generateReusedConceptsSHACL" select="fn:true()"/>
     <xsl:variable name="generateReusedConceptsOWLcore" select="fn:true()"/>
