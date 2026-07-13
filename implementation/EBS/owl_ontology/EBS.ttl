@@ -290,6 +290,12 @@ adms:identifier a owl:ObjectProperty ;
 person:Person a owl:Class ;
     skos:prefLabel "Person"@en .
 
+foaf:firstName a owl:DatatypeProperty ;
+    skos:prefLabel "first Name"@en .
+
+foaf:lastName a owl:DatatypeProperty ;
+    skos:prefLabel "last Name"@en .
+
 foaf:name a owl:DatatypeProperty ;
     skos:prefLabel "name"@en .
 
@@ -328,13 +334,13 @@ org:Organization a owl:Class ;
 
 ebs:core a owl:Ontology ;
     dcterms:created "2026-07-09"^^xsd:date ;
-    dcterms:issued "2026-07-10"^^xsd:date ;
+    dcterms:issued "2026-07-13"^^xsd:date ;
     dcterms:license "CC BY 4.0" ;
     dcterms:publisher "Meaningfy" ;
     dcterms:title "EBS core"@en ;
     vann:preferredNamespacePrefix "ebs" ;
     vann:preferredNamespaceUri "http://ebs-integrator.com/ontology/erp#" ;
-    rdfs:comment "This version is automatically generated from EBS.xml on 2026-07-10" ;
+    rdfs:comment "This version is automatically generated from EBS.xml on 2026-07-13" ;
     owl:imports <http://data.europa.eu/m8g>,
         dcterms:,
         skos:,

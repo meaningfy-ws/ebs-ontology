@@ -155,6 +155,14 @@
   
   
   
+| ebs:AgentInRole + 
+org:Organization
+| dcterms:title| 
+  |rdf:PlainLiteral [0..1] +
+  rdf:PlainLiteral [0..&#42;]
+  
+  
+  
   
   
   
@@ -233,8 +241,14 @@ ebs:Project
   
   
   
-| org:Organization
-| dct:title| 
+| person:Person
+| foaf:firstName| 
+  |rdf:PlainLiteral [0..1]
+  
+  
+  
+| person:Person
+| foaf:lastName| 
   |rdf:PlainLiteral [0..1]
   
   
@@ -293,6 +307,10 @@ org:Organization → adms:Identifier [0..1]
 | ebs:playedBy| 
   |ebs:AgentInRole → person:Person [1]
 
+  
+
+  
+  
   
 
   
@@ -462,6 +480,10 @@ ebs:Team → ebs:Efficiency [0..1]
 | ebs:hasCurrency| 
   |ebs:MonetaryValue → at-voc:currency [1]
 
+  
+
+  
+  
   
 
   

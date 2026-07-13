@@ -178,10 +178,10 @@
                   </thead>
                   <tbody>
                      <tr>
-                        <td>org:Organization</td>
-                        <td>dct:title</td>
-                        <td></td>
-                        <td>rdf:PlainLiteral [0..1]</td>
+                        <td>ebs:AgentInRole<br>org:Organization<br></td>
+                        <td>dcterms:title</td>
+                        <td> </td>
+                        <td>rdf:PlainLiteral [0..1]<br>rdf:PlainLiteral [0..*]<br></td>
                      </tr>
                      <tr>
                         <td>ebs:MonetaryValue</td>
@@ -194,6 +194,18 @@
                         <td>ebs:isActive</td>
                         <td> </td>
                         <td>xsd:boolean [1..1]<br>xsd:boolean [1..1]<br></td>
+                     </tr>
+                     <tr>
+                        <td>person:Person</td>
+                        <td>foaf:firstName</td>
+                        <td></td>
+                        <td>rdf:PlainLiteral [0..1]</td>
+                     </tr>
+                     <tr>
+                        <td>person:Person</td>
+                        <td>foaf:lastName</td>
+                        <td></td>
+                        <td>rdf:PlainLiteral [0..1]</td>
                      </tr>
                      <tr>
                         <td>person:Person</td>

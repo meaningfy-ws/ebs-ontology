@@ -24,6 +24,7 @@ core-shape:ebs-AgentInRoleShape a sh:NodeShape ;
     rdfs:label "Agent In Role" ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:property core-shape:ebs-AgentInRole-adms-identifier,
+        core-shape:ebs-AgentInRole-dcterms-title,
         core-shape:ebs-AgentInRole-ebs-playedBy ;
     sh:targetClass ebs:AgentInRole .
 
@@ -181,13 +182,15 @@ core-shape:org-OrganizationShape a sh:NodeShape ;
     rdfs:label "Organization" ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:property core-shape:org-Organization-adms-identifier,
-        core-shape:org-Organization-dct-title ;
+        core-shape:org-Organization-dcterms-title ;
     sh:targetClass org:Organization .
 
 core-shape:person-PersonShape a sh:NodeShape ;
     rdfs:label "Person" ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:property core-shape:person-Person-foaf-name ;
+    sh:property core-shape:person-Person-foaf-firstName,
+        core-shape:person-Person-foaf-lastName,
+        core-shape:person-Person-foaf-name ;
     sh:targetClass person:Person .
 
 core-shape:time-DurationShape a sh:NodeShape ;
@@ -244,6 +247,13 @@ core-shape:ebs-AgentInRole-adms-identifier a sh:PropertyShape ;
     sh:name "Identifier" ;
     sh:path adms:identifier ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://www.w3.org/ns/adms#identifier> ?that . ?that <http://www.w3.org/ns/adms#identifier> ?this .}" ] .
+
+core-shape:ebs-AgentInRole-dcterms-title a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:maxCount 1 ;
+    sh:name "Title" ;
+    sh:or ( [ sh:datatype xsd:string ] [ sh:datatype rdf:langString ] ) ;
+    sh:path dcterms:title .
 
 core-shape:ebs-AgentInRole-ebs-playedBy a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -570,12 +580,25 @@ core-shape:org-Organization-adms-identifier a sh:PropertyShape ;
     sh:path adms:identifier ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://www.w3.org/ns/adms#identifier> ?that . ?that <http://www.w3.org/ns/adms#identifier> ?this .}" ] .
 
-core-shape:org-Organization-dct-title a sh:PropertyShape ;
+core-shape:org-Organization-dcterms-title a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:maxCount 1 ;
     sh:name "Title" ;
     sh:or ( [ sh:datatype xsd:string ] [ sh:datatype rdf:langString ] ) ;
     sh:path dcterms:title .
+
+core-shape:person-Person-foaf-firstName a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:maxCount 1 ;
+    sh:name "First name" ;
+    sh:or ( [ sh:datatype xsd:string ] [ sh:datatype rdf:langString ] ) ;
+    sh:path foaf:firstName .
+
+core-shape:person-Person-foaf-lastName a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:maxCount 1 ;
+    sh:name "Last name" ;
+    sh:or ( [ sh:datatype xsd:string ] [ sh:datatype rdf:langString ] ) ;
+    sh:path foaf:lastName .
 
 core-shape:person-Person-foaf-name a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -650,13 +673,13 @@ core-shape:time-TemporalEntity-time-hasEnd a sh:PropertyShape ;
 
 core-shape:core-shape a owl:Ontology ;
     dcterms:created "2026-07-09"^^xsd:date ;
-    dcterms:issued "2026-07-10"^^xsd:date ;
+    dcterms:issued "2026-07-13"^^xsd:date ;
     dcterms:license "CC BY 4.0" ;
     dcterms:publisher "Meaningfy" ;
     dcterms:title "EBS shapes"@en ;
     vann:preferredNamespacePrefix "ebs" ;
     vann:preferredNamespaceUri "http://ebs-integrator.com/ontology/erp#" ;
-    rdfs:comment "This version is automatically generated from EBS.xml on 2026-07-10" ;
+    rdfs:comment "This version is automatically generated from EBS.xml on 2026-07-13" ;
     owl:imports <http://data.europa.eu/m8g>,
         ebs:core,
         ebs:core-restriction,
