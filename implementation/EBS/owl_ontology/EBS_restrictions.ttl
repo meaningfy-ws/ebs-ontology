@@ -197,12 +197,12 @@ foaf:lastName rdfs:domain person:Person ;
     rdfs:range rdf:PlainLiteral .
 
 ebs:TeamLead rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ebs:PlansTime ;
+            owl:someValuesFrom ebs:EmployeePlannedTime ],
+        [ a owl:Restriction ;
             owl:onClass ebs:Team ;
             owl:onProperty ebs:leads ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onProperty ebs:PlansTime ;
-            owl:someValuesFrom ebs:EmployeePlannedTime ] .
+            owl:qualifiedCardinality 1 ] .
 
 ebs:hasMonetaryValue a owl:FunctionalProperty ;
     rdfs:domain [ a owl:Class ;
@@ -220,25 +220,25 @@ org:Organization rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty adms:identifier ] .
 
 ebs:AgentInRole rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass adms:Identifier ;
-            owl:onProperty adms:identifier ;
-            owl:qualifiedCardinality 1 ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onDataRange rdf:PlainLiteral ;
+            owl:onProperty dcterms:title ],
         [ a owl:Restriction ;
             owl:onClass person:Person ;
             owl:onProperty ebs:playedBy ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onDataRange rdf:PlainLiteral ;
-            owl:onProperty dcterms:title ] .
+            owl:onClass adms:Identifier ;
+            owl:onProperty adms:identifier ;
+            owl:qualifiedCardinality 1 ] .
 
 ebs:Company rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty ebs:employs ;
-            owl:someValuesFrom ebs:Employee ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass ebs:Efficiency ;
             owl:onProperty ebs:hasEfficiencyRate ],
+        [ a owl:Restriction ;
+            owl:onProperty ebs:employs ;
+            owl:someValuesFrom ebs:Employee ],
         [ a owl:Restriction ;
             owl:onClass ebs:Capacity ;
             owl:onProperty ebs:hasMonthlyCapacity ;
@@ -267,11 +267,11 @@ ebs:Salary rdfs:subClassOf [ a owl:Restriction ;
 person:Person rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onDataRange rdf:PlainLiteral ;
-            owl:onProperty foaf:firstName ],
+            owl:onProperty foaf:lastName ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onDataRange rdf:PlainLiteral ;
-            owl:onProperty foaf:lastName ] .
+            owl:onProperty foaf:firstName ] .
 
 ebs:MonetaryValue rdfs:subClassOf [ a owl:Restriction ;
             owl:onDataRange xsd:decimal ;
@@ -288,25 +288,25 @@ time:Interval rdfs:subClassOf [ a owl:Restriction ;
             owl:qualifiedCardinality 1 ] .
 
 time:TemporalEntity rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onDataRange rdf:PlainLiteral ;
-            owl:onProperty dcterms:description ],
-        [ a owl:Restriction ;
             owl:onClass time:TemporalDuration ;
             owl:onProperty time:hasDuration ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass time:Instant ;
-            owl:onProperty time:hasBeginning ],
+            owl:onClass adms:Identifier ;
+            owl:onProperty adms:identifier ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass time:Instant ;
             owl:onProperty time:hasEnd ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass adms:Identifier ;
-            owl:onProperty adms:identifier ] .
+            owl:onClass time:Instant ;
+            owl:onProperty time:hasBeginning ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onDataRange rdf:PlainLiteral ;
+            owl:onProperty dcterms:description ] .
 
 adms:Identifier rdfs:subClassOf [ a owl:Restriction ;
             owl:onDataRange rdf:PlainLiteral ;
@@ -314,21 +314,21 @@ adms:Identifier rdfs:subClassOf [ a owl:Restriction ;
             owl:qualifiedCardinality 1 ] .
 
 ebs:EmployeePlannedTime rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass ebs:Employee ;
-            owl:onProperty ebs:concernsEmployee ;
-            owl:qualifiedCardinality 1 ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass time:Duration ;
+            owl:onProperty ebs:hasPlannedNonBillableTime ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass time:Duration ;
             owl:onProperty ebs:hasPlannedBillableTime ],
         [ a owl:Restriction ;
-            owl:onClass ebs:Project ;
-            owl:onProperty ebs:concernsProject ;
+            owl:onClass ebs:Employee ;
+            owl:onProperty ebs:concernsEmployee ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass time:Duration ;
-            owl:onProperty ebs:hasPlannedNonBillableTime ] .
+            owl:onClass ebs:Project ;
+            owl:onProperty ebs:concernsProject ;
+            owl:qualifiedCardinality 1 ] .
 
 ebs:Team rdfs:subClassOf [ a owl:Restriction ;
             owl:onClass ebs:Stack ;
@@ -346,27 +346,23 @@ ebs:Efficiency rdfs:subClassOf [ a owl:Restriction ;
 
 time:Instant rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onDataRange xsd:dateTimeStamp ;
-            owl:onProperty time:inXSDDateTimeStamp ],
+            owl:onDataRange xsd:date ;
+            owl:onProperty time:inXSDDate ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onDataRange xsd:date ;
-            owl:onProperty time:inXSDDate ] .
+            owl:onDataRange xsd:dateTimeStamp ;
+            owl:onProperty time:inXSDDateTimeStamp ] .
 
 time:Duration rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass time:TemporalUnit ;
-            owl:onProperty time:unitType ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:onDataRange xsd:decimal ;
             owl:onProperty time:numericDuration ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass time:TemporalUnit ;
+            owl:onProperty time:unitType ;
             owl:qualifiedCardinality 1 ] .
 
 ebs:Employee rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass ebs:Team ;
-            owl:onProperty ebs:memberOf ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass ebs:Efficiency ;
             owl:onProperty ebs:hasEfficiencyRate ],
@@ -379,15 +375,15 @@ ebs:Employee rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty ebs:isActive ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass ebs:Team ;
+            owl:onProperty ebs:memberOf ],
+        [ a owl:Restriction ;
             owl:onClass ebs:Salary ;
             owl:onProperty ebs:hasSalary ;
             owl:qualifiedCardinality 1 ] .
 
 ebs:Project rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass time:Duration ;
-            owl:onProperty ebs:hasTotalPlannedNonBillableTime ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass time:Duration ;
             owl:onProperty ebs:hasTotalPlannedBillableTime ],
@@ -397,18 +393,22 @@ ebs:Project rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty ebs:hasEfficiencyRate ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass time:Instant ;
-            owl:onProperty ebs:hasProjectEnd ],
+            owl:onClass ebs:Rate ;
+            owl:onProperty ebs:hasCommercialRate ],
         [ a owl:Restriction ;
-            owl:onDataRange xsd:boolean ;
-            owl:onProperty ebs:isActive ;
-            owl:qualifiedCardinality 1 ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass time:Duration ;
+            owl:onProperty ebs:hasTotalPlannedNonBillableTime ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass time:Instant ;
             owl:onProperty ebs:hasProjectStart ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass ebs:Rate ;
-            owl:onProperty ebs:hasCommercialRate ] .
+            owl:onClass time:Instant ;
+            owl:onProperty ebs:hasProjectEnd ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:boolean ;
+            owl:onProperty ebs:isActive ;
+            owl:qualifiedCardinality 1 ] .
 
