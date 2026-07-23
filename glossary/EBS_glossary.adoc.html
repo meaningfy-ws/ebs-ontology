@@ -671,8 +671,8 @@ ebs:Project</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">rdf:PlainLiteral [0..1]</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">person:Person</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">foaf:name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">time:TemporalEntity</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dcterms:description</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">rdf:PlainLiteral [0..1]</p></td>
 </tr>
@@ -701,7 +701,8 @@ ebs:Project</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">adms:identifier</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:AgentInRole → adms:Identifier [1]<br>
-org:Organization → adms:Identifier [0..1]</p></td>
+org:Organization → adms:Identifier [0..1]<br>
+time:TemporalEntity → adms:Identifier [0..1]</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:playedBy</p></td>
@@ -849,11 +850,6 @@ ebs:Team → ebs:Efficiency [0..1]</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:ProjectManager → ebs:Project [1..&#42;]</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:PlansTime</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:ProjectManager → ebs:EmployeePlannedTime [1..&#42;]</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:hasMonetaryValue</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:Rate → ebs:MonetaryValue [1]<br>
@@ -870,6 +866,11 @@ ebs:Salary → ebs:MonetaryValue [1]</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:TeamLead → ebs:Team [1]</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:PlansTime</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:TeamLead → ebs:EmployeePlannedTime [1..&#42;]</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">time:hasBeginning</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">time:TemporalEntity → time:Instant [0..1]</p></td>
@@ -877,7 +878,7 @@ ebs:Salary → ebs:MonetaryValue [1]</p></td>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">time:hasDuration</p></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">time:TemporalEntity → time:TemporalDuration [0..1]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">time:TemporalEntity → time:TemporalDuration [1]</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">time:hasEnd</p></td>
@@ -894,7 +895,7 @@ ebs:Salary → ebs:MonetaryValue [1]</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-07-13 14:54:37 UTC
+Last updated 2026-07-23 07:27:44 UTC
 </div>
 </div>
 </body>

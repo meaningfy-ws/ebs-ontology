@@ -35,13 +35,13 @@
         <owl:imports rdf:resource="http://www.w3.org/ns/person"/>
         <owl:imports rdf:resource="http://www.w3.org/ns/org#"/>
         <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-07-09</dcterms:created>
-        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-07-13</dcterms:issued>
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-07-23</dcterms:issued>
         <dcterms:license>CC BY 4.0</dcterms:license>
         <dcterms:publisher>Meaningfy</dcterms:publisher>
         <dcterms:title xml:lang="en">EBS core</dcterms:title>
         <vann:preferredNamespacePrefix>ebs</vann:preferredNamespacePrefix>
         <vann:preferredNamespaceUri>http://ebs-integrator.com/ontology/erp#</vann:preferredNamespaceUri>
-        <rdfs:comment>This version is automatically generated from EBS.xml on 2026-07-13</rdfs:comment>
+        <rdfs:comment>This version is automatically generated from EBS.xml on 2026-07-23</rdfs:comment>
         <owl:versionInfo>1.0.0</owl:versionInfo>
     </owl:Ontology>
     
@@ -2063,6 +2063,12 @@ This approach is consistent with both schema.org and the W3C OWL Time Ontology.<
     
 
 
+    <!-- http://purl.org/dc/terms/description -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/dc/terms/description"/>
+    
+
+
     <!-- http://purl.org/dc/terms/identifier -->
 
     <owl:DatatypeProperty rdf:about="http://purl.org/dc/terms/identifier">
@@ -2150,14 +2156,6 @@ This approach is consistent with both schema.org and the W3C OWL Time Ontology.<
 
     <owl:DatatypeProperty rdf:about="http://xmlns.com/foaf/0.1/lastName">
         <skos:prefLabel xml:lang="en">last Name</skos:prefLabel>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://xmlns.com/foaf/0.1/name -->
-
-    <owl:DatatypeProperty rdf:about="http://xmlns.com/foaf/0.1/name">
-        <skos:prefLabel xml:lang="en">name</skos:prefLabel>
     </owl:DatatypeProperty>
     
 
@@ -3176,6 +3174,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/LinguisticSystem -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/LinguisticSystem">
+        <dcterms:description xml:lang="en">Written, spoken, sign, and computer languages are linguistic systems.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-14</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3274,6 +3273,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/PhysicalMedium -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/PhysicalMedium">
+        <dcterms:description xml:lang="en">Examples include paper, canvas, or DVD.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-14</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3322,6 +3322,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/RFC3066 -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/RFC3066">
+        <dcterms:description xml:lang="en">RFC 3066 has been obsoleted by RFC 4646.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2002-07-13</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3330,6 +3331,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/RFC4646 -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/RFC4646">
+        <dcterms:description xml:lang="en">RFC 4646 obsoletes RFC 3066.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-14</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3338,6 +3340,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/RFC5646 -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/RFC5646">
+        <dcterms:description xml:lang="en">RFC 5646 obsoletes RFC 4646.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-10-11</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3354,6 +3357,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/SizeOrDuration -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/SizeOrDuration">
+        <dcterms:description xml:lang="en">Examples include a number of pages, a specification of length, width, and breadth, or a period in hours, minutes, and seconds.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-14</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3420,6 +3424,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/accessRights -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/accessRights">
+        <dcterms:description xml:lang="en">Access Rights may include information regarding access or restrictions based on privacy, security, or other policies.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2003-02-15</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3428,6 +3433,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/accrualMethod -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/accrualMethod">
+        <dcterms:description xml:lang="en">Recommended practice is to use a value from the Collection Description Accrual Method Vocabulary [[DCMI-ACCRUALMETHOD](https://dublincore.org/groups/collections/accrual-method/)].</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2005-06-13</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3436,6 +3442,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/accrualPeriodicity -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/accrualPeriodicity">
+        <dcterms:description xml:lang="en">Recommended practice is to use a value from the Collection Description Frequency Vocabulary [[DCMI-COLLFREQ](https://dublincore.org/groups/collections/frequency/)].</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2005-06-13</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3444,6 +3451,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/accrualPolicy -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/accrualPolicy">
+        <dcterms:description xml:lang="en">Recommended practice is to use a value from the Collection Description Accrual Policy Vocabulary [[DCMI-ACCRUALPOLICY](https://dublincore.org/groups/collections/accrual-policy/)].</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2005-06-13</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3452,6 +3460,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/alternative -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/alternative">
+        <dcterms:description xml:lang="en">The distinction between titles and alternative titles is application-specific.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2000-07-11</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3460,6 +3469,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/audience -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/audience">
+        <dcterms:description xml:lang="en">Recommended practice is to use this property with non-literal values from a vocabulary of audience types.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2001-05-21</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3468,6 +3478,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/available -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/available">
+        <dcterms:description xml:lang="en">Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2000-07-11</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3476,6 +3487,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/bibliographicCitation -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/bibliographicCitation">
+        <dcterms:description xml:lang="en">Recommended practice is to include sufficient bibliographic detail to identify the resource as unambiguously as possible.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2003-02-15</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3492,6 +3504,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/contributor -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/contributor">
+        <dcterms:description xml:lang="en">The guidelines for using names of persons or organizations as creators apply to contributors.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-14</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3500,6 +3513,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/coverage -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/coverage">
+        <dcterms:description xml:lang="en">Spatial topic and spatial applicability may be a named place or a location specified by its geographic coordinates. Temporal topic may be a named period, date, or date range. A jurisdiction may be a named administrative entity or a geographic place to which the resource applies. Recommended practice is to use a controlled vocabulary such as the Getty Thesaurus of Geographic Names [[TGN](https://www.getty.edu/research/tools/vocabulary/tgn/index.html)]. Where appropriate, named places or time periods may be used in preference to numeric identifiers such as sets of coordinates or date ranges.  Because coverage is so broadly defined, it is preferable to use the more specific subproperties Temporal Coverage and Spatial Coverage.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-14</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3508,6 +3522,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/created -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/created">
+        <dcterms:description xml:lang="en">Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2000-07-11</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3516,6 +3531,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/creator -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/creator">
+        <dcterms:description xml:lang="en">Recommended practice is to identify the creator with a URI.  If this is not possible or feasible, a literal value that identifies the creator may be provided.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-14</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3524,6 +3540,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/date -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/date">
+        <dcterms:description xml:lang="en">Date may be used to express temporal information at any level of granularity.  Recommended practice is to express the date, date/time, or period of time according to ISO 8601-1 [[ISO 8601-1](https://www.iso.org/iso-8601-date-and-time-format.html)] or a published profile of the ISO standard, such as the W3C Note on Date and Time Formats [[W3CDTF](https://www.w3.org/TR/NOTE-datetime)] or the Extended Date/Time Format Specification [[EDTF](http://www.loc.gov/standards/datetime/)].  If the full date is unknown, month and year (YYYY-MM) or just year (YYYY) may be used. Date ranges may be specified using ISO 8601 period of time specification in which start and end dates are separated by a &apos;/&apos; (slash) character.  Either the start or end date may be missing.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-14</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3532,6 +3549,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/dateAccepted -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/dateAccepted">
+        <dcterms:description xml:lang="en">Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty.  Examples of resources to which a date of acceptance may be relevant are a thesis (accepted by a university department) or an article (accepted by a journal).</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2002-07-13</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3540,6 +3558,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/dateCopyrighted -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/dateCopyrighted">
+        <dcterms:description xml:lang="en">Typically a year.  Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2002-07-13</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3548,6 +3567,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/dateSubmitted -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/dateSubmitted">
+        <dcterms:description xml:lang="en">Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty.  Examples of resources to which a &apos;Date Submitted&apos; may be relevant include a thesis (submitted to a university department) or an article (submitted to a journal).</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2002-07-13</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3556,6 +3576,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/description -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/description">
+        <dcterms:description xml:lang="en">Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-14</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3572,6 +3593,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/extent -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/extent">
+        <dcterms:description xml:lang="en">Recommended practice is to specify the file size in megabytes and duration in ISO 8601 format.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2000-07-11</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3580,6 +3602,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/format -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/format">
+        <dcterms:description xml:lang="en">Recommended practice is to use a controlled vocabulary where available. For example, for file formats one could use the list of Internet Media Types [[MIME](https://www.iana.org/assignments/media-types/media-types.xhtml)].  Examples of dimensions include size and duration.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-14</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3588,6 +3611,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/hasFormat -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/hasFormat">
+        <dcterms:description xml:lang="en">This property is intended to be used with non-literal values. This property is an inverse property of Is Format Of.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2000-07-11</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3596,6 +3620,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/hasPart -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/hasPart">
+        <dcterms:description xml:lang="en">This property is intended to be used with non-literal values. This property is an inverse property of Is Part Of.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2000-07-11</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3604,6 +3629,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/hasVersion -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/hasVersion">
+        <dcterms:description xml:lang="en">Changes in version imply substantive changes in content rather than differences in format. This property is intended to be used with non-literal values. This property is an inverse property of Is Version Of.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2000-07-11</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3612,6 +3638,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/identifier -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/identifier">
+        <dcterms:description xml:lang="en">Recommended practice is to identify the resource by means of a string conforming to an identification system. Examples include International Standard Book Number (ISBN), Digital Object Identifier (DOI), and Uniform Resource Name (URN).  Persistent identifiers should be provided as HTTP URIs.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-14</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3620,9 +3647,9 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/instructionalMethod -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/instructionalMethod">
+        <dcterms:description xml:lang="en">Instructional Method typically includes ways of presenting instructional materials or conducting instructional activities, patterns of learner-to-learner and learner-to-instructor interactions, and mechanisms by which group and individual levels of learning are measured.  Instructional methods include all aspects of the instruction and learning processes from planning and implementation through evaluation and feedback.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2005-06-13</dcterms:issued>
         <dcam:rangeIncludes rdf:resource="http://purl.org/dc/terms/MethodOfInstruction"/>
-        <dcterms:description xml:lang="en">Instructional Method typically includes ways of presenting instructional materials or conducting instructional activities, patterns of learner-to-learner and learner-to-instructor interactions, and mechanisms by which group and individual levels of learning are measured.  Instructional methods include all aspects of the instruction and learning processes from planning and implementation through evaluation and feedback.</dcterms:description>
         <rdfs:comment xml:lang="en">A process, used to engender knowledge, attitudes and skills, that the described resource is designed to support.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Instructional Method</rdfs:label>
@@ -3633,6 +3660,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/isFormatOf -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/isFormatOf">
+        <dcterms:description xml:lang="en">This property is intended to be used with non-literal values. This property is an inverse property of Has Format.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2000-07-11</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3641,6 +3669,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/isPartOf -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/isPartOf">
+        <dcterms:description xml:lang="en">This property is intended to be used with non-literal values. This property is an inverse property of Has Part.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2000-07-11</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3649,6 +3678,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/isReferencedBy -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/isReferencedBy">
+        <dcterms:description xml:lang="en">This property is intended to be used with non-literal values. This property is an inverse property of References.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2000-07-11</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3657,6 +3687,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/isReplacedBy -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/isReplacedBy">
+        <dcterms:description xml:lang="en">This property is intended to be used with non-literal values. This property is an inverse property of Replaces.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2000-07-11</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3665,6 +3696,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/isRequiredBy -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/isRequiredBy">
+        <dcterms:description xml:lang="en">This property is intended to be used with non-literal values. This property is an inverse property of Requires.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2000-07-11</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3673,6 +3705,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/isVersionOf -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/isVersionOf">
+        <dcterms:description xml:lang="en">Changes in version imply substantive changes in content rather than differences in format. This property is intended to be used with non-literal values. This property is an inverse property of Has Version.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2000-07-11</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3682,6 +3715,7 @@ Implementers are free to choose their language. It is recommended to document th
 
     <owl:DatatypeProperty rdf:about="http://purl.org/dc/terms/issued">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <dcterms:description xml:lang="en">Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2000-07-11</dcterms:issued>
     </owl:DatatypeProperty>
     
@@ -3690,6 +3724,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/language -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/language">
+        <dcterms:description xml:lang="en">Recommended practice is to use either a non-literal value representing a language from a controlled vocabulary such as ISO 639-2 or ISO 639-3, or a literal value consisting of an IETF Best Current Practice 47 [[IETF-BCP47](https://tools.ietf.org/html/bcp47)] language tag.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-14</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3698,6 +3733,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/license -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/license">
+        <dcterms:description xml:lang="en">Recommended practice is to identify the license document with a URI. If this is not possible or feasible, a literal value that identifies the license may be provided.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2004-06-14</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3706,6 +3742,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/mediator -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/mediator">
+        <dcterms:description xml:lang="en">In an educational context, a mediator might be a parent, teacher, teaching assistant, or care-giver.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2001-05-21</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3722,6 +3759,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/modified -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/modified">
+        <dcterms:description xml:lang="en">Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2000-07-11</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3730,9 +3768,9 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/provenance -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/provenance">
+        <dcterms:description xml:lang="en">The statement may include a description of any changes successive custodians made to the resource.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2004-09-20</dcterms:issued>
         <dcam:rangeIncludes rdf:resource="http://purl.org/dc/terms/ProvenanceStatement"/>
-        <dcterms:description xml:lang="en">The statement may include a description of any changes successive custodians made to the resource.</dcterms:description>
         <rdfs:comment xml:lang="en">A statement of any changes in ownership and custody of the resource since its creation that are significant for its authenticity, integrity, and interpretation.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Provenance</rdfs:label>
@@ -3751,6 +3789,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/references -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/references">
+        <dcterms:description xml:lang="en">This property is intended to be used with non-literal values. This property is an inverse property of Is Referenced By.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2000-07-11</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3759,6 +3798,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/relation -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/relation">
+        <dcterms:description xml:lang="en">Recommended practice is to identify the related resource by means of a URI.  If this is not possible or feasible, a string conforming to a formal identification system may be provided.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-14</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3767,6 +3807,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/replaces -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/replaces">
+        <dcterms:description xml:lang="en">This property is intended to be used with non-literal values. This property is an inverse property of Is Replaced By.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2000-07-11</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3775,6 +3816,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/requires -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/requires">
+        <dcterms:description xml:lang="en">This property is intended to be used with non-literal values. This property is an inverse property of Is Required By.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2000-07-11</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3783,6 +3825,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/rights -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/rights">
+        <dcterms:description xml:lang="en">Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights.  Recommended practice is to refer to a rights statement with a URI.  If this is not possible or feasible, a literal value (name, label, or short text) may be provided.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-14</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3791,9 +3834,9 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/rightsHolder -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/rightsHolder">
+        <dcterms:description xml:lang="en">Recommended practice is to refer to the rights holder with a URI. If this is not possible or feasible, a literal value that identifies the rights holder may be provided.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2004-06-14</dcterms:issued>
         <dcam:rangeIncludes rdf:resource="http://purl.org/dc/terms/Agent"/>
-        <dcterms:description xml:lang="en">Recommended practice is to refer to the rights holder with a URI. If this is not possible or feasible, a literal value that identifies the rights holder may be provided.</dcterms:description>
         <rdfs:comment xml:lang="en">A person or organization owning or managing rights over the resource.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Rights Holder</rdfs:label>
@@ -3804,6 +3847,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/source -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/source">
+        <dcterms:description xml:lang="en">This property is intended to be used with non-literal values. The described resource may be derived from the related resource in whole or in part. Best practice is to identify the related resource by means of a URI or a string conforming to a formal identification system.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-14</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3820,6 +3864,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/subject -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/subject">
+        <dcterms:description xml:lang="en">Recommended practice is to refer to the subject with a URI. If this is not possible or feasible, a literal value that identifies the subject may be provided. Both should preferably refer to a subject in a controlled vocabulary.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-14</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3852,6 +3897,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/type -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/type">
+        <dcterms:description xml:lang="en">Recommended practice is to use a controlled vocabulary such as the DCMI Type Vocabulary [[DCMI-TYPE](http://dublincore.org/documents/dcmi-type-vocabulary/)]. To describe the file format, physical medium, or dimensions of the resource, use the property Format.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-14</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3860,6 +3906,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://purl.org/dc/terms/valid -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/dc/terms/valid">
+        <dcterms:description xml:lang="en">Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty.</dcterms:description>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2000-07-11</dcterms:issued>
     </owl:NamedIndividual>
     
@@ -3955,7 +4002,6 @@ Implementers are free to choose their language. It is recommended to document th
         <rdfs:label xml:lang="en">License Document</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/LinguisticSystem">
-        <dcterms:description xml:lang="en">Written, spoken, sign, and computer languages are linguistic systems.</dcterms:description>
         <rdfs:comment xml:lang="en">A system of signs, symbols, sounds, gestures, or rules used in communication.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Linguistic System</rdfs:label>
@@ -4002,7 +4048,6 @@ Implementers are free to choose their language. It is recommended to document th
         <rdfs:label xml:lang="en">Period of Time</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/PhysicalMedium">
-        <dcterms:description xml:lang="en">Examples include paper, canvas, or DVD.</dcterms:description>
         <rdfs:comment xml:lang="en">A physical material or carrier.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Physical Medium</rdfs:label>
@@ -4035,21 +4080,18 @@ Implementers are free to choose their language. It is recommended to document th
         <rdfs:seeAlso rdf:resource="http://www.ietf.org/rfc/rfc1766.txt"/>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/RFC3066">
-        <dcterms:description xml:lang="en">RFC 3066 has been obsoleted by RFC 4646.</dcterms:description>
         <rdfs:comment xml:lang="en">The set of tags constructed according to RFC 3066 for the identification of languages.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">RFC 3066</rdfs:label>
         <rdfs:seeAlso rdf:resource="http://www.ietf.org/rfc/rfc3066.txt"/>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/RFC4646">
-        <dcterms:description xml:lang="en">RFC 4646 obsoletes RFC 3066.</dcterms:description>
         <rdfs:comment xml:lang="en">The set of tags constructed according to RFC 4646 for the identification of languages.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">RFC 4646</rdfs:label>
         <rdfs:seeAlso rdf:resource="http://www.ietf.org/rfc/rfc4646.txt"/>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/RFC5646">
-        <dcterms:description xml:lang="en">RFC 5646 obsoletes RFC 4646.</dcterms:description>
         <rdfs:comment xml:lang="en">The set of tags constructed according to RFC 5646 for the identification of languages.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">RFC 5646</rdfs:label>
@@ -4061,7 +4103,6 @@ Implementers are free to choose their language. It is recommended to document th
         <rdfs:label xml:lang="en">Rights Statement</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/SizeOrDuration">
-        <dcterms:description xml:lang="en">Examples include a number of pages, a specification of length, width, and breadth, or a period in hours, minutes, and seconds.</dcterms:description>
         <rdfs:comment xml:lang="en">A dimension or extent, or a time taken to play or execute.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Size or Duration</rdfs:label>
@@ -4090,53 +4131,45 @@ Implementers are free to choose their language. It is recommended to document th
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/accessRights">
         <dcam:rangeIncludes rdf:resource="http://purl.org/dc/terms/RightsStatement"/>
-        <dcterms:description xml:lang="en">Access Rights may include information regarding access or restrictions based on privacy, security, or other policies.</dcterms:description>
         <rdfs:comment xml:lang="en">Information about who access the resource or an indication of its security status.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Access Rights</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/accrualMethod">
         <dcam:rangeIncludes rdf:resource="http://purl.org/dc/terms/MethodOfAccrual"/>
-        <dcterms:description xml:lang="en">Recommended practice is to use a value from the Collection Description Accrual Method Vocabulary [[DCMI-ACCRUALMETHOD](https://dublincore.org/groups/collections/accrual-method/)].</dcterms:description>
         <rdfs:comment xml:lang="en">The method by which items are added to a collection.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Accrual Method</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/accrualPeriodicity">
         <dcam:rangeIncludes rdf:resource="http://purl.org/dc/terms/Frequency"/>
-        <dcterms:description xml:lang="en">Recommended practice is to use a value from the Collection Description Frequency Vocabulary [[DCMI-COLLFREQ](https://dublincore.org/groups/collections/frequency/)].</dcterms:description>
         <rdfs:comment xml:lang="en">The frequency with which items are added to a collection.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Accrual Periodicity</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/accrualPolicy">
         <dcam:rangeIncludes rdf:resource="http://purl.org/dc/terms/Policy"/>
-        <dcterms:description xml:lang="en">Recommended practice is to use a value from the Collection Description Accrual Policy Vocabulary [[DCMI-ACCRUALPOLICY](https://dublincore.org/groups/collections/accrual-policy/)].</dcterms:description>
         <rdfs:comment xml:lang="en">The policy governing the addition of items to a collection.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Accrual Policy</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/alternative">
-        <dcterms:description xml:lang="en">The distinction between titles and alternative titles is application-specific.</dcterms:description>
         <rdfs:comment xml:lang="en">An alternative name for the resource.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Alternative Title</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/audience">
         <dcam:rangeIncludes rdf:resource="http://purl.org/dc/terms/AgentClass"/>
-        <dcterms:description xml:lang="en">Recommended practice is to use this property with non-literal values from a vocabulary of audience types.</dcterms:description>
         <rdfs:comment xml:lang="en">A class of agents for whom the resource is intended or useful.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Audience</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/available">
-        <dcterms:description xml:lang="en">Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty.</dcterms:description>
         <rdfs:comment xml:lang="en">Date that the resource became or will become available.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Date Available</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/bibliographicCitation">
-        <dcterms:description xml:lang="en">Recommended practice is to include sufficient bibliographic detail to identify the resource as unambiguously as possible.</dcterms:description>
         <rdfs:comment xml:lang="en">A bibliographic reference for the resource.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Bibliographic Citation</rdfs:label>
@@ -4149,7 +4182,6 @@ Implementers are free to choose their language. It is recommended to document th
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/contributor">
         <dcam:rangeIncludes rdf:resource="http://purl.org/dc/terms/Agent"/>
-        <dcterms:description xml:lang="en">The guidelines for using names of persons or organizations as creators apply to contributors.</dcterms:description>
         <rdfs:comment xml:lang="en">An entity responsible for making contributions to the resource.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Contributor</rdfs:label>
@@ -4158,53 +4190,46 @@ Implementers are free to choose their language. It is recommended to document th
         <dcam:rangeIncludes rdf:resource="http://purl.org/dc/terms/Jurisdiction"/>
         <dcam:rangeIncludes rdf:resource="http://purl.org/dc/terms/Location"/>
         <dcam:rangeIncludes rdf:resource="http://purl.org/dc/terms/Period"/>
-        <dcterms:description xml:lang="en">Spatial topic and spatial applicability may be a named place or a location specified by its geographic coordinates. Temporal topic may be a named period, date, or date range. A jurisdiction may be a named administrative entity or a geographic place to which the resource applies. Recommended practice is to use a controlled vocabulary such as the Getty Thesaurus of Geographic Names [[TGN](https://www.getty.edu/research/tools/vocabulary/tgn/index.html)]. Where appropriate, named places or time periods may be used in preference to numeric identifiers such as sets of coordinates or date ranges.  Because coverage is so broadly defined, it is preferable to use the more specific subproperties Temporal Coverage and Spatial Coverage.</dcterms:description>
         <rdfs:comment xml:lang="en">The spatial or temporal topic of the resource, spatial applicability of the resource, or jurisdiction under which the resource is relevant.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Coverage</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/created">
-        <dcterms:description xml:lang="en">Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty.</dcterms:description>
         <rdfs:comment xml:lang="en">Date of creation of the resource.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Date Created</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/creator">
         <dcam:rangeIncludes rdf:resource="http://purl.org/dc/terms/Agent"/>
-        <dcterms:description xml:lang="en">Recommended practice is to identify the creator with a URI.  If this is not possible or feasible, a literal value that identifies the creator may be provided.</dcterms:description>
         <rdfs:comment xml:lang="en">An entity responsible for making the resource.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Creator</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/date">
-        <dcterms:description xml:lang="en">Date may be used to express temporal information at any level of granularity.  Recommended practice is to express the date, date/time, or period of time according to ISO 8601-1 [[ISO 8601-1](https://www.iso.org/iso-8601-date-and-time-format.html)] or a published profile of the ISO standard, such as the W3C Note on Date and Time Formats [[W3CDTF](https://www.w3.org/TR/NOTE-datetime)] or the Extended Date/Time Format Specification [[EDTF](http://www.loc.gov/standards/datetime/)].  If the full date is unknown, month and year (YYYY-MM) or just year (YYYY) may be used. Date ranges may be specified using ISO 8601 period of time specification in which start and end dates are separated by a &apos;/&apos; (slash) character.  Either the start or end date may be missing.</dcterms:description>
         <rdfs:comment xml:lang="en">A point or period of time associated with an event in the lifecycle of the resource.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Date</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/dateAccepted">
-        <dcterms:description xml:lang="en">Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty.  Examples of resources to which a date of acceptance may be relevant are a thesis (accepted by a university department) or an article (accepted by a journal).</dcterms:description>
         <rdfs:comment xml:lang="en">Date of acceptance of the resource.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Date Accepted</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/dateCopyrighted">
-        <dcterms:description xml:lang="en">Typically a year.  Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty.</dcterms:description>
         <rdfs:comment xml:lang="en">Date of copyright of the resource.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Date Copyrighted</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/dateSubmitted">
-        <dcterms:description xml:lang="en">Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty.  Examples of resources to which a &apos;Date Submitted&apos; may be relevant include a thesis (submitted to a university department) or an article (submitted to a journal).</dcterms:description>
         <rdfs:comment xml:lang="en">Date of submission of the resource.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Date Submitted</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/description">
-        <dcterms:description xml:lang="en">Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.</dcterms:description>
         <rdfs:comment xml:lang="en">An account of the resource.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Description</rdfs:label>
+        <skos:prefLabel xml:lang="en">description</skos:prefLabel>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/educationLevel">
         <dcam:rangeIncludes rdf:resource="http://purl.org/dc/terms/AgentClass"/>
@@ -4214,7 +4239,6 @@ Implementers are free to choose their language. It is recommended to document th
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/extent">
         <dcam:rangeIncludes rdf:resource="http://purl.org/dc/terms/SizeOrDuration"/>
-        <dcterms:description xml:lang="en">Recommended practice is to specify the file size in megabytes and duration in ISO 8601 format.</dcterms:description>
         <rdfs:comment xml:lang="en">The size or duration of the resource.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Extent</rdfs:label>
@@ -4222,94 +4246,79 @@ Implementers are free to choose their language. It is recommended to document th
     <rdf:Description rdf:about="http://purl.org/dc/terms/format">
         <dcam:rangeIncludes rdf:resource="http://purl.org/dc/terms/Extent"/>
         <dcam:rangeIncludes rdf:resource="http://purl.org/dc/terms/MediaType"/>
-        <dcterms:description xml:lang="en">Recommended practice is to use a controlled vocabulary where available. For example, for file formats one could use the list of Internet Media Types [[MIME](https://www.iana.org/assignments/media-types/media-types.xhtml)].  Examples of dimensions include size and duration.</dcterms:description>
         <rdfs:comment xml:lang="en">The file format, physical medium, or dimensions of the resource.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Format</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/hasFormat">
-        <dcterms:description xml:lang="en">This property is intended to be used with non-literal values. This property is an inverse property of Is Format Of.</dcterms:description>
         <rdfs:comment xml:lang="en">A related resource that is substantially the same as the pre-existing described resource, but in another format.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Has Format</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/hasPart">
-        <dcterms:description xml:lang="en">This property is intended to be used with non-literal values. This property is an inverse property of Is Part Of.</dcterms:description>
         <rdfs:comment xml:lang="en">A related resource that is included either physically or logically in the described resource.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Has Part</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/hasVersion">
-        <dcterms:description xml:lang="en">Changes in version imply substantive changes in content rather than differences in format. This property is intended to be used with non-literal values. This property is an inverse property of Is Version Of.</dcterms:description>
         <rdfs:comment xml:lang="en">A related resource that is a version, edition, or adaptation of the described resource.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Has Version</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/identifier">
-        <dcterms:description xml:lang="en">Recommended practice is to identify the resource by means of a string conforming to an identification system. Examples include International Standard Book Number (ISBN), Digital Object Identifier (DOI), and Uniform Resource Name (URN).  Persistent identifiers should be provided as HTTP URIs.</dcterms:description>
         <rdfs:comment xml:lang="en">An unambiguous reference to the resource within a given context.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Identifier</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/isFormatOf">
-        <dcterms:description xml:lang="en">This property is intended to be used with non-literal values. This property is an inverse property of Has Format.</dcterms:description>
         <rdfs:comment xml:lang="en">A pre-existing related resource that is substantially the same as the described resource, but in another format.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Is Format Of</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/isPartOf">
-        <dcterms:description xml:lang="en">This property is intended to be used with non-literal values. This property is an inverse property of Has Part.</dcterms:description>
         <rdfs:comment xml:lang="en">A related resource in which the described resource is physically or logically included.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Is Part Of</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/isReferencedBy">
-        <dcterms:description xml:lang="en">This property is intended to be used with non-literal values. This property is an inverse property of References.</dcterms:description>
         <rdfs:comment xml:lang="en">A related resource that references, cites, or otherwise points to the described resource.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Is Referenced By</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/isReplacedBy">
-        <dcterms:description xml:lang="en">This property is intended to be used with non-literal values. This property is an inverse property of Replaces.</dcterms:description>
         <rdfs:comment xml:lang="en">A related resource that supplants, displaces, or supersedes the described resource.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Is Replaced By</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/isRequiredBy">
-        <dcterms:description xml:lang="en">This property is intended to be used with non-literal values. This property is an inverse property of Requires.</dcterms:description>
         <rdfs:comment xml:lang="en">A related resource that requires the described resource to support its function, delivery, or coherence.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Is Required By</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/isVersionOf">
-        <dcterms:description xml:lang="en">Changes in version imply substantive changes in content rather than differences in format. This property is intended to be used with non-literal values. This property is an inverse property of Has Version.</dcterms:description>
         <rdfs:comment xml:lang="en">A related resource of which the described resource is a version, edition, or adaptation.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Is Version Of</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/issued">
-        <dcterms:description xml:lang="en">Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty.</dcterms:description>
         <rdfs:comment xml:lang="en">Date of formal issuance of the resource.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Date Issued</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/language">
         <dcam:rangeIncludes rdf:resource="http://purl.org/dc/terms/LinguisticSystem"/>
-        <dcterms:description xml:lang="en">Recommended practice is to use either a non-literal value representing a language from a controlled vocabulary such as ISO 639-2 or ISO 639-3, or a literal value consisting of an IETF Best Current Practice 47 [[IETF-BCP47](https://tools.ietf.org/html/bcp47)] language tag.</dcterms:description>
         <rdfs:comment xml:lang="en">A language of the resource.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Language</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/license">
         <dcam:rangeIncludes rdf:resource="http://purl.org/dc/terms/LicenseDocument"/>
-        <dcterms:description xml:lang="en">Recommended practice is to identify the license document with a URI. If this is not possible or feasible, a literal value that identifies the license may be provided.</dcterms:description>
         <rdfs:comment xml:lang="en">A legal document giving official permission to do something with the resource.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">License</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/mediator">
         <dcam:rangeIncludes rdf:resource="http://purl.org/dc/terms/AgentClass"/>
-        <dcterms:description xml:lang="en">In an educational context, a mediator might be a parent, teacher, teaching assistant, or care-giver.</dcterms:description>
         <rdfs:comment xml:lang="en">An entity that mediates access to the resource.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Mediator</rdfs:label>
@@ -4322,7 +4331,6 @@ Implementers are free to choose their language. It is recommended to document th
         <rdfs:label xml:lang="en">Medium</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/modified">
-        <dcterms:description xml:lang="en">Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty.</dcterms:description>
         <rdfs:comment xml:lang="en">Date on which the resource was changed.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Date Modified</rdfs:label>
@@ -4334,38 +4342,32 @@ Implementers are free to choose their language. It is recommended to document th
         <rdfs:label xml:lang="en">Publisher</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/references">
-        <dcterms:description xml:lang="en">This property is intended to be used with non-literal values. This property is an inverse property of Is Referenced By.</dcterms:description>
         <rdfs:comment xml:lang="en">A related resource that is referenced, cited, or otherwise pointed to by the described resource.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">References</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/relation">
-        <dcterms:description xml:lang="en">Recommended practice is to identify the related resource by means of a URI.  If this is not possible or feasible, a string conforming to a formal identification system may be provided.</dcterms:description>
         <rdfs:comment xml:lang="en">A related resource.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Relation</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/replaces">
-        <dcterms:description xml:lang="en">This property is intended to be used with non-literal values. This property is an inverse property of Is Replaced By.</dcterms:description>
         <rdfs:comment xml:lang="en">A related resource that is supplanted, displaced, or superseded by the described resource.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Replaces</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/requires">
-        <dcterms:description xml:lang="en">This property is intended to be used with non-literal values. This property is an inverse property of Is Required By.</dcterms:description>
         <rdfs:comment xml:lang="en">A related resource that is required by the described resource to support its function, delivery, or coherence.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Requires</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/rights">
         <dcam:rangeIncludes rdf:resource="http://purl.org/dc/terms/RightsStatement"/>
-        <dcterms:description xml:lang="en">Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights.  Recommended practice is to refer to a rights statement with a URI.  If this is not possible or feasible, a literal value (name, label, or short text) may be provided.</dcterms:description>
         <rdfs:comment xml:lang="en">Information about rights held in and over the resource.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Rights</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/source">
-        <dcterms:description xml:lang="en">This property is intended to be used with non-literal values. The described resource may be derived from the related resource in whole or in part. Best practice is to identify the related resource by means of a URI or a string conforming to a formal identification system.</dcterms:description>
         <rdfs:comment xml:lang="en">A related resource from which the described resource is derived.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Source</rdfs:label>
@@ -4377,7 +4379,6 @@ Implementers are free to choose their language. It is recommended to document th
         <rdfs:label xml:lang="en">Spatial Coverage</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/subject">
-        <dcterms:description xml:lang="en">Recommended practice is to refer to the subject with a URI. If this is not possible or feasible, a literal value that identifies the subject may be provided. Both should preferably refer to a subject in a controlled vocabulary.</dcterms:description>
         <rdfs:comment xml:lang="en">A topic of the resource.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Subject</rdfs:label>
@@ -4400,13 +4401,11 @@ Implementers are free to choose their language. It is recommended to document th
         <skos:prefLabel xml:lang="en">title</skos:prefLabel>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/type">
-        <dcterms:description xml:lang="en">Recommended practice is to use a controlled vocabulary such as the DCMI Type Vocabulary [[DCMI-TYPE](http://dublincore.org/documents/dcmi-type-vocabulary/)]. To describe the file format, physical medium, or dimensions of the resource, use the property Format.</dcterms:description>
         <rdfs:comment xml:lang="en">The nature or genre of the resource.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Type</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/terms/valid">
-        <dcterms:description xml:lang="en">Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty.</dcterms:description>
         <rdfs:comment xml:lang="en">Date (often a range) of validity of a resource.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
         <rdfs:label xml:lang="en">Date Valid</rdfs:label>

@@ -178,6 +178,12 @@
                   </thead>
                   <tbody>
                      <tr>
+                        <td>time:TemporalEntity</td>
+                        <td>dcterms:description</td>
+                        <td></td>
+                        <td>rdf:PlainLiteral [0..1]</td>
+                     </tr>
+                     <tr>
                         <td>ebs:AgentInRole<br>org:Organization<br></td>
                         <td>dcterms:title</td>
                         <td> </td>
@@ -204,12 +210,6 @@
                      <tr>
                         <td>person:Person</td>
                         <td>foaf:lastName</td>
-                        <td></td>
-                        <td>rdf:PlainLiteral [0..1]</td>
-                     </tr>
-                     <tr>
-                        <td>person:Person</td>
-                        <td>foaf:name</td>
                         <td></td>
                         <td>rdf:PlainLiteral [0..1]</td>
                      </tr>
@@ -251,8 +251,8 @@
                   <tbody>
                      <tr>
                         <td>adms:identifier</td>
-                        <td> </td>
-                        <td>ebs:AgentInRole -&gt; adms:Identifier [1]<br>org:Organization -&gt; adms:Identifier [0..1]<br></td>
+                        <td>  </td>
+                        <td>ebs:AgentInRole -&gt; adms:Identifier [1]<br>org:Organization -&gt; adms:Identifier [0..1]<br>time:TemporalEntity -&gt; adms:Identifier [0..1]<br></td>
                      </tr>
                      <tr>
                         <td>ebs:concernsEmployee</td>
@@ -387,7 +387,7 @@
                      <tr>
                         <td>ebs:PlansTime</td>
                         <td></td>
-                        <td>ebs:ProjectManager -&gt; ebs:EmployeePlannedTime [1..*]</td>
+                        <td>ebs:TeamLead -&gt; ebs:EmployeePlannedTime [1..*]</td>
                      </tr>
                      <tr>
                         <td>ebs:playedBy</td>
@@ -417,7 +417,7 @@
                      <tr>
                         <td>time:hasDuration</td>
                         <td></td>
-                        <td>time:TemporalEntity -&gt; time:TemporalDuration [0..1]</td>
+                        <td>time:TemporalEntity -&gt; time:TemporalDuration [1]</td>
                      </tr>
                      <tr>
                         <td>time:hasEnd</td>

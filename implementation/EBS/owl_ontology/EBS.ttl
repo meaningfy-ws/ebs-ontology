@@ -238,6 +238,9 @@ at-voc:currency a skos:ConceptScheme ;
 at-voc:month a skos:ConceptScheme ;
     skos:prefLabel "month"@en .
 
+dcterms:description a owl:DatatypeProperty ;
+    skos:prefLabel "description"@en .
+
 dcterms:title a owl:DatatypeProperty ;
     skos:prefLabel "title"@en .
 
@@ -296,9 +299,6 @@ foaf:firstName a owl:DatatypeProperty ;
 foaf:lastName a owl:DatatypeProperty ;
     skos:prefLabel "last Name"@en .
 
-foaf:name a owl:DatatypeProperty ;
-    skos:prefLabel "name"@en .
-
 ebs:AgentInRole a owl:Class ;
     rdfs:isDefinedBy ebs:core ;
     skos:prefLabel "Agent In Role"@en .
@@ -334,13 +334,13 @@ org:Organization a owl:Class ;
 
 ebs:core a owl:Ontology ;
     dcterms:created "2026-07-09"^^xsd:date ;
-    dcterms:issued "2026-07-13"^^xsd:date ;
+    dcterms:issued "2026-07-23"^^xsd:date ;
     dcterms:license "CC BY 4.0" ;
     dcterms:publisher "Meaningfy" ;
     dcterms:title "EBS core"@en ;
     vann:preferredNamespacePrefix "ebs" ;
     vann:preferredNamespaceUri "http://ebs-integrator.com/ontology/erp#" ;
-    rdfs:comment "This version is automatically generated from EBS.xml on 2026-07-13" ;
+    rdfs:comment "This version is automatically generated from EBS.xml on 2026-07-23" ;
     owl:imports <http://data.europa.eu/m8g>,
         dcterms:,
         skos:,

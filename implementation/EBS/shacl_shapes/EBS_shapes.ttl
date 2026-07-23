@@ -114,8 +114,7 @@ core-shape:ebs-OperationsProjectShape a sh:NodeShape ;
 core-shape:ebs-ProjectManagerShape a sh:NodeShape ;
     rdfs:label "Project Manager" ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:property core-shape:ebs-ProjectManager-ebs-PlansTime,
-        core-shape:ebs-ProjectManager-ebs-managesProject ;
+    sh:property core-shape:ebs-ProjectManager-ebs-managesProject ;
     sh:targetClass ebs:ProjectManager .
 
 core-shape:ebs-ProjectShape a sh:NodeShape ;
@@ -168,7 +167,8 @@ core-shape:ebs-TaskListShape a sh:NodeShape ;
 core-shape:ebs-TeamLeadShape a sh:NodeShape ;
     rdfs:label "Team Lead" ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:property core-shape:ebs-TeamLead-ebs-leads ;
+    sh:property core-shape:ebs-TeamLead-ebs-PlansTime,
+        core-shape:ebs-TeamLead-ebs-leads ;
     sh:targetClass ebs:TeamLead .
 
 core-shape:ebs-TeamShape a sh:NodeShape ;
@@ -189,8 +189,7 @@ core-shape:person-PersonShape a sh:NodeShape ;
     rdfs:label "Person" ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:property core-shape:person-Person-foaf-firstName,
-        core-shape:person-Person-foaf-lastName,
-        core-shape:person-Person-foaf-name ;
+        core-shape:person-Person-foaf-lastName ;
     sh:targetClass person:Person .
 
 core-shape:time-DurationShape a sh:NodeShape ;
@@ -221,7 +220,9 @@ core-shape:time-TemporalDurationShape a sh:NodeShape ;
 core-shape:time-TemporalEntityShape a sh:NodeShape ;
     rdfs:label "Temporal Entity" ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:property core-shape:time-TemporalEntity-time-hasBeginning,
+    sh:property core-shape:time-TemporalEntity-adms-identifier,
+        core-shape:time-TemporalEntity-dcterms-description,
+        core-shape:time-TemporalEntity-time-hasBeginning,
         core-shape:time-TemporalEntity-time-hasDuration,
         core-shape:time-TemporalEntity-time-hasEnd ;
     sh:targetClass time:TemporalEntity .
@@ -496,14 +497,6 @@ core-shape:ebs-Project-ebs-isActive a sh:PropertyShape ;
     sh:name "Is active" ;
     sh:path ebs:isActive .
 
-core-shape:ebs-ProjectManager-ebs-PlansTime a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:class ebs:EmployeePlannedTime ;
-    sh:minCount 1 ;
-    sh:name "Plans time" ;
-    sh:path ebs:PlansTime ;
-    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#PlansTime> ?that . ?that <http://ebs-integrator.com/ontology/erp#PlansTime> ?this .}" ] .
-
 core-shape:ebs-ProjectManager-ebs-managesProject a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:class ebs:Project ;
@@ -563,6 +556,14 @@ core-shape:ebs-Team-ebs-worksOnStack a sh:PropertyShape ;
     sh:path ebs:worksOnStack ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#worksOnStack> ?that . ?that <http://ebs-integrator.com/ontology/erp#worksOnStack> ?this .}" ] .
 
+core-shape:ebs-TeamLead-ebs-PlansTime a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class ebs:EmployeePlannedTime ;
+    sh:minCount 1 ;
+    sh:name "Plans time" ;
+    sh:path ebs:PlansTime ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#PlansTime> ?that . ?that <http://ebs-integrator.com/ontology/erp#PlansTime> ?this .}" ] .
+
 core-shape:ebs-TeamLead-ebs-leads a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:class ebs:Team ;
@@ -599,13 +600,6 @@ core-shape:person-Person-foaf-lastName a sh:PropertyShape ;
     sh:name "Last name" ;
     sh:or ( [ sh:datatype xsd:string ] [ sh:datatype rdf:langString ] ) ;
     sh:path foaf:lastName .
-
-core-shape:person-Person-foaf-name a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:maxCount 1 ;
-    sh:name "Name" ;
-    sh:or ( [ sh:datatype xsd:string ] [ sh:datatype rdf:langString ] ) ;
-    sh:path foaf:name .
 
 core-shape:time-Duration-time-numericDuration a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -647,6 +641,21 @@ core-shape:time-Interval-ebs-relatedToProject a sh:PropertyShape ;
     sh:path ebs:relatedToProject ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#relatedToProject> ?that . ?that <http://ebs-integrator.com/ontology/erp#relatedToProject> ?this .}" ] .
 
+core-shape:time-TemporalEntity-adms-identifier a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class adms:Identifier ;
+    sh:maxCount 1 ;
+    sh:name "Identifier" ;
+    sh:path adms:identifier ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://www.w3.org/ns/adms#identifier> ?that . ?that <http://www.w3.org/ns/adms#identifier> ?this .}" ] .
+
+core-shape:time-TemporalEntity-dcterms-description a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:maxCount 1 ;
+    sh:name "Description" ;
+    sh:or ( [ sh:datatype xsd:string ] [ sh:datatype rdf:langString ] ) ;
+    sh:path dcterms:description .
+
 core-shape:time-TemporalEntity-time-hasBeginning a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:class time:Instant ;
@@ -659,6 +668,7 @@ core-shape:time-TemporalEntity-time-hasDuration a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:class time:TemporalDuration ;
     sh:maxCount 1 ;
+    sh:minCount 1 ;
     sh:name "Has duration" ;
     sh:path time:hasDuration ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://www.w3.org/2006/time#hasDuration> ?that . ?that <http://www.w3.org/2006/time#hasDuration> ?this .}" ] .
@@ -673,13 +683,13 @@ core-shape:time-TemporalEntity-time-hasEnd a sh:PropertyShape ;
 
 core-shape:core-shape a owl:Ontology ;
     dcterms:created "2026-07-09"^^xsd:date ;
-    dcterms:issued "2026-07-13"^^xsd:date ;
+    dcterms:issued "2026-07-23"^^xsd:date ;
     dcterms:license "CC BY 4.0" ;
     dcterms:publisher "Meaningfy" ;
     dcterms:title "EBS shapes"@en ;
     vann:preferredNamespacePrefix "ebs" ;
     vann:preferredNamespaceUri "http://ebs-integrator.com/ontology/erp#" ;
-    rdfs:comment "This version is automatically generated from EBS.xml on 2026-07-13" ;
+    rdfs:comment "This version is automatically generated from EBS.xml on 2026-07-23" ;
     owl:imports <http://data.europa.eu/m8g>,
         ebs:core,
         ebs:core-restriction,

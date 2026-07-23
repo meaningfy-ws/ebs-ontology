@@ -34,13 +34,13 @@
         <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core#"/>
         <owl:imports rdf:resource="http://www.w3.org/ns/adms"/>
         <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-07-09</dcterms:created>
-        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-07-13</dcterms:issued>
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-07-23</dcterms:issued>
         <dcterms:license>CC BY 4.0</dcterms:license>
         <dcterms:publisher>Meaningfy</dcterms:publisher>
         <dcterms:title xml:lang="en">EBS shapes</dcterms:title>
         <vann:preferredNamespacePrefix>ebs</vann:preferredNamespacePrefix>
         <vann:preferredNamespaceUri>http://ebs-integrator.com/ontology/erp#</vann:preferredNamespaceUri>
-        <rdfs:comment>This version is automatically generated from EBS.xml on 2026-07-13</rdfs:comment>
+        <rdfs:comment>This version is automatically generated from EBS.xml on 2026-07-23</rdfs:comment>
         <owl:versionInfo>1.0.0</owl:versionInfo>
     </owl:Ontology>
     
@@ -2977,24 +2977,6 @@ Implementers are free to choose their language. It is recommended to document th
     
 
 
-    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-ProjectManager-ebs-PlansTime -->
-
-    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-ProjectManager-ebs-PlansTime">
-        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-        <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#EmployeePlannedTime"/>
-        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-        <sh:name>Plans time</sh:name>
-        <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#PlansTime"/>
-        <sh:sparql>
-            <rdf:Description>
-                <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#PlansTime&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#PlansTime&gt; ?this .}</sh:select>
-            </rdf:Description>
-        </sh:sparql>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-ProjectManager-ebs-managesProject -->
 
     <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-ProjectManager-ebs-managesProject">
@@ -3019,7 +3001,6 @@ Implementers are free to choose their language. It is recommended to document th
         <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
         <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
         <rdfs:label>Project Manager</rdfs:label>
-        <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-ProjectManager-ebs-PlansTime"/>
         <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-ProjectManager-ebs-managesProject"/>
         <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#ProjectManager"/>
     </owl:NamedIndividual>
@@ -3222,6 +3203,24 @@ Implementers are free to choose their language. It is recommended to document th
     
 
 
+    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-TeamLead-ebs-PlansTime -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-TeamLead-ebs-PlansTime">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+        <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#EmployeePlannedTime"/>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+        <sh:name>Plans time</sh:name>
+        <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#PlansTime"/>
+        <sh:sparql>
+            <rdf:Description>
+                <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#PlansTime&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#PlansTime&gt; ?this .}</sh:select>
+            </rdf:Description>
+        </sh:sparql>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-TeamLead-ebs-leads -->
 
     <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-TeamLead-ebs-leads">
@@ -3247,6 +3246,7 @@ Implementers are free to choose their language. It is recommended to document th
         <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
         <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
         <rdfs:label>Team Lead</rdfs:label>
+        <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-TeamLead-ebs-PlansTime"/>
         <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-TeamLead-ebs-leads"/>
         <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#TeamLead"/>
     </owl:NamedIndividual>
@@ -3341,21 +3341,6 @@ Implementers are free to choose their language. It is recommended to document th
     
 
 
-    <!-- http://ebs-integrator.com/ontology/erp/data-shape#person-Person-foaf-name -->
-
-    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#person-Person-foaf-name">
-        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-        <sh:name>Name</sh:name>
-        <sh:or>
-            <rdf:Description/>
-        </sh:or>
-        <sh:path rdf:resource="http://xmlns.com/foaf/0.1/name"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://ebs-integrator.com/ontology/erp/data-shape#person-PersonShape -->
 
     <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#person-PersonShape">
@@ -3364,7 +3349,6 @@ Implementers are free to choose their language. It is recommended to document th
         <rdfs:label>Person</rdfs:label>
         <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#person-Person-foaf-firstName"/>
         <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#person-Person-foaf-lastName"/>
-        <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#person-Person-foaf-name"/>
         <sh:targetClass rdf:resource="http://www.w3.org/ns/person#Person"/>
     </owl:NamedIndividual>
     
@@ -3497,6 +3481,39 @@ Implementers are free to choose their language. It is recommended to document th
     
 
 
+    <!-- http://ebs-integrator.com/ontology/erp/data-shape#time-TemporalEntity-adms-identifier -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#time-TemporalEntity-adms-identifier">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+        <sh:class rdf:resource="http://www.w3.org/ns/adms#Identifier"/>
+        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+        <sh:name>Identifier</sh:name>
+        <sh:path rdf:resource="http://www.w3.org/ns/adms#identifier"/>
+        <sh:sparql>
+            <rdf:Description>
+                <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://www.w3.org/ns/adms#identifier&gt; ?that . ?that &lt;http://www.w3.org/ns/adms#identifier&gt; ?this .}</sh:select>
+            </rdf:Description>
+        </sh:sparql>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp/data-shape#time-TemporalEntity-dcterms-description -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#time-TemporalEntity-dcterms-description">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+        <sh:name>Description</sh:name>
+        <sh:or>
+            <rdf:Description/>
+        </sh:or>
+        <sh:path rdf:resource="http://purl.org/dc/terms/description"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://ebs-integrator.com/ontology/erp/data-shape#time-TemporalEntity-time-hasBeginning -->
 
     <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#time-TemporalEntity-time-hasBeginning">
@@ -3522,6 +3539,7 @@ Implementers are free to choose their language. It is recommended to document th
         <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
         <sh:class rdf:resource="http://www.w3.org/2006/time#TemporalDuration"/>
         <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
         <sh:name>Has duration</sh:name>
         <sh:path rdf:resource="http://www.w3.org/2006/time#hasDuration"/>
         <sh:sparql>
@@ -3557,6 +3575,8 @@ Implementers are free to choose their language. It is recommended to document th
         <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
         <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
         <rdfs:label>Temporal Entity</rdfs:label>
+        <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#time-TemporalEntity-adms-identifier"/>
+        <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#time-TemporalEntity-dcterms-description"/>
         <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#time-TemporalEntity-time-hasBeginning"/>
         <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#time-TemporalEntity-time-hasDuration"/>
         <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#time-TemporalEntity-time-hasEnd"/>
@@ -4458,10 +4478,10 @@ Implementers are free to choose their language. It is recommended to document th
         <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </rdf:Description>
     <rdf:Description>
-        <sh:datatype rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
+        <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </rdf:Description>
     <rdf:Description>
-        <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <sh:datatype rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
     </rdf:Description>
     
 

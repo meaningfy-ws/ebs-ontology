@@ -253,31 +253,31 @@ ebs:Project
   
   
   
-| person:Person
-| foaf:name| 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+| time:TemporalEntity
+| dcterms:description| 
   |rdf:PlainLiteral [0..1]
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   
@@ -298,7 +298,8 @@ ebs:Project
   
 | adms:identifier| 
   |ebs:AgentInRole → adms:Identifier [1] +
-org:Organization → adms:Identifier [0..1]
+org:Organization → adms:Identifier [0..1] +
+time:TemporalEntity → adms:Identifier [0..1]
 
   
 
@@ -492,10 +493,6 @@ ebs:Team → ebs:Efficiency [0..1]
 
   
   
-  
-
-  
-  
 | ebs:hasAssociatedTaskList| 
   |ebs:Project → ebs:TaskList [0..&#42;]
 
@@ -545,13 +542,6 @@ ebs:Team → ebs:Efficiency [0..1]
 
   
   
-| ebs:PlansTime| 
-  |ebs:ProjectManager → ebs:EmployeePlannedTime [1..&#42;]
-
-  
-
-  
-  
 | ebs:hasMonetaryValue| 
   |ebs:Rate → ebs:MonetaryValue [1] +
 ebs:Salary → ebs:MonetaryValue [1]
@@ -574,6 +564,17 @@ ebs:Salary → ebs:MonetaryValue [1]
 
   
   
+| ebs:PlansTime| 
+  |ebs:TeamLead → ebs:EmployeePlannedTime [1..&#42;]
+
+  
+
+  
+  
+  
+
+  
+  
 | time:hasBeginning| 
   |time:TemporalEntity → time:Instant [0..1]
 
@@ -582,7 +583,7 @@ ebs:Salary → ebs:MonetaryValue [1]
   
   
 | time:hasDuration| 
-  |time:TemporalEntity → time:TemporalDuration [0..1]
+  |time:TemporalEntity → time:TemporalDuration [1]
 
   
 
