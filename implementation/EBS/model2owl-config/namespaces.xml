@@ -12,7 +12,6 @@
     <prefix name="skos" value="http://www.w3.org/2004/02/skos/core#"/>
     <prefix name="at-voc" value="http://publications.europa.eu/resource/authority/"/>
     <prefix name="time" value="http://www.w3.org/2006/time#"/>
-    <prefix name="cccev" value="http://data.europa.eu/m8g/"/>
     <prefix name="person" value="http://www.w3.org/ns/person#"/>
     <prefix name="adms" value="http://www.w3.org/ns/adms#"/>
     <prefix name="foaf" value="http://xmlns.com/foaf/0.1/"/>
