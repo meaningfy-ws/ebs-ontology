@@ -4,6 +4,7 @@
      xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:ns="http://creativecommons.org/ns#"
      xmlns:cfg="http://www.example.org#"
+     xmlns:m8g="http://data.europa.eu/m8g/"
      xmlns:org="http://www.w3.org/ns/org#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -16,7 +17,6 @@
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:time="http://www.w3.org/2006/time#"
      xmlns:vann="http://purl.org/vocab/vann/"
-     xmlns:cccev="http://data.europa.eu/m8g/"
      xmlns:rec54="http://www.w3.org/2001/02pd/rec54#"
      xmlns:at-voc="http://publications.europa.eu/resource/authority/"
      xmlns:person="http://www.w3.org/ns/person#"
@@ -32,13 +32,13 @@
         <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core#"/>
         <owl:imports rdf:resource="http://www.w3.org/ns/adms"/>
         <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-07-09</dcterms:created>
-        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-07-23</dcterms:issued>
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-08-03</dcterms:issued>
         <dcterms:license>CC BY 4.0</dcterms:license>
         <dcterms:publisher>Meaningfy</dcterms:publisher>
         <dcterms:title xml:lang="en">EBS restrictions</dcterms:title>
         <vann:preferredNamespacePrefix>ebs</vann:preferredNamespacePrefix>
         <vann:preferredNamespaceUri>http://ebs-integrator.com/ontology/erp#</vann:preferredNamespaceUri>
-        <rdfs:comment>This version is automatically generated from EBS.xml on 2026-07-23</rdfs:comment>
+        <rdfs:comment>This version is automatically generated from EBS.xml on 2026-08-03</rdfs:comment>
         <owl:versionInfo>1.0.0</owl:versionInfo>
     </owl:Ontology>
     
@@ -1269,8 +1269,22 @@ For more structured data use the model in Time Ontology, see an &lt;a href=&quot
     <!-- http://ebs-integrator.com/ontology/erp#PlansTime -->
 
     <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#PlansTime">
-        <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#TeamLead"/>
-        <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#EmployeePlannedTime"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#ProjectManager"/>
+                    <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#TeamLead"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#EmployeePlannedTime"/>
+                    <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#ProjectPlannedTime"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
     </rdf:Description>
     
 
@@ -1293,11 +1307,12 @@ For more structured data use the model in Time Ontology, see an &lt;a href=&quot
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#Capacity"/>
+                    <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#PlannedTime"/>
                     <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#Salary"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
-        <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2006/time#Instant"/>
     </rdf:Description>
     
 
@@ -1306,7 +1321,7 @@ For more structured data use the model in Time Ontology, see an &lt;a href=&quot
 
     <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#concernsProject">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#EmployeePlannedTime"/>
+        <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#PlannedTime"/>
         <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
     </rdf:Description>
     
@@ -1336,15 +1351,6 @@ For more structured data use the model in Time Ontology, see an &lt;a href=&quot
     <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasAssociatedTaskList">
         <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
         <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#TaskList"/>
-    </rdf:Description>
-    
-
-
-    <!-- http://ebs-integrator.com/ontology/erp#hasCapacity -->
-
-    <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasCapacity">
-        <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2006/time#Duration"/>
     </rdf:Description>
     
 
@@ -1407,8 +1413,7 @@ For more structured data use the model in Time Ontology, see an &lt;a href=&quot
     <!-- http://ebs-integrator.com/ontology/erp#hasMonthlyCapacity -->
 
     <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasMonthlyCapacity">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#Company"/>
+        <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
         <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#Capacity"/>
     </rdf:Description>
     
@@ -1417,7 +1422,7 @@ For more structured data use the model in Time Ontology, see an &lt;a href=&quot
     <!-- http://ebs-integrator.com/ontology/erp#hasPlannedBillableTime -->
 
     <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasPlannedBillableTime">
-        <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#EmployeePlannedTime"/>
+        <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#PlannedTime"/>
         <rdfs:range rdf:resource="http://www.w3.org/2006/time#Duration"/>
     </rdf:Description>
     
@@ -1426,7 +1431,7 @@ For more structured data use the model in Time Ontology, see an &lt;a href=&quot
     <!-- http://ebs-integrator.com/ontology/erp#hasPlannedNonBillableTime -->
 
     <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasPlannedNonBillableTime">
-        <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#EmployeePlannedTime"/>
+        <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#PlannedTime"/>
         <rdfs:range rdf:resource="http://www.w3.org/2006/time#Duration"/>
     </rdf:Description>
     
@@ -1480,7 +1485,6 @@ For more structured data use the model in Time Ontology, see an &lt;a href=&quot
     <!-- http://ebs-integrator.com/ontology/erp#hasSalary -->
 
     <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasSalary">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
         <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#Salary"/>
     </rdf:Description>
@@ -1509,6 +1513,16 @@ For more structured data use the model in Time Ontology, see an &lt;a href=&quot
 
     <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasTotalPlannedNonBillableTime">
         <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2006/time#Duration"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp#hasValue -->
+
+    <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasValue">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#Capacity"/>
         <rdfs:range rdf:resource="http://www.w3.org/2006/time#Duration"/>
     </rdf:Description>
     
@@ -2482,6 +2496,27 @@ Implementers are free to choose their language. It is recommended to document th
     
 
 
+    <!-- http://ebs-integrator.com/ontology/erp#Capacity -->
+
+    <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#Capacity">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#concernsMonth"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.w3.org/2006/time#Instant"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasValue"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.w3.org/2006/time#Duration"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
     <!-- http://ebs-integrator.com/ontology/erp#Company -->
 
     <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#Company">
@@ -2489,13 +2524,6 @@ Implementers are free to choose their language. It is recommended to document th
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#employs"/>
                 <owl:someValuesFrom rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasMonthlyCapacity"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#Capacity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2528,16 +2556,8 @@ Implementers are free to choose their language. It is recommended to document th
     <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#Employee">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasSalary"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#Salary"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasCapacity"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.w3.org/2006/time#Duration"/>
+                <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasMonthlyCapacity"/>
+                <owl:someValuesFrom rdf:resource="http://ebs-integrator.com/ontology/erp#Capacity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2575,27 +2595,6 @@ Implementers are free to choose their language. It is recommended to document th
                 <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#concernsProject"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasPlannedBillableTime"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.w3.org/2006/time#Duration"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasPlannedNonBillableTime"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.w3.org/2006/time#Duration"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
     </rdf:Description>
     
 
@@ -2608,6 +2607,32 @@ Implementers are free to choose their language. It is recommended to document th
                 <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasAmountValue"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp#PlannedTime -->
+
+    <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#PlannedTime">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasPlannedBillableTime"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2006/time#Duration"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasPlannedNonBillableTime"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2006/time#Duration"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#concernsProject"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </rdf:Description>
@@ -2675,6 +2700,12 @@ Implementers are free to choose their language. It is recommended to document th
     <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#ProjectManager">
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#PlansTime"/>
+                <owl:someValuesFrom rdf:resource="http://ebs-integrator.com/ontology/erp#ProjectPlannedTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#managesProject"/>
                 <owl:someValuesFrom rdf:resource="http://ebs-integrator.com/ontology/erp#Project"/>
             </owl:Restriction>
@@ -2700,6 +2731,13 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://ebs-integrator.com/ontology/erp#Salary -->
 
     <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#Salary">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#concernsMonth"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.w3.org/2006/time#Instant"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasMonetaryValue"/>
@@ -2787,20 +2825,6 @@ Implementers are free to choose their language. It is recommended to document th
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
                 <owl:hasValue rdf:resource="http://publications.europa.eu/resource/authority/currency"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-    </owl:Class>
-    
-
-
-    <!-- http://publications.europa.eu/resource/authority/month -->
-
-    <owl:Class rdf:about="http://publications.europa.eu/resource/authority/month">
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
-                <owl:hasValue rdf:resource="http://publications.europa.eu/resource/authority/month"/>
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>

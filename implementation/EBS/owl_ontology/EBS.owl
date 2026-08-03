@@ -17,7 +17,6 @@
      xmlns:time="http://www.w3.org/2006/time#"
      xmlns:vann="http://purl.org/vocab/vann/"
      xmlns:array="http://www.w3.org/2005/xpath-functions/array"
-     xmlns:cccev="http://data.europa.eu/m8g/"
      xmlns:rec54="http://www.w3.org/2001/02pd/rec54#"
      xmlns:at-voc="http://publications.europa.eu/resource/authority/"
      xmlns:person="http://www.w3.org/ns/person#"
@@ -35,13 +34,13 @@
         <owl:imports rdf:resource="http://www.w3.org/ns/person"/>
         <owl:imports rdf:resource="http://www.w3.org/ns/org#"/>
         <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-07-09</dcterms:created>
-        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-07-23</dcterms:issued>
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-08-03</dcterms:issued>
         <dcterms:license>CC BY 4.0</dcterms:license>
         <dcterms:publisher>Meaningfy</dcterms:publisher>
         <dcterms:title xml:lang="en">EBS core</dcterms:title>
         <vann:preferredNamespacePrefix>ebs</vann:preferredNamespacePrefix>
         <vann:preferredNamespaceUri>http://ebs-integrator.com/ontology/erp#</vann:preferredNamespaceUri>
-        <rdfs:comment>This version is automatically generated from EBS.xml on 2026-07-23</rdfs:comment>
+        <rdfs:comment>This version is automatically generated from EBS.xml on 2026-08-03</rdfs:comment>
         <owl:versionInfo>1.0.0</owl:versionInfo>
     </owl:Ontology>
     
@@ -1438,15 +1437,6 @@ For more structured data use the model in Time Ontology, see an &lt;a href=&quot
     
 
 
-    <!-- http://ebs-integrator.com/ontology/erp#hasCapacity -->
-
-    <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasCapacity">
-        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
-        <skos:prefLabel xml:lang="en">has Capacity</skos:prefLabel>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://ebs-integrator.com/ontology/erp#hasCommercialRate -->
 
     <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasCommercialRate">
@@ -1587,6 +1577,15 @@ For more structured data use the model in Time Ontology, see an &lt;a href=&quot
     <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasTotalPlannedNonBillableTime">
         <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
         <skos:prefLabel xml:lang="en">has Total Planned Non Billable Time</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp#hasValue -->
+
+    <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasValue">
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:prefLabel xml:lang="en">has Value</skos:prefLabel>
     </owl:ObjectProperty>
     
 
@@ -2542,6 +2541,7 @@ Implementers are free to choose their language. It is recommended to document th
     <!-- http://ebs-integrator.com/ontology/erp#EmployeePlannedTime -->
 
     <owl:Class rdf:about="http://ebs-integrator.com/ontology/erp#EmployeePlannedTime">
+        <rdfs:subClassOf rdf:resource="http://ebs-integrator.com/ontology/erp#PlannedTime"/>
         <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
         <skos:prefLabel xml:lang="en">Employee Planned Time</skos:prefLabel>
     </owl:Class>
@@ -2618,6 +2618,15 @@ Implementers are free to choose their language. It is recommended to document th
     
 
 
+    <!-- http://ebs-integrator.com/ontology/erp#PlannedTime -->
+
+    <owl:Class rdf:about="http://ebs-integrator.com/ontology/erp#PlannedTime">
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:prefLabel xml:lang="en">Planned Time</skos:prefLabel>
+    </owl:Class>
+    
+
+
     <!-- http://ebs-integrator.com/ontology/erp#Project -->
 
     <owl:Class rdf:about="http://ebs-integrator.com/ontology/erp#Project">
@@ -2634,6 +2643,16 @@ Implementers are free to choose their language. It is recommended to document th
         <rdfs:subClassOf rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
         <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
         <skos:prefLabel xml:lang="en">Project Manager</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp#ProjectPlannedTime -->
+
+    <owl:Class rdf:about="http://ebs-integrator.com/ontology/erp#ProjectPlannedTime">
+        <rdfs:subClassOf rdf:resource="http://ebs-integrator.com/ontology/erp#PlannedTime"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:prefLabel xml:lang="en">Project Planned Time</skos:prefLabel>
     </owl:Class>
     
 
@@ -2995,15 +3014,6 @@ Implementers are free to choose their language. It is recommended to document th
     <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
         <skos:prefLabel xml:lang="en">currency</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://publications.europa.eu/resource/authority/month -->
-
-    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/month">
-        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
-        <skos:prefLabel xml:lang="en">month</skos:prefLabel>
     </owl:NamedIndividual>
     
 

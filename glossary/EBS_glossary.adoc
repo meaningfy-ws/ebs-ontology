@@ -87,11 +87,19 @@
       
     
       
+| ebs:PlannedTime | 
+      
+    
+      
 | ebs:Project | 
       
     
       
 | ebs:ProjectManager | 
+      
+    
+      
+| ebs:ProjectPlannedTime | 
       
     
       
@@ -207,12 +215,6 @@ ebs:Project
   
   
   
-  
-  
-  
-  
-  
-  
 | adms:Identifier
 | skos:notation| 
   |rdf:PlainLiteral [1..1]
@@ -250,6 +252,12 @@ ebs:Project
 | person:Person
 | foaf:lastName| 
   |rdf:PlainLiteral [0..1]
+  
+  
+  
+  
+  
+  
   
   
   
@@ -317,8 +325,16 @@ time:TemporalEntity → adms:Identifier [0..1]
   
   
 | ebs:concernsMonth| 
-  |ebs:Capacity → at-voc:month [1] +
-ebs:Salary → at-voc:month [1]
+  |ebs:Capacity → time:Instant [1] +
+ebs:PlannedTime → time:Instant [] +
+ebs:Salary → time:Instant [1]
+
+  
+
+  
+  
+| ebs:hasValue| 
+  |ebs:Capacity → time:Duration [1]
 
   
 
@@ -342,13 +358,6 @@ ebs:Team → ebs:Efficiency [0..1]
 
   
   
-| ebs:hasMonthlyCapacity| 
-  |ebs:Company → ebs:Capacity [1]
-
-  
-
-  
-  
   
 
   
@@ -367,8 +376,8 @@ ebs:Team → ebs:Efficiency [0..1]
 
   
   
-| ebs:hasCapacity| 
-  |ebs:Employee → time:Duration [0..1]
+| ebs:hasMonthlyCapacity| 
+  |ebs:Employee → ebs:Capacity [1..&#42;]
 
   
 
@@ -396,7 +405,7 @@ ebs:Team → ebs:Efficiency [0..1]
   
   
 | ebs:hasSalary| 
-  |ebs:Employee → ebs:Salary [1]
+  |ebs:Employee → ebs:Salary [0..&#42;]
 
   
 
@@ -429,27 +438,6 @@ ebs:Team → ebs:Efficiency [0..1]
   
 | ebs:concernsEmployee| 
   |ebs:EmployeePlannedTime → ebs:Employee [1]
-
-  
-
-  
-  
-| ebs:concernsProject| 
-  |ebs:EmployeePlannedTime → ebs:Project [1]
-
-  
-
-  
-  
-| ebs:hasPlannedBillableTime| 
-  |ebs:EmployeePlannedTime → time:Duration [0..1]
-
-  
-
-  
-  
-| ebs:hasPlannedNonBillableTime| 
-  |ebs:EmployeePlannedTime → time:Duration [0..1]
 
   
 
@@ -489,6 +477,27 @@ ebs:Team → ebs:Efficiency [0..1]
 
   
   
+  
+
+  
+  
+| ebs:concernsProject| 
+  |ebs:PlannedTime → ebs:Project [1]
+
+  
+
+  
+  
+| ebs:hasPlannedBillableTime| 
+  |ebs:PlannedTime → time:Duration [1..&#42;]
+
+  
+
+  
+  
+| ebs:hasPlannedNonBillableTime| 
+  |ebs:PlannedTime → time:Duration [1..&#42;]
+
   
 
   
@@ -542,6 +551,14 @@ ebs:Team → ebs:Efficiency [0..1]
 
   
   
+| ebs:PlansTime| 
+  |ebs:ProjectManager → ebs:ProjectPlannedTime [1..&#42;] +
+ebs:TeamLead → ebs:EmployeePlannedTime [1..&#42;]
+
+  
+
+  
+  
 | ebs:hasMonetaryValue| 
   |ebs:Rate → ebs:MonetaryValue [1] +
 ebs:Salary → ebs:MonetaryValue [1]
@@ -559,13 +576,6 @@ ebs:Salary → ebs:MonetaryValue [1]
   
 | ebs:leads| 
   |ebs:TeamLead → ebs:Team [1]
-
-  
-
-  
-  
-| ebs:PlansTime| 
-  |ebs:TeamLead → ebs:EmployeePlannedTime [1..&#42;]
 
   
 

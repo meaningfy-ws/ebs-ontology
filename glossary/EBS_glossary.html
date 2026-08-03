@@ -93,11 +93,19 @@
                         <td></td>
                      </tr>
                      <tr>
+                        <td>ebs:PlannedTime</td>
+                        <td></td>
+                     </tr>
+                     <tr>
                         <td>ebs:Project</td>
                         <td></td>
                      </tr>
                      <tr>
                         <td>ebs:ProjectManager</td>
+                        <td></td>
+                     </tr>
+                     <tr>
+                        <td>ebs:ProjectPlannedTime</td>
                         <td></td>
                      </tr>
                      <tr>
@@ -261,13 +269,13 @@
                      </tr>
                      <tr>
                         <td>ebs:concernsMonth</td>
-                        <td> </td>
-                        <td>ebs:Capacity -&gt; at-voc:month [1]<br>ebs:Salary -&gt; at-voc:month [1]<br></td>
+                        <td>  </td>
+                        <td>ebs:Capacity -&gt; time:Instant [1]<br>ebs:PlannedTime -&gt; time:Instant []<br>ebs:Salary -&gt; time:Instant [1]<br></td>
                      </tr>
                      <tr>
                         <td>ebs:concernsProject</td>
                         <td></td>
-                        <td>ebs:EmployeePlannedTime -&gt; ebs:Project [1]</td>
+                        <td>ebs:PlannedTime -&gt; ebs:Project [1]</td>
                      </tr>
                      <tr>
                         <td>ebs:employs</td>
@@ -283,11 +291,6 @@
                         <td>ebs:hasAssociatedTaskList</td>
                         <td></td>
                         <td>ebs:Project -&gt; ebs:TaskList [0..*]</td>
-                     </tr>
-                     <tr>
-                        <td>ebs:hasCapacity</td>
-                        <td></td>
-                        <td>ebs:Employee -&gt; time:Duration [0..1]</td>
                      </tr>
                      <tr>
                         <td>ebs:hasCommercialRate</td>
@@ -312,17 +315,17 @@
                      <tr>
                         <td>ebs:hasMonthlyCapacity</td>
                         <td></td>
-                        <td>ebs:Company -&gt; ebs:Capacity [1]</td>
+                        <td>ebs:Employee -&gt; ebs:Capacity [1..*]</td>
                      </tr>
                      <tr>
                         <td>ebs:hasPlannedBillableTime</td>
                         <td></td>
-                        <td>ebs:EmployeePlannedTime -&gt; time:Duration [0..1]</td>
+                        <td>ebs:PlannedTime -&gt; time:Duration [1..*]</td>
                      </tr>
                      <tr>
                         <td>ebs:hasPlannedNonBillableTime</td>
                         <td></td>
-                        <td>ebs:EmployeePlannedTime -&gt; time:Duration [0..1]</td>
+                        <td>ebs:PlannedTime -&gt; time:Duration [1..*]</td>
                      </tr>
                      <tr>
                         <td>ebs:hasProjectEnd</td>
@@ -352,7 +355,7 @@
                      <tr>
                         <td>ebs:hasSalary</td>
                         <td></td>
-                        <td>ebs:Employee -&gt; ebs:Salary [1]</td>
+                        <td>ebs:Employee -&gt; ebs:Salary [0..*]</td>
                      </tr>
                      <tr>
                         <td>ebs:hasSeniority</td>
@@ -368,6 +371,11 @@
                         <td>ebs:hasTotalPlannedNonBillableTime</td>
                         <td></td>
                         <td>ebs:Project -&gt; time:Duration [0..1]</td>
+                     </tr>
+                     <tr>
+                        <td>ebs:hasValue</td>
+                        <td></td>
+                        <td>ebs:Capacity -&gt; time:Duration [1]</td>
                      </tr>
                      <tr>
                         <td>ebs:leads</td>
@@ -386,8 +394,8 @@
                      </tr>
                      <tr>
                         <td>ebs:PlansTime</td>
-                        <td></td>
-                        <td>ebs:TeamLead -&gt; ebs:EmployeePlannedTime [1..*]</td>
+                        <td> </td>
+                        <td>ebs:TeamLead -&gt; ebs:EmployeePlannedTime [1..*]<br>ebs:ProjectManager -&gt; ebs:ProjectPlannedTime [1..*]<br></td>
                      </tr>
                      <tr>
                         <td>ebs:playedBy</td>

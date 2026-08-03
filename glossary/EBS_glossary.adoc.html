@@ -538,11 +538,19 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:PlannedTime</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:Project</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:ProjectManager</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:ProjectPlannedTime</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
@@ -712,8 +720,14 @@ time:TemporalEntity → adms:Identifier [0..1]</p></td>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:concernsMonth</p></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:Capacity → at-voc:month [1]<br>
-ebs:Salary → at-voc:month [1]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:Capacity → time:Instant [1]<br>
+ebs:PlannedTime → time:Instant []<br>
+ebs:Salary → time:Instant [1]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:hasValue</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:Capacity → time:Duration [1]</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:employs</p></td>
@@ -730,11 +744,6 @@ ebs:Stack → ebs:Efficiency [0..1]<br>
 ebs:Team → ebs:Efficiency [0..1]</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:hasMonthlyCapacity</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:Company → ebs:Capacity [1]</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">time:unitType</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">time:Duration → time:TemporalUnit [1]</p></td>
@@ -745,9 +754,9 @@ ebs:Team → ebs:Efficiency [0..1]</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:Efficiency → time:Interval [1]</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:hasCapacity</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:hasMonthlyCapacity</p></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:Employee → time:Duration [0..1]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:Employee → ebs:Capacity [1..&#42;]</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:hasRecordedBillTime</p></td>
@@ -767,7 +776,7 @@ ebs:Team → ebs:Efficiency [0..1]</p></td>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:hasSalary</p></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:Employee → ebs:Salary [1]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:Employee → ebs:Salary [0..&#42;]</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:hasSeniority</p></td>
@@ -790,21 +799,6 @@ ebs:Team → ebs:Efficiency [0..1]</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:EmployeePlannedTime → ebs:Employee [1]</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:concernsProject</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:EmployeePlannedTime → ebs:Project [1]</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:hasPlannedBillableTime</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:EmployeePlannedTime → time:Duration [0..1]</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:hasPlannedNonBillableTime</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:EmployeePlannedTime → time:Duration [0..1]</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:relatedToProject</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">time:Interval → ebs:Project [1]</p></td>
@@ -813,6 +807,21 @@ ebs:Team → ebs:Efficiency [0..1]</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:hasCurrency</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:MonetaryValue → at-voc:currency [1]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:concernsProject</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:PlannedTime → ebs:Project [1]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:hasPlannedBillableTime</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:PlannedTime → time:Duration [1..&#42;]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:hasPlannedNonBillableTime</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:PlannedTime → time:Duration [1..&#42;]</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:hasAssociatedTaskList</p></td>
@@ -850,6 +859,12 @@ ebs:Team → ebs:Efficiency [0..1]</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:ProjectManager → ebs:Project [1..&#42;]</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:PlansTime</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:ProjectManager → ebs:ProjectPlannedTime [1..&#42;]<br>
+ebs:TeamLead → ebs:EmployeePlannedTime [1..&#42;]</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:hasMonetaryValue</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:Rate → ebs:MonetaryValue [1]<br>
@@ -864,11 +879,6 @@ ebs:Salary → ebs:MonetaryValue [1]</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:leads</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:TeamLead → ebs:Team [1]</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:PlansTime</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:TeamLead → ebs:EmployeePlannedTime [1..&#42;]</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">time:hasBeginning</p></td>
@@ -895,7 +905,7 @@ ebs:Salary → ebs:MonetaryValue [1]</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-07-23 07:27:55 UTC
+Last updated 2026-08-03 08:30:34 UTC
 </div>
 </div>
 </body>
