@@ -161,3 +161,6 @@ cython_debug/
 
 # model2owl engine cloned by the CI workflows
 model2owl/
+
+# DTD written by Enterprise Architect on XMI export
+UML_EA.DTD
