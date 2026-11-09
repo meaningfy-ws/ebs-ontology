@@ -34,13 +34,13 @@
         <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core#"/>
         <owl:imports rdf:resource="http://www.w3.org/ns/adms"/>
         <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-07-09</dcterms:created>
-        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-08-03</dcterms:issued>
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-11-09</dcterms:issued>
         <dcterms:license>CC BY 4.0</dcterms:license>
         <dcterms:publisher>Meaningfy</dcterms:publisher>
         <dcterms:title xml:lang="en">EBS shapes</dcterms:title>
         <vann:preferredNamespacePrefix>ebs</vann:preferredNamespacePrefix>
         <vann:preferredNamespaceUri>http://ebs-integrator.com/ontology/erp#</vann:preferredNamespaceUri>
-        <rdfs:comment>This version is automatically generated from EBS.xml on 2026-08-03</rdfs:comment>
+        <rdfs:comment>This version is automatically generated from EBS.xml on 2026-11-09</rdfs:comment>
         <owl:versionInfo>1.0.0</owl:versionInfo>
     </owl:Ontology>
     
@@ -2257,6 +2257,65 @@ Implementers are free to choose their language. It is recommended to document th
     
 
 
+    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-dcterms-description -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-dcterms-description">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+        <sh:name>Description</sh:name>
+        <sh:or>
+            <rdf:Description/>
+        </sh:or>
+        <sh:path rdf:resource="http://purl.org/dc/terms/description"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-ebs-hasAccountType -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-ebs-hasAccountType">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+        <sh:class rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+        <sh:name>Has account type</sh:name>
+        <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasAccountType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-ebs-hasParentAccount -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-ebs-hasParentAccount">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+        <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#Account"/>
+        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+        <sh:name>Has parent account</sh:name>
+        <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasParentAccount"/>
+        <sh:sparql>
+            <rdf:Description>
+                <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasParentAccount&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasParentAccount&gt; ?this .}</sh:select>
+            </rdf:Description>
+        </sh:sparql>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-AccountShape -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-AccountShape">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+        <rdfs:label>Account</rdfs:label>
+        <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-dcterms-description"/>
+        <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-ebs-hasAccountType"/>
+        <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-ebs-hasParentAccount"/>
+        <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#Account"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-AgentInRole-adms-identifier -->
 
     <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-AgentInRole-adms-identifier">
@@ -2371,6 +2430,17 @@ Implementers are free to choose their language. It is recommended to document th
         <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Capacity-ebs-concernsMonth"/>
         <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Capacity-ebs-hasValue"/>
         <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#Capacity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-ClientShape -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-ClientShape">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+        <rdfs:label>Client</rdfs:label>
+        <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#Client"/>
     </owl:NamedIndividual>
     
 
@@ -2492,6 +2562,21 @@ Implementers are free to choose their language. It is recommended to document th
     
 
 
+    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-Employee-ebs-hasPayrollID -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Employee-ebs-hasPayrollID">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+        <sh:name>Has payroll ID</sh:name>
+        <sh:or>
+            <rdf:Description/>
+        </sh:or>
+        <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasPayrollID"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-Employee-ebs-hasRecordedBillTime -->
 
     <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Employee-ebs-hasRecordedBillTime">
@@ -2537,23 +2622,6 @@ Implementers are free to choose their language. It is recommended to document th
         <sh:sparql>
             <rdf:Description>
                 <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasReplacementPipeline&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasReplacementPipeline&gt; ?this .}</sh:select>
-            </rdf:Description>
-        </sh:sparql>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-Employee-ebs-hasSalary -->
-
-    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Employee-ebs-hasSalary">
-        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-        <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#Salary"/>
-        <sh:name>Has salary</sh:name>
-        <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasSalary"/>
-        <sh:sparql>
-            <rdf:Description>
-                <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasSalary&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasSalary&gt; ?this .}</sh:select>
             </rdf:Description>
         </sh:sparql>
     </owl:NamedIndividual>
@@ -2661,15 +2729,33 @@ Implementers are free to choose their language. It is recommended to document th
         <rdfs:label>Employee</rdfs:label>
         <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Employee-ebs-hasEfficiencyRate"/>
         <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Employee-ebs-hasMonthlyCapacity"/>
+        <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Employee-ebs-hasPayrollID"/>
         <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Employee-ebs-hasRecordedBillTime"/>
         <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Employee-ebs-hasRecordedNonBillTime"/>
         <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Employee-ebs-hasReplacementPipeline"/>
-        <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Employee-ebs-hasSalary"/>
         <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Employee-ebs-hasSeniority"/>
         <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Employee-ebs-isActive"/>
         <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Employee-ebs-memberOf"/>
         <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Employee-ebs-worksOnProject"/>
         <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-ExternalProject-ebs-hasClient -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-ExternalProject-ebs-hasClient">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+        <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#Client"/>
+        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+        <sh:name>Has client</sh:name>
+        <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasClient"/>
+        <sh:sparql>
+            <rdf:Description>
+                <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasClient&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasClient&gt; ?this .}</sh:select>
+            </rdf:Description>
+        </sh:sparql>
     </owl:NamedIndividual>
     
 
@@ -2680,6 +2766,7 @@ Implementers are free to choose their language. It is recommended to document th
         <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
         <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
         <rdfs:label>External Project</rdfs:label>
+        <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-ExternalProject-ebs-hasClient"/>
         <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#ExternalProject"/>
     </owl:NamedIndividual>
     
@@ -2779,6 +2866,116 @@ Implementers are free to choose their language. It is recommended to document th
         <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
         <rdfs:label>Operations Project</rdfs:label>
         <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#OperationsProject"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-PayrollPosting-ebs-concernsEmployee -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-PayrollPosting-ebs-concernsEmployee">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+        <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
+        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+        <sh:name>Concerns employee</sh:name>
+        <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#concernsEmployee"/>
+        <sh:sparql>
+            <rdf:Description>
+                <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#concernsEmployee&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#concernsEmployee&gt; ?this .}</sh:select>
+            </rdf:Description>
+        </sh:sparql>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-PayrollPosting-ebs-hasAccount -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-PayrollPosting-ebs-hasAccount">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+        <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#Account"/>
+        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+        <sh:name>Has account</sh:name>
+        <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasAccount"/>
+        <sh:sparql>
+            <rdf:Description>
+                <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasAccount&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasAccount&gt; ?this .}</sh:select>
+            </rdf:Description>
+        </sh:sparql>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-PayrollPosting-ebs-hasCorrespondingAccount -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-PayrollPosting-ebs-hasCorrespondingAccount">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+        <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#Account"/>
+        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+        <sh:name>Has corresponding account</sh:name>
+        <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasCorrespondingAccount"/>
+        <sh:sparql>
+            <rdf:Description>
+                <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasCorrespondingAccount&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasCorrespondingAccount&gt; ?this .}</sh:select>
+            </rdf:Description>
+        </sh:sparql>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-PayrollPosting-ebs-hasMonetaryValue -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-PayrollPosting-ebs-hasMonetaryValue">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+        <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#MonetaryValue"/>
+        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+        <sh:name>Has monetary value</sh:name>
+        <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasMonetaryValue"/>
+        <sh:sparql>
+            <rdf:Description>
+                <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasMonetaryValue&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasMonetaryValue&gt; ?this .}</sh:select>
+            </rdf:Description>
+        </sh:sparql>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-PayrollPosting-ebs-hasPostingDate -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-PayrollPosting-ebs-hasPostingDate">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+        <sh:class rdf:resource="http://www.w3.org/2006/time#Instant"/>
+        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+        <sh:name>Has posting date</sh:name>
+        <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasPostingDate"/>
+        <sh:sparql>
+            <rdf:Description>
+                <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasPostingDate&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasPostingDate&gt; ?this .}</sh:select>
+            </rdf:Description>
+        </sh:sparql>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-PayrollPostingShape -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-PayrollPostingShape">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+        <rdfs:label>Payroll Posting</rdfs:label>
+        <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-PayrollPosting-ebs-concernsEmployee"/>
+        <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-PayrollPosting-ebs-hasAccount"/>
+        <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-PayrollPosting-ebs-hasCorrespondingAccount"/>
+        <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-PayrollPosting-ebs-hasMonetaryValue"/>
+        <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-PayrollPosting-ebs-hasPostingDate"/>
+        <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#PayrollPosting"/>
     </owl:NamedIndividual>
     
 
@@ -3126,57 +3323,6 @@ Implementers are free to choose their language. It is recommended to document th
         <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
         <rdfs:label>Role</rdfs:label>
         <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#Role"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-Salary-ebs-concernsMonth -->
-
-    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Salary-ebs-concernsMonth">
-        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-        <sh:class rdf:resource="http://www.w3.org/2006/time#Instant"/>
-        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-        <sh:name>Concerns month</sh:name>
-        <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#concernsMonth"/>
-        <sh:sparql>
-            <rdf:Description>
-                <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#concernsMonth&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#concernsMonth&gt; ?this .}</sh:select>
-            </rdf:Description>
-        </sh:sparql>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-Salary-ebs-hasMonetaryValue -->
-
-    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Salary-ebs-hasMonetaryValue">
-        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
-        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-        <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#MonetaryValue"/>
-        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
-        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
-        <sh:name>Has monetary value</sh:name>
-        <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasMonetaryValue"/>
-        <sh:sparql>
-            <rdf:Description>
-                <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasMonetaryValue&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasMonetaryValue&gt; ?this .}</sh:select>
-            </rdf:Description>
-        </sh:sparql>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-SalaryShape -->
-
-    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-SalaryShape">
-        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-        <rdfs:label>Salary</rdfs:label>
-        <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Salary-ebs-concernsMonth"/>
-        <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Salary-ebs-hasMonetaryValue"/>
-        <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#Salary"/>
     </owl:NamedIndividual>
     
 
@@ -4518,12 +4664,6 @@ Implementers are free to choose their language. It is recommended to document th
         <sh:datatype rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
     </rdf:Description>
     <rdf:Description>
-        <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    </rdf:Description>
-    <rdf:Description>
-        <sh:datatype rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
-    </rdf:Description>
-    <rdf:Description>
         <sh:datatype rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
     </rdf:Description>
     <rdf:Description>
@@ -4539,6 +4679,9 @@ Implementers are free to choose their language. It is recommended to document th
         <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </rdf:Description>
     <rdf:Description>
+        <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </rdf:Description>
+    <rdf:Description>
         <sh:datatype rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
     </rdf:Description>
     <rdf:Description>
@@ -4546,6 +4689,21 @@ Implementers are free to choose their language. It is recommended to document th
     </rdf:Description>
     <rdf:Description>
         <sh:datatype rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
+    </rdf:Description>
+    <rdf:Description>
+        <sh:datatype rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
+    </rdf:Description>
+    <rdf:Description>
+        <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </rdf:Description>
+    <rdf:Description>
+        <sh:datatype rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
+    </rdf:Description>
+    <rdf:Description>
+        <sh:datatype rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
+    </rdf:Description>
+    <rdf:Description>
+        <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </rdf:Description>
     <rdf:Description>
         <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>

@@ -20,6 +20,14 @@ core-shape:adms-IdentifierShape a sh:NodeShape ;
     sh:property core-shape:adms-Identifier-skos-notation ;
     sh:targetClass adms:Identifier .
 
+core-shape:ebs-AccountShape a sh:NodeShape ;
+    rdfs:label "Account" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:ebs-Account-dcterms-description,
+        core-shape:ebs-Account-ebs-hasAccountType,
+        core-shape:ebs-Account-ebs-hasParentAccount ;
+    sh:targetClass ebs:Account .
+
 core-shape:ebs-AgentInRoleShape a sh:NodeShape ;
     rdfs:label "Agent In Role" ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -34,6 +42,11 @@ core-shape:ebs-CapacityShape a sh:NodeShape ;
     sh:property core-shape:ebs-Capacity-ebs-concernsMonth,
         core-shape:ebs-Capacity-ebs-hasValue ;
     sh:targetClass ebs:Capacity .
+
+core-shape:ebs-ClientShape a sh:NodeShape ;
+    rdfs:label "Client" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:targetClass ebs:Client .
 
 core-shape:ebs-CompanyShape a sh:NodeShape ;
     rdfs:label "Company" ;
@@ -60,10 +73,10 @@ core-shape:ebs-EmployeeShape a sh:NodeShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:property core-shape:ebs-Employee-ebs-hasEfficiencyRate,
         core-shape:ebs-Employee-ebs-hasMonthlyCapacity,
+        core-shape:ebs-Employee-ebs-hasPayrollID,
         core-shape:ebs-Employee-ebs-hasRecordedBillTime,
         core-shape:ebs-Employee-ebs-hasRecordedNonBillTime,
         core-shape:ebs-Employee-ebs-hasReplacementPipeline,
-        core-shape:ebs-Employee-ebs-hasSalary,
         core-shape:ebs-Employee-ebs-hasSeniority,
         core-shape:ebs-Employee-ebs-isActive,
         core-shape:ebs-Employee-ebs-memberOf,
@@ -73,6 +86,7 @@ core-shape:ebs-EmployeeShape a sh:NodeShape ;
 core-shape:ebs-ExternalProjectShape a sh:NodeShape ;
     rdfs:label "External Project" ;
     rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:ebs-ExternalProject-ebs-hasClient ;
     sh:targetClass ebs:ExternalProject .
 
 core-shape:ebs-FixedPriceProjectShape a sh:NodeShape ;
@@ -107,6 +121,16 @@ core-shape:ebs-OperationsProjectShape a sh:NodeShape ;
     rdfs:label "Operations Project" ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:targetClass ebs:OperationsProject .
+
+core-shape:ebs-PayrollPostingShape a sh:NodeShape ;
+    rdfs:label "Payroll Posting" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:ebs-PayrollPosting-ebs-concernsEmployee,
+        core-shape:ebs-PayrollPosting-ebs-hasAccount,
+        core-shape:ebs-PayrollPosting-ebs-hasCorrespondingAccount,
+        core-shape:ebs-PayrollPosting-ebs-hasMonetaryValue,
+        core-shape:ebs-PayrollPosting-ebs-hasPostingDate ;
+    sh:targetClass ebs:PayrollPosting .
 
 core-shape:ebs-PlannedTimeShape a sh:NodeShape ;
     rdfs:label "Planned Time" ;
@@ -152,13 +176,6 @@ core-shape:ebs-RoleShape a sh:NodeShape ;
     rdfs:label "Role" ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:targetClass ebs:Role .
-
-core-shape:ebs-SalaryShape a sh:NodeShape ;
-    rdfs:label "Salary" ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:property core-shape:ebs-Salary-ebs-concernsMonth,
-        core-shape:ebs-Salary-ebs-hasMonetaryValue ;
-    sh:targetClass ebs:Salary .
 
 core-shape:ebs-StackShape a sh:NodeShape ;
     rdfs:label "Stack" ;
@@ -252,6 +269,27 @@ core-shape:adms-Identifier-skos-notation a sh:PropertyShape ;
     sh:or ( [ sh:datatype xsd:string ] [ sh:datatype rdf:langString ] ) ;
     sh:path skos:notation .
 
+core-shape:ebs-Account-dcterms-description a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:name "Description" ;
+    sh:or ( [ sh:datatype xsd:string ] [ sh:datatype rdf:langString ] ) ;
+    sh:path dcterms:description .
+
+core-shape:ebs-Account-ebs-hasAccountType a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class skos:Concept ;
+    sh:maxCount 1 ;
+    sh:name "Has account type" ;
+    sh:path ebs:hasAccountType .
+
+core-shape:ebs-Account-ebs-hasParentAccount a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class ebs:Account ;
+    sh:maxCount 1 ;
+    sh:name "Has parent account" ;
+    sh:path ebs:hasParentAccount ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#hasParentAccount> ?that . ?that <http://ebs-integrator.com/ontology/erp#hasParentAccount> ?this .}" ] .
+
 core-shape:ebs-AgentInRole-adms-identifier a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:class adms:Identifier ;
@@ -336,6 +374,13 @@ core-shape:ebs-Employee-ebs-hasMonthlyCapacity a sh:PropertyShape ;
     sh:path ebs:hasMonthlyCapacity ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#hasMonthlyCapacity> ?that . ?that <http://ebs-integrator.com/ontology/erp#hasMonthlyCapacity> ?this .}" ] .
 
+core-shape:ebs-Employee-ebs-hasPayrollID a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:maxCount 1 ;
+    sh:name "Has payroll ID" ;
+    sh:or ( [ sh:datatype xsd:string ] [ sh:datatype rdf:langString ] ) ;
+    sh:path ebs:hasPayrollID .
+
 core-shape:ebs-Employee-ebs-hasRecordedBillTime a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:class time:Interval ;
@@ -356,13 +401,6 @@ core-shape:ebs-Employee-ebs-hasReplacementPipeline a sh:PropertyShape ;
     sh:name "Has replacement pipeline" ;
     sh:path ebs:hasReplacementPipeline ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#hasReplacementPipeline> ?that . ?that <http://ebs-integrator.com/ontology/erp#hasReplacementPipeline> ?this .}" ] .
-
-core-shape:ebs-Employee-ebs-hasSalary a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:class ebs:Salary ;
-    sh:name "Has salary" ;
-    sh:path ebs:hasSalary ;
-    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#hasSalary> ?that . ?that <http://ebs-integrator.com/ontology/erp#hasSalary> ?this .}" ] .
 
 core-shape:ebs-Employee-ebs-hasSeniority a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -403,6 +441,14 @@ core-shape:ebs-EmployeePlannedTime-ebs-concernsEmployee a sh:PropertyShape ;
     sh:path ebs:concernsEmployee ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#concernsEmployee> ?that . ?that <http://ebs-integrator.com/ontology/erp#concernsEmployee> ?this .}" ] .
 
+core-shape:ebs-ExternalProject-ebs-hasClient a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class ebs:Client ;
+    sh:maxCount 1 ;
+    sh:name "Has client" ;
+    sh:path ebs:hasClient ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#hasClient> ?that . ?that <http://ebs-integrator.com/ontology/erp#hasClient> ?this .}" ] .
+
 core-shape:ebs-MonetaryValue-ebs-hasAmountValue a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:datatype xsd:decimal ;
@@ -419,6 +465,50 @@ core-shape:ebs-MonetaryValue-ebs-hasCurrency a sh:PropertyShape ;
     sh:minCount 1 ;
     sh:name "Has currency" ;
     sh:path ebs:hasCurrency .
+
+core-shape:ebs-PayrollPosting-ebs-concernsEmployee a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class ebs:Employee ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Concerns employee" ;
+    sh:path ebs:concernsEmployee ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#concernsEmployee> ?that . ?that <http://ebs-integrator.com/ontology/erp#concernsEmployee> ?this .}" ] .
+
+core-shape:ebs-PayrollPosting-ebs-hasAccount a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class ebs:Account ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has account" ;
+    sh:path ebs:hasAccount ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#hasAccount> ?that . ?that <http://ebs-integrator.com/ontology/erp#hasAccount> ?this .}" ] .
+
+core-shape:ebs-PayrollPosting-ebs-hasCorrespondingAccount a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class ebs:Account ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has corresponding account" ;
+    sh:path ebs:hasCorrespondingAccount ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#hasCorrespondingAccount> ?that . ?that <http://ebs-integrator.com/ontology/erp#hasCorrespondingAccount> ?this .}" ] .
+
+core-shape:ebs-PayrollPosting-ebs-hasMonetaryValue a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class ebs:MonetaryValue ;
+    sh:maxCount 1 ;
+    sh:name "Has monetary value" ;
+    sh:path ebs:hasMonetaryValue ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#hasMonetaryValue> ?that . ?that <http://ebs-integrator.com/ontology/erp#hasMonetaryValue> ?this .}" ] .
+
+core-shape:ebs-PayrollPosting-ebs-hasPostingDate a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class time:Instant ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has posting date" ;
+    sh:path ebs:hasPostingDate ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#hasPostingDate> ?that . ?that <http://ebs-integrator.com/ontology/erp#hasPostingDate> ?this .}" ] .
 
 core-shape:ebs-PlannedTime-ebs-concernsMonth a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -532,24 +622,6 @@ core-shape:ebs-ProjectManager-ebs-managesProject a sh:PropertyShape ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#managesProject> ?that . ?that <http://ebs-integrator.com/ontology/erp#managesProject> ?this .}" ] .
 
 core-shape:ebs-Rate-ebs-hasMonetaryValue a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:class ebs:MonetaryValue ;
-    sh:maxCount 1 ;
-    sh:minCount 1 ;
-    sh:name "Has monetary value" ;
-    sh:path ebs:hasMonetaryValue ;
-    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#hasMonetaryValue> ?that . ?that <http://ebs-integrator.com/ontology/erp#hasMonetaryValue> ?this .}" ] .
-
-core-shape:ebs-Salary-ebs-concernsMonth a sh:PropertyShape ;
-    rdfs:isDefinedBy core-shape:core-shape ;
-    sh:class time:Instant ;
-    sh:maxCount 1 ;
-    sh:minCount 1 ;
-    sh:name "Concerns month" ;
-    sh:path ebs:concernsMonth ;
-    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#concernsMonth> ?that . ?that <http://ebs-integrator.com/ontology/erp#concernsMonth> ?this .}" ] .
-
-core-shape:ebs-Salary-ebs-hasMonetaryValue a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:class ebs:MonetaryValue ;
     sh:maxCount 1 ;
@@ -710,13 +782,13 @@ core-shape:time-TemporalEntity-time-hasEnd a sh:PropertyShape ;
 
 core-shape:core-shape a owl:Ontology ;
     dcterms:created "2026-07-09"^^xsd:date ;
-    dcterms:issued "2026-08-03"^^xsd:date ;
+    dcterms:issued "2026-11-09"^^xsd:date ;
     dcterms:license "CC BY 4.0" ;
     dcterms:publisher "Meaningfy" ;
     dcterms:title "EBS shapes"@en ;
     vann:preferredNamespacePrefix "ebs" ;
     vann:preferredNamespaceUri "http://ebs-integrator.com/ontology/erp#" ;
-    rdfs:comment "This version is automatically generated from EBS.xml on 2026-08-03" ;
+    rdfs:comment "This version is automatically generated from EBS.xml on 2026-11-09" ;
     owl:imports <http://data.europa.eu/m8g>,
         ebs:core,
         ebs:core-restriction,

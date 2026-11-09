@@ -462,11 +462,19 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:Account</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:AgentInRole</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:Capacity</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:Client</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
@@ -534,6 +542,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:PayrollPosting</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">person:Person</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
@@ -559,10 +571,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:Role</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:Salary</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
@@ -621,6 +629,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:Account<br>
+time:TemporalEntity</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dcterms:description</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rdf:PlainLiteral [0..&#42;]<br>
+  rdf:PlainLiteral [0..1]</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:AgentInRole<br>
 org:Organization</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">dcterms:title</p></td>
@@ -633,6 +649,12 @@ org:Organization</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">time:numericDuration</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">xsd:decimal [1..1]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:Employee</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:hasPayrollID</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rdf:PlainLiteral [0..1]</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:Employee<br>
@@ -678,12 +700,6 @@ ebs:Project</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">rdf:PlainLiteral [0..1]</p></td>
 </tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">time:TemporalEntity</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">dcterms:description</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">rdf:PlainLiteral [0..1]</p></td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -706,6 +722,16 @@ ebs:Project</p></td>
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:hasAccountType</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:Account → ebs:AccountType [0..1]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:hasParentAccount</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:Account → ebs:Account [0..1]</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">adms:identifier</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:AgentInRole → adms:Identifier [1]<br>
@@ -721,8 +747,7 @@ time:TemporalEntity → adms:Identifier [0..1]</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:concernsMonth</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:Capacity → time:Instant [1]<br>
-ebs:PlannedTime → time:Instant []<br>
-ebs:Salary → time:Instant [1]</p></td>
+ebs:PlannedTime → time:Instant []</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:hasValue</p></td>
@@ -774,11 +799,6 @@ ebs:Team → ebs:Efficiency [0..1]</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:Employee → ebs:Project [0..&#42;]</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:hasSalary</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:Employee → ebs:Salary [0..&#42;]</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:hasSeniority</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:Employee → at-voc:Seniority [0..1]</p></td>
@@ -796,7 +816,13 @@ ebs:Team → ebs:Efficiency [0..1]</p></td>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:concernsEmployee</p></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:EmployeePlannedTime → ebs:Employee [1]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:EmployeePlannedTime → ebs:Employee [1]<br>
+ebs:PayrollPosting → ebs:Employee [1]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:hasClient</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:ExternalProject → ebs:Client [0..1]</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:relatedToProject</p></td>
@@ -807,6 +833,27 @@ ebs:Team → ebs:Efficiency [0..1]</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:hasCurrency</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:MonetaryValue → at-voc:currency [1]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:hasAccount</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:PayrollPosting → ebs:Account [1]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:hasCorrespondingAccount</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:PayrollPosting → ebs:Account [1]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:hasMonetaryValue</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:PayrollPosting → ebs:MonetaryValue [0..1]<br>
+ebs:Rate → ebs:MonetaryValue [1]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:hasPostingDate</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:PayrollPosting → time:Instant [1]</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:concernsProject</p></td>
@@ -865,12 +912,6 @@ ebs:Team → ebs:Efficiency [0..1]</p></td>
 ebs:TeamLead → ebs:EmployeePlannedTime [1..&#42;]</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:hasMonetaryValue</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:Rate → ebs:MonetaryValue [1]<br>
-ebs:Salary → ebs:MonetaryValue [1]</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:worksOnStack</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:Team → ebs:Stack [1]</p></td>
@@ -905,7 +946,7 @@ ebs:Salary → ebs:MonetaryValue [1]</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-08-03 08:30:42 UTC
+Last updated 2026-11-09 15:14:05 UTC
 </div>
 </div>
 </body>

@@ -12,9 +12,22 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+ebs:Account a owl:Class ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "Account"@en .
+
+ebs:AccountType a skos:ConceptScheme ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:definition "Possible values: asset, payable"@en ;
+    skos:prefLabel "Account Type"@en .
+
 ebs:Capacity a owl:Class ;
     rdfs:isDefinedBy ebs:core ;
     skos:prefLabel "Capacity"@en .
+
+ebs:Client a owl:Class ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "Client"@en .
 
 ebs:Company a owl:Class ;
     rdfs:isDefinedBy ebs:core ;
@@ -56,6 +69,10 @@ ebs:OperationsProject a owl:Class ;
     rdfs:subClassOf ebs:InternalProject ;
     skos:prefLabel "Operations Project"@en .
 
+ebs:PayrollPosting a owl:Class ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "Payroll Posting"@en .
+
 ebs:PlansTime a owl:ObjectProperty ;
     rdfs:isDefinedBy ebs:core ;
     skos:prefLabel "Plans Time"@en .
@@ -77,10 +94,6 @@ ebs:Rate a owl:Class ;
 ebs:Role a owl:Class ;
     rdfs:isDefinedBy ebs:core ;
     skos:prefLabel "Role"@en .
-
-ebs:Salary a owl:Class ;
-    rdfs:isDefinedBy ebs:core ;
-    skos:prefLabel "Salary"@en .
 
 ebs:Stack a owl:Class ;
     rdfs:isDefinedBy ebs:core ;
@@ -125,6 +138,14 @@ ebs:forInterval a owl:ObjectProperty ;
     rdfs:isDefinedBy ebs:core ;
     skos:prefLabel "for Interval"@en .
 
+ebs:hasAccount a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "has Account"@en .
+
+ebs:hasAccountType a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "has Account Type"@en .
+
 ebs:hasAmountValue a owl:DatatypeProperty ;
     rdfs:isDefinedBy ebs:core ;
     skos:definition "Equivalent to epo:hasAmountValue (ebs:MonetaryValue)"@en ;
@@ -134,9 +155,17 @@ ebs:hasAssociatedTaskList a owl:ObjectProperty ;
     rdfs:isDefinedBy ebs:core ;
     skos:prefLabel "has Associated Task List"@en .
 
+ebs:hasClient a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "has Client"@en .
+
 ebs:hasCommercialRate a owl:ObjectProperty ;
     rdfs:isDefinedBy ebs:core ;
     skos:prefLabel "has Commercial Rate"@en .
+
+ebs:hasCorrespondingAccount a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "has Corresponding Account"@en .
 
 ebs:hasCurrency a owl:ObjectProperty ;
     rdfs:isDefinedBy ebs:core ;
@@ -154,6 +183,14 @@ ebs:hasMonthlyCapacity a owl:ObjectProperty ;
     rdfs:isDefinedBy ebs:core ;
     skos:prefLabel "has Monthly Capacity"@en .
 
+ebs:hasParentAccount a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "has Parent Account"@en .
+
+ebs:hasPayrollID a owl:DatatypeProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "has Payroll ID"@en .
+
 ebs:hasPlannedBillableTime a owl:ObjectProperty ;
     rdfs:isDefinedBy ebs:core ;
     skos:prefLabel "has Planned Billable Time"@en .
@@ -161,6 +198,10 @@ ebs:hasPlannedBillableTime a owl:ObjectProperty ;
 ebs:hasPlannedNonBillableTime a owl:ObjectProperty ;
     rdfs:isDefinedBy ebs:core ;
     skos:prefLabel "has Planned Non Billable Time"@en .
+
+ebs:hasPostingDate a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "has Posting Date"@en .
 
 ebs:hasProjectEnd a owl:ObjectProperty ;
     rdfs:isDefinedBy ebs:core ;
@@ -181,10 +222,6 @@ ebs:hasRecordedNonBillTime a owl:ObjectProperty ;
 ebs:hasReplacementPipeline a owl:ObjectProperty ;
     rdfs:isDefinedBy ebs:core ;
     skos:prefLabel "has Replacement Pipeline"@en .
-
-ebs:hasSalary a owl:ObjectProperty ;
-    rdfs:isDefinedBy ebs:core ;
-    skos:prefLabel "has Salary"@en .
 
 ebs:hasSeniority a owl:ObjectProperty ;
     rdfs:isDefinedBy ebs:core ;
@@ -341,20 +378,20 @@ org:Organization a owl:Class ;
 
 ebs:core a owl:Ontology ;
     dcterms:created "2026-07-09"^^xsd:date ;
-    dcterms:issued "2026-08-03"^^xsd:date ;
+    dcterms:issued "2026-11-09"^^xsd:date ;
     dcterms:license "CC BY 4.0" ;
     dcterms:publisher "Meaningfy" ;
     dcterms:title "EBS core"@en ;
     vann:preferredNamespacePrefix "ebs" ;
     vann:preferredNamespaceUri "http://ebs-integrator.com/ontology/erp#" ;
-    rdfs:comment "This version is automatically generated from EBS.xml on 2026-08-03" ;
+    rdfs:comment "This version is automatically generated from EBS.xml on 2026-11-09" ;
     owl:imports <http://data.europa.eu/m8g>,
         dcterms:,
         skos:,
         <http://www.w3.org/2006/time>,
         <http://www.w3.org/ns/adms>,
         org:,
-        <http://www.w3.org/ns/person> ;
+        <https://semiceu.github.io/Core-Person-Vocabulary/releases/w3c/person.ttl> ;
     owl:versionIRI ebs:core-1.0.0 ;
     owl:versionInfo "1.0.0" .
 

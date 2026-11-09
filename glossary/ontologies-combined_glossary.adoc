@@ -11,11 +11,19 @@
 | Class name | Definition
 
       
+| ebs:Account | 
+      
+    
+      
 | ebs:AgentInRole | 
       
     
       
 | ebs:Capacity | 
+      
+    
+      
+| ebs:Client | 
       
     
       
@@ -83,6 +91,10 @@
       
     
       
+| ebs:PayrollPosting | 
+      
+    
+      
 | person:Person | 
       
     
@@ -108,10 +120,6 @@
     
       
 | ebs:Role | 
-      
-    
-      
-| ebs:Salary | 
       
     
       
@@ -159,6 +167,18 @@
 
   
   
+| ebs:Account + 
+time:TemporalEntity
+| dcterms:description| 
+  |rdf:PlainLiteral [0..&#42;] +
+  rdf:PlainLiteral [0..1]
+  
+  
+  
+  
+  
+  
+  
   
   
   
@@ -191,6 +211,10 @@ org:Organization
   
   
   
+| ebs:Employee
+| ebs:hasPayrollID| 
+  |rdf:PlainLiteral [0..1]
+  
   
   
   
@@ -206,6 +230,8 @@ ebs:Project
 | ebs:isActive| 
   |xsd:boolean [1..1] +
   xsd:boolean [1..1]
+  
+  
   
   
   
@@ -238,6 +264,14 @@ ebs:Project
 | ebs:MonetaryValue
 | ebs:hasAmountValue| 
   Equivalent to epo:hasAmountValue|xsd:decimal [1..1]
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
@@ -283,14 +317,6 @@ ebs:Project
   
   
   
-| time:TemporalEntity
-| dcterms:description| 
-  |rdf:PlainLiteral [0..1]
-  
-  
-  
-  
-  
   
   
 |===
@@ -301,6 +327,24 @@ ebs:Project
 |===
 | Predicate name | Definition | Domain, Range and Cardinality
 
+
+  
+  
+  
+
+  
+  
+| ebs:hasAccountType| 
+  |ebs:Account → ebs:AccountType [0..1]
+
+  
+
+  
+  
+| ebs:hasParentAccount| 
+  |ebs:Account → ebs:Account [0..1]
+
+  
 
   
   
@@ -326,8 +370,7 @@ time:TemporalEntity → adms:Identifier [0..1]
   
 | ebs:concernsMonth| 
   |ebs:Capacity → time:Instant [1] +
-ebs:PlannedTime → time:Instant [] +
-ebs:Salary → time:Instant [1]
+ebs:PlannedTime → time:Instant []
 
   
 
@@ -383,6 +426,10 @@ ebs:Team → ebs:Efficiency [0..1]
 
   
   
+  
+
+  
+  
 | ebs:hasRecordedBillTime| 
   |ebs:Employee → time:Interval [0..&#42;]
 
@@ -399,13 +446,6 @@ ebs:Team → ebs:Efficiency [0..1]
   
 | ebs:hasReplacementPipeline| 
   |ebs:Employee → ebs:Project [0..&#42;]
-
-  
-
-  
-  
-| ebs:hasSalary| 
-  |ebs:Employee → ebs:Salary [0..&#42;]
 
   
 
@@ -437,7 +477,15 @@ ebs:Team → ebs:Efficiency [0..1]
   
   
 | ebs:concernsEmployee| 
-  |ebs:EmployeePlannedTime → ebs:Employee [1]
+  |ebs:EmployeePlannedTime → ebs:Employee [1] +
+ebs:PayrollPosting → ebs:Employee [1]
+
+  
+
+  
+  
+| ebs:hasClient| 
+  |ebs:ExternalProject → ebs:Client [0..1]
 
   
 
@@ -468,6 +516,35 @@ ebs:Team → ebs:Efficiency [0..1]
   
 | ebs:hasCurrency| 
   |ebs:MonetaryValue → at-voc:currency [1]
+
+  
+
+  
+  
+| ebs:hasAccount| 
+  |ebs:PayrollPosting → ebs:Account [1]
+
+  
+
+  
+  
+| ebs:hasCorrespondingAccount| 
+  |ebs:PayrollPosting → ebs:Account [1]
+
+  
+
+  
+  
+| ebs:hasMonetaryValue| 
+  |ebs:PayrollPosting → ebs:MonetaryValue [0..1] +
+ebs:Rate → ebs:MonetaryValue [1]
+
+  
+
+  
+  
+| ebs:hasPostingDate| 
+  |ebs:PayrollPosting → time:Instant [1]
 
   
 
@@ -559,14 +636,6 @@ ebs:TeamLead → ebs:EmployeePlannedTime [1..&#42;]
 
   
   
-| ebs:hasMonetaryValue| 
-  |ebs:Rate → ebs:MonetaryValue [1] +
-ebs:Salary → ebs:MonetaryValue [1]
-
-  
-
-  
-  
 | ebs:worksOnStack| 
   |ebs:Team → ebs:Stack [1]
 
@@ -577,10 +646,6 @@ ebs:Salary → ebs:MonetaryValue [1]
 | ebs:leads| 
   |ebs:TeamLead → ebs:Team [1]
 
-  
-
-  
-  
   
 
   

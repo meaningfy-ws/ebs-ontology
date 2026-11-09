@@ -31,16 +31,16 @@
         <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core#"/>
         <owl:imports rdf:resource="http://www.w3.org/2006/time"/>
         <owl:imports rdf:resource="http://www.w3.org/ns/adms"/>
-        <owl:imports rdf:resource="http://www.w3.org/ns/person"/>
         <owl:imports rdf:resource="http://www.w3.org/ns/org#"/>
+        <owl:imports rdf:resource="https://semiceu.github.io/Core-Person-Vocabulary/releases/w3c/person.ttl"/>
         <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-07-09</dcterms:created>
-        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-08-03</dcterms:issued>
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-11-09</dcterms:issued>
         <dcterms:license>CC BY 4.0</dcterms:license>
         <dcterms:publisher>Meaningfy</dcterms:publisher>
         <dcterms:title xml:lang="en">EBS core</dcterms:title>
         <vann:preferredNamespacePrefix>ebs</vann:preferredNamespacePrefix>
         <vann:preferredNamespaceUri>http://ebs-integrator.com/ontology/erp#</vann:preferredNamespaceUri>
-        <rdfs:comment>This version is automatically generated from EBS.xml on 2026-08-03</rdfs:comment>
+        <rdfs:comment>This version is automatically generated from EBS.xml on 2026-11-09</rdfs:comment>
         <owl:versionInfo>1.0.0</owl:versionInfo>
     </owl:Ontology>
     
@@ -1428,6 +1428,24 @@ For more structured data use the model in Time Ontology, see an &lt;a href=&quot
     
 
 
+    <!-- http://ebs-integrator.com/ontology/erp#hasAccount -->
+
+    <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasAccount">
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:prefLabel xml:lang="en">has Account</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp#hasAccountType -->
+
+    <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasAccountType">
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:prefLabel xml:lang="en">has Account Type</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://ebs-integrator.com/ontology/erp#hasAssociatedTaskList -->
 
     <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasAssociatedTaskList">
@@ -1437,11 +1455,29 @@ For more structured data use the model in Time Ontology, see an &lt;a href=&quot
     
 
 
+    <!-- http://ebs-integrator.com/ontology/erp#hasClient -->
+
+    <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasClient">
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:prefLabel xml:lang="en">has Client</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://ebs-integrator.com/ontology/erp#hasCommercialRate -->
 
     <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasCommercialRate">
         <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
         <skos:prefLabel xml:lang="en">has Commercial Rate</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp#hasCorrespondingAccount -->
+
+    <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasCorrespondingAccount">
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:prefLabel xml:lang="en">has Corresponding Account</skos:prefLabel>
     </owl:ObjectProperty>
     
 
@@ -1482,6 +1518,15 @@ For more structured data use the model in Time Ontology, see an &lt;a href=&quot
     
 
 
+    <!-- http://ebs-integrator.com/ontology/erp#hasParentAccount -->
+
+    <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasParentAccount">
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:prefLabel xml:lang="en">has Parent Account</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://ebs-integrator.com/ontology/erp#hasPlannedBillableTime -->
 
     <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasPlannedBillableTime">
@@ -1496,6 +1541,15 @@ For more structured data use the model in Time Ontology, see an &lt;a href=&quot
     <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasPlannedNonBillableTime">
         <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
         <skos:prefLabel xml:lang="en">has Planned Non Billable Time</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp#hasPostingDate -->
+
+    <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasPostingDate">
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:prefLabel xml:lang="en">has Posting Date</skos:prefLabel>
     </owl:ObjectProperty>
     
 
@@ -1541,15 +1595,6 @@ For more structured data use the model in Time Ontology, see an &lt;a href=&quot
     <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasReplacementPipeline">
         <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
         <skos:prefLabel xml:lang="en">has Replacement Pipeline</skos:prefLabel>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ebs-integrator.com/ontology/erp#hasSalary -->
-
-    <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasSalary">
-        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
-        <skos:prefLabel xml:lang="en">has Salary</skos:prefLabel>
     </owl:ObjectProperty>
     
 
@@ -1978,6 +2023,15 @@ This approach is consistent with both schema.org and the W3C OWL Time Ontology.<
         <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
         <skos:definition xml:lang="en">Equivalent to epo:hasAmountValue (ebs:MonetaryValue)</skos:definition>
         <skos:prefLabel xml:lang="en">has Amount Value</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp#hasPayrollID -->
+
+    <owl:DatatypeProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasPayrollID">
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:prefLabel xml:lang="en">has Payroll ID</skos:prefLabel>
     </owl:DatatypeProperty>
     
 
@@ -2490,6 +2544,15 @@ Implementers are free to choose their language. It is recommended to document th
     
 
 
+    <!-- http://ebs-integrator.com/ontology/erp#Account -->
+
+    <owl:Class rdf:about="http://ebs-integrator.com/ontology/erp#Account">
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:prefLabel xml:lang="en">Account</skos:prefLabel>
+    </owl:Class>
+    
+
+
     <!-- http://ebs-integrator.com/ontology/erp#AgentInRole -->
 
     <owl:Class rdf:about="http://ebs-integrator.com/ontology/erp#AgentInRole">
@@ -2504,6 +2567,15 @@ Implementers are free to choose their language. It is recommended to document th
     <owl:Class rdf:about="http://ebs-integrator.com/ontology/erp#Capacity">
         <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
         <skos:prefLabel xml:lang="en">Capacity</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp#Client -->
+
+    <owl:Class rdf:about="http://ebs-integrator.com/ontology/erp#Client">
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:prefLabel xml:lang="en">Client</skos:prefLabel>
     </owl:Class>
     
 
@@ -2618,6 +2690,15 @@ Implementers are free to choose their language. It is recommended to document th
     
 
 
+    <!-- http://ebs-integrator.com/ontology/erp#PayrollPosting -->
+
+    <owl:Class rdf:about="http://ebs-integrator.com/ontology/erp#PayrollPosting">
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:prefLabel xml:lang="en">Payroll Posting</skos:prefLabel>
+    </owl:Class>
+    
+
+
     <!-- http://ebs-integrator.com/ontology/erp#PlannedTime -->
 
     <owl:Class rdf:about="http://ebs-integrator.com/ontology/erp#PlannedTime">
@@ -2671,15 +2752,6 @@ Implementers are free to choose their language. It is recommended to document th
     <owl:Class rdf:about="http://ebs-integrator.com/ontology/erp#Role">
         <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
         <skos:prefLabel xml:lang="en">Role</skos:prefLabel>
-    </owl:Class>
-    
-
-
-    <!-- http://ebs-integrator.com/ontology/erp#Salary -->
-
-    <owl:Class rdf:about="http://ebs-integrator.com/ontology/erp#Salary">
-        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
-        <skos:prefLabel xml:lang="en">Salary</skos:prefLabel>
     </owl:Class>
     
 
@@ -2996,6 +3068,17 @@ Implementers are free to choose their language. It is recommended to document th
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp#AccountType -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp#AccountType">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:definition xml:lang="en">Possible values: asset, payable</skos:definition>
+        <skos:prefLabel xml:lang="en">Account Type</skos:prefLabel>
+    </owl:NamedIndividual>
     
 
 

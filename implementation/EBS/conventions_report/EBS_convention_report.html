@@ -19,7 +19,7 @@
    <body>
       <header class="counter-skip">
          <h1 class="title">UML Conventions Comformance Report</h1>
-         <h2>[ 03/08/2026 ]</h2>
+         <h2>[ 09/11/2026 ]</h2>
          <div class="authors col-span">
             <div class="author">
                <div>Achillefs-Nikolaos Dougalis</div>
@@ -56,14 +56,16 @@
                   Generalisations</em>. Each major section lists model items that need correction of errors
                or consideration of warnings.</p>
             <p>The UML model in file <em>EBS.xml</em> 
-               was tested at 08:30 on August 3, 2026.</p>
+               was tested at 15:13 on November 9, 2026.</p>
          </div>
          <h1 xmlns:f="http://https://github.com/costezki/model2owl#" id="nomenclature">Nomenclature</h1>
          <h2 xmlns:f="http://https://github.com/costezki/model2owl#" id="classNames">Class names</h2>
          <ul xmlns:f="http://https://github.com/costezki/model2owl#" class="display-in-two-columns">
             <li><a href="#adms:Identifier">adms:Identifier</a></li>
+            <li><a href="#ebs:Account">ebs:Account</a></li>
             <li><a href="#ebs:AgentInRole">ebs:AgentInRole</a></li>
             <li><a href="#ebs:Capacity">ebs:Capacity</a></li>
+            <li><a href="#ebs:Client">ebs:Client</a></li>
             <li><a href="#ebs:Company">ebs:Company</a></li>
             <li><a href="#ebs:Efficiency">ebs:Efficiency</a></li>
             <li><a href="#ebs:Employee">ebs:Employee</a></li>
@@ -75,13 +77,13 @@
             <li><a href="#ebs:InvestmentProject">ebs:InvestmentProject</a></li>
             <li><a href="#ebs:MonetaryValue">ebs:MonetaryValue</a></li>
             <li><a href="#ebs:OperationsProject">ebs:OperationsProject</a></li>
+            <li><a href="#ebs:PayrollPosting">ebs:PayrollPosting</a></li>
             <li><a href="#ebs:PlannedTime">ebs:PlannedTime</a></li>
             <li><a href="#ebs:Project">ebs:Project</a></li>
             <li><a href="#ebs:ProjectManager">ebs:ProjectManager</a></li>
             <li><a href="#ebs:ProjectPlannedTime">ebs:ProjectPlannedTime</a></li>
             <li><a href="#ebs:Rate">ebs:Rate</a></li>
             <li><a href="#ebs:Role">ebs:Role</a></li>
-            <li><a href="#ebs:Salary">ebs:Salary</a></li>
             <li><a href="#ebs:Stack">ebs:Stack</a></li>
             <li><a href="#ebs:TandMProject">ebs:TandMProject</a></li>
             <li><a href="#ebs:TaskList">ebs:TaskList</a></li>
@@ -98,12 +100,16 @@
          </ul>
          <h2 xmlns:f="http://https://github.com/costezki/model2owl#" id="classAttributesNames">Class attribute names</h2>
          <ul xmlns:f="http://https://github.com/costezki/model2owl#">
-            <li><a href="#attribute-dcterms:description">dcterms:description</a></li>
+            <li><a href="#attribute-dcterms:description-usage">dcterms:description (2)</a><ul><em>
+                     <li>ebs:Account (rdf:PlainLiteral) [0..*]</li>
+                     <li>time:TemporalEntity (rdf:PlainLiteral) [0..1]</li></em></ul>
+            </li>
             <li><a href="#attribute-dcterms:title-usage">dcterms:title (2)</a><ul><em>
                      <li>ebs:AgentInRole (rdf:PlainLiteral) [0..1]</li>
                      <li>org:Organization (rdf:PlainLiteral) [0..*]</li></em></ul>
             </li>
             <li><a href="#attribute-ebs:hasAmountValue">ebs:hasAmountValue</a></li>
+            <li><a href="#attribute-ebs:hasPayrollID">ebs:hasPayrollID</a></li>
             <li><a href="#attribute-ebs:isActive-usage">ebs:isActive (2)</a><ul><em>
                      <li>ebs:Employee (xsd:boolean) [1..1]</li>
                      <li>ebs:Project (xsd:boolean) [1..1]</li></em></ul>
@@ -122,17 +128,23 @@
                      <li>org:Organization -&gt; adms:Identifier [0..1]</li>
                      <li>time:TemporalEntity -&gt; adms:Identifier [0..1]</li></em></ul>
             </li>
-            <li>ebs:concernsEmployee</li>
-            <li><a href="#connector-ebs:concernsMonth">ebs:concernsMonth (3)</a><ul><em>
+            <li><a href="#connector-ebs:concernsEmployee">ebs:concernsEmployee (2)</a><ul><em>
+                     <li>ebs:EmployeePlannedTime -&gt; ebs:Employee [1]</li>
+                     <li>ebs:PayrollPosting -&gt; ebs:Employee [1]</li></em></ul>
+            </li>
+            <li><a href="#connector-ebs:concernsMonth">ebs:concernsMonth (2)</a><ul><em>
                      <li>ebs:Capacity -&gt; time:Instant [1]</li>
-                     <li>ebs:PlannedTime -&gt; time:Instant []</li>
-                     <li>ebs:Salary -&gt; time:Instant [1]</li></em></ul>
+                     <li>ebs:PlannedTime -&gt; time:Instant []</li></em></ul>
             </li>
             <li>ebs:concernsProject</li>
             <li>ebs:employs</li>
             <li>ebs:forInterval</li>
+            <li>ebs:hasAccount</li>
+            <li>ebs:hasAccountType</li>
             <li>ebs:hasAssociatedTaskList</li>
+            <li>ebs:hasClient</li>
             <li>ebs:hasCommercialRate</li>
+            <li>ebs:hasCorrespondingAccount</li>
             <li>ebs:hasCurrency</li>
             <li><a href="#connector-ebs:hasEfficiencyRate">ebs:hasEfficiencyRate (5)</a><ul><em>
                      <li>ebs:Company -&gt; ebs:Efficiency [0..1]</li>
@@ -142,18 +154,19 @@
                      <li>ebs:Project -&gt; ebs:Efficiency [0..1]</li></em></ul>
             </li>
             <li><a href="#connector-ebs:hasMonetaryValue">ebs:hasMonetaryValue (2)</a><ul><em>
-                     <li>ebs:Salary -&gt; ebs:MonetaryValue [1]</li>
-                     <li>ebs:Rate -&gt; ebs:MonetaryValue [1]</li></em></ul>
+                     <li>ebs:Rate -&gt; ebs:MonetaryValue [1]</li>
+                     <li>ebs:PayrollPosting -&gt; ebs:MonetaryValue [0..1]</li></em></ul>
             </li>
             <li>ebs:hasMonthlyCapacity</li>
+            <li>ebs:hasParentAccount</li>
             <li>ebs:hasPlannedBillableTime</li>
             <li>ebs:hasPlannedNonBillableTime</li>
+            <li>ebs:hasPostingDate</li>
             <li>ebs:hasProjectEnd</li>
             <li>ebs:hasProjectStart</li>
             <li>ebs:hasRecordedBillTime</li>
             <li>ebs:hasRecordedNonBillTime</li>
             <li>ebs:hasReplacementPipeline</li>
-            <li>ebs:hasSalary</li>
             <li>ebs:hasSeniority</li>
             <li>ebs:hasTotalPlannedBillableTime</li>
             <li>ebs:hasTotalPlannedNonBillableTime</li>
@@ -186,6 +199,17 @@
                <dd xmlns:svrl="http://purl.oclc.org/dsdl/svrl" class="filter warnings"><i class="fa fa-exclamation-triangle warning"></i>skos:notation is missing a description. All concepts should be defined or described.</dd>
             </dl>
          </section>
+         <h2 xmlns:f="http://https://github.com/costezki/model2owl#" id="ebs:Account">ebs:Account</h2>
+         <section xmlns:f="http://https://github.com/costezki/model2owl#">
+            <dl>
+               <dt>Unmet class conventions</dt>
+               <dd xmlns:svrl="http://purl.oclc.org/dsdl/svrl" class="filter warnings"><i class="fa fa-exclamation-triangle warning"></i>ebs:Account is missing a description. All concepts should be defined or described.</dd>
+            </dl>
+            <dl id="attribute-dcterms:description">
+               <dt>dcterms:description</dt>
+               <dd xmlns:svrl="http://purl.oclc.org/dsdl/svrl" class="filter warnings"><i class="fa fa-exclamation-triangle warning"></i>dcterms:description is missing a description. All concepts should be defined or described.</dd>
+            </dl>
+         </section>
          <h2 xmlns:f="http://https://github.com/costezki/model2owl#" id="ebs:AgentInRole">ebs:AgentInRole</h2>
          <section xmlns:f="http://https://github.com/costezki/model2owl#">
             <dl>
@@ -203,6 +227,14 @@
                <dt>Unmet class conventions</dt>
                <dd xmlns:svrl="http://purl.oclc.org/dsdl/svrl" class="filter warnings"><i class="fa fa-exclamation-triangle warning"></i>ebs:Capacity is missing a description. All concepts should be defined or described.</dd>
                <dd xmlns:svrl="http://purl.oclc.org/dsdl/svrl" class="filter infos"><i class="fa fa-info-circle info"></i>The class ebs:Capacity has no attributes provided. A class should define some attributes.</dd>
+            </dl>
+         </section>
+         <h2 xmlns:f="http://https://github.com/costezki/model2owl#" id="ebs:Client">ebs:Client</h2>
+         <section xmlns:f="http://https://github.com/costezki/model2owl#">
+            <dl>
+               <dt>Unmet class conventions</dt>
+               <dd xmlns:svrl="http://purl.oclc.org/dsdl/svrl" class="filter warnings"><i class="fa fa-exclamation-triangle warning"></i>ebs:Client is missing a description. All concepts should be defined or described.</dd>
+               <dd xmlns:svrl="http://purl.oclc.org/dsdl/svrl" class="filter infos"><i class="fa fa-info-circle info"></i>The class ebs:Client has no attributes provided. A class should define some attributes.</dd>
             </dl>
          </section>
          <h2 xmlns:f="http://https://github.com/costezki/model2owl#" id="ebs:Company">ebs:Company</h2>
@@ -225,6 +257,10 @@
             <dl>
                <dt>Unmet class conventions</dt>
                <dd xmlns:svrl="http://purl.oclc.org/dsdl/svrl" class="filter warnings"><i class="fa fa-exclamation-triangle warning"></i>ebs:Employee is missing a description. All concepts should be defined or described.</dd>
+            </dl>
+            <dl id="attribute-ebs:hasPayrollID">
+               <dt>ebs:hasPayrollID</dt>
+               <dd xmlns:svrl="http://purl.oclc.org/dsdl/svrl" class="filter warnings"><i class="fa fa-exclamation-triangle warning"></i>ebs:hasPayrollID is missing a description. All concepts should be defined or described.</dd>
             </dl>
             <dl id="attribute-ebs:isActive">
                <dt>ebs:isActive</dt>
@@ -298,6 +334,15 @@
                   some attributes.</dd>
             </dl>
          </section>
+         <h2 xmlns:f="http://https://github.com/costezki/model2owl#" id="ebs:PayrollPosting">ebs:PayrollPosting</h2>
+         <section xmlns:f="http://https://github.com/costezki/model2owl#">
+            <dl>
+               <dt>Unmet class conventions</dt>
+               <dd xmlns:svrl="http://purl.oclc.org/dsdl/svrl" class="filter warnings"><i class="fa fa-exclamation-triangle warning"></i>ebs:PayrollPosting is missing a description. All concepts should be defined or described.</dd>
+               <dd xmlns:svrl="http://purl.oclc.org/dsdl/svrl" class="filter infos"><i class="fa fa-info-circle info"></i>The class ebs:PayrollPosting has no attributes provided. A class should define some
+                  attributes.</dd>
+            </dl>
+         </section>
          <h2 xmlns:f="http://https://github.com/costezki/model2owl#" id="ebs:PlannedTime">ebs:PlannedTime</h2>
          <section xmlns:f="http://https://github.com/costezki/model2owl#">
             <dl>
@@ -351,14 +396,6 @@
                <dd xmlns:svrl="http://purl.oclc.org/dsdl/svrl" class="filter warnings"><i class="fa fa-exclamation-triangle warning"></i>ebs:Role is missing a description. All concepts should be defined or described.</dd>
                <dd xmlns:svrl="http://purl.oclc.org/dsdl/svrl" class="filter infos"><i class="fa fa-info-circle info"></i>The class ebs:Role has no attributes provided. A class should define some attributes.</dd>
                <dd xmlns:svrl="http://purl.oclc.org/dsdl/svrl" class="filter warnings"><i class="fa fa-exclamation-triangle warning"></i>The class ebs:Role is is disconnected. A class should be connected to other elements.</dd>
-            </dl>
-         </section>
-         <h2 xmlns:f="http://https://github.com/costezki/model2owl#" id="ebs:Salary">ebs:Salary</h2>
-         <section xmlns:f="http://https://github.com/costezki/model2owl#">
-            <dl>
-               <dt>Unmet class conventions</dt>
-               <dd xmlns:svrl="http://purl.oclc.org/dsdl/svrl" class="filter warnings"><i class="fa fa-exclamation-triangle warning"></i>ebs:Salary is missing a description. All concepts should be defined or described.</dd>
-               <dd xmlns:svrl="http://purl.oclc.org/dsdl/svrl" class="filter infos"><i class="fa fa-info-circle info"></i>The class ebs:Salary has no attributes provided. A class should define some attributes.</dd>
             </dl>
          </section>
          <h2 xmlns:f="http://https://github.com/costezki/model2owl#" id="ebs:Stack">ebs:Stack</h2>
@@ -516,6 +553,15 @@
                   level will be used as a fallback value.</dd>
             </dl>
          </section>
+         <h2 xmlns:f="http://https://github.com/costezki/model2owl#">ebs:AccountType</h2>
+         <section xmlns:f="http://https://github.com/costezki/model2owl#">
+            <dl>
+               <dt>Unmet enumeration conventions</dt>
+               <dd xmlns:svrl="http://purl.oclc.org/dsdl/svrl" class="filter warnings"><i class="fa fa-exclamation-triangle warning"></i>The enumeration ebs:AccountType does not have a correct constraint level (either permissive
+                  or restrictive) set as a tag with the ebs:constraintLevel key. The permissive level
+                  will be used as a fallback value.</dd>
+            </dl>
+         </section>
          <h1 class="selector-heading" id="dataTypes">Data-types</h1>
          <h1 class="selector-heading" id="packages">Packages</h1>
          <h1 class="selector-heading" id="object">Object</h1>
@@ -527,6 +573,12 @@
                be built employing at least two subclasses for each class or not at all.</dd>
          </dl>
          <h1 class="selector-heading" id="associations">Associations</h1>
+         <h2 xmlns:f="http://https://github.com/costezki/model2owl#">ebs:Account -&gt; ebs:Account (+ebs:hasParentAccount)</h2>
+         <dl xmlns:f="http://https://github.com/costezki/model2owl#">
+            <dt> Unmet association conventions </dt>
+            <dd xmlns:svrl="http://purl.oclc.org/dsdl/svrl" class="filter warnings"><i class="fa fa-exclamation-triangle warning"></i>The connector is missing a description. It is recommended                      to
+               define and describe all the relations.</dd>
+         </dl>
          <h2 xmlns:f="http://https://github.com/costezki/model2owl#">ebs:AgentInRole -&gt; adms:Identifier (+adms:identifier)</h2>
          <dl xmlns:f="http://https://github.com/costezki/model2owl#">
             <dt> Unmet association conventions </dt>
@@ -605,12 +657,6 @@
             <dd xmlns:svrl="http://purl.oclc.org/dsdl/svrl" class="filter warnings"><i class="fa fa-exclamation-triangle warning"></i>The connector is missing a description. It is recommended                      to
                define and describe all the relations.</dd>
          </dl>
-         <h2 xmlns:f="http://https://github.com/costezki/model2owl#">ebs:Employee -&gt; ebs:Salary (+ebs:hasSalary)</h2>
-         <dl xmlns:f="http://https://github.com/costezki/model2owl#">
-            <dt> Unmet association conventions </dt>
-            <dd xmlns:svrl="http://purl.oclc.org/dsdl/svrl" class="filter warnings"><i class="fa fa-exclamation-triangle warning"></i>The connector is missing a description. It is recommended                      to
-               define and describe all the relations.</dd>
-         </dl>
          <h2 xmlns:f="http://https://github.com/costezki/model2owl#">ebs:Employee -&gt; ebs:Team (+ebs:memberOf)</h2>
          <dl xmlns:f="http://https://github.com/costezki/model2owl#">
             <dt> Unmet association conventions </dt>
@@ -618,6 +664,42 @@
                define and describe all the relations.</dd>
          </dl>
          <h2 xmlns:f="http://https://github.com/costezki/model2owl#">ebs:EmployeePlannedTime -&gt; ebs:Employee (+ebs:concernsEmployee)</h2>
+         <dl xmlns:f="http://https://github.com/costezki/model2owl#">
+            <dt> Unmet association conventions </dt>
+            <dd xmlns:svrl="http://purl.oclc.org/dsdl/svrl" class="filter warnings"><i class="fa fa-exclamation-triangle warning"></i>The connector is missing a description. It is recommended                      to
+               define and describe all the relations.</dd>
+         </dl>
+         <h2 xmlns:f="http://https://github.com/costezki/model2owl#">ebs:ExternalProject -&gt; ebs:Client (+ebs:hasClient)</h2>
+         <dl xmlns:f="http://https://github.com/costezki/model2owl#">
+            <dt> Unmet association conventions </dt>
+            <dd xmlns:svrl="http://purl.oclc.org/dsdl/svrl" class="filter warnings"><i class="fa fa-exclamation-triangle warning"></i>The connector is missing a description. It is recommended                      to
+               define and describe all the relations.</dd>
+         </dl>
+         <h2 xmlns:f="http://https://github.com/costezki/model2owl#">ebs:PayrollPosting -&gt; ebs:Account (+ebs:hasCorrespondingAccount)</h2>
+         <dl xmlns:f="http://https://github.com/costezki/model2owl#">
+            <dt> Unmet association conventions </dt>
+            <dd xmlns:svrl="http://purl.oclc.org/dsdl/svrl" class="filter warnings"><i class="fa fa-exclamation-triangle warning"></i>The connector is missing a description. It is recommended                      to
+               define and describe all the relations.</dd>
+         </dl>
+         <h2 xmlns:f="http://https://github.com/costezki/model2owl#">ebs:PayrollPosting -&gt; ebs:Account (+ebs:hasAccount)</h2>
+         <dl xmlns:f="http://https://github.com/costezki/model2owl#">
+            <dt> Unmet association conventions </dt>
+            <dd xmlns:svrl="http://purl.oclc.org/dsdl/svrl" class="filter warnings"><i class="fa fa-exclamation-triangle warning"></i>The connector is missing a description. It is recommended                      to
+               define and describe all the relations.</dd>
+         </dl>
+         <h2 xmlns:f="http://https://github.com/costezki/model2owl#">ebs:PayrollPosting -&gt; ebs:Employee (+ebs:concernsEmployee)</h2>
+         <dl xmlns:f="http://https://github.com/costezki/model2owl#">
+            <dt> Unmet association conventions </dt>
+            <dd xmlns:svrl="http://purl.oclc.org/dsdl/svrl" class="filter warnings"><i class="fa fa-exclamation-triangle warning"></i>The connector is missing a description. It is recommended                      to
+               define and describe all the relations.</dd>
+         </dl>
+         <h2 xmlns:f="http://https://github.com/costezki/model2owl#">ebs:PayrollPosting -&gt; ebs:MonetaryValue (+ebs:hasMonetaryValue)</h2>
+         <dl xmlns:f="http://https://github.com/costezki/model2owl#">
+            <dt> Unmet association conventions </dt>
+            <dd xmlns:svrl="http://purl.oclc.org/dsdl/svrl" class="filter warnings"><i class="fa fa-exclamation-triangle warning"></i>The connector is missing a description. It is recommended                      to
+               define and describe all the relations.</dd>
+         </dl>
+         <h2 xmlns:f="http://https://github.com/costezki/model2owl#">ebs:PayrollPosting -&gt; time:Instant (+ebs:hasPostingDate)</h2>
          <dl xmlns:f="http://https://github.com/costezki/model2owl#">
             <dt> Unmet association conventions </dt>
             <dd xmlns:svrl="http://purl.oclc.org/dsdl/svrl" class="filter warnings"><i class="fa fa-exclamation-triangle warning"></i>The connector is missing a description. It is recommended                      to
@@ -709,18 +791,6 @@
             <dd xmlns:svrl="http://purl.oclc.org/dsdl/svrl" class="filter warnings"><i class="fa fa-exclamation-triangle warning"></i>The connector is missing a description. It is recommended                      to
                define and describe all the relations.</dd>
          </dl>
-         <h2 xmlns:f="http://https://github.com/costezki/model2owl#">ebs:Salary -&gt; ebs:MonetaryValue (+ebs:hasMonetaryValue)</h2>
-         <dl xmlns:f="http://https://github.com/costezki/model2owl#">
-            <dt> Unmet association conventions </dt>
-            <dd xmlns:svrl="http://purl.oclc.org/dsdl/svrl" class="filter warnings"><i class="fa fa-exclamation-triangle warning"></i>The connector is missing a description. It is recommended                      to
-               define and describe all the relations.</dd>
-         </dl>
-         <h2 xmlns:f="http://https://github.com/costezki/model2owl#">ebs:Salary -&gt; time:Instant (+ebs:concernsMonth)</h2>
-         <dl xmlns:f="http://https://github.com/costezki/model2owl#">
-            <dt> Unmet association conventions </dt>
-            <dd xmlns:svrl="http://purl.oclc.org/dsdl/svrl" class="filter warnings"><i class="fa fa-exclamation-triangle warning"></i>The connector is missing a description. It is recommended                      to
-               define and describe all the relations.</dd>
-         </dl>
          <h2 xmlns:f="http://https://github.com/costezki/model2owl#">ebs:Stack -&gt; ebs:Efficiency (+ebs:hasEfficiencyRate)</h2>
          <dl xmlns:f="http://https://github.com/costezki/model2owl#">
             <dt> Unmet association conventions </dt>
@@ -794,6 +864,12 @@
                define and describe all the relations.</dd>
          </dl>
          <h1 class="selector-heading" id="dependencies">Dependencies</h1>
+         <h2 xmlns:f="http://https://github.com/costezki/model2owl#">ebs:Account -&gt; ebs:AccountType (+ebs:hasAccountType)</h2>
+         <dl xmlns:f="http://https://github.com/costezki/model2owl#">
+            <dt> Unmet dependency conventions </dt>
+            <dd xmlns:svrl="http://purl.oclc.org/dsdl/svrl" class="filter warnings"><i class="fa fa-exclamation-triangle warning"></i>The connector is missing a description. It is recommended                      to
+               define and describe all the relations.</dd>
+         </dl>
          <h2 xmlns:f="http://https://github.com/costezki/model2owl#">ebs:Employee -&gt; at-voc:Seniority (+ebs:hasSeniority)</h2>
          <dl xmlns:f="http://https://github.com/costezki/model2owl#">
             <dt> Unmet dependency conventions </dt>
@@ -809,6 +885,17 @@
          <h1 class="selector-heading" id="realisations">Realisations</h1>
          <h1 xmlns:f="http://https://github.com/costezki/model2owl#" id="connectorsUsage">Connectors with multiple usages</h1>
          <h1 xmlns:f="http://https://github.com/costezki/model2owl#" id="classAttributesUsage">Class attributes with multiple usages</h1>
+         <dl xmlns:f="http://https://github.com/costezki/model2owl#" id="attribute-dcterms:description-usage">
+            <dt>dcterms:description</dt>
+            <dd xmlns:svrl="http://purl.oclc.org/dsdl/svrl" class="filter warnings"><i class="fa fa-exclamation-triangle warning"></i>The attribute dcterms:description has different multiplicities in reuse contexts.
+               When a property is reused in multiple contexts, the multiplicity is expected to be
+               the same. Please see usage below:
+               <ul>
+                  <li>ebs:Account (rdf:PlainLiteral) [0..*]</li>
+                  <li>time:TemporalEntity (rdf:PlainLiteral) [0..1]</li>
+               </ul>
+            </dd>
+         </dl>
          <dl xmlns:f="http://https://github.com/costezki/model2owl#" id="attribute-dcterms:title-usage">
             <dt>dcterms:title</dt>
             <dd xmlns:svrl="http://purl.oclc.org/dsdl/svrl" class="filter warnings"><i class="fa fa-exclamation-triangle warning"></i>The attribute dcterms:title has different multiplicities in reuse contexts.      

@@ -40,11 +40,19 @@
                         <td></td>
                      </tr>
                      <tr>
+                        <td>ebs:Account</td>
+                        <td></td>
+                     </tr>
+                     <tr>
                         <td>ebs:AgentInRole</td>
                         <td></td>
                      </tr>
                      <tr>
                         <td>ebs:Capacity</td>
+                        <td></td>
+                     </tr>
+                     <tr>
+                        <td>ebs:Client</td>
                         <td></td>
                      </tr>
                      <tr>
@@ -93,6 +101,10 @@
                         <td></td>
                      </tr>
                      <tr>
+                        <td>ebs:PayrollPosting</td>
+                        <td></td>
+                     </tr>
+                     <tr>
                         <td>ebs:PlannedTime</td>
                         <td></td>
                      </tr>
@@ -114,10 +126,6 @@
                      </tr>
                      <tr>
                         <td>ebs:Role</td>
-                        <td></td>
-                     </tr>
-                     <tr>
-                        <td>ebs:Salary</td>
                         <td></td>
                      </tr>
                      <tr>
@@ -186,10 +194,10 @@
                   </thead>
                   <tbody>
                      <tr>
-                        <td>time:TemporalEntity</td>
+                        <td>ebs:Account<br>time:TemporalEntity<br></td>
                         <td>dcterms:description</td>
-                        <td></td>
-                        <td>rdf:PlainLiteral [0..1]</td>
+                        <td> </td>
+                        <td>rdf:PlainLiteral [0..*]<br>rdf:PlainLiteral [0..1]<br></td>
                      </tr>
                      <tr>
                         <td>ebs:AgentInRole<br>org:Organization<br></td>
@@ -202,6 +210,12 @@
                         <td>ebs:hasAmountValue</td>
                         <td>Equivalent to epo:hasAmountValue</td>
                         <td>xsd:decimal [1..1]</td>
+                     </tr>
+                     <tr>
+                        <td>ebs:Employee</td>
+                        <td>ebs:hasPayrollID</td>
+                        <td></td>
+                        <td>rdf:PlainLiteral [0..1]</td>
                      </tr>
                      <tr>
                         <td>ebs:Employee<br>ebs:Project<br></td>
@@ -264,13 +278,13 @@
                      </tr>
                      <tr>
                         <td>ebs:concernsEmployee</td>
-                        <td></td>
-                        <td>ebs:EmployeePlannedTime -&gt; ebs:Employee [1]</td>
+                        <td> </td>
+                        <td>ebs:EmployeePlannedTime -&gt; ebs:Employee [1]<br>ebs:PayrollPosting -&gt; ebs:Employee [1]<br></td>
                      </tr>
                      <tr>
                         <td>ebs:concernsMonth</td>
-                        <td>  </td>
-                        <td>ebs:Capacity -&gt; time:Instant [1]<br>ebs:PlannedTime -&gt; time:Instant []<br>ebs:Salary -&gt; time:Instant [1]<br></td>
+                        <td> </td>
+                        <td>ebs:Capacity -&gt; time:Instant [1]<br>ebs:PlannedTime -&gt; time:Instant []<br></td>
                      </tr>
                      <tr>
                         <td>ebs:concernsProject</td>
@@ -288,14 +302,34 @@
                         <td>ebs:Efficiency -&gt; time:Interval [1]</td>
                      </tr>
                      <tr>
+                        <td>ebs:hasAccount</td>
+                        <td></td>
+                        <td>ebs:PayrollPosting -&gt; ebs:Account [1]</td>
+                     </tr>
+                     <tr>
+                        <td>ebs:hasAccountType</td>
+                        <td></td>
+                        <td>ebs:Account -&gt; ebs:AccountType [0..1]</td>
+                     </tr>
+                     <tr>
                         <td>ebs:hasAssociatedTaskList</td>
                         <td></td>
                         <td>ebs:Project -&gt; ebs:TaskList [0..*]</td>
                      </tr>
                      <tr>
+                        <td>ebs:hasClient</td>
+                        <td></td>
+                        <td>ebs:ExternalProject -&gt; ebs:Client [0..1]</td>
+                     </tr>
+                     <tr>
                         <td>ebs:hasCommercialRate</td>
                         <td></td>
                         <td>ebs:Project -&gt; ebs:Rate [0..1]</td>
+                     </tr>
+                     <tr>
+                        <td>ebs:hasCorrespondingAccount</td>
+                        <td></td>
+                        <td>ebs:PayrollPosting -&gt; ebs:Account [1]</td>
                      </tr>
                      <tr>
                         <td>ebs:hasCurrency</td>
@@ -310,12 +344,17 @@
                      <tr>
                         <td>ebs:hasMonetaryValue</td>
                         <td> </td>
-                        <td>ebs:Salary -&gt; ebs:MonetaryValue [1]<br>ebs:Rate -&gt; ebs:MonetaryValue [1]<br></td>
+                        <td>ebs:Rate -&gt; ebs:MonetaryValue [1]<br>ebs:PayrollPosting -&gt; ebs:MonetaryValue [0..1]<br></td>
                      </tr>
                      <tr>
                         <td>ebs:hasMonthlyCapacity</td>
                         <td></td>
                         <td>ebs:Employee -&gt; ebs:Capacity [1..*]</td>
+                     </tr>
+                     <tr>
+                        <td>ebs:hasParentAccount</td>
+                        <td></td>
+                        <td>ebs:Account -&gt; ebs:Account [0..1]</td>
                      </tr>
                      <tr>
                         <td>ebs:hasPlannedBillableTime</td>
@@ -326,6 +365,11 @@
                         <td>ebs:hasPlannedNonBillableTime</td>
                         <td></td>
                         <td>ebs:PlannedTime -&gt; time:Duration [1..*]</td>
+                     </tr>
+                     <tr>
+                        <td>ebs:hasPostingDate</td>
+                        <td></td>
+                        <td>ebs:PayrollPosting -&gt; time:Instant [1]</td>
                      </tr>
                      <tr>
                         <td>ebs:hasProjectEnd</td>
@@ -351,11 +395,6 @@
                         <td>ebs:hasReplacementPipeline</td>
                         <td></td>
                         <td>ebs:Employee -&gt; ebs:Project [0..*]</td>
-                     </tr>
-                     <tr>
-                        <td>ebs:hasSalary</td>
-                        <td></td>
-                        <td>ebs:Employee -&gt; ebs:Salary [0..*]</td>
                      </tr>
                      <tr>
                         <td>ebs:hasSeniority</td>
