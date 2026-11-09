@@ -11,7 +11,8 @@
     <core>
         <import uri="http://www.w3.org/ns/org#"/>
         <import uri="http://www.w3.org/2006/time"/>
-        <import uri="http://www.w3.org/ns/person"/>
+        <!-- direct file: http://www.w3.org/ns/person serves HTML to the OWL API's Accept header -->
+        <import uri="https://semiceu.github.io/Core-Person-Vocabulary/releases/w3c/person.ttl"/>
     </core>
     <!-- affects restrictions artefact -->
     <restrictions></restrictions>
