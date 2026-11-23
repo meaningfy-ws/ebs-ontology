@@ -10,6 +10,7 @@
     <prefix name="dct" value="http://purl.org/dc/terms/"/>
     <prefix name="org" value="http://www.w3.org/ns/org#"/>
     <prefix name="skos" value="http://www.w3.org/2004/02/skos/core#"/>
+    <prefix name="skosxl" value="http://www.w3.org/2008/05/skos-xl#"/>
     <prefix name="at-voc" value="http://publications.europa.eu/resource/authority/"/>
     <prefix name="time" value="http://www.w3.org/2006/time#"/>
     <prefix name="person" value="http://www.w3.org/ns/person#"/>
