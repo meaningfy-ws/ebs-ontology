@@ -8,18 +8,40 @@
 @prefix person: <http://www.w3.org/ns/person#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ebs:Account a owl:Class ;
     rdfs:isDefinedBy ebs:core ;
+    skos:definition "An entry in the company's chart of accounts, identified by its account code, under which accounting entries are recorded."@en ;
     skos:prefLabel "Account"@en .
+
+ebs:AccountAnalytics a owl:Class ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:definition "The attachment of one analytics type (subconto) to an account at a fixed position. It says which analytics the account's ledger lines carry, and in what order."@en ;
+    skos:prefLabel "Account Analytics"@en .
+
+ebs:AccountClass a skos:ConceptScheme ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:definition "The groups of the chart of accounts, given by the first digit of the account code. Possible values: balance sheet (first digit 1 to 5), income (6), expenses (7), cost (8), off-balance (9), technical (Cyrillic codes and 000, excluded from financial totals)"@en ;
+    skos:prefLabel "Account Class"@en .
+
+ebs:AccountRole a skos:ConceptScheme ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:definition "The roles an account can play in management reporting. Possible values (proposal, to confirm with the data owner): revenue, cost of sales, direct labour, administrative payroll, unclassified"@en ;
+    skos:prefLabel "Account Role"@en .
 
 ebs:AccountType a skos:ConceptScheme ;
     rdfs:isDefinedBy ebs:core ;
-    skos:definition "Possible values: asset, payable"@en ;
+    skos:definition "The kinds of account, by the side on which their balance is kept. Possible values: active (A), passive (P), active-passive (AP)"@en ;
     skos:prefLabel "Account Type"@en .
+
+ebs:AnalyticsType a skos:ConceptScheme ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:definition "The analytics dimensions (subconto) by which an account can be kept in detail. 26 values, such as counterparties, contracts, cost items, activity types, employees, fixed assets"@en ;
+    skos:prefLabel "Analytics Type"@en .
 
 ebs:Capacity a owl:Class ;
     rdfs:isDefinedBy ebs:core ;
@@ -95,6 +117,11 @@ ebs:Role a owl:Class ;
     rdfs:isDefinedBy ebs:core ;
     skos:prefLabel "Role"@en .
 
+ebs:RoleSource a skos:ConceptScheme ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:definition "The ways an account's role can be established. Possible values: inferred from name, confirmed"@en ;
+    skos:prefLabel "Role Source"@en .
+
 ebs:Stack a owl:Class ;
     rdfs:isDefinedBy ebs:core ;
     skos:prefLabel "Stack"@en .
@@ -117,6 +144,11 @@ ebs:TeamLead a owl:Class ;
     rdfs:isDefinedBy ebs:core ;
     rdfs:subClassOf ebs:Employee ;
     skos:prefLabel "Team Lead"@en .
+
+ebs:TranslationStatus a skos:ConceptScheme ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:definition "The origin and review state of a label's text. Possible values: original (the name as in 1C), machine-translated, reviewed"@en ;
+    skos:prefLabel "Translation Status"@en .
 
 ebs:concernsEmployee a owl:ObjectProperty ;
     rdfs:isDefinedBy ebs:core ;
@@ -142,6 +174,18 @@ ebs:hasAccount a owl:ObjectProperty ;
     rdfs:isDefinedBy ebs:core ;
     skos:prefLabel "has Account"@en .
 
+ebs:hasAccountAnalytics a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "has Account Analytics"@en .
+
+ebs:hasAccountClass a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "has Account Class"@en .
+
+ebs:hasAccountRole a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "has Account Role"@en .
+
 ebs:hasAccountType a owl:ObjectProperty ;
     rdfs:isDefinedBy ebs:core ;
     skos:prefLabel "has Account Type"@en .
@@ -150,6 +194,10 @@ ebs:hasAmountValue a owl:DatatypeProperty ;
     rdfs:isDefinedBy ebs:core ;
     skos:definition "Equivalent to epo:hasAmountValue (ebs:MonetaryValue)"@en ;
     skos:prefLabel "has Amount Value"@en .
+
+ebs:hasAnalyticsType a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "has Analytics Type"@en .
 
 ebs:hasAssociatedTaskList a owl:ObjectProperty ;
     rdfs:isDefinedBy ebs:core ;
@@ -199,6 +247,11 @@ ebs:hasPlannedNonBillableTime a owl:ObjectProperty ;
     rdfs:isDefinedBy ebs:core ;
     skos:prefLabel "has Planned Non Billable Time"@en .
 
+ebs:hasPosition a owl:DatatypeProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:definition "The position, from 1 to 3, at which an analytics type appears on the account's ledger lines. (ebs:AccountAnalytics)"@en ;
+    skos:prefLabel "has Position"@en .
+
 ebs:hasPostingDate a owl:ObjectProperty ;
     rdfs:isDefinedBy ebs:core ;
     skos:prefLabel "has Posting Date"@en .
@@ -223,6 +276,10 @@ ebs:hasReplacementPipeline a owl:ObjectProperty ;
     rdfs:isDefinedBy ebs:core ;
     skos:prefLabel "has Replacement Pipeline"@en .
 
+ebs:hasRoleSource a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "has Role Source"@en .
+
 ebs:hasSeniority a owl:ObjectProperty ;
     rdfs:isDefinedBy ebs:core ;
     skos:prefLabel "has Seniority"@en .
@@ -235,13 +292,33 @@ ebs:hasTotalPlannedNonBillableTime a owl:ObjectProperty ;
     rdfs:isDefinedBy ebs:core ;
     skos:prefLabel "has Total Planned Non Billable Time"@en .
 
+ebs:hasTranslationStatus a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:prefLabel "has Translation Status"@en .
+
 ebs:hasValue a owl:ObjectProperty ;
     rdfs:isDefinedBy ebs:core ;
     skos:prefLabel "has Value"@en .
 
 ebs:isActive a owl:DatatypeProperty ;
     rdfs:isDefinedBy ebs:core ;
+    skos:definition "Whether the thing is currently in use in the source system. (ebs:Account) Whether the thing is currently in use in the source system. (ebs:Employee) Whether the thing is currently in use in the source system. (ebs:Project)"@en ;
     skos:prefLabel "is Active"@en .
+
+ebs:isCurrency a owl:DatatypeProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:definition "Whether the account is also kept in foreign currency. (ebs:Account)"@en ;
+    skos:prefLabel "is Currency"@en .
+
+ebs:isOffBalance a owl:DatatypeProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:definition "Whether the account is kept off the balance sheet, outside double entry. (ebs:Account)"@en ;
+    skos:prefLabel "is Off Balance"@en .
+
+ebs:isQuantitative a owl:DatatypeProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:definition "Whether the account is kept in quantities as well as in amounts. (ebs:Account)"@en ;
+    skos:prefLabel "is Quantitative"@en .
 
 ebs:leads a owl:ObjectProperty ;
     rdfs:isDefinedBy ebs:core ;
@@ -324,6 +401,18 @@ time:numericDuration a owl:DatatypeProperty ;
 time:unitType a owl:ObjectProperty ;
     skos:prefLabel "unit Type"@en .
 
+skosxl:Label a owl:Class ;
+    skos:prefLabel "Label"@en .
+
+skosxl:altLabel a owl:ObjectProperty ;
+    skos:prefLabel "alt Label"@en .
+
+skosxl:literalForm a owl:DatatypeProperty ;
+    skos:prefLabel "literal Form"@en .
+
+skosxl:prefLabel a owl:ObjectProperty ;
+    skos:prefLabel "pref Label"@en .
+
 adms:Identifier a owl:Class ;
     skos:prefLabel "Identifier"@en .
 
@@ -378,13 +467,13 @@ org:Organization a owl:Class ;
 
 ebs:core a owl:Ontology ;
     dcterms:created "2026-07-09"^^xsd:date ;
-    dcterms:issued "2026-11-09"^^xsd:date ;
+    dcterms:issued "2026-11-23"^^xsd:date ;
     dcterms:license "CC BY 4.0" ;
     dcterms:publisher "Meaningfy" ;
     dcterms:title "EBS core"@en ;
     vann:preferredNamespacePrefix "ebs" ;
     vann:preferredNamespaceUri "http://ebs-integrator.com/ontology/erp#" ;
-    rdfs:comment "This version is automatically generated from EBS.xml on 2026-11-09" ;
+    rdfs:comment "This version is automatically generated from EBS.xml on 2026-11-23" ;
     owl:imports <http://data.europa.eu/m8g>,
         dcterms:,
         skos:,

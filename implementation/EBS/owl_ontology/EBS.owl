@@ -21,6 +21,7 @@
      xmlns:at-voc="http://publications.europa.eu/resource/authority/"
      xmlns:person="http://www.w3.org/ns/person#"
      xmlns:schema="https://schema.org/"
+     xmlns:skosxl="http://www.w3.org/2008/05/skos-xl#"
      xmlns:dcterms="http://purl.org/dc/terms/"
      xmlns:schema1="http://schema.org/"
      xmlns:core-res="http://ebs-integrator.com/ontology/erp#"
@@ -34,13 +35,13 @@
         <owl:imports rdf:resource="http://www.w3.org/ns/org#"/>
         <owl:imports rdf:resource="https://semiceu.github.io/Core-Person-Vocabulary/releases/w3c/person.ttl"/>
         <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-07-09</dcterms:created>
-        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-11-09</dcterms:issued>
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-11-23</dcterms:issued>
         <dcterms:license>CC BY 4.0</dcterms:license>
         <dcterms:publisher>Meaningfy</dcterms:publisher>
         <dcterms:title xml:lang="en">EBS core</dcterms:title>
         <vann:preferredNamespacePrefix>ebs</vann:preferredNamespacePrefix>
         <vann:preferredNamespaceUri>http://ebs-integrator.com/ontology/erp#</vann:preferredNamespaceUri>
-        <rdfs:comment>This version is automatically generated from EBS.xml on 2026-11-09</rdfs:comment>
+        <rdfs:comment>This version is automatically generated from EBS.xml on 2026-11-23</rdfs:comment>
         <owl:versionInfo>1.0.0</owl:versionInfo>
     </owl:Ontology>
     
@@ -1437,11 +1438,47 @@ For more structured data use the model in Time Ontology, see an &lt;a href=&quot
     
 
 
+    <!-- http://ebs-integrator.com/ontology/erp#hasAccountAnalytics -->
+
+    <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasAccountAnalytics">
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:prefLabel xml:lang="en">has Account Analytics</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp#hasAccountClass -->
+
+    <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasAccountClass">
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:prefLabel xml:lang="en">has Account Class</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp#hasAccountRole -->
+
+    <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasAccountRole">
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:prefLabel xml:lang="en">has Account Role</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://ebs-integrator.com/ontology/erp#hasAccountType -->
 
     <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasAccountType">
         <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
         <skos:prefLabel xml:lang="en">has Account Type</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp#hasAnalyticsType -->
+
+    <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasAnalyticsType">
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:prefLabel xml:lang="en">has Analytics Type</skos:prefLabel>
     </owl:ObjectProperty>
     
 
@@ -1599,6 +1636,15 @@ For more structured data use the model in Time Ontology, see an &lt;a href=&quot
     
 
 
+    <!-- http://ebs-integrator.com/ontology/erp#hasRoleSource -->
+
+    <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasRoleSource">
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:prefLabel xml:lang="en">has Role Source</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://ebs-integrator.com/ontology/erp#hasSeniority -->
 
     <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasSeniority">
@@ -1622,6 +1668,15 @@ For more structured data use the model in Time Ontology, see an &lt;a href=&quot
     <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasTotalPlannedNonBillableTime">
         <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
         <skos:prefLabel xml:lang="en">has Total Planned Non Billable Time</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp#hasTranslationStatus -->
+
+    <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasTranslationStatus">
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:prefLabel xml:lang="en">has Translation Status</skos:prefLabel>
     </owl:ObjectProperty>
     
 
@@ -1726,6 +1781,22 @@ For more structured data use the model in Time Ontology, see an &lt;a href=&quot
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#unitType">
         <skos:prefLabel xml:lang="en">unit Type</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2008/05/skos-xl#altLabel -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2008/05/skos-xl#altLabel">
+        <skos:prefLabel xml:lang="en">alt Label</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2008/05/skos-xl#prefLabel -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2008/05/skos-xl#prefLabel">
+        <skos:prefLabel xml:lang="en">pref Label</skos:prefLabel>
     </owl:ObjectProperty>
     
 
@@ -2036,11 +2107,52 @@ This approach is consistent with both schema.org and the W3C OWL Time Ontology.<
     
 
 
+    <!-- http://ebs-integrator.com/ontology/erp#hasPosition -->
+
+    <owl:DatatypeProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasPosition">
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:definition xml:lang="en">The position, from 1 to 3, at which an analytics type appears on the account&apos;s ledger lines. (ebs:AccountAnalytics)</skos:definition>
+        <skos:prefLabel xml:lang="en">has Position</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://ebs-integrator.com/ontology/erp#isActive -->
 
     <owl:DatatypeProperty rdf:about="http://ebs-integrator.com/ontology/erp#isActive">
         <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:definition xml:lang="en">Whether the thing is currently in use in the source system. (ebs:Account) Whether the thing is currently in use in the source system. (ebs:Employee) Whether the thing is currently in use in the source system. (ebs:Project)</skos:definition>
         <skos:prefLabel xml:lang="en">is Active</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp#isCurrency -->
+
+    <owl:DatatypeProperty rdf:about="http://ebs-integrator.com/ontology/erp#isCurrency">
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:definition xml:lang="en">Whether the account is also kept in foreign currency. (ebs:Account)</skos:definition>
+        <skos:prefLabel xml:lang="en">is Currency</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp#isOffBalance -->
+
+    <owl:DatatypeProperty rdf:about="http://ebs-integrator.com/ontology/erp#isOffBalance">
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:definition xml:lang="en">Whether the account is kept off the balance sheet, outside double entry. (ebs:Account)</skos:definition>
+        <skos:prefLabel xml:lang="en">is Off Balance</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp#isQuantitative -->
+
+    <owl:DatatypeProperty rdf:about="http://ebs-integrator.com/ontology/erp#isQuantitative">
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:definition xml:lang="en">Whether the account is kept in quantities as well as in amounts. (ebs:Account)</skos:definition>
+        <skos:prefLabel xml:lang="en">is Quantitative</skos:prefLabel>
     </owl:DatatypeProperty>
     
 
@@ -2193,6 +2305,14 @@ This approach is consistent with both schema.org and the W3C OWL Time Ontology.<
 
     <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#numericDuration">
         <skos:prefLabel xml:lang="en">numeric Duration</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2008/05/skos-xl#literalForm -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2008/05/skos-xl#literalForm">
+        <skos:prefLabel xml:lang="en">literal Form</skos:prefLabel>
     </owl:DatatypeProperty>
     
 
@@ -2548,7 +2668,18 @@ Implementers are free to choose their language. It is recommended to document th
 
     <owl:Class rdf:about="http://ebs-integrator.com/ontology/erp#Account">
         <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:definition xml:lang="en">An entry in the company&apos;s chart of accounts, identified by its account code, under which accounting entries are recorded.</skos:definition>
         <skos:prefLabel xml:lang="en">Account</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp#AccountAnalytics -->
+
+    <owl:Class rdf:about="http://ebs-integrator.com/ontology/erp#AccountAnalytics">
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:definition xml:lang="en">The attachment of one analytics type (subconto) to an account at a fixed position. It says which analytics the account&apos;s ledger lines carry, and in what order.</skos:definition>
+        <skos:prefLabel xml:lang="en">Account Analytics</skos:prefLabel>
     </owl:Class>
     
 
@@ -3018,6 +3149,14 @@ Implementers are free to choose their language. It is recommended to document th
     
 
 
+    <!-- http://www.w3.org/2008/05/skos-xl#Label -->
+
+    <owl:Class rdf:about="http://www.w3.org/2008/05/skos-xl#Label">
+        <skos:prefLabel xml:lang="en">Label</skos:prefLabel>
+    </owl:Class>
+    
+
+
     <!-- http://www.w3.org/ns/adms#Identifier -->
 
     <owl:Class rdf:about="http://www.w3.org/ns/adms#Identifier">
@@ -3071,13 +3210,68 @@ Implementers are free to choose their language. It is recommended to document th
     
 
 
+    <!-- http://ebs-integrator.com/ontology/erp#AccountClass -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp#AccountClass">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:definition xml:lang="en">The groups of the chart of accounts, given by the first digit of the account code. Possible values: balance sheet (first digit 1 to 5), income (6), expenses (7), cost (8), off-balance (9), technical (Cyrillic codes and 000, excluded from financial totals)</skos:definition>
+        <skos:prefLabel xml:lang="en">Account Class</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp#AccountRole -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp#AccountRole">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:definition xml:lang="en">The roles an account can play in management reporting. Possible values (proposal, to confirm with the data owner): revenue, cost of sales, direct labour, administrative payroll, unclassified</skos:definition>
+        <skos:prefLabel xml:lang="en">Account Role</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://ebs-integrator.com/ontology/erp#AccountType -->
 
     <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp#AccountType">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
         <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
-        <skos:definition xml:lang="en">Possible values: asset, payable</skos:definition>
+        <skos:definition xml:lang="en">The kinds of account, by the side on which their balance is kept. Possible values: active (A), passive (P), active-passive (AP)</skos:definition>
         <skos:prefLabel xml:lang="en">Account Type</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp#AnalyticsType -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp#AnalyticsType">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:definition xml:lang="en">The analytics dimensions (subconto) by which an account can be kept in detail. 26 values, such as counterparties, contracts, cost items, activity types, employees, fixed assets</skos:definition>
+        <skos:prefLabel xml:lang="en">Analytics Type</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp#RoleSource -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp#RoleSource">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:definition xml:lang="en">The ways an account&apos;s role can be established. Possible values: inferred from name, confirmed</skos:definition>
+        <skos:prefLabel xml:lang="en">Role Source</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp#TranslationStatus -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp#TranslationStatus">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:definition xml:lang="en">The origin and review state of a label&apos;s text. Possible values: original (the name as in 1C), machine-translated, reviewed</skos:definition>
+        <skos:prefLabel xml:lang="en">Translation Status</skos:prefLabel>
     </owl:NamedIndividual>
     
 

@@ -10,6 +10,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -20,12 +21,30 @@ core-shape:adms-IdentifierShape a sh:NodeShape ;
     sh:property core-shape:adms-Identifier-skos-notation ;
     sh:targetClass adms:Identifier .
 
+core-shape:ebs-AccountAnalyticsShape a sh:NodeShape ;
+    rdfs:label "Account Analytics" ;
+    rdfs:comment "The attachment of one analytics type (subconto) to an account at a fixed position. It says which analytics the account's ledger lines carry, and in what order." ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:ebs-AccountAnalytics-ebs-hasAnalyticsType,
+        core-shape:ebs-AccountAnalytics-ebs-hasPosition ;
+    sh:targetClass ebs:AccountAnalytics .
+
 core-shape:ebs-AccountShape a sh:NodeShape ;
     rdfs:label "Account" ;
+    rdfs:comment "An entry in the company's chart of accounts, identified by its account code, under which accounting entries are recorded." ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:property core-shape:ebs-Account-dcterms-description,
+    sh:property core-shape:ebs-Account-ebs-hasAccountAnalytics,
+        core-shape:ebs-Account-ebs-hasAccountClass,
+        core-shape:ebs-Account-ebs-hasAccountRole,
         core-shape:ebs-Account-ebs-hasAccountType,
-        core-shape:ebs-Account-ebs-hasParentAccount ;
+        core-shape:ebs-Account-ebs-hasParentAccount,
+        core-shape:ebs-Account-ebs-hasRoleSource,
+        core-shape:ebs-Account-ebs-isActive,
+        core-shape:ebs-Account-ebs-isCurrency,
+        core-shape:ebs-Account-ebs-isOffBalance,
+        core-shape:ebs-Account-ebs-isQuantitative,
+        core-shape:ebs-Account-skosxl-altLabel,
+        core-shape:ebs-Account-skosxl-prefLabel ;
     sh:targetClass ebs:Account .
 
 core-shape:ebs-AgentInRoleShape a sh:NodeShape ;
@@ -221,6 +240,13 @@ core-shape:person-PersonShape a sh:NodeShape ;
         core-shape:person-Person-foaf-lastName ;
     sh:targetClass person:Person .
 
+core-shape:skosxl-LabelShape a sh:NodeShape ;
+    rdfs:label "Label" ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:skosxl-Label-ebs-hasTranslationStatus,
+        core-shape:skosxl-Label-skosxl-literalForm ;
+    sh:targetClass skosxl:Label .
+
 core-shape:time-DurationShape a sh:NodeShape ;
     rdfs:label "Duration" ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -269,15 +295,35 @@ core-shape:adms-Identifier-skos-notation a sh:PropertyShape ;
     sh:or ( [ sh:datatype xsd:string ] [ sh:datatype rdf:langString ] ) ;
     sh:path skos:notation .
 
-core-shape:ebs-Account-dcterms-description a sh:PropertyShape ;
+core-shape:ebs-Account-ebs-hasAccountAnalytics a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
-    sh:name "Description" ;
-    sh:or ( [ sh:datatype xsd:string ] [ sh:datatype rdf:langString ] ) ;
-    sh:path dcterms:description .
+    sh:class ebs:AccountAnalytics ;
+    sh:description "Relates an account to one analytics type it is kept by." ;
+    sh:maxCount 3 ;
+    sh:name "Has account analytics" ;
+    sh:path ebs:hasAccountAnalytics ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#hasAccountAnalytics> ?that . ?that <http://ebs-integrator.com/ontology/erp#hasAccountAnalytics> ?this .}" ] .
+
+core-shape:ebs-Account-ebs-hasAccountClass a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class skos:Concept ;
+    sh:description "Relates an account to its class in the chart, given by the first digit of its code." ;
+    sh:maxCount 1 ;
+    sh:name "Has account class" ;
+    sh:path ebs:hasAccountClass .
+
+core-shape:ebs-Account-ebs-hasAccountRole a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class skos:Concept ;
+    sh:description "Relates an account to the role it is suggested to play in reporting, such as revenue or direct labour." ;
+    sh:maxCount 1 ;
+    sh:name "Has account role" ;
+    sh:path ebs:hasAccountRole .
 
 core-shape:ebs-Account-ebs-hasAccountType a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:class skos:Concept ;
+    sh:description "Relates an account to its type: whether it normally carries a debit balance (active), a credit balance (passive) or either (active-passive)." ;
     sh:maxCount 1 ;
     sh:name "Has account type" ;
     sh:path ebs:hasAccountType .
@@ -285,10 +331,83 @@ core-shape:ebs-Account-ebs-hasAccountType a sh:PropertyShape ;
 core-shape:ebs-Account-ebs-hasParentAccount a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:class ebs:Account ;
+    sh:description "Relates an account to the account directly above it in the chart, into which it rolls up." ;
     sh:maxCount 1 ;
     sh:name "Has parent account" ;
     sh:path ebs:hasParentAccount ;
     sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#hasParentAccount> ?that . ?that <http://ebs-integrator.com/ontology/erp#hasParentAccount> ?this .}" ] .
+
+core-shape:ebs-Account-ebs-hasRoleSource a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class skos:Concept ;
+    sh:description "Relates an account to how its role was set: inferred from its name, or confirmed by the data owner." ;
+    sh:maxCount 1 ;
+    sh:name "Has role source" ;
+    sh:path ebs:hasRoleSource .
+
+core-shape:ebs-Account-ebs-isActive a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:boolean ;
+    sh:description "Whether the thing is currently in use in the source system." ;
+    sh:maxCount 1 ;
+    sh:name "Is active" ;
+    sh:path ebs:isActive .
+
+core-shape:ebs-Account-ebs-isCurrency a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:boolean ;
+    sh:description "Whether the account is also kept in foreign currency." ;
+    sh:maxCount 1 ;
+    sh:name "Is currency" ;
+    sh:path ebs:isCurrency .
+
+core-shape:ebs-Account-ebs-isOffBalance a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:boolean ;
+    sh:description "Whether the account is kept off the balance sheet, outside double entry." ;
+    sh:maxCount 1 ;
+    sh:name "Is off balance" ;
+    sh:path ebs:isOffBalance .
+
+core-shape:ebs-Account-ebs-isQuantitative a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:boolean ;
+    sh:description "Whether the account is kept in quantities as well as in amounts." ;
+    sh:maxCount 1 ;
+    sh:name "Is quantitative" ;
+    sh:path ebs:isQuantitative .
+
+core-shape:ebs-Account-skosxl-altLabel a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class skosxl:Label ;
+    sh:name "Alt label" ;
+    sh:path skosxl:altLabel ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://www.w3.org/2008/05/skos-xl#altLabel> ?that . ?that <http://www.w3.org/2008/05/skos-xl#altLabel> ?this .}" ] .
+
+core-shape:ebs-Account-skosxl-prefLabel a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class skosxl:Label ;
+    sh:name "Pref label" ;
+    sh:path skosxl:prefLabel ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://www.w3.org/2008/05/skos-xl#prefLabel> ?that . ?that <http://www.w3.org/2008/05/skos-xl#prefLabel> ?this .}" ] .
+
+core-shape:ebs-AccountAnalytics-ebs-hasAnalyticsType a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class skos:Concept ;
+    sh:description "Relates an account analytics entry to the analytics type it stands for." ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has analytics type" ;
+    sh:path ebs:hasAnalyticsType .
+
+core-shape:ebs-AccountAnalytics-ebs-hasPosition a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:datatype xsd:positiveInteger ;
+    sh:description "The position, from 1 to 3, at which an analytics type appears on the account's ledger lines." ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has position" ;
+    sh:path ebs:hasPosition .
 
 core-shape:ebs-AgentInRole-adms-identifier a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -412,6 +531,7 @@ core-shape:ebs-Employee-ebs-hasSeniority a sh:PropertyShape ;
 core-shape:ebs-Employee-ebs-isActive a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:datatype xsd:boolean ;
+    sh:description "Whether the thing is currently in use in the source system." ;
     sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:name "Is active" ;
@@ -600,6 +720,7 @@ core-shape:ebs-Project-ebs-hasTotalPlannedNonBillableTime a sh:PropertyShape ;
 core-shape:ebs-Project-ebs-isActive a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:datatype xsd:boolean ;
+    sh:description "Whether the thing is currently in use in the source system." ;
     sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:name "Is active" ;
@@ -700,6 +821,23 @@ core-shape:person-Person-foaf-lastName a sh:PropertyShape ;
     sh:or ( [ sh:datatype xsd:string ] [ sh:datatype rdf:langString ] ) ;
     sh:path foaf:lastName .
 
+core-shape:skosxl-Label-ebs-hasTranslationStatus a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class skos:Concept ;
+    sh:description "Relates a label to where its text comes from: the 1C name itself, a machine translation, or a reviewed translation." ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has translation status" ;
+    sh:path ebs:hasTranslationStatus .
+
+core-shape:skosxl-Label-skosxl-literalForm a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Literal form" ;
+    sh:or ( [ sh:datatype xsd:string ] [ sh:datatype rdf:langString ] ) ;
+    sh:path skosxl:literalForm .
+
 core-shape:time-Duration-time-numericDuration a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
     sh:datatype xsd:decimal ;
@@ -782,13 +920,13 @@ core-shape:time-TemporalEntity-time-hasEnd a sh:PropertyShape ;
 
 core-shape:core-shape a owl:Ontology ;
     dcterms:created "2026-07-09"^^xsd:date ;
-    dcterms:issued "2026-11-09"^^xsd:date ;
+    dcterms:issued "2026-11-23"^^xsd:date ;
     dcterms:license "CC BY 4.0" ;
     dcterms:publisher "Meaningfy" ;
     dcterms:title "EBS shapes"@en ;
     vann:preferredNamespacePrefix "ebs" ;
     vann:preferredNamespaceUri "http://ebs-integrator.com/ontology/erp#" ;
-    rdfs:comment "This version is automatically generated from EBS.xml on 2026-11-09" ;
+    rdfs:comment "This version is automatically generated from EBS.xml on 2026-11-23" ;
     owl:imports <http://data.europa.eu/m8g>,
         ebs:core,
         ebs:core-restriction,

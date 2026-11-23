@@ -22,6 +22,7 @@
      xmlns:at-voc="http://publications.europa.eu/resource/authority/"
      xmlns:person="http://www.w3.org/ns/person#"
      xmlns:schema="https://schema.org/"
+     xmlns:skosxl="http://www.w3.org/2008/05/skos-xl#"
      xmlns:dcterms="http://purl.org/dc/terms/"
      xmlns:schema1="http://schema.org/"
      xmlns:core-res="http://ebs-integrator.com/ontology/erp#"
@@ -34,13 +35,13 @@
         <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core#"/>
         <owl:imports rdf:resource="http://www.w3.org/ns/adms"/>
         <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-07-09</dcterms:created>
-        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-11-09</dcterms:issued>
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-11-23</dcterms:issued>
         <dcterms:license>CC BY 4.0</dcterms:license>
         <dcterms:publisher>Meaningfy</dcterms:publisher>
         <dcterms:title xml:lang="en">EBS shapes</dcterms:title>
         <vann:preferredNamespacePrefix>ebs</vann:preferredNamespacePrefix>
         <vann:preferredNamespaceUri>http://ebs-integrator.com/ontology/erp#</vann:preferredNamespaceUri>
-        <rdfs:comment>This version is automatically generated from EBS.xml on 2026-11-09</rdfs:comment>
+        <rdfs:comment>This version is automatically generated from EBS.xml on 2026-11-23</rdfs:comment>
         <owl:versionInfo>1.0.0</owl:versionInfo>
     </owl:Ontology>
     
@@ -2257,16 +2258,49 @@ Implementers are free to choose their language. It is recommended to document th
     
 
 
-    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-dcterms-description -->
+    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-ebs-hasAccountAnalytics -->
 
-    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-dcterms-description">
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-ebs-hasAccountAnalytics">
         <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
         <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
-        <sh:name>Description</sh:name>
-        <sh:or>
-            <rdf:Description/>
-        </sh:or>
-        <sh:path rdf:resource="http://purl.org/dc/terms/description"/>
+        <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#AccountAnalytics"/>
+        <sh:description>Relates an account to one analytics type it is kept by.</sh:description>
+        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</sh:maxCount>
+        <sh:name>Has account analytics</sh:name>
+        <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasAccountAnalytics"/>
+        <sh:sparql>
+            <rdf:Description>
+                <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasAccountAnalytics&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasAccountAnalytics&gt; ?this .}</sh:select>
+            </rdf:Description>
+        </sh:sparql>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-ebs-hasAccountClass -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-ebs-hasAccountClass">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+        <sh:class rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <sh:description>Relates an account to its class in the chart, given by the first digit of its code.</sh:description>
+        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+        <sh:name>Has account class</sh:name>
+        <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasAccountClass"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-ebs-hasAccountRole -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-ebs-hasAccountRole">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+        <sh:class rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <sh:description>Relates an account to the role it is suggested to play in reporting, such as revenue or direct labour.</sh:description>
+        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+        <sh:name>Has account role</sh:name>
+        <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasAccountRole"/>
     </owl:NamedIndividual>
     
 
@@ -2277,6 +2311,7 @@ Implementers are free to choose their language. It is recommended to document th
         <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
         <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
         <sh:class rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <sh:description>Relates an account to its type: whether it normally carries a debit balance (active), a credit balance (passive) or either (active-passive).</sh:description>
         <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
         <sh:name>Has account type</sh:name>
         <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasAccountType"/>
@@ -2290,6 +2325,7 @@ Implementers are free to choose their language. It is recommended to document th
         <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
         <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
         <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#Account"/>
+        <sh:description>Relates an account to the account directly above it in the chart, into which it rolls up.</sh:description>
         <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
         <sh:name>Has parent account</sh:name>
         <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasParentAccount"/>
@@ -2302,15 +2338,173 @@ Implementers are free to choose their language. It is recommended to document th
     
 
 
+    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-ebs-hasRoleSource -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-ebs-hasRoleSource">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+        <sh:class rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <sh:description>Relates an account to how its role was set: inferred from its name, or confirmed by the data owner.</sh:description>
+        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+        <sh:name>Has role source</sh:name>
+        <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasRoleSource"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-ebs-isActive -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-ebs-isActive">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+        <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <sh:description>Whether the thing is currently in use in the source system.</sh:description>
+        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+        <sh:name>Is active</sh:name>
+        <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#isActive"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-ebs-isCurrency -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-ebs-isCurrency">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+        <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <sh:description>Whether the account is also kept in foreign currency.</sh:description>
+        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+        <sh:name>Is currency</sh:name>
+        <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#isCurrency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-ebs-isOffBalance -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-ebs-isOffBalance">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+        <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <sh:description>Whether the account is kept off the balance sheet, outside double entry.</sh:description>
+        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+        <sh:name>Is off balance</sh:name>
+        <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#isOffBalance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-ebs-isQuantitative -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-ebs-isQuantitative">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+        <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <sh:description>Whether the account is kept in quantities as well as in amounts.</sh:description>
+        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+        <sh:name>Is quantitative</sh:name>
+        <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#isQuantitative"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-skosxl-altLabel -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-skosxl-altLabel">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+        <sh:class rdf:resource="http://www.w3.org/2008/05/skos-xl#Label"/>
+        <sh:name>Alt label</sh:name>
+        <sh:path rdf:resource="http://www.w3.org/2008/05/skos-xl#altLabel"/>
+        <sh:sparql>
+            <rdf:Description>
+                <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://www.w3.org/2008/05/skos-xl#altLabel&gt; ?that . ?that &lt;http://www.w3.org/2008/05/skos-xl#altLabel&gt; ?this .}</sh:select>
+            </rdf:Description>
+        </sh:sparql>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-skosxl-prefLabel -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-skosxl-prefLabel">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+        <sh:class rdf:resource="http://www.w3.org/2008/05/skos-xl#Label"/>
+        <sh:name>Pref label</sh:name>
+        <sh:path rdf:resource="http://www.w3.org/2008/05/skos-xl#prefLabel"/>
+        <sh:sparql>
+            <rdf:Description>
+                <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://www.w3.org/2008/05/skos-xl#prefLabel&gt; ?that . ?that &lt;http://www.w3.org/2008/05/skos-xl#prefLabel&gt; ?this .}</sh:select>
+            </rdf:Description>
+        </sh:sparql>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-AccountAnalytics-ebs-hasAnalyticsType -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-AccountAnalytics-ebs-hasAnalyticsType">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+        <sh:class rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <sh:description>Relates an account analytics entry to the analytics type it stands for.</sh:description>
+        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+        <sh:name>Has analytics type</sh:name>
+        <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasAnalyticsType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-AccountAnalytics-ebs-hasPosition -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-AccountAnalytics-ebs-hasPosition">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+        <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/>
+        <sh:description>The position, from 1 to 3, at which an analytics type appears on the account&apos;s ledger lines.</sh:description>
+        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+        <sh:name>Has position</sh:name>
+        <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasPosition"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-AccountAnalyticsShape -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-AccountAnalyticsShape">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+        <rdfs:comment>The attachment of one analytics type (subconto) to an account at a fixed position. It says which analytics the account&apos;s ledger lines carry, and in what order.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+        <rdfs:label>Account Analytics</rdfs:label>
+        <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-AccountAnalytics-ebs-hasAnalyticsType"/>
+        <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-AccountAnalytics-ebs-hasPosition"/>
+        <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#AccountAnalytics"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-AccountShape -->
 
     <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-AccountShape">
         <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+        <rdfs:comment>An entry in the company&apos;s chart of accounts, identified by its account code, under which accounting entries are recorded.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
         <rdfs:label>Account</rdfs:label>
-        <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-dcterms-description"/>
+        <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-ebs-hasAccountAnalytics"/>
+        <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-ebs-hasAccountClass"/>
+        <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-ebs-hasAccountRole"/>
         <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-ebs-hasAccountType"/>
         <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-ebs-hasParentAccount"/>
+        <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-ebs-hasRoleSource"/>
+        <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-ebs-isActive"/>
+        <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-ebs-isCurrency"/>
+        <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-ebs-isOffBalance"/>
+        <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-ebs-isQuantitative"/>
+        <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-skosxl-altLabel"/>
+        <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-Account-skosxl-prefLabel"/>
         <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#Account"/>
     </owl:NamedIndividual>
     
@@ -2647,6 +2841,7 @@ Implementers are free to choose their language. It is recommended to document th
         <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
         <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
         <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <sh:description>Whether the thing is currently in use in the source system.</sh:description>
         <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
         <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
         <sh:name>Is active</sh:name>
@@ -3198,6 +3393,7 @@ Implementers are free to choose their language. It is recommended to document th
         <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
         <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
         <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <sh:description>Whether the thing is currently in use in the source system.</sh:description>
         <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
         <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
         <sh:name>Is active</sh:name>
@@ -3563,6 +3759,50 @@ Implementers are free to choose their language. It is recommended to document th
         <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#person-Person-foaf-firstName"/>
         <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#person-Person-foaf-lastName"/>
         <sh:targetClass rdf:resource="http://www.w3.org/ns/person#Person"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp/data-shape#skosxl-Label-ebs-hasTranslationStatus -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#skosxl-Label-ebs-hasTranslationStatus">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+        <sh:class rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <sh:description>Relates a label to where its text comes from: the 1C name itself, a machine translation, or a reviewed translation.</sh:description>
+        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+        <sh:name>Has translation status</sh:name>
+        <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasTranslationStatus"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp/data-shape#skosxl-Label-skosxl-literalForm -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#skosxl-Label-skosxl-literalForm">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+        <sh:name>Literal form</sh:name>
+        <sh:or>
+            <rdf:Description/>
+        </sh:or>
+        <sh:path rdf:resource="http://www.w3.org/2008/05/skos-xl#literalForm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp/data-shape#skosxl-LabelShape -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#skosxl-LabelShape">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+        <rdfs:label>Label</rdfs:label>
+        <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#skosxl-Label-ebs-hasTranslationStatus"/>
+        <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#skosxl-Label-skosxl-literalForm"/>
+        <sh:targetClass rdf:resource="http://www.w3.org/2008/05/skos-xl#Label"/>
     </owl:NamedIndividual>
     
 
@@ -4661,15 +4901,6 @@ Implementers are free to choose their language. It is recommended to document th
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2000-07-11</dcterms:issued>
     </rdf:Description>
     <rdf:Description>
-        <sh:datatype rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
-    </rdf:Description>
-    <rdf:Description>
-        <sh:datatype rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
-    </rdf:Description>
-    <rdf:Description>
-        <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    </rdf:Description>
-    <rdf:Description>
         <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </rdf:Description>
     <rdf:Description>
@@ -4680,6 +4911,9 @@ Implementers are free to choose their language. It is recommended to document th
     </rdf:Description>
     <rdf:Description>
         <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </rdf:Description>
+    <rdf:Description>
+        <sh:datatype rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
     </rdf:Description>
     <rdf:Description>
         <sh:datatype rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
@@ -4707,6 +4941,12 @@ Implementers are free to choose their language. It is recommended to document th
     </rdf:Description>
     <rdf:Description>
         <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </rdf:Description>
+    <rdf:Description>
+        <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </rdf:Description>
+    <rdf:Description>
+        <sh:datatype rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
     </rdf:Description>
     
 

@@ -41,7 +41,13 @@
                      </tr>
                      <tr>
                         <td>ebs:Account</td>
-                        <td></td>
+                        <td>An entry in the company's chart of accounts, identified by its account code, under
+                           which accounting entries are recorded.</td>
+                     </tr>
+                     <tr>
+                        <td>ebs:AccountAnalytics</td>
+                        <td>The attachment of one analytics type (subconto) to an account at a fixed position.
+                           It says which analytics the account's ledger lines carry, and in what order.</td>
                      </tr>
                      <tr>
                         <td>ebs:AgentInRole</td>
@@ -157,6 +163,10 @@
                         <td></td>
                      </tr>
                      <tr>
+                        <td>skosxl:Label</td>
+                        <td></td>
+                     </tr>
+                     <tr>
                         <td>time:Duration</td>
                         <td></td>
                      </tr>
@@ -194,10 +204,10 @@
                   </thead>
                   <tbody>
                      <tr>
-                        <td>ebs:Account<br>time:TemporalEntity<br></td>
+                        <td>time:TemporalEntity</td>
                         <td>dcterms:description</td>
-                        <td> </td>
-                        <td>rdf:PlainLiteral [0..*]<br>rdf:PlainLiteral [0..1]<br></td>
+                        <td></td>
+                        <td>rdf:PlainLiteral [0..1]</td>
                      </tr>
                      <tr>
                         <td>ebs:AgentInRole<br>org:Organization<br></td>
@@ -218,10 +228,35 @@
                         <td>rdf:PlainLiteral [0..1]</td>
                      </tr>
                      <tr>
-                        <td>ebs:Employee<br>ebs:Project<br></td>
+                        <td>ebs:AccountAnalytics</td>
+                        <td>ebs:hasPosition</td>
+                        <td>The position, from 1 to 3, at which an analytics type appears on the account's ledger
+                           lines.</td>
+                        <td>xsd:positiveInteger [1..1]</td>
+                     </tr>
+                     <tr>
+                        <td>ebs:Account<br>ebs:Employee<br>ebs:Project<br></td>
                         <td>ebs:isActive</td>
-                        <td> </td>
-                        <td>xsd:boolean [1..1]<br>xsd:boolean [1..1]<br></td>
+                        <td>Whether the thing is currently in use in the source system. Whether the thing is currently in use in the source system. Whether the thing is currently in use in the source system.</td>
+                        <td>xsd:boolean [0..1]<br>xsd:boolean [1..1]<br>xsd:boolean [1..1]<br></td>
+                     </tr>
+                     <tr>
+                        <td>ebs:Account</td>
+                        <td>ebs:isCurrency</td>
+                        <td>Whether the account is also kept in foreign currency.</td>
+                        <td>xsd:boolean [0..1]</td>
+                     </tr>
+                     <tr>
+                        <td>ebs:Account</td>
+                        <td>ebs:isOffBalance</td>
+                        <td>Whether the account is kept off the balance sheet, outside double entry.</td>
+                        <td>xsd:boolean [0..1]</td>
+                     </tr>
+                     <tr>
+                        <td>ebs:Account</td>
+                        <td>ebs:isQuantitative</td>
+                        <td>Whether the account is kept in quantities as well as in amounts.</td>
+                        <td>xsd:boolean [0..1]</td>
                      </tr>
                      <tr>
                         <td>person:Person</td>
@@ -238,6 +273,12 @@
                      <tr>
                         <td>adms:Identifier</td>
                         <td>skos:notation</td>
+                        <td></td>
+                        <td>rdf:PlainLiteral [1..1]</td>
+                     </tr>
+                     <tr>
+                        <td>skosxl:Label</td>
+                        <td>skosxl:literalForm</td>
                         <td></td>
                         <td>rdf:PlainLiteral [1..1]</td>
                      </tr>
@@ -307,9 +348,31 @@
                         <td>ebs:PayrollPosting -&gt; ebs:Account [1]</td>
                      </tr>
                      <tr>
+                        <td>ebs:hasAccountAnalytics</td>
+                        <td>Relates an account to one analytics type it is kept by.</td>
+                        <td>ebs:Account -&gt; ebs:AccountAnalytics [0..3]</td>
+                     </tr>
+                     <tr>
+                        <td>ebs:hasAccountClass</td>
+                        <td>Relates an account to its class in the chart, given by the first digit of its code.</td>
+                        <td>ebs:Account -&gt; ebs:AccountClass [0..1]</td>
+                     </tr>
+                     <tr>
+                        <td>ebs:hasAccountRole</td>
+                        <td>Relates an account to the role it is suggested to play in reporting, such as revenue
+                           or direct labour.</td>
+                        <td>ebs:Account -&gt; ebs:AccountRole [0..1]</td>
+                     </tr>
+                     <tr>
                         <td>ebs:hasAccountType</td>
-                        <td></td>
+                        <td>Relates an account to its type: whether it normally carries a debit balance (active),
+                           a credit balance (passive) or either (active-passive).</td>
                         <td>ebs:Account -&gt; ebs:AccountType [0..1]</td>
+                     </tr>
+                     <tr>
+                        <td>ebs:hasAnalyticsType</td>
+                        <td>Relates an account analytics entry to the analytics type it stands for.</td>
+                        <td>ebs:AccountAnalytics -&gt; ebs:AnalyticsType [1]</td>
                      </tr>
                      <tr>
                         <td>ebs:hasAssociatedTaskList</td>
@@ -353,7 +416,8 @@
                      </tr>
                      <tr>
                         <td>ebs:hasParentAccount</td>
-                        <td></td>
+                        <td>Relates an account to the account directly above it in the chart, into which it rolls
+                           up.</td>
                         <td>ebs:Account -&gt; ebs:Account [0..1]</td>
                      </tr>
                      <tr>
@@ -397,6 +461,12 @@
                         <td>ebs:Employee -&gt; ebs:Project [0..*]</td>
                      </tr>
                      <tr>
+                        <td>ebs:hasRoleSource</td>
+                        <td>Relates an account to how its role was set: inferred from its name, or confirmed by
+                           the data owner.</td>
+                        <td>ebs:Account -&gt; ebs:RoleSource [0..1]</td>
+                     </tr>
+                     <tr>
                         <td>ebs:hasSeniority</td>
                         <td></td>
                         <td>ebs:Employee -&gt; at-voc:Seniority [0..1]</td>
@@ -410,6 +480,12 @@
                         <td>ebs:hasTotalPlannedNonBillableTime</td>
                         <td></td>
                         <td>ebs:Project -&gt; time:Duration [0..1]</td>
+                     </tr>
+                     <tr>
+                        <td>ebs:hasTranslationStatus</td>
+                        <td>Relates a label to where its text comes from: the 1C name itself, a machine translation,
+                           or a reviewed translation.</td>
+                        <td>skosxl:Label -&gt; ebs:TranslationStatus [1]</td>
                      </tr>
                      <tr>
                         <td>ebs:hasValue</td>
@@ -455,6 +531,16 @@
                         <td>ebs:worksOnStack</td>
                         <td></td>
                         <td>ebs:Team -&gt; ebs:Stack [1]</td>
+                     </tr>
+                     <tr>
+                        <td>skosxl:altLabel</td>
+                        <td></td>
+                        <td>ebs:Account -&gt; skosxl:Label [0..*]</td>
+                     </tr>
+                     <tr>
+                        <td>skosxl:prefLabel</td>
+                        <td></td>
+                        <td>ebs:Account -&gt; skosxl:Label [0..*]</td>
                      </tr>
                      <tr>
                         <td>time:hasBeginning</td>
