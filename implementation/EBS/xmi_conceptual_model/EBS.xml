@@ -3080,13 +3080,13 @@
 					<constraints/>
 					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
 					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
-					<documentation value="Relates an account to how its role was set: inferred from its name, or confirmed by the data owner."/>
+					<documentation/>
 					<xrefs/>
 					<tags/>
 				</target>
 				<model ea_localid="1"/>
 				<properties ea_type="Dependency" direction="Source -&gt; Destination"/>
-				<documentation/>
+				<documentation value="Relates an account to how its role was set: inferred from its name, or confirmed by the data owner."/>
 				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
 				<labels rb="0..1" rt="+ebs:hasRoleSource"/>
 				<extendedProperties virtualInheritance="0"/>
@@ -3113,7 +3113,7 @@
 					<constraints/>
 					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
 					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
-					<documentation value="Relates an account to the account directly above it in the chart, into which it rolls up."/>
+					<documentation/>
 					<xrefs/>
 					<tags/>
 				</target>
@@ -3121,7 +3121,7 @@
 				<properties ea_type="Association" direction="Source -&gt; Destination"/>
 				<modifiers isRoot="false" isLeaf="false"/>
 				<parameterSubstitutions/>
-				<documentation/>
+				<documentation value="Relates an account to the account directly above it in the chart, into which it rolls up."/>
 				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
 				<labels rb="0..1" rt="+ebs:hasParentAccount"/>
 				<extendedProperties virtualInheritance="0"/>
@@ -3148,13 +3148,13 @@
 					<constraints/>
 					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
 					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
-					<documentation value="Relates an account to its class in the chart, given by the first digit of its code."/>
+					<documentation/>
 					<xrefs/>
 					<tags/>
 				</target>
 				<model ea_localid="4"/>
 				<properties ea_type="Dependency" direction="Source -&gt; Destination"/>
-				<documentation/>
+				<documentation value="Relates an account to its class in the chart, given by the first digit of its code."/>
 				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
 				<labels rb="0..1" rt="+ebs:hasAccountClass"/>
 				<extendedProperties virtualInheritance="0"/>
@@ -3181,13 +3181,13 @@
 					<constraints/>
 					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
 					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
-					<documentation value="Relates an account to its type: whether it normally carries a debit balance (active), a credit balance (passive) or either (active-passive)."/>
+					<documentation/>
 					<xrefs/>
 					<tags/>
 				</target>
 				<model ea_localid="9"/>
 				<properties ea_type="Dependency" direction="Source -&gt; Destination"/>
-				<documentation/>
+				<documentation value="Relates an account to its type: whether it normally carries a debit balance (active), a credit balance (passive) or either (active-passive)."/>
 				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
 				<labels rb="0..1" rt="+ebs:hasAccountType"/>
 				<extendedProperties virtualInheritance="0"/>
@@ -3214,13 +3214,13 @@
 					<constraints/>
 					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
 					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
-					<documentation value="Relates an account to the role it is suggested to play in reporting, such as revenue or direct labour."/>
+					<documentation/>
 					<xrefs/>
 					<tags/>
 				</target>
 				<model ea_localid="2"/>
 				<properties ea_type="Dependency" direction="Source -&gt; Destination"/>
-				<documentation/>
+				<documentation value="Relates an account to the role it is suggested to play in reporting, such as revenue or direct labour."/>
 				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
 				<labels rb="0..1" rt="+ebs:hasAccountRole"/>
 				<extendedProperties virtualInheritance="0"/>
@@ -3247,7 +3247,7 @@
 					<constraints/>
 					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
 					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
-					<documentation value="Relates an account to one analytics type it is kept by."/>
+					<documentation/>
 					<xrefs/>
 					<tags/>
 				</target>
@@ -3255,7 +3255,7 @@
 				<properties ea_type="Association" direction="Source -&gt; Destination"/>
 				<modifiers isRoot="false" isLeaf="false"/>
 				<parameterSubstitutions/>
-				<documentation/>
+				<documentation value="Relates an account to one analytics type it is kept by."/>
 				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
 				<labels rb="0..3" rt="+ebs:hasAccountAnalytics"/>
 				<extendedProperties virtualInheritance="0"/>
@@ -3387,13 +3387,13 @@
 					<constraints/>
 					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
 					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
-					<documentation value="Relates an account analytics entry to the analytics type it stands for."/>
+					<documentation/>
 					<xrefs/>
 					<tags/>
 				</target>
 				<model ea_localid="3"/>
 				<properties ea_type="Dependency" direction="Source -&gt; Destination"/>
-				<documentation/>
+				<documentation value="Relates an account analytics entry to the analytics type it stands for."/>
 				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
 				<labels rb="1" rt="+ebs:hasAnalyticsType"/>
 				<extendedProperties virtualInheritance="0"/>
@@ -5326,13 +5326,13 @@
 					<constraints/>
 					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
 					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
-					<documentation value="Relates a label to where its text comes from: the 1C name itself, a machine translation, or a reviewed translation."/>
+					<documentation/>
 					<xrefs/>
 					<tags/>
 				</target>
 				<model ea_localid="5"/>
 				<properties ea_type="Dependency" direction="Source -&gt; Destination"/>
-				<documentation/>
+				<documentation value="Relates a label to where its text comes from: the 1C name itself, a machine translation, or a reviewed translation."/>
 				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
 				<labels rb="1" rt="+ebs:hasTranslationStatus"/>
 				<extendedProperties virtualInheritance="0"/>
