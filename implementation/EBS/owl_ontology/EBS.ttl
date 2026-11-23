@@ -176,18 +176,22 @@ ebs:hasAccount a owl:ObjectProperty ;
 
 ebs:hasAccountAnalytics a owl:ObjectProperty ;
     rdfs:isDefinedBy ebs:core ;
+    skos:definition "Relates an account to one analytics type it is kept by."@en ;
     skos:prefLabel "has Account Analytics"@en .
 
 ebs:hasAccountClass a owl:ObjectProperty ;
     rdfs:isDefinedBy ebs:core ;
+    skos:definition "Relates an account to its class in the chart, given by the first digit of its code."@en ;
     skos:prefLabel "has Account Class"@en .
 
 ebs:hasAccountRole a owl:ObjectProperty ;
     rdfs:isDefinedBy ebs:core ;
+    skos:definition "Relates an account to the role it is suggested to play in reporting, such as revenue or direct labour."@en ;
     skos:prefLabel "has Account Role"@en .
 
 ebs:hasAccountType a owl:ObjectProperty ;
     rdfs:isDefinedBy ebs:core ;
+    skos:definition "Relates an account to its type: whether it normally carries a debit balance (active), a credit balance (passive) or either (active-passive)."@en ;
     skos:prefLabel "has Account Type"@en .
 
 ebs:hasAmountValue a owl:DatatypeProperty ;
@@ -197,6 +201,7 @@ ebs:hasAmountValue a owl:DatatypeProperty ;
 
 ebs:hasAnalyticsType a owl:ObjectProperty ;
     rdfs:isDefinedBy ebs:core ;
+    skos:definition "Relates an account analytics entry to the analytics type it stands for."@en ;
     skos:prefLabel "has Analytics Type"@en .
 
 ebs:hasAssociatedTaskList a owl:ObjectProperty ;
@@ -233,6 +238,7 @@ ebs:hasMonthlyCapacity a owl:ObjectProperty ;
 
 ebs:hasParentAccount a owl:ObjectProperty ;
     rdfs:isDefinedBy ebs:core ;
+    skos:definition "Relates an account to the account directly above it in the chart, into which it rolls up."@en ;
     skos:prefLabel "has Parent Account"@en .
 
 ebs:hasPayrollID a owl:DatatypeProperty ;
@@ -278,6 +284,7 @@ ebs:hasReplacementPipeline a owl:ObjectProperty ;
 
 ebs:hasRoleSource a owl:ObjectProperty ;
     rdfs:isDefinedBy ebs:core ;
+    skos:definition "Relates an account to how its role was set: inferred from its name, or confirmed by the data owner."@en ;
     skos:prefLabel "has Role Source"@en .
 
 ebs:hasSeniority a owl:ObjectProperty ;
@@ -294,6 +301,7 @@ ebs:hasTotalPlannedNonBillableTime a owl:ObjectProperty ;
 
 ebs:hasTranslationStatus a owl:ObjectProperty ;
     rdfs:isDefinedBy ebs:core ;
+    skos:definition "Relates a label to where its text comes from: the 1C name itself, a machine translation, or a reviewed translation."@en ;
     skos:prefLabel "has Translation Status"@en .
 
 ebs:hasValue a owl:ObjectProperty ;

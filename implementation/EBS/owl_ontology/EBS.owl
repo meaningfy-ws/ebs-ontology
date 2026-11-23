@@ -1442,6 +1442,7 @@ For more structured data use the model in Time Ontology, see an &lt;a href=&quot
 
     <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasAccountAnalytics">
         <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:definition xml:lang="en">Relates an account to one analytics type it is kept by.</skos:definition>
         <skos:prefLabel xml:lang="en">has Account Analytics</skos:prefLabel>
     </owl:ObjectProperty>
     
@@ -1451,6 +1452,7 @@ For more structured data use the model in Time Ontology, see an &lt;a href=&quot
 
     <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasAccountClass">
         <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:definition xml:lang="en">Relates an account to its class in the chart, given by the first digit of its code.</skos:definition>
         <skos:prefLabel xml:lang="en">has Account Class</skos:prefLabel>
     </owl:ObjectProperty>
     
@@ -1460,6 +1462,7 @@ For more structured data use the model in Time Ontology, see an &lt;a href=&quot
 
     <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasAccountRole">
         <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:definition xml:lang="en">Relates an account to the role it is suggested to play in reporting, such as revenue or direct labour.</skos:definition>
         <skos:prefLabel xml:lang="en">has Account Role</skos:prefLabel>
     </owl:ObjectProperty>
     
@@ -1469,6 +1472,7 @@ For more structured data use the model in Time Ontology, see an &lt;a href=&quot
 
     <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasAccountType">
         <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:definition xml:lang="en">Relates an account to its type: whether it normally carries a debit balance (active), a credit balance (passive) or either (active-passive).</skos:definition>
         <skos:prefLabel xml:lang="en">has Account Type</skos:prefLabel>
     </owl:ObjectProperty>
     
@@ -1478,6 +1482,7 @@ For more structured data use the model in Time Ontology, see an &lt;a href=&quot
 
     <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasAnalyticsType">
         <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:definition xml:lang="en">Relates an account analytics entry to the analytics type it stands for.</skos:definition>
         <skos:prefLabel xml:lang="en">has Analytics Type</skos:prefLabel>
     </owl:ObjectProperty>
     
@@ -1559,6 +1564,7 @@ For more structured data use the model in Time Ontology, see an &lt;a href=&quot
 
     <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasParentAccount">
         <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:definition xml:lang="en">Relates an account to the account directly above it in the chart, into which it rolls up.</skos:definition>
         <skos:prefLabel xml:lang="en">has Parent Account</skos:prefLabel>
     </owl:ObjectProperty>
     
@@ -1640,6 +1646,7 @@ For more structured data use the model in Time Ontology, see an &lt;a href=&quot
 
     <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasRoleSource">
         <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:definition xml:lang="en">Relates an account to how its role was set: inferred from its name, or confirmed by the data owner.</skos:definition>
         <skos:prefLabel xml:lang="en">has Role Source</skos:prefLabel>
     </owl:ObjectProperty>
     
@@ -1676,6 +1683,7 @@ For more structured data use the model in Time Ontology, see an &lt;a href=&quot
 
     <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasTranslationStatus">
         <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:definition xml:lang="en">Relates a label to where its text comes from: the 1C name itself, a machine translation, or a reviewed translation.</skos:definition>
         <skos:prefLabel xml:lang="en">has Translation Status</skos:prefLabel>
     </owl:ObjectProperty>
     
