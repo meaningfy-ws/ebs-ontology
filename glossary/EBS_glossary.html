@@ -50,6 +50,11 @@
                            It says which analytics the account's ledger lines carry, and in what order.</td>
                      </tr>
                      <tr>
+                        <td>ebs:AccountTurnover</td>
+                        <td>One account's opening balance, debit and credit turnover and closing balance for one
+                           month: one row of the 1C turnover balance sheet.</td>
+                     </tr>
+                     <tr>
                         <td>ebs:AgentInRole</td>
                         <td></td>
                      </tr>
@@ -324,8 +329,8 @@
                      </tr>
                      <tr>
                         <td>ebs:concernsMonth</td>
-                        <td> </td>
-                        <td>ebs:Capacity -&gt; time:Instant [1]<br>ebs:PlannedTime -&gt; time:Instant []<br></td>
+                        <td>The month the balances concern, as its first day.  </td>
+                        <td>ebs:AccountTurnover -&gt; time:Instant [1]<br>ebs:Capacity -&gt; time:Instant [1]<br>ebs:PlannedTime -&gt; time:Instant []<br></td>
                      </tr>
                      <tr>
                         <td>ebs:concernsProject</td>
@@ -344,8 +349,8 @@
                      </tr>
                      <tr>
                         <td>ebs:hasAccount</td>
-                        <td></td>
-                        <td>ebs:PayrollPosting -&gt; ebs:Account [1]</td>
+                        <td>The account whose balances these are. </td>
+                        <td>ebs:AccountTurnover -&gt; ebs:Account [1]<br>ebs:PayrollPosting -&gt; ebs:Account [1]<br></td>
                      </tr>
                      <tr>
                         <td>ebs:hasAccountAnalytics</td>
@@ -385,6 +390,16 @@
                         <td>ebs:ExternalProject -&gt; ebs:Client [0..1]</td>
                      </tr>
                      <tr>
+                        <td>ebs:hasClosingCredit</td>
+                        <td>The credit balance of the account at the end of the month.</td>
+                        <td>ebs:AccountTurnover -&gt; ebs:MonetaryValue [1]</td>
+                     </tr>
+                     <tr>
+                        <td>ebs:hasClosingDebit</td>
+                        <td>The debit balance of the account at the end of the month.</td>
+                        <td>ebs:AccountTurnover -&gt; ebs:MonetaryValue [1]</td>
+                     </tr>
+                     <tr>
                         <td>ebs:hasCommercialRate</td>
                         <td></td>
                         <td>ebs:Project -&gt; ebs:Rate [0..1]</td>
@@ -413,6 +428,16 @@
                         <td>ebs:hasMonthlyCapacity</td>
                         <td></td>
                         <td>ebs:Employee -&gt; ebs:Capacity [1..*]</td>
+                     </tr>
+                     <tr>
+                        <td>ebs:hasOpeningCredit</td>
+                        <td>The credit balance of the account at the start of the month.</td>
+                        <td>ebs:AccountTurnover -&gt; ebs:MonetaryValue [1]</td>
+                     </tr>
+                     <tr>
+                        <td>ebs:hasOpeningDebit</td>
+                        <td>The debit balance of the account at the start of the month.</td>
+                        <td>ebs:AccountTurnover -&gt; ebs:MonetaryValue [1]</td>
                      </tr>
                      <tr>
                         <td>ebs:hasParentAccount</td>
@@ -486,6 +511,16 @@
                         <td>Relates a label to where its text comes from: the 1C name itself, a machine translation,
                            or a reviewed translation.</td>
                         <td>skosxl:Label -&gt; ebs:TranslationStatus [1]</td>
+                     </tr>
+                     <tr>
+                        <td>ebs:hasTurnoverCredit</td>
+                        <td>The total credit movements on the account in the month.</td>
+                        <td>ebs:AccountTurnover -&gt; ebs:MonetaryValue [1]</td>
+                     </tr>
+                     <tr>
+                        <td>ebs:hasTurnoverDebit</td>
+                        <td>The total debit movements on the account in the month.</td>
+                        <td>ebs:AccountTurnover -&gt; ebs:MonetaryValue [1]</td>
                      </tr>
                      <tr>
                         <td>ebs:hasValue</td>

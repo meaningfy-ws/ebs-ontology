@@ -35,13 +35,13 @@
         <owl:imports rdf:resource="http://www.w3.org/ns/org#"/>
         <owl:imports rdf:resource="https://semiceu.github.io/Core-Person-Vocabulary/releases/w3c/person.ttl"/>
         <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-07-09</dcterms:created>
-        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-11-23</dcterms:issued>
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-11-25</dcterms:issued>
         <dcterms:license>CC BY 4.0</dcterms:license>
         <dcterms:publisher>Meaningfy</dcterms:publisher>
         <dcterms:title xml:lang="en">EBS core</dcterms:title>
         <vann:preferredNamespacePrefix>ebs</vann:preferredNamespacePrefix>
         <vann:preferredNamespaceUri>http://ebs-integrator.com/ontology/erp#</vann:preferredNamespaceUri>
-        <rdfs:comment>This version is automatically generated from EBS.xml on 2026-11-23</rdfs:comment>
+        <rdfs:comment>This version is automatically generated from EBS.xml on 2026-11-25</rdfs:comment>
         <owl:versionInfo>1.0.0</owl:versionInfo>
     </owl:Ontology>
     
@@ -1397,6 +1397,7 @@ For more structured data use the model in Time Ontology, see an &lt;a href=&quot
 
     <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#concernsMonth">
         <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:definition xml:lang="en">The month the balances concern, as its first day.</skos:definition>
         <skos:prefLabel xml:lang="en">concerns Month</skos:prefLabel>
     </owl:ObjectProperty>
     
@@ -1433,6 +1434,7 @@ For more structured data use the model in Time Ontology, see an &lt;a href=&quot
 
     <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasAccount">
         <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:definition xml:lang="en">The account whose balances these are.</skos:definition>
         <skos:prefLabel xml:lang="en">has Account</skos:prefLabel>
     </owl:ObjectProperty>
     
@@ -1506,6 +1508,26 @@ For more structured data use the model in Time Ontology, see an &lt;a href=&quot
     
 
 
+    <!-- http://ebs-integrator.com/ontology/erp#hasClosingCredit -->
+
+    <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasClosingCredit">
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:definition xml:lang="en">The credit balance of the account at the end of the month.</skos:definition>
+        <skos:prefLabel xml:lang="en">has Closing Credit</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp#hasClosingDebit -->
+
+    <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasClosingDebit">
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:definition xml:lang="en">The debit balance of the account at the end of the month.</skos:definition>
+        <skos:prefLabel xml:lang="en">has Closing Debit</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://ebs-integrator.com/ontology/erp#hasCommercialRate -->
 
     <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasCommercialRate">
@@ -1556,6 +1578,26 @@ For more structured data use the model in Time Ontology, see an &lt;a href=&quot
     <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasMonthlyCapacity">
         <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
         <skos:prefLabel xml:lang="en">has Monthly Capacity</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp#hasOpeningCredit -->
+
+    <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasOpeningCredit">
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:definition xml:lang="en">The credit balance of the account at the start of the month.</skos:definition>
+        <skos:prefLabel xml:lang="en">has Opening Credit</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp#hasOpeningDebit -->
+
+    <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasOpeningDebit">
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:definition xml:lang="en">The debit balance of the account at the start of the month.</skos:definition>
+        <skos:prefLabel xml:lang="en">has Opening Debit</skos:prefLabel>
     </owl:ObjectProperty>
     
 
@@ -1685,6 +1727,26 @@ For more structured data use the model in Time Ontology, see an &lt;a href=&quot
         <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
         <skos:definition xml:lang="en">Relates a label to where its text comes from: the 1C name itself, a machine translation, or a reviewed translation.</skos:definition>
         <skos:prefLabel xml:lang="en">has Translation Status</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp#hasTurnoverCredit -->
+
+    <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasTurnoverCredit">
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:definition xml:lang="en">The total credit movements on the account in the month.</skos:definition>
+        <skos:prefLabel xml:lang="en">has Turnover Credit</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp#hasTurnoverDebit -->
+
+    <owl:ObjectProperty rdf:about="http://ebs-integrator.com/ontology/erp#hasTurnoverDebit">
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:definition xml:lang="en">The total debit movements on the account in the month.</skos:definition>
+        <skos:prefLabel xml:lang="en">has Turnover Debit</skos:prefLabel>
     </owl:ObjectProperty>
     
 
@@ -2688,6 +2750,16 @@ Implementers are free to choose their language. It is recommended to document th
         <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
         <skos:definition xml:lang="en">The attachment of one analytics type (subconto) to an account at a fixed position. It says which analytics the account&apos;s ledger lines carry, and in what order.</skos:definition>
         <skos:prefLabel xml:lang="en">Account Analytics</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp#AccountTurnover -->
+
+    <owl:Class rdf:about="http://ebs-integrator.com/ontology/erp#AccountTurnover">
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp#core"/>
+        <skos:definition xml:lang="en">One account&apos;s opening balance, debit and credit turnover and closing balance for one month: one row of the 1C turnover balance sheet.</skos:definition>
+        <skos:prefLabel xml:lang="en">Account Turnover</skos:prefLabel>
     </owl:Class>
     
 

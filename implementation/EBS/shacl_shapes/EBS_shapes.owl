@@ -35,13 +35,13 @@
         <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core#"/>
         <owl:imports rdf:resource="http://www.w3.org/ns/adms"/>
         <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-07-09</dcterms:created>
-        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-11-23</dcterms:issued>
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-11-25</dcterms:issued>
         <dcterms:license>CC BY 4.0</dcterms:license>
         <dcterms:publisher>Meaningfy</dcterms:publisher>
         <dcterms:title xml:lang="en">EBS shapes</dcterms:title>
         <vann:preferredNamespacePrefix>ebs</vann:preferredNamespacePrefix>
         <vann:preferredNamespaceUri>http://ebs-integrator.com/ontology/erp#</vann:preferredNamespaceUri>
-        <rdfs:comment>This version is automatically generated from EBS.xml on 2026-11-23</rdfs:comment>
+        <rdfs:comment>This version is automatically generated from EBS.xml on 2026-11-25</rdfs:comment>
         <owl:versionInfo>1.0.0</owl:versionInfo>
     </owl:Ontology>
     
@@ -2510,6 +2510,186 @@ Implementers are free to choose their language. It is recommended to document th
     
 
 
+    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-AccountTurnover-ebs-concernsMonth -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-AccountTurnover-ebs-concernsMonth">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+        <sh:class rdf:resource="http://www.w3.org/2006/time#Instant"/>
+        <sh:description>The month the balances concern, as its first day.</sh:description>
+        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+        <sh:name>Concerns month</sh:name>
+        <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#concernsMonth"/>
+        <sh:sparql>
+            <rdf:Description>
+                <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#concernsMonth&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#concernsMonth&gt; ?this .}</sh:select>
+            </rdf:Description>
+        </sh:sparql>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-AccountTurnover-ebs-hasAccount -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-AccountTurnover-ebs-hasAccount">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+        <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#Account"/>
+        <sh:description>The account whose balances these are.</sh:description>
+        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+        <sh:name>Has account</sh:name>
+        <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasAccount"/>
+        <sh:sparql>
+            <rdf:Description>
+                <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasAccount&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasAccount&gt; ?this .}</sh:select>
+            </rdf:Description>
+        </sh:sparql>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-AccountTurnover-ebs-hasClosingCredit -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-AccountTurnover-ebs-hasClosingCredit">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+        <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#MonetaryValue"/>
+        <sh:description>The credit balance of the account at the end of the month.</sh:description>
+        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+        <sh:name>Has closing credit</sh:name>
+        <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasClosingCredit"/>
+        <sh:sparql>
+            <rdf:Description>
+                <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasClosingCredit&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasClosingCredit&gt; ?this .}</sh:select>
+            </rdf:Description>
+        </sh:sparql>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-AccountTurnover-ebs-hasClosingDebit -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-AccountTurnover-ebs-hasClosingDebit">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+        <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#MonetaryValue"/>
+        <sh:description>The debit balance of the account at the end of the month.</sh:description>
+        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+        <sh:name>Has closing debit</sh:name>
+        <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasClosingDebit"/>
+        <sh:sparql>
+            <rdf:Description>
+                <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasClosingDebit&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasClosingDebit&gt; ?this .}</sh:select>
+            </rdf:Description>
+        </sh:sparql>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-AccountTurnover-ebs-hasOpeningCredit -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-AccountTurnover-ebs-hasOpeningCredit">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+        <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#MonetaryValue"/>
+        <sh:description>The credit balance of the account at the start of the month.</sh:description>
+        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+        <sh:name>Has opening credit</sh:name>
+        <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasOpeningCredit"/>
+        <sh:sparql>
+            <rdf:Description>
+                <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasOpeningCredit&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasOpeningCredit&gt; ?this .}</sh:select>
+            </rdf:Description>
+        </sh:sparql>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-AccountTurnover-ebs-hasOpeningDebit -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-AccountTurnover-ebs-hasOpeningDebit">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+        <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#MonetaryValue"/>
+        <sh:description>The debit balance of the account at the start of the month.</sh:description>
+        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+        <sh:name>Has opening debit</sh:name>
+        <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasOpeningDebit"/>
+        <sh:sparql>
+            <rdf:Description>
+                <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasOpeningDebit&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasOpeningDebit&gt; ?this .}</sh:select>
+            </rdf:Description>
+        </sh:sparql>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-AccountTurnover-ebs-hasTurnoverCredit -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-AccountTurnover-ebs-hasTurnoverCredit">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+        <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#MonetaryValue"/>
+        <sh:description>The total credit movements on the account in the month.</sh:description>
+        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+        <sh:name>Has turnover credit</sh:name>
+        <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasTurnoverCredit"/>
+        <sh:sparql>
+            <rdf:Description>
+                <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasTurnoverCredit&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasTurnoverCredit&gt; ?this .}</sh:select>
+            </rdf:Description>
+        </sh:sparql>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-AccountTurnover-ebs-hasTurnoverDebit -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-AccountTurnover-ebs-hasTurnoverDebit">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+        <sh:class rdf:resource="http://ebs-integrator.com/ontology/erp#MonetaryValue"/>
+        <sh:description>The total debit movements on the account in the month.</sh:description>
+        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+        <sh:name>Has turnover debit</sh:name>
+        <sh:path rdf:resource="http://ebs-integrator.com/ontology/erp#hasTurnoverDebit"/>
+        <sh:sparql>
+            <rdf:Description>
+                <sh:select>SELECT ?this ?that WHERE { ?this &lt;http://ebs-integrator.com/ontology/erp#hasTurnoverDebit&gt; ?that . ?that &lt;http://ebs-integrator.com/ontology/erp#hasTurnoverDebit&gt; ?this .}</sh:select>
+            </rdf:Description>
+        </sh:sparql>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-AccountTurnoverShape -->
+
+    <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-AccountTurnoverShape">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+        <rdfs:comment>One account&apos;s opening balance, debit and credit turnover and closing balance for one month: one row of the 1C turnover balance sheet.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#core-shape"/>
+        <rdfs:label>Account Turnover</rdfs:label>
+        <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-AccountTurnover-ebs-concernsMonth"/>
+        <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-AccountTurnover-ebs-hasAccount"/>
+        <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-AccountTurnover-ebs-hasClosingCredit"/>
+        <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-AccountTurnover-ebs-hasClosingDebit"/>
+        <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-AccountTurnover-ebs-hasOpeningCredit"/>
+        <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-AccountTurnover-ebs-hasOpeningDebit"/>
+        <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-AccountTurnover-ebs-hasTurnoverCredit"/>
+        <sh:property rdf:resource="http://ebs-integrator.com/ontology/erp/data-shape#ebs-AccountTurnover-ebs-hasTurnoverDebit"/>
+        <sh:targetClass rdf:resource="http://ebs-integrator.com/ontology/erp#AccountTurnover"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://ebs-integrator.com/ontology/erp/data-shape#ebs-AgentInRole-adms-identifier -->
 
     <owl:NamedIndividual rdf:about="http://ebs-integrator.com/ontology/erp/data-shape#ebs-AgentInRole-adms-identifier">
@@ -4919,6 +5099,12 @@ Implementers are free to choose their language. It is recommended to document th
         <sh:datatype rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
     </rdf:Description>
     <rdf:Description>
+        <sh:datatype rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
+    </rdf:Description>
+    <rdf:Description>
+        <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </rdf:Description>
+    <rdf:Description>
         <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </rdf:Description>
     <rdf:Description>
@@ -4931,16 +5117,10 @@ Implementers are free to choose their language. It is recommended to document th
         <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </rdf:Description>
     <rdf:Description>
-        <sh:datatype rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
-    </rdf:Description>
-    <rdf:Description>
-        <sh:datatype rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
-    </rdf:Description>
-    <rdf:Description>
         <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </rdf:Description>
     <rdf:Description>
-        <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <sh:datatype rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
     </rdf:Description>
     <rdf:Description>
         <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>

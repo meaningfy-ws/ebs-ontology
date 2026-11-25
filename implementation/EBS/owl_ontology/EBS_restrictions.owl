@@ -33,13 +33,13 @@
         <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core#"/>
         <owl:imports rdf:resource="http://www.w3.org/ns/adms"/>
         <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-07-09</dcterms:created>
-        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-11-23</dcterms:issued>
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-11-25</dcterms:issued>
         <dcterms:license>CC BY 4.0</dcterms:license>
         <dcterms:publisher>Meaningfy</dcterms:publisher>
         <dcterms:title xml:lang="en">EBS restrictions</dcterms:title>
         <vann:preferredNamespacePrefix>ebs</vann:preferredNamespacePrefix>
         <vann:preferredNamespaceUri>http://ebs-integrator.com/ontology/erp#</vann:preferredNamespaceUri>
-        <rdfs:comment>This version is automatically generated from EBS.xml on 2026-11-23</rdfs:comment>
+        <rdfs:comment>This version is automatically generated from EBS.xml on 2026-11-25</rdfs:comment>
         <owl:versionInfo>1.0.0</owl:versionInfo>
     </owl:Ontology>
     
@@ -1314,6 +1314,7 @@ For more structured data use the model in Time Ontology, see an &lt;a href=&quot
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#AccountTurnover"/>
                     <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#Capacity"/>
                     <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#PlannedTime"/>
                 </owl:unionOf>
@@ -1357,7 +1358,14 @@ For more structured data use the model in Time Ontology, see an &lt;a href=&quot
 
     <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasAccount">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#PayrollPosting"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#AccountTurnover"/>
+                    <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#PayrollPosting"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
         <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#Account"/>
     </rdf:Description>
     
@@ -1423,6 +1431,26 @@ For more structured data use the model in Time Ontology, see an &lt;a href=&quot
     <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasClient">
         <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#ExternalProject"/>
         <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#Client"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp#hasClosingCredit -->
+
+    <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasClosingCredit">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#AccountTurnover"/>
+        <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#MonetaryValue"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp#hasClosingDebit -->
+
+    <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasClosingDebit">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#AccountTurnover"/>
+        <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#MonetaryValue"/>
     </rdf:Description>
     
 
@@ -1497,6 +1525,26 @@ For more structured data use the model in Time Ontology, see an &lt;a href=&quot
     <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasMonthlyCapacity">
         <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#Employee"/>
         <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#Capacity"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp#hasOpeningCredit -->
+
+    <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasOpeningCredit">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#AccountTurnover"/>
+        <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#MonetaryValue"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp#hasOpeningDebit -->
+
+    <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasOpeningDebit">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#AccountTurnover"/>
+        <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#MonetaryValue"/>
     </rdf:Description>
     
 
@@ -1626,6 +1674,26 @@ For more structured data use the model in Time Ontology, see an &lt;a href=&quot
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.w3.org/2008/05/skos-xl#Label"/>
         <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp#hasTurnoverCredit -->
+
+    <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasTurnoverCredit">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#AccountTurnover"/>
+        <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#MonetaryValue"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp#hasTurnoverDebit -->
+
+    <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#hasTurnoverDebit">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ebs-integrator.com/ontology/erp#AccountTurnover"/>
+        <rdfs:range rdf:resource="http://ebs-integrator.com/ontology/erp#MonetaryValue"/>
     </rdf:Description>
     
 
@@ -2742,6 +2810,69 @@ Implementers are free to choose their language. It is recommended to document th
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
     </owl:Class>
+    
+
+
+    <!-- http://ebs-integrator.com/ontology/erp#AccountTurnover -->
+
+    <rdf:Description rdf:about="http://ebs-integrator.com/ontology/erp#AccountTurnover">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#concernsMonth"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.w3.org/2006/time#Instant"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasAccount"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#Account"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasClosingCredit"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#MonetaryValue"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasClosingDebit"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#MonetaryValue"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasOpeningCredit"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#MonetaryValue"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasOpeningDebit"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#MonetaryValue"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasTurnoverCredit"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#MonetaryValue"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ebs-integrator.com/ontology/erp#hasTurnoverDebit"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://ebs-integrator.com/ontology/erp#MonetaryValue"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </rdf:Description>
     
 
 

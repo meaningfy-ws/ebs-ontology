@@ -19,6 +19,10 @@
       
     
       
+| ebs:AccountTurnover | One account's opening balance, debit and credit turnover and closing balance for one month: one row of the 1C turnover balance sheet.
+      
+    
+      
 | ebs:AgentInRole | 
       
     
@@ -231,13 +235,27 @@ ebs:Project
   
   
   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 | ebs:AgentInRole + 
 org:Organization
 | dcterms:title| 
   |rdf:PlainLiteral [0..1] +
   rdf:PlainLiteral [0..&#42;]
-  
-  
   
   
   
@@ -312,8 +330,6 @@ org:Organization
 | ebs:MonetaryValue
 | ebs:hasAmountValue| 
   Equivalent to epo:hasAmountValue|xsd:decimal [1..1]
-  
-  
   
   
   
@@ -467,6 +483,65 @@ org:Organization
 
   
   
+| ebs:concernsMonth| 
+  The month the balances concern, as its first day.|ebs:AccountTurnover → time:Instant [1] +
+ebs:Capacity → time:Instant [1] +
+ebs:PlannedTime → time:Instant []
+
+  
+
+  
+  
+| ebs:hasAccount| 
+  The account whose balances these are.|ebs:AccountTurnover → ebs:Account [1] +
+ebs:PayrollPosting → ebs:Account [1]
+
+  
+
+  
+  
+| ebs:hasClosingCredit| 
+  The credit balance of the account at the end of the month.|ebs:AccountTurnover → ebs:MonetaryValue [1]
+
+  
+
+  
+  
+| ebs:hasClosingDebit| 
+  The debit balance of the account at the end of the month.|ebs:AccountTurnover → ebs:MonetaryValue [1]
+
+  
+
+  
+  
+| ebs:hasOpeningCredit| 
+  The credit balance of the account at the start of the month.|ebs:AccountTurnover → ebs:MonetaryValue [1]
+
+  
+
+  
+  
+| ebs:hasOpeningDebit| 
+  The debit balance of the account at the start of the month.|ebs:AccountTurnover → ebs:MonetaryValue [1]
+
+  
+
+  
+  
+| ebs:hasTurnoverCredit| 
+  The total credit movements on the account in the month.|ebs:AccountTurnover → ebs:MonetaryValue [1]
+
+  
+
+  
+  
+| ebs:hasTurnoverDebit| 
+  The total debit movements on the account in the month.|ebs:AccountTurnover → ebs:MonetaryValue [1]
+
+  
+
+  
+  
 | adms:identifier| 
   |ebs:AgentInRole → adms:Identifier [1] +
 org:Organization → adms:Identifier [0..1] +
@@ -483,14 +558,6 @@ time:TemporalEntity → adms:Identifier [0..1]
 
   
   
-  
-
-  
-  
-| ebs:concernsMonth| 
-  |ebs:Capacity → time:Instant [1] +
-ebs:PlannedTime → time:Instant []
-
   
 
   
@@ -642,13 +709,6 @@ ebs:PayrollPosting → ebs:Employee [1]
   
 | ebs:hasCurrency| 
   |ebs:MonetaryValue → at-voc:currency [1]
-
-  
-
-  
-  
-| ebs:hasAccount| 
-  |ebs:PayrollPosting → ebs:Account [1]
 
   
 

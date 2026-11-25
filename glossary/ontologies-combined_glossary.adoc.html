@@ -471,6 +471,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">The attachment of one analytics type (subconto) to an account at a fixed position. It says which analytics the account&#8217;s ledger lines carry, and in what order.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:AccountTurnover</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">One account&#8217;s opening balance, debit and credit turnover and closing balance for one month: one row of the 1C turnover balance sheet.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:AgentInRole</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
@@ -806,6 +810,49 @@ org:Organization</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:AccountAnalytics → ebs:AnalyticsType [1]</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:concernsMonth</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The month the balances concern, as its first day.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:AccountTurnover → time:Instant [1]<br>
+ebs:Capacity → time:Instant [1]<br>
+ebs:PlannedTime → time:Instant []</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:hasAccount</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The account whose balances these are.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:AccountTurnover → ebs:Account [1]<br>
+ebs:PayrollPosting → ebs:Account [1]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:hasClosingCredit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The credit balance of the account at the end of the month.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:AccountTurnover → ebs:MonetaryValue [1]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:hasClosingDebit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The debit balance of the account at the end of the month.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:AccountTurnover → ebs:MonetaryValue [1]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:hasOpeningCredit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The credit balance of the account at the start of the month.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:AccountTurnover → ebs:MonetaryValue [1]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:hasOpeningDebit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The debit balance of the account at the start of the month.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:AccountTurnover → ebs:MonetaryValue [1]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:hasTurnoverCredit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The total credit movements on the account in the month.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:AccountTurnover → ebs:MonetaryValue [1]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:hasTurnoverDebit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The total debit movements on the account in the month.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:AccountTurnover → ebs:MonetaryValue [1]</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">adms:identifier</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:AgentInRole → adms:Identifier [1]<br>
@@ -816,12 +863,6 @@ time:TemporalEntity → adms:Identifier [0..1]</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:playedBy</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:AgentInRole → person:Person [1]</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:concernsMonth</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:Capacity → time:Instant [1]<br>
-ebs:PlannedTime → time:Instant []</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:hasValue</p></td>
@@ -912,11 +953,6 @@ ebs:PayrollPosting → ebs:Employee [1]</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:hasCurrency</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:MonetaryValue → at-voc:currency [1]</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:hasAccount</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ebs:PayrollPosting → ebs:Account [1]</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ebs:hasCorrespondingAccount</p></td>
@@ -1025,7 +1061,7 @@ ebs:TeamLead → ebs:EmployeePlannedTime [1..&#42;]</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-11-23 16:20:54 UTC
+Last updated 2026-11-25 17:40:44 UTC
 </div>
 </div>
 </body>

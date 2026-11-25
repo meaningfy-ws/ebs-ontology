@@ -47,6 +47,20 @@ core-shape:ebs-AccountShape a sh:NodeShape ;
         core-shape:ebs-Account-skosxl-prefLabel ;
     sh:targetClass ebs:Account .
 
+core-shape:ebs-AccountTurnoverShape a sh:NodeShape ;
+    rdfs:label "Account Turnover" ;
+    rdfs:comment "One account's opening balance, debit and credit turnover and closing balance for one month: one row of the 1C turnover balance sheet." ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:property core-shape:ebs-AccountTurnover-ebs-concernsMonth,
+        core-shape:ebs-AccountTurnover-ebs-hasAccount,
+        core-shape:ebs-AccountTurnover-ebs-hasClosingCredit,
+        core-shape:ebs-AccountTurnover-ebs-hasClosingDebit,
+        core-shape:ebs-AccountTurnover-ebs-hasOpeningCredit,
+        core-shape:ebs-AccountTurnover-ebs-hasOpeningDebit,
+        core-shape:ebs-AccountTurnover-ebs-hasTurnoverCredit,
+        core-shape:ebs-AccountTurnover-ebs-hasTurnoverDebit ;
+    sh:targetClass ebs:AccountTurnover .
+
 core-shape:ebs-AgentInRoleShape a sh:NodeShape ;
     rdfs:label "Agent In Role" ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -408,6 +422,86 @@ core-shape:ebs-AccountAnalytics-ebs-hasPosition a sh:PropertyShape ;
     sh:minCount 1 ;
     sh:name "Has position" ;
     sh:path ebs:hasPosition .
+
+core-shape:ebs-AccountTurnover-ebs-concernsMonth a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class time:Instant ;
+    sh:description "The month the balances concern, as its first day." ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Concerns month" ;
+    sh:path ebs:concernsMonth ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#concernsMonth> ?that . ?that <http://ebs-integrator.com/ontology/erp#concernsMonth> ?this .}" ] .
+
+core-shape:ebs-AccountTurnover-ebs-hasAccount a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class ebs:Account ;
+    sh:description "The account whose balances these are." ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has account" ;
+    sh:path ebs:hasAccount ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#hasAccount> ?that . ?that <http://ebs-integrator.com/ontology/erp#hasAccount> ?this .}" ] .
+
+core-shape:ebs-AccountTurnover-ebs-hasClosingCredit a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class ebs:MonetaryValue ;
+    sh:description "The credit balance of the account at the end of the month." ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has closing credit" ;
+    sh:path ebs:hasClosingCredit ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#hasClosingCredit> ?that . ?that <http://ebs-integrator.com/ontology/erp#hasClosingCredit> ?this .}" ] .
+
+core-shape:ebs-AccountTurnover-ebs-hasClosingDebit a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class ebs:MonetaryValue ;
+    sh:description "The debit balance of the account at the end of the month." ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has closing debit" ;
+    sh:path ebs:hasClosingDebit ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#hasClosingDebit> ?that . ?that <http://ebs-integrator.com/ontology/erp#hasClosingDebit> ?this .}" ] .
+
+core-shape:ebs-AccountTurnover-ebs-hasOpeningCredit a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class ebs:MonetaryValue ;
+    sh:description "The credit balance of the account at the start of the month." ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has opening credit" ;
+    sh:path ebs:hasOpeningCredit ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#hasOpeningCredit> ?that . ?that <http://ebs-integrator.com/ontology/erp#hasOpeningCredit> ?this .}" ] .
+
+core-shape:ebs-AccountTurnover-ebs-hasOpeningDebit a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class ebs:MonetaryValue ;
+    sh:description "The debit balance of the account at the start of the month." ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has opening debit" ;
+    sh:path ebs:hasOpeningDebit ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#hasOpeningDebit> ?that . ?that <http://ebs-integrator.com/ontology/erp#hasOpeningDebit> ?this .}" ] .
+
+core-shape:ebs-AccountTurnover-ebs-hasTurnoverCredit a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class ebs:MonetaryValue ;
+    sh:description "The total credit movements on the account in the month." ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has turnover credit" ;
+    sh:path ebs:hasTurnoverCredit ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#hasTurnoverCredit> ?that . ?that <http://ebs-integrator.com/ontology/erp#hasTurnoverCredit> ?this .}" ] .
+
+core-shape:ebs-AccountTurnover-ebs-hasTurnoverDebit a sh:PropertyShape ;
+    rdfs:isDefinedBy core-shape:core-shape ;
+    sh:class ebs:MonetaryValue ;
+    sh:description "The total debit movements on the account in the month." ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Has turnover debit" ;
+    sh:path ebs:hasTurnoverDebit ;
+    sh:sparql [ sh:select "SELECT ?this ?that WHERE { ?this <http://ebs-integrator.com/ontology/erp#hasTurnoverDebit> ?that . ?that <http://ebs-integrator.com/ontology/erp#hasTurnoverDebit> ?this .}" ] .
 
 core-shape:ebs-AgentInRole-adms-identifier a sh:PropertyShape ;
     rdfs:isDefinedBy core-shape:core-shape ;
@@ -920,13 +1014,13 @@ core-shape:time-TemporalEntity-time-hasEnd a sh:PropertyShape ;
 
 core-shape:core-shape a owl:Ontology ;
     dcterms:created "2026-07-09"^^xsd:date ;
-    dcterms:issued "2026-11-23"^^xsd:date ;
+    dcterms:issued "2026-11-25"^^xsd:date ;
     dcterms:license "CC BY 4.0" ;
     dcterms:publisher "Meaningfy" ;
     dcterms:title "EBS shapes"@en ;
     vann:preferredNamespacePrefix "ebs" ;
     vann:preferredNamespaceUri "http://ebs-integrator.com/ontology/erp#" ;
-    rdfs:comment "This version is automatically generated from EBS.xml on 2026-11-23" ;
+    rdfs:comment "This version is automatically generated from EBS.xml on 2026-11-25" ;
     owl:imports <http://data.europa.eu/m8g>,
         ebs:core,
         ebs:core-restriction,

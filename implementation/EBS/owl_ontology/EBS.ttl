@@ -33,6 +33,11 @@ ebs:AccountRole a skos:ConceptScheme ;
     skos:definition "The roles an account can play in management reporting. Possible values (proposal, to confirm with the data owner): revenue, cost of sales, direct labour, administrative payroll, unclassified"@en ;
     skos:prefLabel "Account Role"@en .
 
+ebs:AccountTurnover a owl:Class ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:definition "One account's opening balance, debit and credit turnover and closing balance for one month: one row of the 1C turnover balance sheet."@en ;
+    skos:prefLabel "Account Turnover"@en .
+
 ebs:AccountType a skos:ConceptScheme ;
     rdfs:isDefinedBy ebs:core ;
     skos:definition "The kinds of account, by the side on which their balance is kept. Possible values: active (A), passive (P), active-passive (AP)"@en ;
@@ -156,6 +161,7 @@ ebs:concernsEmployee a owl:ObjectProperty ;
 
 ebs:concernsMonth a owl:ObjectProperty ;
     rdfs:isDefinedBy ebs:core ;
+    skos:definition "The month the balances concern, as its first day."@en ;
     skos:prefLabel "concerns Month"@en .
 
 ebs:concernsProject a owl:ObjectProperty ;
@@ -172,6 +178,7 @@ ebs:forInterval a owl:ObjectProperty ;
 
 ebs:hasAccount a owl:ObjectProperty ;
     rdfs:isDefinedBy ebs:core ;
+    skos:definition "The account whose balances these are."@en ;
     skos:prefLabel "has Account"@en .
 
 ebs:hasAccountAnalytics a owl:ObjectProperty ;
@@ -212,6 +219,16 @@ ebs:hasClient a owl:ObjectProperty ;
     rdfs:isDefinedBy ebs:core ;
     skos:prefLabel "has Client"@en .
 
+ebs:hasClosingCredit a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:definition "The credit balance of the account at the end of the month."@en ;
+    skos:prefLabel "has Closing Credit"@en .
+
+ebs:hasClosingDebit a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:definition "The debit balance of the account at the end of the month."@en ;
+    skos:prefLabel "has Closing Debit"@en .
+
 ebs:hasCommercialRate a owl:ObjectProperty ;
     rdfs:isDefinedBy ebs:core ;
     skos:prefLabel "has Commercial Rate"@en .
@@ -235,6 +252,16 @@ ebs:hasMonetaryValue a owl:ObjectProperty ;
 ebs:hasMonthlyCapacity a owl:ObjectProperty ;
     rdfs:isDefinedBy ebs:core ;
     skos:prefLabel "has Monthly Capacity"@en .
+
+ebs:hasOpeningCredit a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:definition "The credit balance of the account at the start of the month."@en ;
+    skos:prefLabel "has Opening Credit"@en .
+
+ebs:hasOpeningDebit a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:definition "The debit balance of the account at the start of the month."@en ;
+    skos:prefLabel "has Opening Debit"@en .
 
 ebs:hasParentAccount a owl:ObjectProperty ;
     rdfs:isDefinedBy ebs:core ;
@@ -303,6 +330,16 @@ ebs:hasTranslationStatus a owl:ObjectProperty ;
     rdfs:isDefinedBy ebs:core ;
     skos:definition "Relates a label to where its text comes from: the 1C name itself, a machine translation, or a reviewed translation."@en ;
     skos:prefLabel "has Translation Status"@en .
+
+ebs:hasTurnoverCredit a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:definition "The total credit movements on the account in the month."@en ;
+    skos:prefLabel "has Turnover Credit"@en .
+
+ebs:hasTurnoverDebit a owl:ObjectProperty ;
+    rdfs:isDefinedBy ebs:core ;
+    skos:definition "The total debit movements on the account in the month."@en ;
+    skos:prefLabel "has Turnover Debit"@en .
 
 ebs:hasValue a owl:ObjectProperty ;
     rdfs:isDefinedBy ebs:core ;
@@ -475,13 +512,13 @@ org:Organization a owl:Class ;
 
 ebs:core a owl:Ontology ;
     dcterms:created "2026-07-09"^^xsd:date ;
-    dcterms:issued "2026-11-23"^^xsd:date ;
+    dcterms:issued "2026-11-25"^^xsd:date ;
     dcterms:license "CC BY 4.0" ;
     dcterms:publisher "Meaningfy" ;
     dcterms:title "EBS core"@en ;
     vann:preferredNamespacePrefix "ebs" ;
     vann:preferredNamespaceUri "http://ebs-integrator.com/ontology/erp#" ;
-    rdfs:comment "This version is automatically generated from EBS.xml on 2026-11-23" ;
+    rdfs:comment "This version is automatically generated from EBS.xml on 2026-11-25" ;
     owl:imports <http://data.europa.eu/m8g>,
         dcterms:,
         skos:,
